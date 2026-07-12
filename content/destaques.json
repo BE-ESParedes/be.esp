@@ -3,7 +3,7 @@
     {
       "grad": "#ffffff",
       "tag": "Biblioteca Escolar · ESP",
-      "titulo": "O teu espaço de <em>conhecimento</em> e descoberta",
+      "titulo": "Abre as portas da <em>imaginação</em>",
       "texto": "Recursos, apoio à pesquisa e um espaço de aprendizagem para toda a comunidade escolar.",
       "botoes": [
         { "t": "📚 Catálogo online", "u": "http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx", "go": "", "e": "primario" },

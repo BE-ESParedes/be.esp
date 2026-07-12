@@ -109,6 +109,7 @@ main section.on{display:block}
 
 /* ---- blocos genéricos ---- */
 .pad{padding:52px 0}
+h3[id]{scroll-margin-top:82px}
 .sec-title{font-size:38px;font-weight:800;color:var(--verde-esc);margin:0 0 6px;text-transform:lowercase;line-height:1.03;letter-spacing:-.015em}
 .sec-lead{color:var(--cinza);margin:0 0 28px;max-width:720px}
 .rule{height:5px;width:66px;background:var(--dourado);border-radius:0;margin:12px 0 24px}
@@ -224,11 +225,11 @@ footer a:hover{color:var(--verde-claro)}
       <div class="navitem">
         <button data-s="biblioteca">Biblioteca</button>
         <div class="submenu">
-          <a data-go="biblioteca">Apresentação</a>
-          <a data-go="biblioteca">Horário e localização</a>
-          <a data-go="biblioteca">Equipa</a>
-          <a data-go="biblioteca">Documentação estruturante</a>
-          <a data-go="biblioteca">Galeria</a>
+          <a data-go="biblioteca" data-anchor="bib-apresentacao">Apresentação</a>
+          <a data-go="biblioteca" data-anchor="bib-horario">Horário e localização</a>
+          <a data-go="biblioteca" data-anchor="bib-equipa">Equipa</a>
+          <a data-go="biblioteca" data-anchor="bib-documentacao">Documentação estruturante</a>
+          <a data-go="biblioteca" data-anchor="bib-galeria">Galeria</a>
         </div>
       </div>
       <div class="navitem">
@@ -325,40 +326,106 @@ footer a:hover{color:var(--verde-claro)}
   <div class="wrap pad">
     <h2 class="sec-title">A Biblioteca</h2>
     <div class="rule"></div>
-    <p class="sec-lead">Apresentação, equipa, funcionamento e documentos orientadores da Biblioteca Escolar da Escola Secundária de Paredes, integrada na Rede de Bibliotecas Escolares.</p>
+    <p class="sec-lead">A Biblioteca Escolar da Escola Secundária de Paredes (BE-ESP) integra a Rede de Bibliotecas Escolares (código de escola 402424) e concretiza a Meta 27 do Projeto Educativo 2024–2027. Assume-se como centro do projeto de valorização da língua portuguesa e da leitura e como centro cultural local de acesso à música, à arte e aos espetáculos.</p>
 
-    <div class="grid2">
+    <!-- APRESENTAÇÃO -->
+    <h3 id="bib-apresentacao" style="margin-top:30px;color:var(--verde-esc)">Missão</h3>
+    <div class="rule"></div>
+    <p style="max-width:860px;color:var(--verde-esc)">Proporcionar a toda a comunidade educativa acesso equitativo à informação, ao conhecimento e à cultura, promovendo o desenvolvimento de competências de literacia, o gosto pela leitura e a autonomia intelectual, em articulação com o currículo e com os projetos educativos da escola.</p>
+    <div class="grid2" style="margin-top:16px">
       <div class="card">
-        <h3>Horário e localização</h3>
-        <div class="info-row"><b>Horário</b><span>Segunda a sexta, 8:15 – 17:50</span></div>
-        <div class="info-row"><b>Localização</b><span>Bloco E, 1.º andar</span></div>
-        <div class="info-row"><b>Lugares</b><span>Cerca de 60 lugares de leitura e estudo</span></div>
-        <div class="info-row"><b>Correio</b><span>biblioteca@esparedes.pt</span></div>
+        <span class="ic">🎯</span><h3>Visão</h3>
+        <p>Ser reconhecida como o centro da vida intelectual e cultural da escola: um espaço de excelência pedagógica, aberto, acolhedor e inovador, que integra recursos físicos e digitais e prepara cidadãos críticos, autónomos e responsáveis.</p>
       </div>
       <div class="card">
-        <h3>Equipa</h3>
-        <div class="info-row"><b>Professor bibliotecário</b><span>Carlos Manuel Barros Carneiro</span></div>
-        <div class="info-row"><b>Atendimento</b><span>Maria José Moreira Magalhães</span></div>
-        <div class="info-row"><b>Rede</b><span>Rede de Bibliotecas Escolares (RBE)</span></div>
-        <div class="info-row"><b>Parcerias</b><span>Biblioteca Municipal de Paredes · Rede Concelhia de BE</span></div>
+        <span class="ic">🧭</span><h3>O que fazemos</h3>
+        <p>Apoiamos o currículo e a inovação pedagógica; fomentamos hábitos de leitura; desenvolvemos competências de pesquisa, avaliação crítica e uso ético da informação (incluindo a literacia da IA); e promovemos a inclusão e a igualdade de oportunidades no acesso aos recursos.</p>
       </div>
     </div>
 
-    <h3 style="margin-top:36px;color:var(--verde-esc)">Documentação estruturante</h3>
+    <h3 style="margin-top:34px;color:var(--verde-esc)">Valores</h3>
+    <div class="rule"></div>
+    <div class="grid3">
+      <div class="card"><h3>Leitura</h3><p>Promoção da literacia e do prazer de ler em todas as idades.</p></div>
+      <div class="card"><h3>Conhecimento</h3><p>Acesso democrático à informação e à cultura; liberdade intelectual.</p></div>
+      <div class="card"><h3>Inovação</h3><p>Integração de recursos digitais e práticas modernas, incluindo a IA.</p></div>
+      <div class="card"><h3>Cultura</h3><p>Espaço de encontro e de valorização cultural da comunidade.</p></div>
+      <div class="card"><h3>Escola</h3><p>Articulação curricular e apoio pedagógico estruturados.</p></div>
+      <div class="card"><h3>Comunidade</h3><p>Abertura e inclusão de toda a comunidade educativa, incluindo as famílias.</p></div>
+    </div>
+
+    <h3 style="margin-top:34px;color:var(--verde-esc)">A BE em números <span style="font-weight:400;font-size:14px;color:var(--cinza)">(SI-RBE 2025)</span></h3>
+    <div class="rule"></div>
+    <div class="metric">
+      <div><b>1 433</b><span>alunos</span></div>
+      <div><b>148</b><span>docentes</span></div>
+      <div><b>18 776</b><span>documentos no fundo</span></div>
+      <div><b>300 m²</b><span>bloco E, 1.º andar</span></div>
+    </div>
+    <p style="font-size:13.5px;color:var(--cinza);margin-top:12px">Fundo documental: 18 210 livros impressos · 510 audiovisuais · 5 periódicos · 1 recurso digital. Comunidade: 35 assistentes operacionais. Capacidade simultânea ≈ 60 utilizadores.</p>
+
+    <!-- HORÁRIO E LOCALIZAÇÃO -->
+    <h3 id="bib-horario" style="margin-top:38px;color:var(--verde-esc)">Horário e localização</h3>
+    <div class="rule"></div>
+    <div class="grid2">
+      <div class="card">
+        <span class="ic">🕐</span><h3>Funcionamento</h3>
+        <div class="info-row"><b>Horário</b><span>Segunda a sexta, período letivo, horário contínuo — 8h00 às 18h30</span></div>
+        <div class="info-row"><b>Acesso</b><span>Livre e gratuito a toda a comunidade educativa</span></div>
+        <div class="info-row"><b>Correio</b><span>biblioteca@esparedes.pt</span></div>
+        <p style="font-size:12px;color:var(--cinza);margin-top:10px">Conforme o Art. 2.º do Regulamento Interno da BE.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📍</span><h3>Espaço</h3>
+        <div class="info-row"><b>Localização</b><span>Bloco E, 1.º andar · 300 m²</span></div>
+        <div class="info-row"><b>Zonas</b><span>Atendimento · leitura · pesquisa/multimédia · trabalho de grupo · gabinete pedagógico</span></div>
+        <div class="info-row"><b>Lotação</b><span>≈ 60 utilizadores em simultâneo</span></div>
+      </div>
+    </div>
+
+    <!-- EQUIPA -->
+    <h3 id="bib-equipa" style="margin-top:38px;color:var(--verde-esc)">Equipa</h3>
+    <div class="rule"></div>
+    <p class="sec-lead">A BE é uma estrutura técnico-pedagógica transversal (Art. 16.º do RI da ESP). O Professor Bibliotecário é designado pelo Diretor (Portaria n.º 192-A/2015) e presta contas à Direção e ao Conselho Pedagógico.</p>
+    <div class="grid2">
+      <div class="card">
+        <h3>Professor Bibliotecário</h3>
+        <p>Coordenação geral; gestão técnica e pedagógica; avaliação (MABE); representação institucional. 19 horas semanais na biblioteca.</p>
+      </div>
+      <div class="card">
+        <h3>Assistente Operacional</h3>
+        <p>Atendimento ao balcão; empréstimo e devolução; circulação no BiblioNet; arrumação; conservação básica e apoio logístico.</p>
+      </div>
+      <div class="card">
+        <h3>Docentes colaboradores</h3>
+        <p>Apoio às atividades de literacia e leitura; co-lecionação; dinamização de projetos com as turmas.</p>
+      </div>
+      <div class="card">
+        <h3>Voluntários</h3>
+        <p>Apoio às tarefas correntes, com valor formativo e limites de acesso a dados definidos pelo RGPD (POP-VOL-01, F16).</p>
+      </div>
+    </div>
+
+    <!-- DOCUMENTAÇÃO ESTRUTURANTE -->
+    <h3 id="bib-documentacao" style="margin-top:38px;color:var(--verde-esc)">Documentação estruturante</h3>
     <div class="rule"></div>
     <ul class="docs">
-      <li><a>📄 Regulamento da Biblioteca Escolar</a></li>
-      <li><a>📄 Plano Anual de Atividades</a></li>
-      <li><a>📄 Política de Desenvolvimento da Coleção</a></li>
-      <li><a>📄 Relatório Anual de Atividades</a></li>
+      <li><a>📄 Regulamento Interno da BE (RI-BE)</a></li>
+      <li><a>📄 Manual de Procedimentos (MP-BE-ESP)</a></li>
+      <li><a>📄 Plano Anual de Atividades (PAA-BE)</a></li>
+      <li><a>📄 Política de Desenvolvimento da Coleção (PDC)</a></li>
+      <li><a>📄 Política de Seleção de Recursos Digitais (POL-RED)</a></li>
+      <li><a>📄 Plano de Promoção da Leitura (PPL)</a></li>
+      <li><a>📄 Plano de Melhoria e Relatório Anual de Atividades (RAA)</a></li>
     </ul>
 
-    <h3 style="margin-top:36px;color:var(--verde-esc)">Galeria</h3>
+    <!-- GALERIA -->
+    <h3 id="bib-galeria" style="margin-top:38px;color:var(--verde-esc)">Galeria</h3>
     <div class="rule"></div>
     <div class="galeria">
       <div>📷</div><div>📚</div><div>🎭</div><div>🖼️</div>
     </div>
-    <p class="note">Ligações de documentos e imagens exemplificativas. Os ficheiros oficiais e as fotografias (com consentimento RGPD) substituem estes espaços antes da publicação.</p>
+    <p class="note">Os documentos oficiais (PDF) e as fotografias reais (com consentimento RGPD) substituem estes espaços antes da publicação.</p>
   </div>
 </section>
 
@@ -630,6 +697,8 @@ document.querySelectorAll('nav.main button').forEach(b=>b.addEventListener('clic
 document.addEventListener('click',function(e){
   const el=e.target.closest('[data-go]'); if(!el)return;
   e.preventDefault(); mostrar(el.dataset.go);
+  if(el.dataset.anchor){ const t=document.getElementById(el.dataset.anchor);
+    if(t) setTimeout(()=>t.scrollIntoView({behavior:'smooth',block:'start'}),80); }
 });
 
 /* ---------- utilitários (mapa do site · área de trabalho) ---------- */
