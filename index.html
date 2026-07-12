@@ -123,7 +123,19 @@ h3[id]{scroll-margin-top:82px}
 .card{background:#fff;border:1px solid #E7EBE6;border-radius:12px;padding:22px;box-shadow:var(--sombra)}
 .card h3{margin:0 0 8px;font-size:18px;color:var(--verde-esc)}
 .card p{margin:0;color:#6A746F;font-size:15px}
-.card .ic{font-size:24px;margin-bottom:6px;display:block}
+/* ---- slots de média: prontos para imagem, SVG ou infográfico ---- */
+.ic,.card .ic{width:52px;height:52px;border-radius:12px;background:var(--menta-wash);border:1px dashed var(--menta);
+  display:inline-flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:12px;overflow:hidden;color:var(--menta-media)}
+.ic img,.ic svg{width:100%;height:100%;object-fit:cover;display:block}
+.ic:has(img),.ic:has(svg){border-color:transparent;background:none}
+.media{position:relative;overflow:hidden;background:var(--menta-wash);border:1px dashed var(--menta);border-radius:12px;
+  display:flex;align-items:center;justify-content:center}
+.media img,.media svg,.media video{width:100%;height:100%;object-fit:cover;display:block}
+.media:has(img),.media:has(svg),.media:has(video){border-color:transparent;background:none}
+.media .ph{display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--menta-media);font-family:var(--head);font-weight:600;font-size:12px;text-align:center;padding:10px}
+.media .ph .g{font-size:30px;line-height:1}
+.media.tile{aspect-ratio:4/3}
+.media.wide{aspect-ratio:24/6;border-radius:16px}
 .soft{background:var(--papel)}
 .metric{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
 .metric div{background:#fff;border:1px solid #E7EBE6;border-radius:12px;padding:20px;text-align:center}
@@ -133,7 +145,8 @@ h3[id]{scroll-margin-top:82px}
 /* ---- notícias ---- */
 .news{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .news article{background:#fff;border:1px solid #E7EBE6;border-radius:12px;overflow:hidden;box-shadow:var(--sombra)}
-.news .thumb{height:120px;display:flex;align-items:center;justify-content:center;font-size:40px}
+.news .thumb{height:150px;display:flex;align-items:center;justify-content:center;font-size:40px;overflow:hidden;position:relative}
+.news .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .news .body{padding:16px}
 .chip{display:inline-block;font-family:var(--head);font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;margin-bottom:8px}
 .news h3{margin:0 0 6px;font-size:16px;color:var(--verde-esc)}
@@ -156,7 +169,9 @@ h3[id]{scroll-margin-top:82px}
 .docs a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #E7EBE6;border-radius:8px;padding:12px 14px;text-decoration:none;color:var(--verde-esc);font-weight:600;font-size:14px}
 .docs a:hover{border-color:var(--verde-claro)}
 .galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.galeria div{aspect-ratio:4/3;border-radius:10px;background:var(--verde-claro);display:flex;align-items:center;justify-content:center;font-size:30px;color:var(--verde-esc)}
+.galeria div{aspect-ratio:4/3;border-radius:12px;background:var(--menta-wash);border:1px dashed var(--menta);display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--menta-media);overflow:hidden}
+.galeria div:has(img){border-color:transparent}
+.galeria img{width:100%;height:100%;object-fit:cover;display:block}
 
 .faq details{background:#fff;border:1px solid #E7EBE6;border-radius:8px;padding:4px 16px;margin-bottom:8px}
 .faq summary{font-family:var(--head);font-weight:600;color:var(--verde-esc);cursor:pointer;padding:10px 0}
@@ -368,6 +383,7 @@ footer a:hover{color:var(--verde-claro)}
       <div><b>300 m²</b><span>bloco E, 1.º andar</span></div>
     </div>
     <p style="font-size:13.5px;color:var(--cinza);margin-top:12px">Fundo documental: 18 210 livros impressos · 510 audiovisuais · 5 periódicos · 1 recurso digital. Comunidade: 35 assistentes operacionais. Capacidade simultânea ≈ 60 utilizadores.</p>
+    <div class="media wide" style="margin-top:18px"><span class="ph"><span class="g">📊</span>infográfico — evolução do fundo e da utilização (a preparar)</span></div>
 
     <!-- HORÁRIO E LOCALIZAÇÃO -->
     <h3 id="bib-horario" style="margin-top:38px;color:var(--verde-esc)">Horário e localização</h3>
@@ -428,7 +444,10 @@ footer a:hover{color:var(--verde-claro)}
     <h3 id="bib-galeria" style="margin-top:38px;color:var(--verde-esc)">Galeria</h3>
     <div class="rule"></div>
     <div class="galeria">
-      <div>📷</div><div>📚</div><div>🎭</div><div>🖼️</div>
+      <div class="media tile"><span class="ph"><span class="g">📷</span>foto</span></div>
+      <div class="media tile"><span class="ph"><span class="g">📚</span>foto</span></div>
+      <div class="media tile"><span class="ph"><span class="g">🎭</span>foto</span></div>
+      <div class="media tile"><span class="ph"><span class="g">🖼️</span>foto</span></div>
     </div>
     <p class="note">Os documentos oficiais (PDF) e as fotografias reais (com consentimento RGPD) substituem estes espaços antes da publicação.</p>
   </div>
@@ -736,7 +755,8 @@ function renderCarrossel(){
 /* ---------- notícias ---------- */
 function cardNoticia(n){
   const cor = n.cor==='#A8D8CC' ? '#20493B' : n.cor;
-  return `<article><div class="thumb" style="background:${n.cor}22;color:${cor}">${n.emoji}</div>
+  const media = n.imagem ? `<img src="${n.imagem}" alt="">` : n.emoji;
+  return `<article><div class="thumb" style="background:${n.cor}22;color:${cor}">${media}</div>
     <div class="body"><span class="chip" style="background:${n.cor}33;color:${cor}">${n.cat}</span>
       <h3>${n.titulo}</h3><time>${n.data}</time><p>${n.resumo}</p></div></article>`;
 }
