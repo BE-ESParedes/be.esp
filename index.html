@@ -110,6 +110,11 @@ main section.on{display:block}
 /* ---- blocos genéricos ---- */
 .pad{padding:52px 0}
 h3[id]{scroll-margin-top:82px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-top:4px}
+.tbl th,.tbl td{border:1px solid var(--linha);padding:9px 13px;text-align:left}
+.tbl th{background:var(--menta-wash);color:var(--verde-esc);font-family:var(--head);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+.tbl td{color:var(--verde-esc)}
+.tbl tr:nth-child(even) td{background:var(--papel)}
 .sec-title{font-size:38px;font-weight:800;color:var(--verde-esc);margin:0 0 6px;text-transform:lowercase;line-height:1.03;letter-spacing:-.015em}
 .sec-lead{color:var(--cinza);margin:0 0 28px;max-width:720px}
 .rule{height:5px;width:66px;background:var(--dourado);border-radius:0;margin:12px 0 24px}
@@ -236,36 +241,36 @@ footer a:hover{color:var(--verde-claro)}
         <button data-s="catalogo">Catálogo</button>
         <div class="submenu">
           <a href="http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx" target="_blank" rel="noopener">Pesquisar no catálogo</a>
-          <a data-go="catalogo">Apoio à pesquisa</a>
-          <a data-go="catalogo">Destaques do catálogo</a>
-          <a data-go="catalogo">Empréstimos e requisições</a>
+          <a data-go="catalogo" data-anchor="cat-apoio">Apoio à pesquisa</a>
+          <a data-go="catalogo" data-anchor="cat-destaques">Destaques do catálogo</a>
+          <a data-go="catalogo" data-anchor="cat-emprestimos">Empréstimos e requisições</a>
         </div>
       </div>
       <div class="navitem">
         <button data-s="recursos">Recursos</button>
         <div class="submenu">
-          <a data-go="recursos">Biblioteca digital</a>
-          <a data-go="recursos">Recursos por disciplina</a>
-          <a data-go="recursos">Literacia da informação</a>
-          <a data-go="recursos">Apoio ao estudo</a>
+          <a data-go="recursos" data-anchor="rec-digital">Biblioteca digital</a>
+          <a data-go="recursos" data-anchor="rec-disciplina">Recursos por disciplina</a>
+          <a data-go="recursos" data-anchor="rec-literacia">Literacia da informação</a>
+          <a data-go="recursos" data-anchor="rec-estudo">Apoio ao estudo</a>
         </div>
       </div>
       <div class="navitem">
         <button data-s="atividades">Atividades</button>
         <div class="submenu">
-          <a data-go="atividades">Próximas atividades</a>
-          <a data-go="atividades">Projetos em destaque</a>
-          <a data-go="atividades">Clube de leitura</a>
-          <a data-go="atividades">Parcerias</a>
+          <a data-go="atividades" data-anchor="ativ-proximas">Próximas atividades</a>
+          <a data-go="atividades" data-anchor="ativ-projetos">Projetos em destaque</a>
+          <a data-go="atividades" data-anchor="ativ-clube">Clube de leitura</a>
+          <a data-go="atividades" data-anchor="ativ-parcerias">Parcerias</a>
         </div>
       </div>
       <div class="navitem"><button data-s="noticias">Notícias</button></div>
       <div class="navitem">
         <button data-s="contactos">Contactos</button>
         <div class="submenu">
-          <a data-go="contactos">Fala connosco</a>
-          <a data-go="contactos">Balcão de referência digital</a>
-          <a data-go="contactos">Perguntas frequentes</a>
+          <a data-go="contactos" data-anchor="con-contacto">Fala connosco</a>
+          <a data-go="contactos" data-anchor="con-balcao">Balcão de referência digital</a>
+          <a data-go="contactos" data-anchor="con-faq">Perguntas frequentes</a>
         </div>
       </div>
     </nav>
@@ -434,22 +439,44 @@ footer a:hover{color:var(--verde-claro)}
   <div class="wrap pad">
     <h2 class="sec-title">Catálogo</h2>
     <div class="rule"></div>
-    <p class="sec-lead">Pesquisa o acervo da Biblioteca e descobre como requisitar.</p>
+    <p class="sec-lead">O acervo da BE-ESP está no catálogo coletivo municipal <strong>BiblioNet</strong>, gerido pela Biblioteca Municipal de Paredes e acessível a partir de qualquer dispositivo para pesquisa, reserva e renovação de empréstimos.</p>
 
-    <div class="card" style="background:linear-gradient(135deg,var(--menta-wash),#ffffff 70%);border:1px solid var(--linha);position:relative;overflow:hidden">
-      <h3 style="color:var(--verde-esc)">Pesquisa integrada (OPAC)</h3>
-      <p style="color:var(--cinza)">Pesquisa o catálogo bibliográfico através da Biblioteca Municipal de Paredes, com pesquisa simples e avançada.</p>
-      <div class="slide btns" style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
+    <!-- PESQUISAR NO CATÁLOGO -->
+    <div id="cat-pesquisa" class="card" style="background:linear-gradient(135deg,var(--menta-wash),#ffffff 70%);border:1px solid var(--linha)">
+      <span class="ic">🔎</span><h3>Pesquisar no catálogo (OPAC)</h3>
+      <p style="color:var(--cinza)">Consulta o catálogo bibliográfico da rede concelhia, com pesquisa simples e avançada. Requer credenciais BiblioNet para reservar e renovar.</p>
+      <div class="btns" style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
         <a class="btn primario" href="http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx" target="_blank" rel="noopener">Pesquisa simples</a>
         <a class="btn outline" href="http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/AdvancedSearch.aspx" target="_blank" rel="noopener">Pesquisa avançada</a>
       </div>
     </div>
 
+    <!-- APOIO À PESQUISA + DESTAQUES -->
     <div class="grid3" style="margin-top:24px">
-      <div class="card"><span class="ic">🧭</span><h3>Apoio à pesquisa</h3><p>Tutoriais e guias curtos sobre como usar o catálogo e recuperar informação.</p></div>
-      <div class="card"><span class="ic">⭐</span><h3>Destaques do catálogo</h3><p>Sugestões de livros, novidades e listas temáticas.</p></div>
-      <div class="card"><span class="ic">📖</span><h3>Empréstimos e requisições</h3><p>Guia simples do processo de requisição e devolução de materiais.</p></div>
+      <div id="cat-apoio" class="card"><span class="ic">🧭</span><h3>Apoio à pesquisa</h3><p>A equipa apoia a definição do tema, a estratégia de pesquisa e a citação de fontes. Marca uma sessão no balcão de referência digital (ver Contactos e Apoio).</p></div>
+      <div id="cat-destaques" class="card"><span class="ic">⭐</span><h3>Destaques do catálogo</h3><p>Novidades, sugestões de leitura e listas temáticas. A coleção é gerida pela Política de Desenvolvimento da Coleção (PDC).</p></div>
+      <div class="card"><span class="ic">🗂️</span><h3>Organização do acervo</h3><p>Documentos catalogados em UNIMARC e classificados pela Classificação Decimal Universal (CDU), que define a cota e a arrumação nas estantes.</p></div>
     </div>
+
+    <!-- EMPRÉSTIMOS E REQUISIÇÕES -->
+    <h3 id="cat-emprestimos" style="margin-top:38px;color:var(--verde-esc)">Empréstimos e requisições</h3>
+    <div class="rule"></div>
+    <p class="sec-lead">As quotas e os prazos de empréstimo variam consoante a categoria do utilizador (Art. 11.º do RI-BE). As renovações são admitidas se não houver reservas pendentes e podem ser pedidas presencialmente ou pelo OPAC do BiblioNet.</p>
+    <table class="tbl">
+      <thead><tr><th>Categoria de utilizador</th><th>N.º de documentos</th><th>Prazo</th><th>Renovações</th></tr></thead>
+      <tbody>
+        <tr><td>Alunos</td><td>3</td><td>10 dias úteis</td><td>2</td></tr>
+        <tr><td>Docentes</td><td>6</td><td>30 dias úteis</td><td>2</td></tr>
+        <tr><td>Pessoal não docente</td><td>3</td><td>15 dias úteis</td><td>2</td></tr>
+        <tr><td>Encarregados de educação e utilizadores externos</td><td>2</td><td>15 dias úteis</td><td>1</td></tr>
+      </tbody>
+    </table>
+    <div class="grid3" style="margin-top:22px">
+      <div class="card"><span class="ic">🔔</span><h3>Notificações</h3><p>O BiblioNet envia avisos automáticos sobre os prazos de devolução.</p></div>
+      <div class="card"><span class="ic">🏫</span><h3>Requisição para sala de aula</h3><p>Os docentes podem requisitar documentos para uso em aula (formulário F08).</p></div>
+      <div class="card"><span class="ic">🔁</span><h3>Empréstimo interbibliotecas</h3><p>Acesso a obras de outras bibliotecas da rede, mediante pedido (formulário F09).</p></div>
+    </div>
+    <p class="note">Obras não emprestáveis (consulta local): obras de referência, último número de cada periódico, fundo histórico e documentos assinalados para consulta presencial.</p>
   </div>
 </section>
 
@@ -458,33 +485,45 @@ footer a:hover{color:var(--verde-claro)}
   <div class="wrap pad">
     <h2 class="sec-title">Recursos Digitais</h2>
     <div class="rule"></div>
-    <p class="sec-lead">Um hub de conhecimento em linha: biblioteca digital, recursos por disciplina, trabalhos de alunos e literacia da informação.</p>
+    <p class="sec-lead">A Biblioteca Escolar Digital reúne recursos educativos digitais (RED) selecionados e curados pela BE segundo a Política de Seleção de Recursos Educativos Digitais (POL-RED), a par das literacias e do apoio ao estudo.</p>
 
-    <h3 style="color:var(--verde-esc)">Biblioteca digital</h3>
+    <!-- BIBLIOTECA DIGITAL -->
+    <h3 id="rec-digital" style="color:var(--verde-esc)">Biblioteca digital</h3>
     <div class="rule"></div>
     <div class="grid3">
-      <div class="card"><span class="ic">📱</span><h3>E-books</h3><p>Livros digitais de acesso livre.</p></div>
-      <div class="card"><span class="ic">🎧</span><h3>Audiolivros</h3><p>Obras para ouvir, de acesso gratuito.</p></div>
+      <div class="card"><span class="ic">📱</span><h3>E-books e audiolivros</h3><p>Obras digitais de acesso livre para ler e ouvir.</p></div>
       <div class="card"><span class="ic">📰</span><h3>Jornais e revistas</h3><p>Imprensa e publicações periódicas em linha.</p></div>
+      <div class="card"><span class="ic">🌐</span><h3>Biblioteca Escolar Digital (RBE)</h3><p>Plataforma de recursos digitais da Rede de Bibliotecas Escolares.</p></div>
     </div>
 
-    <h3 style="margin-top:34px;color:var(--verde-esc)">Repositório e literacias</h3>
+    <!-- RECURSOS POR DISCIPLINA -->
+    <h3 id="rec-disciplina" style="margin-top:34px;color:var(--verde-esc)">Recursos por disciplina</h3>
     <div class="rule"></div>
     <div class="grid3">
-      <div class="card"><span class="ic">🗂️</span><h3>Recursos por disciplina</h3><p>Recursos educativos organizados por área curricular e nível de ensino, incluindo REA.</p></div>
+      <div class="card"><span class="ic">🗂️</span><h3>Por área curricular</h3><p>Recursos organizados por disciplina e nível de ensino, incluindo Recursos Educativos Abertos (REA), ao serviço das Aprendizagens Essenciais.</p></div>
       <div class="card"><span class="ic">🎓</span><h3>Trabalhos de alunos</h3><p>Espaço para divulgar produções da comunidade escolar em diferentes formatos.</p></div>
-      <div class="card"><span class="ic">🧠</span><h3>Literacia dos media e da informação</h3><p>Materiais sobre pesquisa, avaliação crítica de fontes e segurança em linha.</p></div>
+      <div class="card"><span class="ic">🤝</span><h3>Curadoria da BE</h3><p>Seleção criteriosa e atualizada de recursos fiáveis (POP-RED-01), com avaliação de qualidade e adequação pedagógica.</p></div>
     </div>
 
-    <h3 style="margin-top:34px;color:var(--verde-esc)">Apoio ao estudo e ferramentas</h3>
+    <!-- LITERACIA DA INFORMAÇÃO -->
+    <h3 id="rec-literacia" style="margin-top:34px;color:var(--verde-esc)">Literacia da informação</h3>
+    <div class="rule"></div>
+    <div class="grid3">
+      <div class="card"><span class="ic">🧠</span><h3>Pesquisar e avaliar</h3><p>Como pesquisar, avaliar criticamente as fontes e usar a informação de forma ética.</p></div>
+      <div class="card"><span class="ic">🛡️</span><h3>Media e segurança</h3><p>Literacia dos media e segurança em linha, incluindo uma introdução à literacia da inteligência artificial.</p></div>
+      <div class="card"><span class="ic">📘</span><h3>Manual MILD (RBE)</h3><p>Referencial de literacia digital da Rede de Bibliotecas Escolares.</p></div>
+    </div>
+
+    <!-- APOIO AO ESTUDO -->
+    <h3 id="rec-estudo" style="margin-top:34px;color:var(--verde-esc)">Apoio ao estudo e ferramentas</h3>
     <div class="rule"></div>
     <ul class="docs">
       <li><a>🧩 Guião de pesquisa (modelo BIG6)</a></li>
       <li><a>✍️ Guia para redigir e apresentar trabalhos escritos</a></li>
       <li><a>✅ Guião para validar sítios web</a></li>
-      <li><a href="https://mild.rbe.mec.pt/" target="_blank" rel="noopener">📘 Literacia Digital – Manual (MILD, RBE)</a></li>
+      <li><a href="https://mild.rbe.mec.pt/" target="_blank" rel="noopener">📘 Literacia Digital — Manual (MILD, RBE)</a></li>
     </ul>
-    <p class="note">Os recursos e guiões serão substituídos pelos materiais reais e verificados quanto ao acesso livre.</p>
+    <p class="note">Os guiões próprios da BE serão ligados aqui em PDF; as ligações externas são verificadas quanto ao acesso livre.</p>
   </div>
 </section>
 
@@ -493,22 +532,48 @@ footer a:hover{color:var(--verde-claro)}
   <div class="wrap pad">
     <h2 class="sec-title">Atividades e Projetos</h2>
     <div class="rule"></div>
-    <p class="sec-lead">Ao longo do ano, a Biblioteca dinamiza atividades de promoção da leitura, das literacias e da cultura, muitas em parceria com a comunidade.</p>
+    <p class="sec-lead">A programação da BE decorre do Plano de Promoção da Leitura (PPL) e do Plano Anual de Atividades (PAA-BE), promovendo a leitura, as literacias e a cultura, muitas vezes em parceria com a comunidade.</p>
 
-    <h3 style="color:var(--verde-esc)">Próximas atividades</h3>
+    <!-- PRÓXIMAS ATIVIDADES -->
+    <h3 id="ativ-proximas" style="color:var(--verde-esc)">Próximas atividades</h3>
+    <div class="rule"></div>
     <ul class="agenda" id="ativ-agenda"></ul>
 
-    <h3 style="margin-top:34px;color:var(--verde-esc)">Projetos em destaque</h3>
+    <!-- PROJETOS EM DESTAQUE -->
+    <h3 id="ativ-projetos" style="margin-top:38px;color:var(--verde-esc)">Projetos em destaque</h3>
     <div class="rule"></div>
     <div class="grid3">
       <div class="card"><span class="ic">📚</span><h3>10 Minutos a Ler</h3><p>Rotina diária de leitura em articulação com as disciplinas.</p></div>
       <div class="card"><span class="ic">🌸</span><h3>Primavera a Ler</h3><p>Concurso de leitura com projeção municipal.</p></div>
-      <div class="card"><span class="ic">🗓️</span><h3>Mês Internacional da BE</h3><p>Programa de atividades de outubro dedicado à Biblioteca.</p></div>
-      <div class="card"><span class="ic">💬</span><h3>Partilhas Literárias</h3><p>Sessões de partilha de leituras com as turmas.</p></div>
-      <div class="card"><span class="ic">🎬</span><h3>Cinema na Biblioteca</h3><p>Sessões de cinema e debate.</p></div>
-      <div class="card"><span class="ic">🤝</span><h3>Parcerias</h3><p>Colaborações com a Biblioteca Municipal de Paredes, a RBE e outras entidades.</p></div>
+      <div class="card"><span class="ic">🗓️</span><h3>Mês Internacional da BE</h3><p>Programa de outubro dedicado à Biblioteca (MIBE).</p></div>
+      <div class="card"><span class="ic">📖</span><h3>Semana da Leitura</h3><p>Encontros com autores e atividades em torno do livro.</p></div>
+      <div class="card"><span class="ic">🎬</span><h3>Cinema na Biblioteca</h3><p>Sessões de cinema seguidas de debate.</p></div>
+      <div class="card"><span class="ic">🎙️</span><h3>Palavras em Ação · Ler com a Biblioteca</h3><p>Projeto RBE 2026–2028: sequências de leitura, roteiros literários e os podcasts «Vozes da Família».</p></div>
     </div>
-    <p class="note">Projetos baseados nas iniciativas registadas nos relatórios da Biblioteca. As datas da agenda são exemplificativas.</p>
+
+    <!-- CLUBE DE LEITURA -->
+    <h3 id="ativ-clube" style="margin-top:38px;color:var(--verde-esc)">Clube de Leitura</h3>
+    <div class="rule"></div>
+    <div class="grid2">
+      <div class="card">
+        <span class="ic">💬</span><h3>Encontros de leitura</h3>
+        <p>Sessões regulares de partilha de leituras, abertas à comunidade. As inscrições fazem-se pela ficha F14 e as presenças alimentam os indicadores do domínio B (leitura).</p>
+      </div>
+      <div class="card">
+        <span class="ic">✍️</span><h3>Como participar</h3>
+        <p>Preenche a ficha de inscrição no Clube de Leitura (para menores, com autorização do Encarregado de Educação) e junta-te aos próximos encontros. Consulta o calendário na agenda acima.</p>
+      </div>
+    </div>
+
+    <!-- PARCERIAS -->
+    <h3 id="ativ-parcerias" style="margin-top:38px;color:var(--verde-esc)">Parcerias</h3>
+    <div class="rule"></div>
+    <div class="grid3">
+      <div class="card"><span class="ic">🏛️</span><h3>Biblioteca Municipal de Paredes</h3><p>Parceira estratégica: catálogo coletivo BiblioNet, empréstimo interbibliotecas e atividades culturais conjuntas.</p></div>
+      <div class="card"><span class="ic">🌐</span><h3>Rede de Bibliotecas Escolares</h3><p>Referenciais, formação e projetos da RBE e da Rede Concelhia de Bibliotecas Escolares de Paredes.</p></div>
+      <div class="card"><span class="ic">🤝</span><h3>Protocolos de cooperação</h3><p>Colaborações formalizadas com entidades locais (modelo MOD-PROT-01), com partilha de recursos e de boas práticas.</p></div>
+    </div>
+    <p class="note">Os projetos baseiam-se nas iniciativas registadas nos relatórios da Biblioteca; as datas da agenda são geridas na Área de trabalho.</p>
   </div>
 </section>
 
@@ -528,33 +593,48 @@ footer a:hover{color:var(--verde-claro)}
   <div class="wrap pad">
     <h2 class="sec-title">Contactos e Apoio</h2>
     <div class="rule"></div>
-    <p class="sec-lead">Fala connosco, marca apoio à pesquisa e consulta as perguntas frequentes.</p>
+    <p class="sec-lead">Fala com a equipa, marca apoio à pesquisa, deixa sugestões e consulta as perguntas frequentes.</p>
 
+    <!-- FALA CONNOSCO -->
+    <h3 id="con-contacto" style="color:var(--verde-esc)">Fala connosco</h3>
+    <div class="rule"></div>
     <div class="grid2">
       <div class="card">
-        <h3>Fala connosco</h3>
+        <span class="ic">✉️</span><h3>Contactos</h3>
         <div class="info-row"><b>Correio</b><span>biblioteca@esparedes.pt</span></div>
         <div class="info-row"><b>Localização</b><span>Bloco E, 1.º andar</span></div>
-        <div class="info-row"><b>Horário</b><span>Segunda a sexta, 8:15 – 17:50</span></div>
+        <div class="info-row"><b>Horário</b><span>Segunda a sexta, 8h00 – 18h30 (período letivo)</span></div>
         <p style="margin-top:12px"><a class="btn verde">✉️ Formulário de contacto</a></p>
       </div>
-      <div class="card" style="border:1.6px solid var(--verde-claro)">
-        <h3>Balcão de referência digital</h3>
-        <p>Precisas de apoio para um trabalho de pesquisa? Marca uma sessão de apoio individualizado com a equipa da Biblioteca, presencial ou em linha.</p>
-        <p style="margin-top:12px"><a class="btn primario" style="color:var(--verde-esc)">📅 Marcar sessão de apoio</a></p>
-        <p style="font-size:12px;color:var(--cinza);margin-top:10px">Marcação por formulário ou pelo Bookings do Microsoft 365 da escola.</p>
+      <div class="card">
+        <span class="ic">💡</span><h3>Sugestões e reclamações</h3>
+        <p>A tua opinião ajuda a melhorar a Biblioteca. Deixa uma sugestão, uma reclamação ou uma proposta de aquisição de documentos.</p>
+        <div class="info-row"><b>Sugestão/reclamação</b><span>Formulário F05</span></div>
+        <div class="info-row"><b>Sugerir aquisição</b><span>Formulário F03</span></div>
       </div>
     </div>
 
-    <h3 style="margin-top:34px;color:var(--verde-esc)">Perguntas frequentes</h3>
+    <!-- BALCÃO DE REFERÊNCIA -->
+    <h3 id="con-balcao" style="margin-top:38px;color:var(--verde-esc)">Balcão de referência digital</h3>
+    <div class="rule"></div>
+    <div class="card" style="background:linear-gradient(135deg,var(--menta-wash),#ffffff 70%);border:1px solid var(--linha)">
+      <span class="ic">🎧</span><h3>Apoio individualizado à pesquisa</h3>
+      <p>Precisas de ajuda num trabalho de pesquisa? Marca uma sessão com a equipa da Biblioteca — presencial ou em linha — para apoio à definição do tema, à estratégia de pesquisa, à avaliação das fontes e à citação (Atendimento e Apoio à Pesquisa, POP-REF-01).</p>
+      <p style="margin-top:14px"><a class="btn primario">📅 Marcar sessão de apoio</a></p>
+      <p style="font-size:12px;color:var(--cinza);margin-top:10px">Marcação por formulário ou pelo Bookings do Microsoft 365 da escola.</p>
+    </div>
+
+    <!-- FAQ -->
+    <h3 id="con-faq" style="margin-top:38px;color:var(--verde-esc)">Perguntas frequentes</h3>
     <div class="rule"></div>
     <div class="faq">
-      <details><summary>Como requisito um livro para levar para casa?</summary><p>Dirige-te ao balcão de atendimento com o teu cartão de estudante. O prazo e as condições constam do Regulamento da Biblioteca.</p></details>
-      <details><summary>Posso pesquisar o catálogo a partir de casa?</summary><p>Sim. O catálogo está disponível em linha através da Biblioteca Municipal de Paredes, com pesquisa simples e avançada.</p></details>
-      <details><summary>A Biblioteca ajuda-me a fazer um trabalho de pesquisa?</summary><p>Sim. Podes marcar uma sessão no balcão de referência digital para apoio à definição do tema, à pesquisa e à citação das fontes.</p></details>
-      <details><summary>Como deixo uma sugestão de aquisição?</summary><p>Através do formulário de contacto ou do correio biblioteca@esparedes.pt.</p></details>
+      <details><summary>Quantos livros posso requisitar e por quanto tempo?</summary><p>Depende da categoria de utilizador (Art. 11.º do RI-BE): alunos 3 documentos por 10 dias úteis; docentes 6 por 30 dias; pessoal não docente 3 por 15 dias; encarregados de educação e utilizadores externos 2 por 15 dias. Consulta o quadro completo no separador Catálogo.</p></details>
+      <details><summary>Posso pesquisar o catálogo a partir de casa?</summary><p>Sim. O catálogo integra o BiblioNet, acessível a partir de qualquer dispositivo para pesquisar, reservar e renovar empréstimos.</p></details>
+      <details><summary>Como renovo um empréstimo?</summary><p>Presencialmente ou pelo OPAC do BiblioNet, desde que não existam reservas pendentes sobre o documento. O sistema envia avisos automáticos sobre os prazos.</p></details>
+      <details><summary>A Biblioteca ajuda-me a fazer um trabalho de pesquisa?</summary><p>Sim. Marca uma sessão no balcão de referência digital para apoio à definição do tema, à pesquisa, à avaliação de fontes e à citação.</p></details>
+      <details><summary>Como deixo uma sugestão de aquisição?</summary><p>Pelo formulário de sugestão de aquisição (F03) ou pelo correio biblioteca@esparedes.pt.</p></details>
     </div>
-    <p class="note">Formulários e perguntas exemplificativos, a rever e completar pela equipa da Biblioteca.</p>
+    <p class="note">Os formulários (F03, F05) são ligados aqui quando publicados. Conteúdo conforme o Regulamento Interno e o Manual de Procedimentos da BE.</p>
   </div>
 </section>
 </main>
