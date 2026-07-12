@@ -64,6 +64,25 @@ collections:
               - { label: "Título", name: titulo, widget: string }
               - { label: "Local e hora", name: local, widget: string, hint: "Ex.: Biblioteca · 14h30" }
 
+  - name: galeria
+    label: "Galeria"
+    delete: false
+    files:
+      - name: lista
+        label: "Fotografias da galeria"
+        file: "content/galeria.json"
+        format: json
+        description: "As fotografias mostradas na galeria do separador A Biblioteca. Só publicar imagens com consentimento RGPD."
+        fields:
+          - label: "Fotografias"
+            name: galeria
+            widget: list
+            label_singular: "Fotografia"
+            summary: "{{fields.legenda}}"
+            fields:
+              - { label: "Imagem", name: imagem, widget: image, required: false }
+              - { label: "Legenda", name: legenda, widget: string }
+
   - name: destaques
     label: "Destaques (carrossel)"
     delete: false

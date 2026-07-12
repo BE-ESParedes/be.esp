@@ -443,12 +443,7 @@ footer a:hover{color:var(--verde-claro)}
     <!-- GALERIA -->
     <h3 id="bib-galeria" style="margin-top:38px;color:var(--verde-esc)">Galeria</h3>
     <div class="rule"></div>
-    <div class="galeria">
-      <div class="media tile"><span class="ph"><span class="g">📷</span>foto</span></div>
-      <div class="media tile"><span class="ph"><span class="g">📚</span>foto</span></div>
-      <div class="media tile"><span class="ph"><span class="g">🎭</span>foto</span></div>
-      <div class="media tile"><span class="ph"><span class="g">🖼️</span>foto</span></div>
-    </div>
+    <div class="galeria" id="galeria"></div>
     <p class="note">Os documentos oficiais (PDF) e as fotografias reais (com consentimento RGPD) substituem estes espaços antes da publicação.</p>
   </div>
 </section>
@@ -724,6 +719,12 @@ let CONTEUDO = {
     { dia:"22", mes:"Abr", titulo:"Mostra «Dia Mundial da Terra»", local:"Biblioteca e corredor principal" },
     { dia:"05", mes:"Mai", titulo:"Oficina «Citar e referenciar» – 12.º ano", local:"Biblioteca · 9h00" },
   ],
+  galeria: [
+    { imagem:"", legenda:"Espaço de leitura" },
+    { imagem:"", legenda:"Atividades" },
+    { imagem:"", legenda:"Exposições" },
+    { imagem:"", legenda:"Encontros com autores" },
+  ],
 };
 
 /* ---------- CARROSSEL ---------- */
@@ -775,13 +776,23 @@ function renderAgenda(){
   document.getElementById('ativ-agenda').innerHTML = (CONTEUDO.agenda||[]).map(itemAgenda).join('');
 }
 
+/* ---------- galeria ---------- */
+function galTile(g){
+  const leg=(g.legenda||'foto');
+  const inner = g.imagem ? `<img src="${g.imagem}" alt="${leg}">` : `<span class="ph"><span class="g">📷</span>${leg}</span>`;
+  return `<div class="media tile" title="${leg}">${inner}</div>`;
+}
+function renderGaleria(){
+  const el=document.getElementById('galeria'); if(el) el.innerHTML=(CONTEUDO.galeria||[]).map(galTile).join('');
+}
+
 /* ---------- carregar conteúdo editável (/content, gerido pelo CMS) ---------- */
 async function carregarConteudo(){
-  const fontes=[['content/destaques.json','banners'],['content/noticias.json','noticias'],['content/agenda.json','agenda']];
+  const fontes=[['content/destaques.json','banners'],['content/noticias.json','noticias'],['content/agenda.json','agenda'],['content/galeria.json','galeria']];
   await Promise.all(fontes.map(async ([url,chave])=>{
     try{ const r=await fetch(url,{cache:'no-store'}); if(r.ok){ const d=await r.json(); if(d && d[chave]) CONTEUDO[chave]=d[chave]; } }catch(e){}
   }));
-  renderCarrossel(); renderNoticias(); renderAgenda();
+  renderCarrossel(); renderNoticias(); renderAgenda(); renderGaleria();
 }
 carregarConteudo();
 
