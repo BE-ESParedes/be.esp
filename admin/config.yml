@@ -1,0 +1,98 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: pt
+publish_mode: simple
+media_folder: "imagens"
+public_folder: "/imagens"
+
+site_url: https://exemplo.netlify.app
+display_url: https://exemplo.netlify.app
+logo_url: https://exemplo.netlify.app/imagens/logo.png
+
+collections:
+  - name: noticias
+    label: "Notícias"
+    delete: false
+    files:
+      - name: lista
+        label: "Lista de notícias"
+        file: "content/noticias.json"
+        format: json
+        description: "As notícias mostradas na página inicial e no separador Notícias."
+        fields:
+          - label: "Notícias"
+            name: noticias
+            widget: list
+            label_singular: "Notícia"
+            summary: "{{fields.titulo}}"
+            fields:
+              - { label: "Ícone (emoji)", name: emoji, widget: string, default: "📖" }
+              - { label: "Categoria", name: cat, widget: string, hint: "Ex.: Leitura, Concurso, Formação" }
+              - { label: "Data", name: data, widget: string, hint: "Ex.: 12 jul 2026" }
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Resumo", name: resumo, widget: text }
+              - label: "Cor"
+                name: cor
+                widget: select
+                default: "#A8D8CC"
+                options:
+                  - { label: "Menta (verde-água)", value: "#A8D8CC" }
+                  - { label: "Dourado", value: "#D8B260" }
+                  - { label: "Verde profundo", value: "#20493B" }
+
+  - name: agenda
+    label: "Agenda"
+    delete: false
+    files:
+      - name: lista
+        label: "Eventos da agenda"
+        file: "content/agenda.json"
+        format: json
+        description: "Os próximos eventos mostrados na página inicial e no separador Atividades."
+        fields:
+          - label: "Eventos"
+            name: agenda
+            widget: list
+            label_singular: "Evento"
+            summary: "{{fields.dia}} {{fields.mes}} — {{fields.titulo}}"
+            fields:
+              - { label: "Dia", name: dia, widget: string, hint: "Ex.: 14" }
+              - { label: "Mês", name: mes, widget: string, hint: "Ex.: Abr" }
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Local e hora", name: local, widget: string, hint: "Ex.: Biblioteca · 14h30" }
+
+  - name: destaques
+    label: "Destaques (carrossel)"
+    delete: false
+    files:
+      - name: lista
+        label: "Banners do carrossel"
+        file: "content/destaques.json"
+        format: json
+        description: "Os banners rotativos no topo da página inicial."
+        fields:
+          - label: "Banners"
+            name: banners
+            widget: list
+            label_singular: "Banner"
+            summary: "{{fields.tag}}"
+            fields:
+              - { label: "Etiqueta", name: tag, widget: string, hint: "Texto pequeno acima do título" }
+              - { label: "Título", name: titulo, widget: string, hint: "Podes destacar uma palavra a dourado com <em>palavra</em>" }
+              - { label: "Texto", name: texto, widget: text }
+              - { label: "Fundo", name: grad, widget: hidden, default: "#ffffff" }
+              - label: "Botões"
+                name: botoes
+                widget: list
+                required: false
+                fields:
+                  - { label: "Texto do botão", name: t, widget: string }
+                  - { label: "Link externo (URL)", name: u, widget: string, required: false, hint: "Deixa vazio se for para uma secção do site" }
+                  - { label: "Ir para secção", name: go, widget: string, required: false, hint: "Ex.: catalogo, biblioteca, recursos, atividades, contactos" }
+                  - label: "Estilo"
+                    name: e
+                    widget: select
+                    default: primario
+                    options: [primario, outline, verde, claro]
