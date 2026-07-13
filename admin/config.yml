@@ -83,6 +83,88 @@ collections:
               - { label: "Imagem", name: imagem, widget: image, required: false }
               - { label: "Legenda", name: legenda, widget: string }
 
+  - name: cartoes
+    label: "Cartões (imagem, texto, link)"
+    delete: false
+    files:
+      - name: lista
+        label: "Personalizar cartões"
+        file: "content/cartoes.json"
+        format: json
+        description: "Adiciona uma imagem (a ocupar o cartão), muda o texto ou o link de qualquer cartão do site. Escolhe o cartão na lista; os campos vazios mantêm o conteúdo por omissão."
+        fields:
+          - label: "Cartões personalizados"
+            name: cartoes
+            widget: list
+            label_singular: "Cartão"
+            summary: "{{fields.id}}"
+            fields:
+              - label: "Cartão"
+                name: id
+                widget: select
+                options:
+                  - { label: "A Biblioteca — Visão", value: "biblioteca-1" }
+                  - { label: "A Biblioteca — O que fazemos", value: "biblioteca-2" }
+                  - { label: "A Biblioteca — Leitura", value: "biblioteca-3" }
+                  - { label: "A Biblioteca — Conhecimento", value: "biblioteca-4" }
+                  - { label: "A Biblioteca — Inovação", value: "biblioteca-5" }
+                  - { label: "A Biblioteca — Cultura", value: "biblioteca-6" }
+                  - { label: "A Biblioteca — Escola", value: "biblioteca-7" }
+                  - { label: "A Biblioteca — Comunidade", value: "biblioteca-8" }
+                  - { label: "A Biblioteca — Funcionamento", value: "biblioteca-9" }
+                  - { label: "A Biblioteca — Espaço", value: "biblioteca-10" }
+                  - { label: "A Biblioteca — Professor Bibliotecário", value: "biblioteca-11" }
+                  - { label: "A Biblioteca — Assistente Operacional", value: "biblioteca-12" }
+                  - { label: "A Biblioteca — Docentes colaboradores", value: "biblioteca-13" }
+                  - { label: "A Biblioteca — Voluntários", value: "biblioteca-14" }
+                  - { label: "Catálogo — Pesquisar no catálogo (OPAC)", value: "catalogo-1" }
+                  - { label: "Catálogo — Apoio à pesquisa", value: "catalogo-2" }
+                  - { label: "Catálogo — Destaques do catálogo", value: "catalogo-3" }
+                  - { label: "Catálogo — Organização do acervo", value: "catalogo-4" }
+                  - { label: "Catálogo — Notificações", value: "catalogo-5" }
+                  - { label: "Catálogo — Requisição para sala de aula", value: "catalogo-6" }
+                  - { label: "Catálogo — Empréstimo interbibliotecas", value: "catalogo-7" }
+                  - { label: "Recursos — Biblioteca Escolar Digital (BED)", value: "recursos-1" }
+                  - { label: "Recursos — Portal da Literatura", value: "recursos-2" }
+                  - { label: "Recursos — Project Gutenberg", value: "recursos-3" }
+                  - { label: "Recursos — Open Library", value: "recursos-4" }
+                  - { label: "Recursos — Por área curricular", value: "recursos-5" }
+                  - { label: "Recursos — Trabalhos de alunos", value: "recursos-6" }
+                  - { label: "Recursos — Curadoria da BE", value: "recursos-7" }
+                  - { label: "Recursos — Matemática", value: "recursos-8" }
+                  - { label: "Recursos — Geografia", value: "recursos-9" }
+                  - { label: "Recursos — Português", value: "recursos-10" }
+                  - { label: "Recursos — Inglês", value: "recursos-11" }
+                  - { label: "Recursos — Física e Química", value: "recursos-12" }
+                  - { label: "Recursos — Biologia", value: "recursos-13" }
+                  - { label: "Recursos — Pesquisar e avaliar", value: "recursos-14" }
+                  - { label: "Recursos — Media e segurança", value: "recursos-15" }
+                  - { label: "Recursos — Manual MILD (RBE)", value: "recursos-16" }
+                  - { label: "Atividades — 10 Minutos a Ler", value: "atividades-1" }
+                  - { label: "Atividades — Primavera a Ler", value: "atividades-2" }
+                  - { label: "Atividades — Mês Internacional da BE", value: "atividades-3" }
+                  - { label: "Atividades — Semana da Leitura", value: "atividades-4" }
+                  - { label: "Atividades — Cinema na Biblioteca", value: "atividades-5" }
+                  - { label: "Atividades — Palavras em Ação · Ler com a Biblioteca", value: "atividades-6" }
+                  - { label: "Atividades — Encontros de leitura", value: "atividades-7" }
+                  - { label: "Atividades — Como participar", value: "atividades-8" }
+                  - { label: "Atividades — Biblioteca Municipal de Paredes", value: "atividades-9" }
+                  - { label: "Atividades — Rede de Bibliotecas Escolares", value: "atividades-10" }
+                  - { label: "Atividades — Protocolos de cooperação", value: "atividades-11" }
+                  - { label: "Atividades — Rota do Românico", value: "atividades-12" }
+                  - { label: "Atividades — Museu Nacional Grão Vasco", value: "atividades-13" }
+                  - { label: "Atividades — Casa da Música", value: "atividades-14" }
+                  - { label: "Atividades — Serralves", value: "atividades-15" }
+                  - { label: "Atividades — Teatro Nacional São João", value: "atividades-16" }
+                  - { label: "Atividades — Biblioteca Municipal do Porto", value: "atividades-17" }
+                  - { label: "Contactos — Contactos", value: "contactos-1" }
+                  - { label: "Contactos — Sugestões e reclamações", value: "contactos-2" }
+                  - { label: "Contactos — Apoio individualizado à pesquisa", value: "contactos-3" }
+              - { label: "Imagem (ocupa o cartão)", name: imagem, widget: image, required: false }
+              - { label: "Novo título (opcional)", name: titulo, widget: string, required: false }
+              - { label: "Novo texto (opcional)", name: texto, widget: text, required: false }
+              - { label: "Novo link (opcional)", name: link, widget: string, required: false, hint: "URL externo (https://...)" }
+
   - name: destaques
     label: "Destaques (carrossel)"
     delete: false

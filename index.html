@@ -120,7 +120,13 @@ h3[id]{scroll-margin-top:82px}
 .rule{height:5px;width:66px;background:var(--dourado);border-radius:0;margin:12px 0 24px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.card{background:#fff;border:1px solid #E7EBE6;border-radius:12px;padding:22px;box-shadow:var(--sombra)}
+.card{background:#fff;border:1px solid #E7EBE6;border-radius:12px;padding:22px;box-shadow:var(--sombra);position:relative;overflow:hidden}
+.card-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.card.card--img{border-color:transparent;min-height:190px;display:flex;flex-direction:column;justify-content:flex-end}
+.card.card--img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,32,54,.28),rgba(10,32,54,.75));z-index:1}
+.card.card--img > *:not(.card-bg){position:relative;z-index:2}
+.card.card--img h3,.card.card--img p{color:#fff}
+.card.card--img .ic{display:none}
 .card h3{margin:0 0 8px;font-size:18px;color:var(--verde-esc)}
 .card p{margin:0;color:#6A746F;font-size:15px}
 a.card{text-decoration:none;color:inherit;transition:.16s}
@@ -355,11 +361,11 @@ footer a:hover{color:var(--menta)}
     <div class="rule"></div>
     <p style="max-width:860px;color:var(--verde-esc)">Proporcionar a toda a comunidade educativa acesso equitativo à informação, ao conhecimento e à cultura, promovendo o desenvolvimento de competências de literacia, o gosto pela leitura e a autonomia intelectual, em articulação com o currículo e com os projetos educativos da escola.</p>
     <div class="grid2" style="margin-top:16px">
-      <div class="card">
+      <div class="card" data-card="biblioteca-1">
         <span class="ic">🎯</span><h3>Visão</h3>
         <p>Ser reconhecida como o centro da vida intelectual e cultural da escola: um espaço de excelência pedagógica, aberto, acolhedor e inovador, que integra recursos físicos e digitais e prepara cidadãos críticos, autónomos e responsáveis.</p>
       </div>
-      <div class="card">
+      <div class="card" data-card="biblioteca-2">
         <span class="ic">🧭</span><h3>O que fazemos</h3>
         <p>Apoiamos o currículo e a inovação pedagógica; fomentamos hábitos de leitura; desenvolvemos competências de pesquisa, avaliação crítica e uso ético da informação (incluindo a literacia da IA); e promovemos a inclusão e a igualdade de oportunidades no acesso aos recursos.</p>
       </div>
@@ -368,12 +374,12 @@ footer a:hover{color:var(--menta)}
     <h3 style="margin-top:34px;color:var(--verde-esc)">Valores</h3>
     <div class="rule"></div>
     <div class="grid3">
-      <div class="card"><h3>Leitura</h3><p>Promoção da literacia e do prazer de ler em todas as idades.</p></div>
-      <div class="card"><h3>Conhecimento</h3><p>Acesso democrático à informação e à cultura; liberdade intelectual.</p></div>
-      <div class="card"><h3>Inovação</h3><p>Integração de recursos digitais e práticas modernas, incluindo a IA.</p></div>
-      <div class="card"><h3>Cultura</h3><p>Espaço de encontro e de valorização cultural da comunidade.</p></div>
-      <div class="card"><h3>Escola</h3><p>Articulação curricular e apoio pedagógico estruturados.</p></div>
-      <div class="card"><h3>Comunidade</h3><p>Abertura e inclusão de toda a comunidade educativa, incluindo as famílias.</p></div>
+      <div class="card" data-card="biblioteca-3"><h3>Leitura</h3><p>Promoção da literacia e do prazer de ler em todas as idades.</p></div>
+      <div class="card" data-card="biblioteca-4"><h3>Conhecimento</h3><p>Acesso democrático à informação e à cultura; liberdade intelectual.</p></div>
+      <div class="card" data-card="biblioteca-5"><h3>Inovação</h3><p>Integração de recursos digitais e práticas modernas, incluindo a IA.</p></div>
+      <div class="card" data-card="biblioteca-6"><h3>Cultura</h3><p>Espaço de encontro e de valorização cultural da comunidade.</p></div>
+      <div class="card" data-card="biblioteca-7"><h3>Escola</h3><p>Articulação curricular e apoio pedagógico estruturados.</p></div>
+      <div class="card" data-card="biblioteca-8"><h3>Comunidade</h3><p>Abertura e inclusão de toda a comunidade educativa, incluindo as famílias.</p></div>
     </div>
 
     <h3 style="margin-top:34px;color:var(--verde-esc)">A BE em números <span style="font-weight:400;font-size:14px;color:var(--cinza)">(SI-RBE 2025)</span></h3>
@@ -391,14 +397,14 @@ footer a:hover{color:var(--menta)}
     <h3 id="bib-horario" style="margin-top:38px;color:var(--verde-esc)">Horário e localização</h3>
     <div class="rule"></div>
     <div class="grid2">
-      <div class="card">
+      <div class="card" data-card="biblioteca-9">
         <span class="ic">🕐</span><h3>Funcionamento</h3>
         <div class="info-row"><b>Horário</b><span>Segunda a sexta, período letivo, horário contínuo — 8h00 às 18h30</span></div>
         <div class="info-row"><b>Acesso</b><span>Livre e gratuito a toda a comunidade educativa</span></div>
         <div class="info-row"><b>Correio</b><span>biblioteca@esparedes.pt</span></div>
         <p style="font-size:12px;color:var(--cinza);margin-top:10px">Conforme o Art. 2.º do Regulamento Interno da BE.</p>
       </div>
-      <div class="card">
+      <div class="card" data-card="biblioteca-10">
         <span class="ic">📍</span><h3>Espaço</h3>
         <div class="info-row"><b>Localização</b><span>Bloco E, 1.º andar · 300 m²</span></div>
         <div class="info-row"><b>Zonas</b><span>Atendimento · leitura · pesquisa/multimédia · trabalho de grupo · gabinete pedagógico</span></div>
@@ -411,19 +417,19 @@ footer a:hover{color:var(--menta)}
     <div class="rule"></div>
     <p class="sec-lead">A BE é uma estrutura técnico-pedagógica transversal (Art. 16.º do RI da ESP). O Professor Bibliotecário é designado pelo Diretor (Portaria n.º 192-A/2015) e presta contas à Direção e ao Conselho Pedagógico.</p>
     <div class="grid2">
-      <div class="card">
+      <div class="card" data-card="biblioteca-11">
         <h3>Professor Bibliotecário</h3>
         <p>Coordenação geral; gestão técnica e pedagógica; avaliação (MABE); representação institucional. 19 horas semanais na biblioteca.</p>
       </div>
-      <div class="card">
+      <div class="card" data-card="biblioteca-12">
         <h3>Assistente Operacional</h3>
         <p>Atendimento ao balcão; empréstimo e devolução; circulação no BiblioNet; arrumação; conservação básica e apoio logístico.</p>
       </div>
-      <div class="card">
+      <div class="card" data-card="biblioteca-13">
         <h3>Docentes colaboradores</h3>
         <p>Apoio às atividades de literacia e leitura; co-lecionação; dinamização de projetos com as turmas.</p>
       </div>
-      <div class="card">
+      <div class="card" data-card="biblioteca-14">
         <h3>Voluntários</h3>
         <p>Apoio às tarefas correntes, com valor formativo e limites de acesso a dados definidos pelo RGPD (POP-VOL-01, F16).</p>
       </div>
@@ -458,7 +464,7 @@ footer a:hover{color:var(--menta)}
     <p class="sec-lead">O acervo da BE-ESP está no catálogo coletivo municipal <strong>BiblioNet</strong>, gerido pela Biblioteca Municipal de Paredes e acessível a partir de qualquer dispositivo para pesquisa, reserva e renovação de empréstimos.</p>
 
     <!-- PESQUISAR NO CATÁLOGO -->
-    <div id="cat-pesquisa" class="card" style="background:linear-gradient(135deg,var(--menta-wash),#ffffff 70%);border:1px solid var(--linha)">
+    <div id="cat-pesquisa" class="card" data-card="catalogo-1" style="background:linear-gradient(135deg,var(--menta-wash),#ffffff 70%);border:1px solid var(--linha)">
       <span class="ic">🔎</span><h3>Pesquisar no catálogo (OPAC)</h3>
       <p style="color:var(--cinza)">Consulta o catálogo bibliográfico da rede concelhia, com pesquisa simples e avançada. Requer credenciais BiblioNet para reservar e renovar.</p>
       <div class="btns" style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
@@ -469,9 +475,9 @@ footer a:hover{color:var(--menta)}
 
     <!-- APOIO À PESQUISA + DESTAQUES -->
     <div class="grid3" style="margin-top:24px">
-      <div id="cat-apoio" class="card"><span class="ic">🧭</span><h3>Apoio à pesquisa</h3><p>A equipa apoia a definição do tema, a estratégia de pesquisa e a citação de fontes. Marca uma sessão no balcão de referência digital (ver Contactos e Apoio).</p></div>
-      <div id="cat-destaques" class="card"><span class="ic">⭐</span><h3>Destaques do catálogo</h3><p>Novidades, sugestões de leitura e listas temáticas. A coleção é gerida pela Política de Desenvolvimento da Coleção (PDC).</p></div>
-      <div class="card"><span class="ic">🗂️</span><h3>Organização do acervo</h3><p>Documentos catalogados em UNIMARC e classificados pela Classificação Decimal Universal (CDU), que define a cota e a arrumação nas estantes.</p></div>
+      <div id="cat-apoio" class="card" data-card="catalogo-2"><span class="ic">🧭</span><h3>Apoio à pesquisa</h3><p>A equipa apoia a definição do tema, a estratégia de pesquisa e a citação de fontes. Marca uma sessão no balcão de referência digital (ver Contactos e Apoio).</p></div>
+      <div id="cat-destaques" class="card" data-card="catalogo-3"><span class="ic">⭐</span><h3>Destaques do catálogo</h3><p>Novidades, sugestões de leitura e listas temáticas. A coleção é gerida pela Política de Desenvolvimento da Coleção (PDC).</p></div>
+      <div class="card" data-card="catalogo-4"><span class="ic">🗂️</span><h3>Organização do acervo</h3><p>Documentos catalogados em UNIMARC e classificados pela Classificação Decimal Universal (CDU), que define a cota e a arrumação nas estantes.</p></div>
     </div>
 
     <!-- EMPRÉSTIMOS E REQUISIÇÕES -->
@@ -488,9 +494,9 @@ footer a:hover{color:var(--menta)}
       </tbody>
     </table>
     <div class="grid3" style="margin-top:22px">
-      <div class="card"><span class="ic">🔔</span><h3>Notificações</h3><p>O BiblioNet envia avisos automáticos sobre os prazos de devolução.</p></div>
-      <div class="card"><span class="ic">🏫</span><h3>Requisição para sala de aula</h3><p>Os docentes podem requisitar documentos para uso em aula (formulário F08).</p></div>
-      <div class="card"><span class="ic">🔁</span><h3>Empréstimo interbibliotecas</h3><p>Acesso a obras de outras bibliotecas da rede, mediante pedido (formulário F09).</p></div>
+      <div class="card" data-card="catalogo-5"><span class="ic">🔔</span><h3>Notificações</h3><p>O BiblioNet envia avisos automáticos sobre os prazos de devolução.</p></div>
+      <div class="card" data-card="catalogo-6"><span class="ic">🏫</span><h3>Requisição para sala de aula</h3><p>Os docentes podem requisitar documentos para uso em aula (formulário F08).</p></div>
+      <div class="card" data-card="catalogo-7"><span class="ic">🔁</span><h3>Empréstimo interbibliotecas</h3><p>Acesso a obras de outras bibliotecas da rede, mediante pedido (formulário F09).</p></div>
     </div>
     <p class="note">Obras não emprestáveis (consulta local): obras de referência, último número de cada periódico, fundo histórico e documentos assinalados para consulta presencial.</p>
   </div>
@@ -507,39 +513,39 @@ footer a:hover{color:var(--menta)}
     <h3 id="rec-digital" style="color:var(--verde-esc)">Biblioteca digital</h3>
     <div class="rule"></div>
     <div class="grid3">
-      <a class="card" href="https://bibliotecaescolar.dge.mec.pt/" target="_blank" rel="noopener"><span class="ic">🌐</span><h3>Biblioteca Escolar Digital (BED)</h3><p>Plataforma nacional de recursos digitais para as bibliotecas escolares (DGE).</p></a>
-      <a class="card" href="https://portaldaliteratura.com/" target="_blank" rel="noopener"><span class="ic">📖</span><h3>Portal da Literatura</h3><p>Obras, autores e recursos da literatura de língua portuguesa.</p></a>
-      <a class="card" href="https://www.gutenberg.org/" target="_blank" rel="noopener"><span class="ic">📚</span><h3>Project Gutenberg</h3><p>Mais de 60 000 e-books gratuitos de domínio público.</p></a>
-      <a class="card" href="https://openlibrary.org/" target="_blank" rel="noopener"><span class="ic">🗃️</span><h3>Open Library</h3><p>Milhões de livros para consultar e requisitar em linha.</p></a>
+      <a class="card" data-card="recursos-1" href="https://bibliotecaescolar.dge.mec.pt/" target="_blank" rel="noopener"><span class="ic">🌐</span><h3>Biblioteca Escolar Digital (BED)</h3><p>Plataforma nacional de recursos digitais para as bibliotecas escolares (DGE).</p></a>
+      <a class="card" data-card="recursos-2" href="https://portaldaliteratura.com/" target="_blank" rel="noopener"><span class="ic">📖</span><h3>Portal da Literatura</h3><p>Obras, autores e recursos da literatura de língua portuguesa.</p></a>
+      <a class="card" data-card="recursos-3" href="https://www.gutenberg.org/" target="_blank" rel="noopener"><span class="ic">📚</span><h3>Project Gutenberg</h3><p>Mais de 60 000 e-books gratuitos de domínio público.</p></a>
+      <a class="card" data-card="recursos-4" href="https://openlibrary.org/" target="_blank" rel="noopener"><span class="ic">🗃️</span><h3>Open Library</h3><p>Milhões de livros para consultar e requisitar em linha.</p></a>
     </div>
 
     <!-- RECURSOS POR DISCIPLINA -->
     <h3 id="rec-disciplina" style="margin-top:34px;color:var(--verde-esc)">Recursos por disciplina</h3>
     <div class="rule"></div>
     <div class="grid3">
-      <div class="card"><span class="ic">🗂️</span><h3>Por área curricular</h3><p>Recursos organizados por disciplina e nível de ensino, incluindo Recursos Educativos Abertos (REA), ao serviço das Aprendizagens Essenciais.</p></div>
-      <div class="card"><span class="ic">🎓</span><h3>Trabalhos de alunos</h3><p>Espaço para divulgar produções da comunidade escolar em diferentes formatos.</p></div>
-      <div class="card"><span class="ic">🤝</span><h3>Curadoria da BE</h3><p>Seleção criteriosa e atualizada de recursos fiáveis (POP-RED-01), com avaliação de qualidade e adequação pedagógica.</p></div>
+      <div class="card" data-card="recursos-5"><span class="ic">🗂️</span><h3>Por área curricular</h3><p>Recursos organizados por disciplina e nível de ensino, incluindo Recursos Educativos Abertos (REA), ao serviço das Aprendizagens Essenciais.</p></div>
+      <div class="card" data-card="recursos-6"><span class="ic">🎓</span><h3>Trabalhos de alunos</h3><p>Espaço para divulgar produções da comunidade escolar em diferentes formatos.</p></div>
+      <div class="card" data-card="recursos-7"><span class="ic">🤝</span><h3>Curadoria da BE</h3><p>Seleção criteriosa e atualizada de recursos fiáveis (POP-RED-01), com avaliação de qualidade e adequação pedagógica.</p></div>
     </div>
 
     <h4 style="margin:26px 0 4px;font-family:var(--head);color:var(--verde-esc);font-size:15px">Ligações úteis por disciplina</h4>
     <div class="rule"></div>
     <div class="grid3">
-      <a class="card" href="https://mat.absolutamente.net/" target="_blank" rel="noopener"><span class="ic">➗</span><h3>Matemática</h3><p>Matemática Absolutamente — apoio e exercícios.</p></a>
-      <a class="card" href="https://www.hippocampus.pt/" target="_blank" rel="noopener"><span class="ic">🌍</span><h3>Geografia</h3><p>Hippocampus — recursos de geografia.</p></a>
-      <a class="card" href="https://portaldaliteratura.com/" target="_blank" rel="noopener"><span class="ic">📝</span><h3>Português</h3><p>Portal da Literatura — obras e autores.</p></a>
-      <a class="card" href="https://www.bbc.co.uk/learningenglish/" target="_blank" rel="noopener"><span class="ic">🇬🇧</span><h3>Inglês</h3><p>BBC Learning English.</p></a>
-      <a class="card" href="https://phet.colorado.edu/" target="_blank" rel="noopener"><span class="ic">⚗️</span><h3>Física e Química</h3><p>PhET — simulações interativas.</p></a>
-      <a class="card" href="https://www.biologia.pt/" target="_blank" rel="noopener"><span class="ic">🧬</span><h3>Biologia</h3><p>Biologia.pt — recursos e conteúdos.</p></a>
+      <a class="card" data-card="recursos-8" href="https://mat.absolutamente.net/" target="_blank" rel="noopener"><span class="ic">➗</span><h3>Matemática</h3><p>Matemática Absolutamente — apoio e exercícios.</p></a>
+      <a class="card" data-card="recursos-9" href="https://www.hippocampus.pt/" target="_blank" rel="noopener"><span class="ic">🌍</span><h3>Geografia</h3><p>Hippocampus — recursos de geografia.</p></a>
+      <a class="card" data-card="recursos-10" href="https://portaldaliteratura.com/" target="_blank" rel="noopener"><span class="ic">📝</span><h3>Português</h3><p>Portal da Literatura — obras e autores.</p></a>
+      <a class="card" data-card="recursos-11" href="https://www.bbc.co.uk/learningenglish/" target="_blank" rel="noopener"><span class="ic">🇬🇧</span><h3>Inglês</h3><p>BBC Learning English.</p></a>
+      <a class="card" data-card="recursos-12" href="https://phet.colorado.edu/" target="_blank" rel="noopener"><span class="ic">⚗️</span><h3>Física e Química</h3><p>PhET — simulações interativas.</p></a>
+      <a class="card" data-card="recursos-13" href="https://www.biologia.pt/" target="_blank" rel="noopener"><span class="ic">🧬</span><h3>Biologia</h3><p>Biologia.pt — recursos e conteúdos.</p></a>
     </div>
 
     <!-- LITERACIA DA INFORMAÇÃO -->
     <h3 id="rec-literacia" style="margin-top:34px;color:var(--verde-esc)">Literacia da informação</h3>
     <div class="rule"></div>
     <div class="grid3">
-      <div class="card"><span class="ic">🧠</span><h3>Pesquisar e avaliar</h3><p>Como pesquisar, avaliar criticamente as fontes e usar a informação de forma ética.</p></div>
-      <div class="card"><span class="ic">🛡️</span><h3>Media e segurança</h3><p>Literacia dos media e segurança em linha, incluindo uma introdução à literacia da inteligência artificial.</p></div>
-      <div class="card"><span class="ic">📘</span><h3>Manual MILD (RBE)</h3><p>Referencial de literacia digital da Rede de Bibliotecas Escolares.</p></div>
+      <div class="card" data-card="recursos-14"><span class="ic">🧠</span><h3>Pesquisar e avaliar</h3><p>Como pesquisar, avaliar criticamente as fontes e usar a informação de forma ética.</p></div>
+      <div class="card" data-card="recursos-15"><span class="ic">🛡️</span><h3>Media e segurança</h3><p>Literacia dos media e segurança em linha, incluindo uma introdução à literacia da inteligência artificial.</p></div>
+      <div class="card" data-card="recursos-16"><span class="ic">📘</span><h3>Manual MILD (RBE)</h3><p>Referencial de literacia digital da Rede de Bibliotecas Escolares.</p></div>
     </div>
 
     <!-- APOIO AO ESTUDO -->
@@ -571,23 +577,23 @@ footer a:hover{color:var(--menta)}
     <h3 id="ativ-projetos" style="margin-top:38px;color:var(--verde-esc)">Projetos em destaque</h3>
     <div class="rule"></div>
     <div class="grid3">
-      <div class="card"><span class="ic">📚</span><h3>10 Minutos a Ler</h3><p>Rotina diária de leitura em articulação com as disciplinas.</p></div>
-      <div class="card"><span class="ic">🌸</span><h3>Primavera a Ler</h3><p>Concurso de leitura com projeção municipal.</p></div>
-      <div class="card"><span class="ic">🗓️</span><h3>Mês Internacional da BE</h3><p>Programa de outubro dedicado à Biblioteca (MIBE).</p></div>
-      <div class="card"><span class="ic">📖</span><h3>Semana da Leitura</h3><p>Encontros com autores e atividades em torno do livro.</p></div>
-      <div class="card"><span class="ic">🎬</span><h3>Cinema na Biblioteca</h3><p>Sessões de cinema seguidas de debate.</p></div>
-      <div class="card"><span class="ic">🎙️</span><h3>Palavras em Ação · Ler com a Biblioteca</h3><p>Projeto RBE 2026–2028: sequências de leitura, roteiros literários e os podcasts «Vozes da Família».</p></div>
+      <div class="card" data-card="atividades-1"><span class="ic">📚</span><h3>10 Minutos a Ler</h3><p>Rotina diária de leitura em articulação com as disciplinas.</p></div>
+      <div class="card" data-card="atividades-2"><span class="ic">🌸</span><h3>Primavera a Ler</h3><p>Concurso de leitura com projeção municipal.</p></div>
+      <div class="card" data-card="atividades-3"><span class="ic">🗓️</span><h3>Mês Internacional da BE</h3><p>Programa de outubro dedicado à Biblioteca (MIBE).</p></div>
+      <div class="card" data-card="atividades-4"><span class="ic">📖</span><h3>Semana da Leitura</h3><p>Encontros com autores e atividades em torno do livro.</p></div>
+      <div class="card" data-card="atividades-5"><span class="ic">🎬</span><h3>Cinema na Biblioteca</h3><p>Sessões de cinema seguidas de debate.</p></div>
+      <div class="card" data-card="atividades-6"><span class="ic">🎙️</span><h3>Palavras em Ação · Ler com a Biblioteca</h3><p>Projeto RBE 2026–2028: sequências de leitura, roteiros literários e os podcasts «Vozes da Família».</p></div>
     </div>
 
     <!-- CLUBE DE LEITURA -->
     <h3 id="ativ-clube" style="margin-top:38px;color:var(--verde-esc)">Clube de Leitura</h3>
     <div class="rule"></div>
     <div class="grid2">
-      <div class="card">
+      <div class="card" data-card="atividades-7">
         <span class="ic">💬</span><h3>Encontros de leitura</h3>
         <p>Sessões regulares de partilha de leituras, abertas à comunidade. As inscrições fazem-se pela ficha F14 e as presenças alimentam os indicadores do domínio B (leitura).</p>
       </div>
-      <div class="card">
+      <div class="card" data-card="atividades-8">
         <span class="ic">✍️</span><h3>Como participar</h3>
         <p>Preenche a ficha de inscrição no Clube de Leitura (para menores, com autorização do Encarregado de Educação) e junta-te aos próximos encontros. Consulta o calendário na agenda acima.</p>
       </div>
@@ -597,9 +603,9 @@ footer a:hover{color:var(--menta)}
     <h3 id="ativ-parcerias" style="margin-top:38px;color:var(--verde-esc)">Parcerias</h3>
     <div class="rule"></div>
     <div class="grid3">
-      <div class="card"><span class="ic">🏛️</span><h3>Biblioteca Municipal de Paredes</h3><p>Parceira estratégica: catálogo coletivo BiblioNet, empréstimo interbibliotecas e atividades culturais conjuntas.</p></div>
-      <div class="card"><span class="ic">🌐</span><h3>Rede de Bibliotecas Escolares</h3><p>Referenciais, formação e projetos da RBE e da Rede Concelhia de Bibliotecas Escolares de Paredes.</p></div>
-      <div class="card"><span class="ic">🤝</span><h3>Protocolos de cooperação</h3><p>Colaborações formalizadas com entidades locais (modelo MOD-PROT-01), com partilha de recursos e de boas práticas.</p></div>
+      <div class="card" data-card="atividades-9"><span class="ic">🏛️</span><h3>Biblioteca Municipal de Paredes</h3><p>Parceira estratégica: catálogo coletivo BiblioNet, empréstimo interbibliotecas e atividades culturais conjuntas.</p></div>
+      <div class="card" data-card="atividades-10"><span class="ic">🌐</span><h3>Rede de Bibliotecas Escolares</h3><p>Referenciais, formação e projetos da RBE e da Rede Concelhia de Bibliotecas Escolares de Paredes.</p></div>
+      <div class="card" data-card="atividades-11"><span class="ic">🤝</span><h3>Protocolos de cooperação</h3><p>Colaborações formalizadas com entidades locais (modelo MOD-PROT-01), com partilha de recursos e de boas práticas.</p></div>
     </div>
 
     <!-- CULTURA E PATRIMÓNIO -->
@@ -607,12 +613,12 @@ footer a:hover{color:var(--menta)}
     <div class="rule"></div>
     <p class="sec-lead">Como centro cultural local de acesso à música, à arte e aos espetáculos, a BE aponta caminhos para a cultura da região e do país.</p>
     <div class="grid3">
-      <a class="card" href="https://rotadoromanico.com/" target="_blank" rel="noopener"><span class="ic">🏛️</span><h3>Rota do Românico</h3><p>Roteiro do património românico do Vale do Sousa e do Baixo Tâmega.</p></a>
-      <a class="card" href="https://www.museunacionalgraovasco.gov.pt/" target="_blank" rel="noopener"><span class="ic">🖼️</span><h3>Museu Nacional Grão Vasco</h3><p>Museu de arte, em Viseu.</p></a>
-      <a class="card" href="https://www.casadamusica.com/" target="_blank" rel="noopener"><span class="ic">🎵</span><h3>Casa da Música</h3><p>Sala de espetáculos e programação musical, no Porto.</p></a>
-      <a class="card" href="https://www.serralves.pt/" target="_blank" rel="noopener"><span class="ic">🎨</span><h3>Serralves</h3><p>Fundação de arte contemporânea e parque, no Porto.</p></a>
-      <a class="card" href="https://tnsj.pt/" target="_blank" rel="noopener"><span class="ic">🎭</span><h3>Teatro Nacional São João</h3><p>Teatro nacional, no Porto.</p></a>
-      <a class="card" href="https://bibliotecas.cm-porto.pt/" target="_blank" rel="noopener"><span class="ic">📚</span><h3>Biblioteca Municipal do Porto</h3><p>Biblioteca Pública Municipal do Porto.</p></a>
+      <a class="card" data-card="atividades-12" href="https://rotadoromanico.com/" target="_blank" rel="noopener"><span class="ic">🏛️</span><h3>Rota do Românico</h3><p>Roteiro do património românico do Vale do Sousa e do Baixo Tâmega.</p></a>
+      <a class="card" data-card="atividades-13" href="https://www.museunacionalgraovasco.gov.pt/" target="_blank" rel="noopener"><span class="ic">🖼️</span><h3>Museu Nacional Grão Vasco</h3><p>Museu de arte, em Viseu.</p></a>
+      <a class="card" data-card="atividades-14" href="https://www.casadamusica.com/" target="_blank" rel="noopener"><span class="ic">🎵</span><h3>Casa da Música</h3><p>Sala de espetáculos e programação musical, no Porto.</p></a>
+      <a class="card" data-card="atividades-15" href="https://www.serralves.pt/" target="_blank" rel="noopener"><span class="ic">🎨</span><h3>Serralves</h3><p>Fundação de arte contemporânea e parque, no Porto.</p></a>
+      <a class="card" data-card="atividades-16" href="https://tnsj.pt/" target="_blank" rel="noopener"><span class="ic">🎭</span><h3>Teatro Nacional São João</h3><p>Teatro nacional, no Porto.</p></a>
+      <a class="card" data-card="atividades-17" href="https://bibliotecas.cm-porto.pt/" target="_blank" rel="noopener"><span class="ic">📚</span><h3>Biblioteca Municipal do Porto</h3><p>Biblioteca Pública Municipal do Porto.</p></a>
     </div>
     <p class="note">Os projetos baseiam-se nas iniciativas registadas nos relatórios da Biblioteca; as datas da agenda são geridas na Área de trabalho.</p>
   </div>
@@ -640,14 +646,14 @@ footer a:hover{color:var(--menta)}
     <h3 id="con-contacto" style="color:var(--verde-esc)">Fala connosco</h3>
     <div class="rule"></div>
     <div class="grid2">
-      <div class="card">
+      <div class="card" data-card="contactos-1">
         <span class="ic">✉️</span><h3>Contactos</h3>
         <div class="info-row"><b>Correio</b><span>biblioteca@esparedes.pt</span></div>
         <div class="info-row"><b>Localização</b><span>Bloco E, 1.º andar</span></div>
         <div class="info-row"><b>Horário</b><span>Segunda a sexta, 8h00 – 18h30 (período letivo)</span></div>
         <p style="margin-top:12px"><a class="btn verde">✉️ Formulário de contacto</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-card="contactos-2">
         <span class="ic">💡</span><h3>Sugestões e reclamações</h3>
         <p>A tua opinião ajuda a melhorar a Biblioteca. Deixa uma sugestão, uma reclamação ou uma proposta de aquisição de documentos.</p>
         <div class="info-row"><b>Sugestão/reclamação</b><span>Formulário F05</span></div>
@@ -658,7 +664,7 @@ footer a:hover{color:var(--menta)}
     <!-- BALCÃO DE REFERÊNCIA -->
     <h3 id="con-balcao" style="margin-top:38px;color:var(--verde-esc)">Balcão de referência digital</h3>
     <div class="rule"></div>
-    <div class="card" style="background:linear-gradient(135deg,var(--menta-wash),#ffffff 70%);border:1px solid var(--linha)">
+    <div class="card" data-card="contactos-3" style="background:linear-gradient(135deg,var(--menta-wash),#ffffff 70%);border:1px solid var(--linha)">
       <span class="ic">🎧</span><h3>Apoio individualizado à pesquisa</h3>
       <p>Precisas de ajuda num trabalho de pesquisa? Marca uma sessão com a equipa da Biblioteca — presencial ou em linha — para apoio à definição do tema, à estratégia de pesquisa, à avaliação das fontes e à citação (Atendimento e Apoio à Pesquisa, POP-REF-01).</p>
       <p style="margin-top:14px"><a class="btn primario">📅 Marcar sessão de apoio</a></p>
@@ -774,6 +780,7 @@ let CONTEUDO = {
     { imagem:"", legenda:"Exposições" },
     { imagem:"", legenda:"Encontros com autores" },
   ],
+  cartoes: [],
 };
 
 /* ---------- CARROSSEL ---------- */
@@ -835,13 +842,29 @@ function renderGaleria(){
   const el=document.getElementById('galeria'); if(el) el.innerHTML=(CONTEUDO.galeria||[]).map(galTile).join('');
 }
 
+/* ---------- personalização de cartões (imagem/texto/link) gerida pelo CMS ---------- */
+function aplicarCartoes(){
+  const map={}; (CONTEUDO.cartoes||[]).forEach(c=>{ if(c && c.id) map[c.id]=c; });
+  document.querySelectorAll('[data-card]').forEach(el=>{
+    const c=map[el.getAttribute('data-card')]; if(!c) return;
+    if(c.titulo){ const h=el.querySelector('h3'); if(h) h.textContent=c.titulo; }
+    if(c.texto){ const p=el.querySelector('p'); if(p) p.textContent=c.texto; }
+    if(c.link){
+      if(el.tagName==='A'){ el.setAttribute('href',c.link); el.setAttribute('target','_blank'); el.setAttribute('rel','noopener'); }
+      else { el.style.cursor='pointer'; el.addEventListener('click',()=>window.open(c.link,'_blank','noopener')); }
+    }
+    if(c.imagem){ el.classList.add('card--img');
+      if(!el.querySelector('.card-bg')){ const img=document.createElement('img'); img.className='card-bg'; img.src=c.imagem; img.alt=''; el.insertBefore(img, el.firstChild); } }
+  });
+}
+
 /* ---------- carregar conteúdo editável (/content, gerido pelo CMS) ---------- */
 async function carregarConteudo(){
-  const fontes=[['content/destaques.json','banners'],['content/noticias.json','noticias'],['content/agenda.json','agenda'],['content/galeria.json','galeria']];
+  const fontes=[['content/destaques.json','banners'],['content/noticias.json','noticias'],['content/agenda.json','agenda'],['content/galeria.json','galeria'],['content/cartoes.json','cartoes']];
   await Promise.all(fontes.map(async ([url,chave])=>{
     try{ const r=await fetch(url,{cache:'no-store'}); if(r.ok){ const d=await r.json(); if(d && d[chave]) CONTEUDO[chave]=d[chave]; } }catch(e){}
   }));
-  renderCarrossel(); renderNoticias(); renderAgenda(); renderGaleria();
+  renderCarrossel(); renderNoticias(); renderAgenda(); renderGaleria(); aplicarCartoes();
 }
 carregarConteudo();
 
