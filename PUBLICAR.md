@@ -62,11 +62,33 @@ O painel `/admin` usa o **Netlify Identity** (login) + **Git Gateway** (gravar a
 Em Netlify: **Domain management → Add a domain**. Aponta o DNS do domínio
 (ex.: `biblioteca.esparedes.pt`) para o Netlify. O HTTPS é automático.
 
-## Testar localmente
+## Ver o site e o painel antes de publicar
 
-O site precisa de ser servido por HTTP (o `fetch` do conteúdo não funciona por
-duplo-clique). Na pasta:
+⚠️ **Abrir o `index.html` com duplo-clique (`file://`) não chega:** o conteúdo é
+carregado por `fetch` e o painel `/admin` precisa de ir buscar o `config.yml` por
+HTTP. Por `file://` isso falha — daí o erro *«Failed to load config.yml»*. É preciso
+servir a pasta por HTTP.
+
+### 1. Ver o site (conteúdo, cartões, galeria)
+Na pasta `prototipo`:
 ```bash
 python3 -m http.server 8000
 ```
-e abre <http://localhost:8000>. (O `/admin` só funciona já publicado, com o Identity ativo.)
+Abre <http://localhost:8000>. Aqui vês tudo o que é conteúdo estático.
+
+### 2. Testar o painel /admin localmente (opcional, precisa de Node.js)
+O painel só grava alterações contra um backend. Para testar localmente:
+```bash
+# num terminal, na pasta prototipo:
+npx decap-server
+# noutro terminal, na mesma pasta:
+python3 -m http.server 8000
+```
+Abre <http://localhost:8000/admin/>. Com o `local_backend: true` (já ativo no
+`config.yml`), o painel lê e grava nos ficheiros `content/*.json` da pasta —
+sem login, ideal para experimentar. As alterações veem-se no site local.
+
+### 3. Ver o painel a sério (Netlify)
+Depois de publicado (secções 1–3 acima) e com o **Identity** e o **Git Gateway**
+ativos, o botão **Área de trabalho** abre o painel real, com login. É este o
+modo definitivo — o `local_backend` é ignorado em produção.

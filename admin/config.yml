@@ -2,6 +2,10 @@ backend:
   name: git-gateway
   branch: main
 
+# Permite testar o painel localmente (com o decap-server a correr).
+# Em produção (Netlify) é ignorado e usa-se o git-gateway acima.
+local_backend: true
+
 locale: pt
 publish_mode: simple
 media_folder: "imagens"
