@@ -123,6 +123,9 @@ h3[id]{scroll-margin-top:82px}
 .card{background:#fff;border:1px solid #E7EBE6;border-radius:12px;padding:22px;box-shadow:var(--sombra)}
 .card h3{margin:0 0 8px;font-size:18px;color:var(--verde-esc)}
 .card p{margin:0;color:#6A746F;font-size:15px}
+a.card{text-decoration:none;color:inherit;transition:.16s}
+a.card:hover{border-color:var(--menta);background:var(--menta-wash)}
+a.card h3::after{content:" ↗";color:var(--dourado-d);font-weight:700}
 /* ---- slots de média: prontos para imagem, SVG ou infográfico ---- */
 .ic,.card .ic{width:52px;height:52px;border-radius:12px;background:var(--menta-wash);border:1px dashed var(--menta);
   display:inline-flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:12px;overflow:hidden;color:var(--menta-media)}
@@ -186,10 +189,16 @@ h3[id]{scroll-margin-top:82px}
 
 /* ---- rodapé ---- */
 footer{background:var(--azul-not);color:#EAF4F0;margin-top:40px}
-.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;padding:44px 0 24px}
-footer h4{font-family:var(--head);color:#fff;font-size:15px;margin:0 0 12px}
+.foot-grid{display:grid;grid-template-columns:1.9fr 1fr 1fr 1.1fr 1.3fr;gap:28px;padding:48px 0 26px}
+footer h4{font-family:var(--head);color:#fff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin:0 0 14px}
 footer a{color:#EAF4F0;text-decoration:none;font-size:14px;display:block;padding:3px 0}
-footer a:hover{color:var(--verde-claro)}
+footer a:hover{color:var(--menta)}
+.foot-brand b{font-family:var(--head);font-weight:700;color:#fff;font-size:16px;display:block;line-height:1.2}
+.foot-brand span{font-size:13px;color:var(--menta)}
+.foot-mission{font-size:13px;color:#cfe0d8;max-width:320px;line-height:1.6;margin:12px 0 16px}
+.foot-social a{color:var(--menta);font-size:13.5px;font-weight:600}
+.foot-contact{font-size:13.5px;color:#EAF4F0;line-height:1.75;font-style:normal}
+.foot-contact a{display:inline;padding:0}
 .social a{display:inline-block;margin-right:10px;font-size:22px}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:14px 0;font-size:12px;color:#A8D8CC;text-align:center}
 .foot-bottom a{display:inline;color:#A8D8CC}
@@ -280,14 +289,6 @@ footer a:hover{color:var(--verde-claro)}
         </div>
       </div>
       <div class="navitem"><button data-s="noticias">Notícias</button></div>
-      <div class="navitem">
-        <button data-s="contactos">Contactos</button>
-        <div class="submenu">
-          <a data-go="contactos" data-anchor="con-contacto">Fala connosco</a>
-          <a data-go="contactos" data-anchor="con-balcao">Balcão de referência digital</a>
-          <a data-go="contactos" data-anchor="con-faq">Perguntas frequentes</a>
-        </div>
-      </div>
     </nav>
     <div class="utils">
       <button class="util" data-go="catalogo" title="Pesquisar" aria-label="Pesquisar">🔍</button>
@@ -505,9 +506,10 @@ footer a:hover{color:var(--verde-claro)}
     <h3 id="rec-digital" style="color:var(--verde-esc)">Biblioteca digital</h3>
     <div class="rule"></div>
     <div class="grid3">
-      <div class="card"><span class="ic">📱</span><h3>E-books e audiolivros</h3><p>Obras digitais de acesso livre para ler e ouvir.</p></div>
-      <div class="card"><span class="ic">📰</span><h3>Jornais e revistas</h3><p>Imprensa e publicações periódicas em linha.</p></div>
-      <div class="card"><span class="ic">🌐</span><h3>Biblioteca Escolar Digital (RBE)</h3><p>Plataforma de recursos digitais da Rede de Bibliotecas Escolares.</p></div>
+      <a class="card" href="https://bibliotecaescolar.dge.mec.pt/" target="_blank" rel="noopener"><span class="ic">🌐</span><h3>Biblioteca Escolar Digital (BED)</h3><p>Plataforma nacional de recursos digitais para as bibliotecas escolares (DGE).</p></a>
+      <a class="card" href="https://portaldaliteratura.com/" target="_blank" rel="noopener"><span class="ic">📖</span><h3>Portal da Literatura</h3><p>Obras, autores e recursos da literatura de língua portuguesa.</p></a>
+      <a class="card" href="https://www.gutenberg.org/" target="_blank" rel="noopener"><span class="ic">📚</span><h3>Project Gutenberg</h3><p>Mais de 60 000 e-books gratuitos de domínio público.</p></a>
+      <a class="card" href="https://openlibrary.org/" target="_blank" rel="noopener"><span class="ic">🗃️</span><h3>Open Library</h3><p>Milhões de livros para consultar e requisitar em linha.</p></a>
     </div>
 
     <!-- RECURSOS POR DISCIPLINA -->
@@ -517,6 +519,17 @@ footer a:hover{color:var(--verde-claro)}
       <div class="card"><span class="ic">🗂️</span><h3>Por área curricular</h3><p>Recursos organizados por disciplina e nível de ensino, incluindo Recursos Educativos Abertos (REA), ao serviço das Aprendizagens Essenciais.</p></div>
       <div class="card"><span class="ic">🎓</span><h3>Trabalhos de alunos</h3><p>Espaço para divulgar produções da comunidade escolar em diferentes formatos.</p></div>
       <div class="card"><span class="ic">🤝</span><h3>Curadoria da BE</h3><p>Seleção criteriosa e atualizada de recursos fiáveis (POP-RED-01), com avaliação de qualidade e adequação pedagógica.</p></div>
+    </div>
+
+    <h4 style="margin:26px 0 4px;font-family:var(--head);color:var(--verde-esc);font-size:15px">Ligações úteis por disciplina</h4>
+    <div class="rule"></div>
+    <div class="grid3">
+      <a class="card" href="https://mat.absolutamente.net/" target="_blank" rel="noopener"><span class="ic">➗</span><h3>Matemática</h3><p>Matemática Absolutamente — apoio e exercícios.</p></a>
+      <a class="card" href="https://www.hippocampus.pt/" target="_blank" rel="noopener"><span class="ic">🌍</span><h3>Geografia</h3><p>Hippocampus — recursos de geografia.</p></a>
+      <a class="card" href="https://portaldaliteratura.com/" target="_blank" rel="noopener"><span class="ic">📝</span><h3>Português</h3><p>Portal da Literatura — obras e autores.</p></a>
+      <a class="card" href="https://www.bbc.co.uk/learningenglish/" target="_blank" rel="noopener"><span class="ic">🇬🇧</span><h3>Inglês</h3><p>BBC Learning English.</p></a>
+      <a class="card" href="https://phet.colorado.edu/" target="_blank" rel="noopener"><span class="ic">⚗️</span><h3>Física e Química</h3><p>PhET — simulações interativas.</p></a>
+      <a class="card" href="https://www.biologia.pt/" target="_blank" rel="noopener"><span class="ic">🧬</span><h3>Biologia</h3><p>Biologia.pt — recursos e conteúdos.</p></a>
     </div>
 
     <!-- LITERACIA DA INFORMAÇÃO -->
@@ -655,31 +668,53 @@ footer a:hover{color:var(--verde-claro)}
 
 <footer>
   <div class="wrap foot-grid">
-    <div>
-      <h4>Biblioteca Escolar da ESP</h4>
-      <p style="font-size:14px;color:#EAF4F0;max-width:340px">Canal principal da Biblioteca no espaço digital, ao serviço de alunos, professores, encarregados de educação e comunidade.</p>
-      <p class="social" style="margin-top:8px">
-        <a href="https://www.instagram.com/beesparedes/" target="_blank" rel="noopener" style="display:inline-block">📷</a>
-        <a href="https://www.facebook.com/biblioteca.escsecparedes" target="_blank" rel="noopener" style="display:inline-block">📘</a>
-        <a href="http://biblioesparedes.blogspot.pt/" target="_blank" rel="noopener" style="display:inline-block">📝</a>
-      </p>
+    <div class="foot-brand">
+      <b>Biblioteca Escolar</b>
+      <span>Escola Secundária de Paredes</span>
+      <p class="foot-mission">A Biblioteca Escolar da ESP tem como missão proporcionar acesso equitativo à informação, ao conhecimento e à cultura, promovendo o desenvolvimento de competências de literacia e o gosto pela leitura.</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/beesparedes/" target="_blank" rel="noopener">📷 @be_esparedes</a>
+        <a href="https://www.facebook.com/biblioteca.escsecparedes" target="_blank" rel="noopener">📘 @BE_ESParedes</a>
+      </div>
     </div>
     <div>
-      <h4>Navegação</h4>
+      <h4>Mapa do Site</h4>
+      <a data-go="inicio">Início</a>
       <a data-go="biblioteca">A Biblioteca</a>
       <a data-go="catalogo">Catálogo</a>
       <a data-go="recursos">Recursos Digitais</a>
       <a data-go="atividades">Atividades e Projetos</a>
+      <a data-go="noticias">Notícias</a>
+      <a data-go="contactos">Contactos e Apoio</a>
     </div>
     <div>
-      <h4>Ligações</h4>
-      <a href="https://www.esparedes.pt/esp/" target="_blank" rel="noopener">Site da escola</a>
-      <a href="https://www.rbe.mec.pt/" target="_blank" rel="noopener">Rede de Bibliotecas Escolares</a>
-      <a href="http://bibliotecas.cm-paredes.pt/" target="_blank" rel="noopener">Biblioteca Municipal de Paredes</a>
+      <h4>Ligações Úteis</h4>
+      <a href="https://www.esparedes.pt/esp/" target="_blank" rel="noopener">Site da ESP</a>
+      <a href="http://bibliotecas.cm-paredes.pt/" target="_blank" rel="noopener">BiblioNet</a>
+      <a href="https://www.rbe.mec.pt/" target="_blank" rel="noopener">RBE</a>
+      <a href="https://www.planonacionaldeleitura.gov.pt/" target="_blank" rel="noopener">PNL 2027</a>
+      <a href="https://www.dge.mec.pt/" target="_blank" rel="noopener">DGE</a>
+    </div>
+    <div>
+      <h4>Documentação</h4>
+      <a data-go="biblioteca" data-anchor="bib-documentacao">Regulamento Interno</a>
+      <a data-go="biblioteca" data-anchor="bib-documentacao">Políticas</a>
+      <a data-go="contactos" data-anchor="con-contacto">Contactos</a>
+    </div>
+    <div>
+      <h4>Contactos</h4>
+      <address class="foot-contact">
+        Bloco E, 1.º Andar<br>
+        Escola Secundária de Paredes<br>
+        <a href="tel:+351224567890">224 567 890</a><br>
+        <a href="mailto:biblioteca@esparedes.pt">biblioteca@esparedes.pt</a><br>
+        Seg–Sex: 8h00 – 18h30<br>
+        <a href="https://maps.google.com/?q=Escola+Secund%C3%A1ria+de+Paredes" target="_blank" rel="noopener">Ver no Google Maps ↗</a>
+      </address>
     </div>
   </div>
   <div class="foot-bottom wrap">
-    Protótipo · Biblioteca Escolar da ESP · Site estático previsto para GitHub Pages · <a>Acessibilidade</a> · <a>Política de privacidade</a>
+    Protótipo · Biblioteca Escolar da Escola Secundária de Paredes · <a>Acessibilidade</a> · <a>Política de privacidade</a>
   </div>
 </footer>
 
