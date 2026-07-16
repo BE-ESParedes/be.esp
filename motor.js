@@ -17,6 +17,16 @@ const temTexto = v => typeof v === 'string' && v.trim() !== '';
 /* Liga externa: abre em nova aba com segurança */
 const attrsLink = url => `href="${esc(url)}" target="_blank" rel="noopener"`;
 
+
+/* Cartão com imagem opcional a ocupar todo o cartão.
+   Devolve {cls, bg} para usar em qualquer cartão desenhado a partir do conteúdo. */
+function capaCartao(x) {
+  return temTexto(x && x.imagem)
+    ? { cls: ' card--img', bg: `<img class="card-bg" src="${esc(x.imagem)}" alt="${esc(x.alt || '')}">` }
+    : { cls: '', bg: '' };
+}
+window.capaCartao = capaCartao;
+
 /* ---------- conteúdo ---------- */
 const CONTEUDO = {};
 const FICHEIROS = [
@@ -270,6 +280,8 @@ function ligarFormulario() {
     window.location.href = `mailto:${i.email}?subject=${encodeURIComponent('[Site BE] ' + d.get('assunto'))}&body=${encodeURIComponent(corpo)}`;
   });
 }
+
+window.esc = esc; window.temTexto = temTexto; window.attrsLink = attrsLink;
 
 /* ---------- arranque ---------- */
 (async function iniciar() {
