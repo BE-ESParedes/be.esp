@@ -1,0 +1,247 @@
+{
+  "disciplinas": [
+    {
+      "nome": "Português",
+      "essenciais": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso essencial",
+          "url": ""
+        }
+      ],
+      "aprofundamento": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
+          "url": ""
+        }
+      ],
+      "propostas": [
+        {
+          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
+          "url": ""
+        }
+      ],
+      "testados": [
+        {
+          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "nome": "História",
+      "essenciais": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso essencial",
+          "url": ""
+        }
+      ],
+      "aprofundamento": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
+          "url": ""
+        }
+      ],
+      "propostas": [
+        {
+          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
+          "url": ""
+        }
+      ],
+      "testados": [
+        {
+          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "nome": "Filosofia",
+      "essenciais": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso essencial",
+          "url": ""
+        }
+      ],
+      "aprofundamento": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
+          "url": ""
+        }
+      ],
+      "propostas": [
+        {
+          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
+          "url": ""
+        }
+      ],
+      "testados": [
+        {
+          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "nome": "Geografia",
+      "essenciais": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso essencial",
+          "url": ""
+        }
+      ],
+      "aprofundamento": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
+          "url": ""
+        }
+      ],
+      "propostas": [
+        {
+          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
+          "url": ""
+        }
+      ],
+      "testados": [
+        {
+          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "nome": "Ciências",
+      "essenciais": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso essencial",
+          "url": ""
+        }
+      ],
+      "aprofundamento": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
+          "url": ""
+        }
+      ],
+      "propostas": [
+        {
+          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
+          "url": ""
+        }
+      ],
+      "testados": [
+        {
+          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "nome": "Matemática",
+      "essenciais": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso essencial",
+          "url": ""
+        }
+      ],
+      "aprofundamento": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
+          "url": ""
+        }
+      ],
+      "propostas": [
+        {
+          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
+          "url": ""
+        }
+      ],
+      "testados": [
+        {
+          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "nome": "Línguas Estrangeiras",
+      "essenciais": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso essencial",
+          "url": ""
+        }
+      ],
+      "aprofundamento": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
+          "url": ""
+        }
+      ],
+      "propostas": [
+        {
+          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
+          "url": ""
+        }
+      ],
+      "testados": [
+        {
+          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "nome": "Cidadania e Desenvolvimento",
+      "essenciais": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso essencial",
+          "url": ""
+        }
+      ],
+      "aprofundamento": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
+          "url": ""
+        }
+      ],
+      "propostas": [
+        {
+          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
+          "url": ""
+        }
+      ],
+      "testados": [
+        {
+          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "nome": "Tecnologias",
+      "essenciais": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso essencial",
+          "url": ""
+        }
+      ],
+      "aprofundamento": [
+        {
+          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
+          "url": ""
+        }
+      ],
+      "propostas": [
+        {
+          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
+          "url": ""
+        }
+      ],
+      "testados": [
+        {
+          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
+          "url": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,36 @@
 {
   "agenda": [
-    { "dia": "11", "mes": "Abr", "titulo": "Oficina de Literacia da Informação – 10.º ano", "local": "Sala de Informática · 10h00" },
-    { "dia": "14", "mes": "Abr", "titulo": "Clube de Leitura – sessão mensal de partilha", "local": "Biblioteca · 14h30" },
-    { "dia": "22", "mes": "Abr", "titulo": "Mostra «Dia Mundial da Terra»", "local": "Biblioteca e corredor principal" },
-    { "dia": "05", "mes": "Mai", "titulo": "Oficina «Citar e referenciar» – 12.º ano", "local": "Biblioteca · 9h00" }
+    {
+      "dia": "11",
+      "mes": "Abr",
+      "ano": "2026",
+      "titulo": "Oficina de Literacia da Informação, 10.º ano",
+      "local": "Sala de Informática · 10h00",
+      "url": ""
+    },
+    {
+      "dia": "14",
+      "mes": "Abr",
+      "ano": "2026",
+      "titulo": "Clube de Leitura, sessão mensal de partilha",
+      "local": "Biblioteca · 14h30",
+      "url": ""
+    },
+    {
+      "dia": "22",
+      "mes": "Abr",
+      "ano": "2026",
+      "titulo": "Mostra «Dia Mundial da Terra»",
+      "local": "Biblioteca e corredor principal",
+      "url": ""
+    },
+    {
+      "dia": "05",
+      "mes": "Mai",
+      "ano": "2026",
+      "titulo": "Oficina «Citar e referenciar», 12.º ano",
+      "local": "Biblioteca · 9h00",
+      "url": ""
+    }
   ]
 }

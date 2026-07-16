@@ -1,10 +1,76 @@
 {
   "noticias": [
-    { "emoji": "📖", "cor": "#A8D8CC", "cat": "Leitura",   "data": "Exemplo", "titulo": "Clube de Leitura: novos títulos", "resumo": "Conhece a seleção do período e junta-te às sessões de partilha." },
-    { "emoji": "🏆", "cor": "#D8B260", "cat": "Concurso",  "data": "Exemplo", "titulo": "Resultados do concurso «Primavera a Ler»", "resumo": "Apurados os trabalhos finalistas da edição deste ano." },
-    { "emoji": "🌍", "cor": "#20493B", "cat": "Formação",  "data": "Exemplo", "titulo": "Sessão de literacia da informação", "resumo": "Nova sessão sobre pesquisa e uso crítico da informação." },
-    { "emoji": "🎨", "cor": "#A8D8CC", "cat": "Exposição", "data": "Exemplo", "titulo": "Exposição de trabalhos de alunos", "resumo": "Mostra em exibição na Biblioteca até ao final do mês." },
-    { "emoji": "🎬", "cor": "#20493B", "cat": "Cultura",   "data": "Exemplo", "titulo": "Cinema na Biblioteca", "resumo": "Sessão de cinema seguida de debate com a comunidade." },
-    { "emoji": "📰", "cor": "#D8B260", "cat": "Projeto",   "data": "Exemplo", "titulo": "Nova edição do jornal escolar", "resumo": "Já podes ler a edição mais recente do jornal escolar." }
+    {
+      "titulo": "Clube de Leitura: novos títulos",
+      "data": "Exemplo",
+      "dataOrdenacao": "2026-06-01",
+      "categoria": "Leitura",
+      "resumo": "Conhece a seleção do período e junta-te às sessões de partilha.",
+      "imagem": "",
+      "emoji": "📖",
+      "cor": "#A8D8CC",
+      "url": "",
+      "exemplo": true
+    },
+    {
+      "titulo": "Resultados do concurso «Primavera a Ler»",
+      "data": "Exemplo",
+      "dataOrdenacao": "2026-05-20",
+      "categoria": "Concurso",
+      "resumo": "Apurados os trabalhos finalistas da edição deste ano.",
+      "imagem": "",
+      "emoji": "🏆",
+      "cor": "#D8B260",
+      "url": "",
+      "exemplo": true
+    },
+    {
+      "titulo": "Sessão de literacia da informação",
+      "data": "Exemplo",
+      "dataOrdenacao": "2026-05-05",
+      "categoria": "Formação",
+      "resumo": "Nova sessão sobre pesquisa e uso crítico da informação.",
+      "imagem": "",
+      "emoji": "🌍",
+      "cor": "#20493B",
+      "url": "",
+      "exemplo": true
+    },
+    {
+      "titulo": "Exposição de trabalhos de alunos",
+      "data": "Exemplo",
+      "dataOrdenacao": "2026-04-18",
+      "categoria": "Exposição",
+      "resumo": "Mostra em exibição na Biblioteca até ao final do mês.",
+      "imagem": "",
+      "emoji": "🎨",
+      "cor": "#A8D8CC",
+      "url": "",
+      "exemplo": true
+    },
+    {
+      "titulo": "Cinema na Biblioteca",
+      "data": "Exemplo",
+      "dataOrdenacao": "2026-03-22",
+      "categoria": "Cultura",
+      "resumo": "Sessão de cinema seguida de debate com a comunidade.",
+      "imagem": "",
+      "emoji": "🎬",
+      "cor": "#20493B",
+      "url": "",
+      "exemplo": true
+    },
+    {
+      "titulo": "Nova edição do jornal escolar",
+      "data": "Exemplo",
+      "dataOrdenacao": "2026-02-10",
+      "categoria": "Projeto",
+      "resumo": "Já podes ler a edição mais recente do jornal escolar.",
+      "imagem": "",
+      "emoji": "📰",
+      "cor": "#D8B260",
+      "url": "",
+      "exemplo": true
+    }
   ]
 }

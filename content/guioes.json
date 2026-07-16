@@ -1,0 +1,34 @@
+{
+  "guioes": [
+    {
+      "titulo": "Guião de pesquisa (modelo BIG6)",
+      "descricao": "Os seis passos para fazer um trabalho de pesquisa do início ao fim.",
+      "url": ""
+    },
+    {
+      "titulo": "Guia para trabalhos escritos",
+      "descricao": "Como estruturar, redigir e apresentar um trabalho.",
+      "url": ""
+    },
+    {
+      "titulo": "Normas de citação (APA) e integridade académica",
+      "descricao": "Como citar fontes e evitar plágio.",
+      "url": ""
+    },
+    {
+      "titulo": "Guião para validar sítios web",
+      "descricao": "Critérios para avaliar a fiabilidade de uma fonte em linha.",
+      "url": ""
+    },
+    {
+      "titulo": "Métodos de estudo",
+      "descricao": "Técnicas de organização, memorização e gestão do tempo.",
+      "url": ""
+    },
+    {
+      "titulo": "Vídeos curtos de apoio",
+      "descricao": "Tutoriais breves sobre pesquisa e uso do catálogo.",
+      "url": ""
+    }
+  ]
+}

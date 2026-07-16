@@ -1,0 +1,82 @@
+{
+  "ligacoesUteis": [
+    {
+      "grupo": "Ler",
+      "nome": "PNL2027",
+      "url": "https://pnl2027.gov.pt",
+      "acesso": "livre"
+    },
+    {
+      "grupo": "Ler",
+      "nome": "Biblioteca Escolar Digital (RBE)",
+      "url": "https://www.rbe.mec.pt/np4/bed.html",
+      "acesso": "livre"
+    },
+    {
+      "grupo": "Ler",
+      "nome": "Portal da Literatura",
+      "url": "https://portaldaliteratura.com/",
+      "acesso": "livre"
+    },
+    {
+      "grupo": "Investigar",
+      "nome": "Recursos RBE",
+      "url": "https://www.rbe.mec.pt/np4/recursos",
+      "acesso": "livre"
+    },
+    {
+      "grupo": "Investigar",
+      "nome": "RCAAP",
+      "url": "https://www.rcaap.pt",
+      "acesso": "livre"
+    },
+    {
+      "grupo": "Investigar",
+      "nome": "Europeana",
+      "url": "https://www.europeana.eu",
+      "acesso": "livre"
+    },
+    {
+      "grupo": "Escrever",
+      "nome": "Aprender com a Biblioteca Escolar",
+      "url": "https://www.rbe.mec.pt/np4/AprendercBE.html",
+      "acesso": "livre"
+    },
+    {
+      "grupo": "Escrever",
+      "nome": "Normas APA (guia da BE)",
+      "url": "",
+      "acesso": "livre"
+    },
+    {
+      "grupo": "Criar",
+      "nome": "Jornais escolares (DGE)",
+      "url": "https://jornaisescolares.dge.mec.pt",
+      "acesso": "livre"
+    },
+    {
+      "grupo": "Criar",
+      "nome": "Plano Nacional das Artes",
+      "url": "https://www.pna.gov.pt",
+      "acesso": "livre"
+    },
+    {
+      "grupo": "Aprender digitalmente",
+      "nome": "Portal MILD (RBE)",
+      "url": "https://mild.rbe.mec.pt",
+      "acesso": "livre"
+    },
+    {
+      "grupo": "Aprender digitalmente",
+      "nome": "PhET, simulações interativas",
+      "url": "https://phet.colorado.edu/",
+      "acesso": "livre"
+    },
+    {
+      "grupo": "Aprender digitalmente",
+      "nome": "BBC Learning English",
+      "url": "https://www.bbc.co.uk/learningenglish/",
+      "acesso": "livre"
+    }
+  ]
+}

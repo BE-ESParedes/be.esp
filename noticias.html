@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notícias · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Novidades, exposições e iniciativas da Biblioteca Escolar da Escola Secundária de Paredes.">
+<meta property="og:title" content="Notícias · Biblioteca Escolar da ESP">
+<meta property="og:description" content="Novidades, exposições e iniciativas da Biblioteca Escolar da Escola Secundária de Paredes.">
+<meta property="og:image" content="imagens/logo/og.png">
+<meta property="og:type" content="website">
+<!-- Favicon do BrandKit (04_Icons). Substituir quando o ficheiro existir. -->
+<link rel="icon" href="imagens/logo/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body id="p-noticias">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <div class="wrap pad">
+    <h1 class="sec-title">Notícias</h1><div class="rule"></div>
+    <p class="sec-lead">Novidades, exposições e iniciativas da Biblioteca.</p>
+    <div class="filtros" id="filtro-noticias" role="group" aria-label="Filtrar por categoria"></div>
+    <div class="news" id="all-news"></div>
+  </div>
+  <!-- 2.ª fase: aqui entrará o feed automático do Instagram e do Facebook. -->
+  <div class="soft"><div class="wrap pad">
+    <h2 class="sec-title">Segue-nos</h2><div class="rule"></div>
+    <div class="grid2">
+      <div class="card" id="redes"></div>
+      <div class="card">
+        <span class="ic">✉️</span><h3>Newsletter</h3>
+        <p>Recebe as novidades da Biblioteca no teu correio eletrónico.</p>
+        <p style="margin-top:12px"><a class="btn primario" id="btn-news">Subscrever novidades</a></p>
+        <!-- Solução simples de lançamento (mailto). Migrar futuramente para formulário. -->
+      </div>
+    </div>
+  </div></div>
+
+</main>
+<div id="rodape"></div>
+<script>
+window.renderPagina = function(){
+  const i = CONTEUDO.info || {};
+  const r = document.getElementById('redes');
+  if (r) r.innerHTML = `<span class="ic">📣</span><h3>Redes sociais</h3><p>Acompanha o dia a dia da Biblioteca.</p>
+    <p style="margin-top:12px">` + [
+      i.instagram && `<a class="btn claro btn-sm" href="${i.instagram}" target="_blank" rel="noopener">📷 Instagram</a>`,
+      i.facebook && `<a class="btn claro btn-sm" href="${i.facebook}" target="_blank" rel="noopener">📘 Facebook</a>`,
+      i.youtube && `<a class="btn claro btn-sm" href="${i.youtube}" target="_blank" rel="noopener">▶️ YouTube</a>`,
+    ].filter(Boolean).join(' ') + `</p>`;
+  const b = document.getElementById('btn-news');
+  if (b) b.href = `mailto:${i.email}?subject=` + encodeURIComponent('Subscrever novidades da BE');
+};
+</script>
+<script src="motor.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Catálogo BiblioNet, biblioteca digital verificada, empréstimos e serviço de referência da BE-ESP.">
+<meta property="og:title" content="Catálogo · Biblioteca Escolar da ESP">
+<meta property="og:description" content="Catálogo BiblioNet, biblioteca digital verificada, empréstimos e serviço de referência da BE-ESP.">
+<meta property="og:image" content="imagens/logo/og.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="imagens/logo/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body id="p-catalogo">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <div class="wrap pad">
+    <h1 class="sec-title">Catálogo e Biblioteca Digital</h1><div class="rule"></div>
+    <p class="sec-lead">O acervo da BE-ESP está no catálogo coletivo <strong>BiblioNet</strong>, partilhado com a Biblioteca Municipal de Paredes.</p>
+
+    <div class="card" id="opac" style="background:linear-gradient(135deg,var(--menta-wash),#ffffff 70%)">
+      <span class="ic">🔎</span><h3>Pesquisa no catálogo (OPAC)</h3>
+      <p style="color:var(--cinza)">Pesquisa a partir de qualquer dispositivo. Requer credenciais BiblioNet para reservar e renovar.</p>
+      <div class="btns" id="opac-botoes" style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap"></div>
+    </div>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Como requisitar</h2><div class="rule"></div>
+    <div class="grid3">
+      <div class="card"><span class="ic">🧭</span><h3>Apoio à pesquisa</h3><p>Tutoriais curtos sobre o uso do catálogo e a recuperação de informação.</p></div>
+      <div class="card"><span class="ic">⭐</span><h3>Destaques do catálogo</h3><div id="destaques-cat"></div></div>
+      <div class="card"><span class="ic">📖</span><h3>Empréstimos e requisições</h3><p>Quotas e prazos por categoria de utilizador (Art. 11.º do RI-BE). Ver as regras em A Biblioteca.</p></div>
+    </div>
+
+    <h2 id="digital" style="margin-top:38px;color:var(--verde-esc)">Biblioteca Digital</h2><div class="rule"></div>
+    <p class="sec-lead">Recursos em linha selecionados e verificados pela Biblioteca.</p>
+    <div class="filtros" id="filtro-digital" role="group" aria-label="Filtrar por tipo"></div>
+    <div class="grid3" id="lista-digital"></div>
+    <p class="aviso">Os recursos listados são de acesso gratuito e legal. Respeita os direitos de autor: usa os conteúdos para fins educativos e cita sempre a fonte.</p>
+
+    <h2 id="referencia" style="margin-top:38px;color:var(--verde-esc)">Serviço de referência e apoio à pesquisa</h2><div class="rule"></div>
+    <div class="grid2"><form id="form-contacto" class="card" novalidate>
+        <span class="ic">✉️</span><h3>Formulário de contacto</h3>
+        <p style="margin-bottom:12px">Escreve-nos e respondemos com a maior brevidade.</p>
+        <div class="field"><label for="f-nome">Nome</label><input id="f-nome" name="nome" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required></div>
+        <div class="field"><label for="f-assunto">Assunto</label>
+          <select id="f-assunto" name="assunto">
+            <option>Dúvida</option><option>Sugestão de aquisição</option><option>Apoio à pesquisa</option>
+            <option>Articulação curricular</option><option>Outro</option>
+          </select></div>
+        <div class="field"><label for="f-msg">Mensagem</label><textarea id="f-msg" name="mensagem" rows="4" required></textarea></div>
+        <p style="margin-top:12px"><button class="btn primario" type="submit">Enviar</button></p>
+      </form>
+      <div class="card"><span class="ic">🎧</span><h3>Balcão de referência digital</h3>
+        <p>Marca uma sessão de apoio individualizado com a equipa, presencial ou em linha.</p>
+        <p style="margin-top:12px" id="marcacao"></p></div>
+    </div>
+
+    <h2 id="faq" style="margin-top:38px;color:var(--verde-esc)">Perguntas frequentes</h2><div class="rule"></div>
+    <div class="faq" id="faq-lista"></div>
+  </div>
+
+</main>
+<div id="rodape"></div>
+<script>
+window.renderPagina = function(){
+  const i = CONTEUDO.info || {};
+  const ob = document.getElementById('opac-botoes');
+  if (ob) ob.innerHTML = [
+    i.opacSimples && `<a class="btn primario" href="${i.opacSimples}" target="_blank" rel="noopener">Pesquisa simples</a>`,
+    i.opacAvancada && `<a class="btn outline" href="${i.opacAvancada}" target="_blank" rel="noopener">Pesquisa avançada</a>`
+  ].filter(Boolean).join('');
+  const dc = document.getElementById('destaques-cat');
+  if (dc) dc.innerHTML = (CONTEUDO.destaquesCatalogo||[]).map(d =>
+    `<p style="margin:0 0 8px"><strong>${d.titulo}</strong>${d.autor?`, ${d.autor}`:''}<br><span style="color:var(--cinza);font-size:14px">${d.nota||''}</span></p>`).join('');
+  const mc = document.getElementById('marcacao');
+  if (mc) mc.innerHTML = i.linkMarcacao
+    ? `<a class="btn primario" href="${i.linkMarcacao}" target="_blank" rel="noopener">📅 Marcar sessão de apoio</a>`
+    : `<a class="btn primario" href="#form-contacto">📅 Marcar sessão de apoio</a><br><span style="font-size:12px;color:var(--cinza)">Ligar ao Bookings do Microsoft 365 quando disponível.</span>`;
+  // Biblioteca digital com filtro
+  const TIPOS = {todos:'Todos', ebooks:'E-books', audiolivros:'Audiolivros', imprensa:'Jornais e revistas', repositorios:'Repositórios'};
+  const D = CONTEUDO.bibliotecaDigital || [];
+  const lista = document.getElementById('lista-digital');
+  const pinta = t => lista.innerHTML = D.filter(x => t==='todos' || x.tipo===t).map(x =>
+    `<a class="card" href="${x.url}" target="_blank" rel="noopener"><span class="ic">🌐</span>
+      <h3>${x.nome}${x.verificado?'<span class="selo">✓ verificado</span>':''}</h3>
+      <p>${x.descricao}</p>
+      <p style="margin-top:8px;font-size:12px;color:var(--cinza)">${TIPOS[x.tipo]||x.tipo} · acesso ${x.acesso}</p></a>`).join('');
+  const fd = document.getElementById('filtro-digital');
+  if (fd) {
+    fd.innerHTML = Object.entries(TIPOS).map(([k,v],n) => `<button class="fchip${n===0?' active':''}" data-t="${k}">${v}</button>`).join('');
+    fd.addEventListener('click', e => { const b=e.target.closest('.fchip'); if(!b) return;
+      [...fd.children].forEach(x=>x.classList.toggle('active',x===b)); pinta(b.dataset.t); });
+  }
+  pinta('todos');
+  const fq = document.getElementById('faq-lista');
+  if (fq) fq.innerHTML = (CONTEUDO.faq||[]).map(f => `<details><summary>${f.pergunta}</summary><p>${f.resposta}</p></details>`).join('');
+};
+</script>
+<script src="motor.js"></script>
+</body>
+</html>

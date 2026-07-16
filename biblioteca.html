@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Biblioteca · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Apresentação, equipa, horário, regras, documentos e galeria da Biblioteca Escolar da ESP.">
+<meta property="og:title" content="A Biblioteca · Biblioteca Escolar da ESP">
+<meta property="og:description" content="Apresentação, equipa, horário, regras, documentos e galeria da Biblioteca Escolar da ESP.">
+<meta property="og:image" content="imagens/logo/og.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="imagens/logo/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body id="p-biblioteca">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <div class="wrap pad">
+    <h1 class="sec-title">A Biblioteca</h1><div class="rule"></div>
+    <p class="sec-lead" id="intro"></p>
+
+    <h2 id="quem-somos" style="margin-top:30px;color:var(--verde-esc)">Quem somos</h2><div class="rule"></div>
+    <p id="missao" style="max-width:860px;color:var(--verde-esc)"></p>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><span class="ic">👥</span><h3>Equipa</h3><div id="equipa"></div></div>
+      <div class="card" id="contactos"><span class="ic">📬</span><h3>Contactos e canais</h3><div id="canais"></div></div>
+    </div>
+
+    <h2 id="horario" style="margin-top:38px;color:var(--verde-esc)">Espaço, horário e regras</h2><div class="rule"></div>
+    <div class="grid2">
+      <div class="card"><span class="ic">🕐</span><h3>Funcionamento</h3><div id="funcionamento"></div></div>
+      <div class="card"><span class="ic">📍</span><h3>Espaço</h3><div id="espaco"></div>
+        <!-- Planta do espaço: colocar imagens/planta.png -->
+        <div class="media tile" style="margin-top:12px"><span class="ph"><span class="g">🗺️</span>planta do espaço (a colocar)</span></div>
+      </div>
+    </div>
+    <h3 style="margin-top:26px;color:var(--verde-esc)">Regras de utilização</h3>
+    <ul class="docs" id="regras"></ul>
+
+    <h2 id="documentos" style="margin-top:38px;color:var(--verde-esc)">Documentos</h2><div class="rule"></div>
+    <ul class="docs" id="lista-documentos"></ul>
+
+    <h2 id="projetos-escola" style="margin-top:38px;color:var(--verde-esc)">Projetos da escola</h2><div class="rule"></div>
+    <div class="grid3" id="projetos-escola-lista"></div>
+
+    <h2 id="galeria-t" style="margin-top:38px;color:var(--verde-esc)">Galeria</h2><div class="rule"></div>
+    <div class="galeria" id="galeria"></div>
+    <p class="aviso">As fotografias só são publicadas com consentimento registado dos titulares ou dos encarregados de educação (RGPD).</p>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Fala connosco</h2><div class="rule"></div>
+    <div class="grid2"><form id="form-contacto" class="card" novalidate>
+        <span class="ic">✉️</span><h3>Formulário de contacto</h3>
+        <p style="margin-bottom:12px">Escreve-nos e respondemos com a maior brevidade.</p>
+        <div class="field"><label for="f-nome">Nome</label><input id="f-nome" name="nome" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required></div>
+        <div class="field"><label for="f-assunto">Assunto</label>
+          <select id="f-assunto" name="assunto">
+            <option>Dúvida</option><option>Sugestão de aquisição</option><option>Apoio à pesquisa</option>
+            <option>Articulação curricular</option><option>Outro</option>
+          </select></div>
+        <div class="field"><label for="f-msg">Mensagem</label><textarea id="f-msg" name="mensagem" rows="4" required></textarea></div>
+        <p style="margin-top:12px"><button class="btn primario" type="submit">Enviar</button></p>
+      </form>
+      <div class="card"><span class="ic">💡</span><h3>Sugestões e reclamações</h3>
+        <p>A tua opinião ajuda a melhorar a Biblioteca. Usa o formulário ao lado, escolhendo o assunto adequado, ou escreve-nos.</p></div>
+    </div>
+  </div>
+
+</main>
+<div id="rodape"></div>
+<script>
+window.renderPagina = function(){
+  const i = CONTEUDO.info || {};
+  const T = (id,v) => { const e=document.getElementById(id); if(e) e.textContent=v||''; };
+  T('intro', `A Biblioteca Escolar da ${i.escola||''} integra a Rede de Bibliotecas Escolares (código de escola ${i.codigoRBE||''}) e concretiza a Meta 27 do Projeto Educativo 2024-2027.`);
+  T('missao', i.missao);
+  const linha = (b,s) => `<div class="info-row"><b>${b}</b><span>${s}</span></div>`;
+  const eq = document.getElementById('equipa');
+  if (eq) eq.innerHTML = (i.equipa||[]).map(p => linha(p.funcao, p.nome)).join('');
+  const ca = document.getElementById('canais');
+  if (ca) ca.innerHTML = linha('Correio', `<a href="mailto:${i.email}">${i.email}</a>`)
+    + (i.telefone?linha('Telefone', i.telefone):'')
+    + (i.instagram?linha('Instagram', `<a href="${i.instagram}" target="_blank" rel="noopener">@be_esparedes</a>`):'')
+    + (i.facebook?linha('Facebook', `<a href="${i.facebook}" target="_blank" rel="noopener">@BE_ESParedes</a>`):'')
+    + linha('YouTube', i.youtube ? `<a href="${i.youtube}" target="_blank" rel="noopener">Canal da BE</a>` : 'a confirmar');
+  const fu = document.getElementById('funcionamento');
+  if (fu) fu.innerHTML = linha('Horário', i.horarioLongo||i.horario) + linha('Acesso','Livre e gratuito a toda a comunidade educativa');
+  const es = document.getElementById('espaco');
+  if (es) es.innerHTML = linha('Localização', i.localizacao) + linha('Lugares', i.lugares);
+  const rg = document.getElementById('regras');
+  if (rg) rg.innerHTML = (CONTEUDO.regras||[]).map(r => `<li><a style="cursor:default">📌 ${r}</a></li>`).join('');
+  const pe = document.getElementById('projetos-escola-lista');
+  if (pe) pe.innerHTML = (CONTEUDO.projetosEscola||[]).map(p => p.url
+    ? `<a class="card" href="${p.url}" target="_blank" rel="noopener"><span class="ic">🔗</span><h3>${p.nome}</h3></a>`
+    : `<div class="card"><span class="ic">🔗</span><h3>${p.nome}</h3><p style="color:var(--cinza)">Ligação a confirmar.</p></div>`).join('');
+};
+</script>
+<script src="motor.js"></script>
+</body>
+</html>

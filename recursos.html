@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursos · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Centro de apoio ao estudo e à pesquisa: guiões, recursos por disciplina, literacia digital e ligações úteis.">
+<meta property="og:title" content="Recursos · Biblioteca Escolar da ESP"><meta property="og:description" content="Centro de apoio ao estudo e à pesquisa: guiões, recursos por disciplina, literacia digital e ligações úteis.">
+<meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
+<link rel="icon" href="imagens/logo/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body id="p-recursos">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <div class="wrap pad">
+    <h1 class="sec-title">Recursos</h1><div class="rule"></div>
+    <p class="sec-lead">Um centro de apoio ao estudo e à pesquisa, com entradas claras e poucos cliques até ao conteúdo.</p>
+
+    <h2 style="margin-top:26px;color:var(--verde-esc)">Começa aqui</h2><div class="rule"></div>
+    <div class="passos">
+      <div class="passo"><h3>Define o tema</h3><p>Delimita o assunto e escreve o que precisas de descobrir.</p></div>
+      <div class="passo"><h3>Pesquisa e seleciona</h3><p>Procura em fontes fiáveis e avalia o que encontras.</p></div>
+      <div class="passo"><h3>Organiza e cita</h3><p>Estrutura, escreve e cita sempre as fontes usadas.</p></div>
+    </div>
+    <p style="margin-top:20px"><a class="btn primario" href="#apoio">Pedir apoio à Biblioteca</a></p>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Aprender a estudar e a pesquisar</h2><div class="rule"></div>
+    <div class="grid3" id="guioes"></div>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Apoio ao currículo, por disciplina</h2><div class="rule"></div>
+    <div class="faq" id="disciplinas"></div>
+
+    <h2 id="apoio" style="margin-top:38px;color:var(--verde-esc)">Docentes: reserva de espaço e apoio colaborativo</h2><div class="rule"></div>
+    <div class="card" style="background:linear-gradient(135deg,var(--menta-wash),#ffffff 70%)">
+      <span class="ic">🏫</span><h3>Trabalhar com a Biblioteca</h3>
+      <p>Agende uma aula na Biblioteca ou peça apoio para projetos de literacia da sua turma.</p>
+      <p style="margin-top:12px"><a class="btn primario" href="biblioteca.html#contactos">Pedir apoio ou reservar espaço</a></p>
+    </div>
+  </div>
+
+  <div class="soft"><div class="wrap pad">
+    <h2 class="sec-title">Literacia e cidadania digital</h2><div class="rule"></div>
+    <div class="grid3">
+      <div class="card"><span class="ic">🔎</span><h3>Pesquisar em segurança</h3><p>Estratégias de pesquisa e proteção de dados pessoais.</p></div>
+      <div class="card"><span class="ic">🧠</span><h3>Avaliar informação em linha</h3><p>Como verificar fontes e detetar desinformação.</p></div>
+      <div class="card"><span class="ic">📱</span><h3>Redes sociais e identidade digital</h3><p>Pegada digital, reputação e bem-estar em linha.</p></div>
+      <div class="card"><span class="ic">🎬</span><h3>Imagem, vídeo e direitos de autor</h3><p>Usar e criar conteúdos respeitando os direitos.</p></div>
+      <div class="card"><span class="ic">🤝</span><h3>Cidadania digital</h3><p>Participação, respeito e responsabilidade em linha.</p></div>
+      <div class="card"><span class="ic">🧰</span><h3>Ferramentas digitais úteis</h3><p>Aplicações de apoio ao estudo e à criação.</p></div>
+    </div>
+    <div class="grid2" style="margin-top:18px">
+      <a class="card" href="https://mild.rbe.mec.pt" target="_blank" rel="noopener">
+        <span class="ic">📘</span><h3>Portal MILD</h3><p>Manual de Instruções para a Literacia Digital da RBE, para os 14 aos 18 anos.</p></a>
+      <div class="card" id="desafio"></div>
+    </div>
+  </div></div>
+
+  <div class="wrap pad">
+    <h2 class="sec-title">Ligações úteis</h2><div class="rule"></div>
+    <div id="ligacoes"></div>
+  </div>
+
+</main>
+<div id="rodape"></div>
+<script>
+window.renderPagina = function(){
+  const g = document.getElementById('guioes');
+  if (g) g.innerHTML = (CONTEUDO.guioes||[]).map(x => x.url
+    ? `<a class="card" href="${x.url}" target="_blank" rel="noopener"><span class="ic">📄</span><h3>${x.titulo}</h3><p>${x.descricao}</p></a>`
+    : `<div class="card"><span class="ic">📄</span><h3>${x.titulo}</h3><p>${x.descricao}</p><p style="margin-top:8px;font-size:12px;color:var(--cinza)">brevemente disponível</p></div>`).join('');
+  const li = (arr) => (arr||[]).map(x => x.url
+    ? `<li><a href="${x.url}" target="_blank" rel="noopener">${x.titulo}</a></li>` : `<li>${x.titulo}</li>`).join('') || '<li style="color:var(--cinza)">Sem itens.</li>';
+  const d = document.getElementById('disciplinas');
+  if (d) d.innerHTML = (CONTEUDO.disciplinas||[]).map(x => `<details><summary>${x.nome}</summary>
+      <div class="grid2" style="margin:10px 0 14px">
+        <div><h4 style="color:var(--verde-esc);margin:0 0 6px">Recursos essenciais</h4><ul style="margin:0;padding-left:18px;font-size:14px">${li(x.essenciais)}</ul></div>
+        <div><h4 style="color:var(--verde-esc);margin:0 0 6px">Aprofundamento</h4><ul style="margin:0;padding-left:18px;font-size:14px">${li(x.aprofundamento)}</ul></div>
+        <div><h4 style="color:var(--verde-esc);margin:0 0 6px">Propostas de aula ou projeto</h4><ul style="margin:0;padding-left:18px;font-size:14px">${li(x.propostas)}</ul></div>
+        <div><h4 style="color:var(--verde-esc);margin:0 0 6px">Materiais da Biblioteca testados</h4><ul style="margin:0;padding-left:18px;font-size:14px">${li(x.testados)}</ul></div>
+      </div></details>`).join('');
+  const dm = CONTEUDO.desafioMes || {};
+  const de = document.getElementById('desafio');
+  if (de) de.innerHTML = `<span class="ic">🎯</span><h3>${dm.titulo||'Desafio do mês'}</h3><p>${dm.texto||''}</p>`
+    + (dm.url?`<p style="margin-top:12px"><a class="btn claro btn-sm" href="${dm.url}" target="_blank" rel="noopener">Participar</a></p>`:'');
+  const GR = ['Ler','Investigar','Escrever','Criar','Aprender digitalmente'];
+  const lu = document.getElementById('ligacoes');
+  if (lu) lu.innerHTML = GR.map(grupo => {
+    const itens = (CONTEUDO.ligacoesUteis||[]).filter(x => x.grupo===grupo);
+    if (!itens.length) return '';
+    return `<h3 style="margin:22px 0 6px;color:var(--verde-esc)">${grupo}</h3><div class="rule"></div>
+      <ul class="docs">${itens.map(x => x.url
+        ? `<li><a href="${x.url}" target="_blank" rel="noopener">🔗 ${x.nome} <em style="font-weight:400;color:var(--cinza)">— acesso ${x.acesso}</em></a></li>`
+        : `<li><a style="opacity:.65;cursor:default">🔗 ${x.nome} <em style="font-weight:400;color:var(--cinza)">— brevemente disponível</em></a></li>`).join('')}</ul>`;
+  }).join('');
+};
+</script>
+<script src="motor.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atividades e Projetos · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Agenda, exposições, projetos da Biblioteca, iniciativas nacionais, parcerias e trabalhos de alunos.">
+<meta property="og:title" content="Atividades e Projetos · Biblioteca Escolar da ESP"><meta property="og:description" content="Agenda, exposições, projetos da Biblioteca, iniciativas nacionais, parcerias e trabalhos de alunos.">
+<meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
+<link rel="icon" href="imagens/logo/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body id="p-atividades">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <div class="wrap pad">
+    <h1 class="sec-title">Atividades e Projetos</h1><div class="rule"></div>
+    <p class="sec-lead">O que vai acontecer divulga-se aqui. O que já aconteceu vive nas <a href="noticias.html">Notícias</a>.</p>
+
+    <h2 style="margin-top:26px;color:var(--verde-esc)">Próximas atividades</h2><div class="rule"></div>
+    <ul class="agenda" id="ativ-agenda"></ul>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Exposições</h2><div class="rule"></div>
+    <div id="exposicoes"></div>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Projetos da Biblioteca</h2><div class="rule"></div>
+    <div class="grid3" id="projetos"></div>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Iniciativas nacionais</h2><div class="rule"></div>
+    <p class="sec-lead">Programas e concursos nacionais em que a Biblioteca participa ou que estão abertos a inscrições.</p>
+    <div class="filtros" id="filtro-iniciativas" role="group" aria-label="Filtrar por área"></div>
+    <div class="grid3" id="iniciativas"></div>
+    <div id="iniciativas-arquivo"></div>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Parcerias</h2><div class="rule"></div>
+    <div class="grid3" id="parcerias"></div>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Trabalhos de alunos</h2><div class="rule"></div>
+    <div id="trabalhos"></div>
+    <p class="aviso">Os trabalhos são publicados com consentimento. Usa-se apenas o primeiro nome e a inicial, nunca o nome completo de menores.</p>
+  </div>
+
+</main>
+<div id="rodape"></div>
+<script>
+window.renderPagina = function(){
+  const i = CONTEUDO.info || {};
+  const fotos = (arr, n) => `<div class="grelha-fotos">` + (arr||[]).slice(0,n).map(f => f.ficheiro
+      ? `<div class="media tile"><img src="${f.ficheiro}" alt="${f.alt||''}"></div>`
+      : `<div class="media tile"><span class="ph"><span class="g">📷</span>foto</span></div>`).join('') + `</div>`;
+  const ex = document.getElementById('exposicoes');
+  if (ex) ex.innerHTML = (CONTEUDO.exposicoes||[]).map(e => `<div class="card" style="margin-bottom:18px">
+      <h3>${e.titulo}</h3><p style="color:var(--cinza);font-size:13px">${e.periodo||''}</p>
+      <p style="margin-top:6px">${e.descricao||''}</p>${fotos(e.imagens,8)}</div>`).join('');
+  const pr = document.getElementById('projetos');
+  if (pr) pr.innerHTML = (CONTEUDO.projetos||[]).map(p => `<div class="card"><span class="ic">📚</span>
+      <h3>${p.nome}</h3><p>${p.descricao}</p>
+      <p style="margin-top:8px"><span class="chip" style="background:${p.estado==='ativo'?'#EAF4F0':'#F7F8F5'};color:var(--verde-esc)">${p.estado}</span></p></div>`).join('');
+  // Iniciativas nacionais, com filtro por área e arquivo à parte
+  const IN = CONTEUDO.iniciativasNacionais || [];
+  const areas = [...new Set(IN.map(x => x.area))];
+  const ativas = IN.filter(x => x.estado !== 'arquivo');
+  const arq = IN.filter(x => x.estado === 'arquivo');
+  const cartao = x => `<a class="card" href="${x.url}" target="_blank" rel="noopener"><span class="ic">🇵🇹</span>
+      <h3>${x.nome}</h3><p>${x.descricao}</p>
+      <p style="margin-top:8px"><span class="chip" style="background:var(--menta-wash);color:var(--verde-esc)">${x.estado}</span>
+      <span style="font-size:12px;color:var(--cinza)"> · ${x.area}</span></p></a>`;
+  const lista = document.getElementById('iniciativas');
+  const pinta = a => lista.innerHTML = ativas.filter(x => !a || x.area===a).map(cartao).join('');
+  const fi = document.getElementById('filtro-iniciativas');
+  if (fi) {
+    fi.innerHTML = [`<button class="fchip active" data-a="">Todas</button>`]
+      .concat(areas.map(a => `<button class="fchip" data-a="${a}">${a}</button>`)).join('');
+    fi.addEventListener('click', e => { const b=e.target.closest('.fchip'); if(!b) return;
+      [...fi.children].forEach(x=>x.classList.toggle('active',x===b)); pinta(b.dataset.a); });
+  }
+  pinta('');
+  const ar = document.getElementById('iniciativas-arquivo');
+  if (ar && arq.length) ar.innerHTML = `<h3 style="margin:30px 0 6px;color:var(--cinza)">Arquivo</h3><div class="rule"></div>
+    <ul class="docs">${arq.map(x => `<li><a href="${x.url}" target="_blank" rel="noopener">🗄️ ${x.nome} <em style="font-weight:400;color:var(--cinza)">— ${x.descricao}</em></a></li>`).join('')}</ul>`;
+  const pa = document.getElementById('parcerias');
+  if (pa) pa.innerHTML = [
+    {n:'Biblioteca Municipal de Paredes', d:'Catálogo coletivo BiblioNet, empréstimo interbibliotecas e atividades culturais conjuntas.', u:i.bibliotecaMunicipal},
+    {n:'Rede Concelhia de Bibliotecas de Paredes', d:'Partilha de recursos, projetos conjuntos e boas práticas entre bibliotecas escolares.', u:''},
+    {n:'Rede de Bibliotecas Escolares (RBE)', d:'Referenciais, formação e projetos nacionais.', u:i.rbe},
+  ].map(p => p.u
+    ? `<a class="card" href="${p.u}" target="_blank" rel="noopener"><span class="ic">🤝</span><h3>${p.n}</h3><p>${p.d}</p></a>`
+    : `<div class="card"><span class="ic">🤝</span><h3>${p.n}</h3><p>${p.d}</p></div>`).join('');
+  const tr = document.getElementById('trabalhos');
+  if (tr) tr.innerHTML = (CONTEUDO.trabalhosAlunos||[]).map(t => `<div class="card" style="margin-bottom:18px">
+      <h3>${t.titulo}</h3><p style="color:var(--cinza);font-size:13px">${t.autores||''}</p>
+      <p style="margin-top:6px">${t.descricao||''}</p>${fotos(t.fotos,4)}</div>`).join('');
+};
+</script>
+<script src="motor.js"></script>
+</body>
+</html>

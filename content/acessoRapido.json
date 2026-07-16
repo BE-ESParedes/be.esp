@@ -1,0 +1,34 @@
+{
+  "acessoRapido": [
+    {
+      "icone": "📚",
+      "rotulo": "Catálogo",
+      "url": "http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
+    },
+    {
+      "icone": "💻",
+      "rotulo": "Recursos digitais",
+      "url": "catalogo.html#digital"
+    },
+    {
+      "icone": "🔍",
+      "rotulo": "Apoio à pesquisa",
+      "url": "recursos.html"
+    },
+    {
+      "icone": "🕐",
+      "rotulo": "Horário",
+      "url": "biblioteca.html#horario"
+    },
+    {
+      "icone": "📅",
+      "rotulo": "Agenda",
+      "url": "atividades.html"
+    },
+    {
+      "icone": "✉️",
+      "rotulo": "Sugestões",
+      "url": "biblioteca.html#contactos"
+    }
+  ]
+}

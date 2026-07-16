@@ -1,0 +1,68 @@
+{
+  "bibliotecaDigital": [
+    {
+      "nome": "Biblioteca Digital Camões",
+      "descricao": "Literatura e cultura em língua portuguesa.",
+      "tipo": "repositorios",
+      "acesso": "livre",
+      "url": "https://cvc.instituto-camoes.pt",
+      "verificado": true
+    },
+    {
+      "nome": "Biblioteca Nacional Digital",
+      "descricao": "Obras patrimoniais e fontes históricas.",
+      "tipo": "repositorios",
+      "acesso": "livre",
+      "url": "https://bndigital.bnportugal.gov.pt",
+      "verificado": true
+    },
+    {
+      "nome": "Europeana",
+      "descricao": "Património cultural europeu, imagens e documentos.",
+      "tipo": "repositorios",
+      "acesso": "livre",
+      "url": "https://www.europeana.eu",
+      "verificado": true
+    },
+    {
+      "nome": "RCAAP",
+      "descricao": "Repositórios científicos de acesso aberto.",
+      "tipo": "repositorios",
+      "acesso": "livre",
+      "url": "https://www.rcaap.pt",
+      "verificado": true
+    },
+    {
+      "nome": "Project Gutenberg",
+      "descricao": "Obras em domínio público.",
+      "tipo": "ebooks",
+      "acesso": "livre",
+      "url": "https://www.gutenberg.org",
+      "verificado": true
+    },
+    {
+      "nome": "DOAJ",
+      "descricao": "Revistas académicas de acesso aberto.",
+      "tipo": "imprensa",
+      "acesso": "livre",
+      "url": "https://doaj.org",
+      "verificado": true
+    },
+    {
+      "nome": "DOAB",
+      "descricao": "Livros académicos de acesso aberto.",
+      "tipo": "ebooks",
+      "acesso": "livre",
+      "url": "https://www.doabooks.org",
+      "verificado": true
+    },
+    {
+      "nome": "Biblioteca Escolar Digital (RBE)",
+      "descricao": "Recursos validados pela Rede de Bibliotecas Escolares.",
+      "tipo": "repositorios",
+      "acesso": "livre",
+      "url": "https://www.rbe.mec.pt/np4/bed.html",
+      "verificado": true
+    }
+  ]
+}

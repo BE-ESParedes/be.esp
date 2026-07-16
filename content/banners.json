@@ -1,31 +1,43 @@
 {
   "banners": [
     {
-      "grad": "#ffffff",
+      "imagem": "",
       "tag": "Biblioteca Escolar · ESP",
       "titulo": "Abre as portas da <em>imaginação</em>",
       "texto": "Recursos, apoio à pesquisa e um espaço de aprendizagem para toda a comunidade escolar.",
       "botoes": [
-        { "t": "📚 Catálogo online", "u": "http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx", "go": "", "e": "primario" },
-        { "t": "🕐 Horário", "u": "", "go": "biblioteca", "e": "outline" }
+        {
+          "rotulo": "📚 Catálogo online",
+          "url": "http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
+        },
+        {
+          "rotulo": "🕐 Horário",
+          "url": "biblioteca.html#horario"
+        }
       ]
     },
     {
-      "grad": "#ffffff",
+      "imagem": "",
       "tag": "Promoção da leitura",
       "titulo": "Concurso <em>Primavera a Ler</em>",
       "texto": "Participa na nova edição do concurso de leitura e representa a escola a nível municipal.",
       "botoes": [
-        { "t": "Saber mais", "u": "", "go": "atividades", "e": "primario" }
+        {
+          "rotulo": "Saber mais",
+          "url": "atividades.html"
+        }
       ]
     },
     {
-      "grad": "#ffffff",
+      "imagem": "",
       "tag": "Apoio ao estudo",
       "titulo": "Precisas de ajuda numa <em>pesquisa</em>?",
       "texto": "Marca uma sessão no balcão de referência digital e conta com o apoio da equipa da Biblioteca.",
       "botoes": [
-        { "t": "📅 Marcar apoio", "u": "", "go": "contactos", "e": "primario" }
+        {
+          "rotulo": "📅 Marcar apoio",
+          "url": "catalogo.html#referencia"
+        }
       ]
     }
   ]

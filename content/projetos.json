@@ -1,0 +1,49 @@
+{
+  "projetos": [
+    {
+      "nome": "10 Minutos a Ler",
+      "descricao": "Rotina diária de leitura em articulação com as disciplinas.",
+      "estado": "ativo"
+    },
+    {
+      "nome": "Primavera a Ler",
+      "descricao": "Concurso de leitura com projeção municipal.",
+      "estado": "ativo"
+    },
+    {
+      "nome": "Partilhas Literárias",
+      "descricao": "Sessões de partilha de leituras com as turmas.",
+      "estado": "ativo"
+    },
+    {
+      "nome": "Letras que Abraçam",
+      "descricao": "Projeto de escrita e solidariedade com a comunidade.",
+      "estado": "ativo"
+    },
+    {
+      "nome": "Cinema na Biblioteca",
+      "descricao": "Sessões de cinema seguidas de debate, no âmbito do Plano Nacional de Cinema.",
+      "estado": "ativo"
+    },
+    {
+      "nome": "Livr'à Mão",
+      "descricao": "Circulação de livros pela escola, ao alcance de todos.",
+      "estado": "ativo"
+    },
+    {
+      "nome": "Semana dos Afetos",
+      "descricao": "Atividades de leitura e expressão em torno das emoções e das relações.",
+      "estado": "ativo"
+    },
+    {
+      "nome": "Mês Internacional da Biblioteca Escolar",
+      "descricao": "Programa de outubro dedicado à Biblioteca (MIBE).",
+      "estado": "ativo"
+    },
+    {
+      "nome": "Palavras em Ação · Ler com a Biblioteca",
+      "descricao": "Projeto RBE 2026-2028: sequências de leitura, roteiros literários e podcasts «Vozes da Família».",
+      "estado": "ativo"
+    }
+  ]
+}

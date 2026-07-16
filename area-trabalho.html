@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Área de Trabalho · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Página de trabalho da equipa da Biblioteca Escolar da ESP.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="imagens/logo/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body id="p-area">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <div class="wrap pad">
+    <p class="aviso"><strong>Página de trabalho da equipa da Biblioteca.</strong> Não contém informação destinada ao público.</p>
+    <h1 class="sec-title">Área de Trabalho</h1><div class="rule"></div>
+
+    <h2 style="margin-top:26px;color:var(--verde-esc)">Como atualizar o site</h2><div class="rule"></div>
+    <div class="passos">
+      <div class="passo"><h3>Abrir o painel</h3><p>Entrar em /admin com a conta convidada (Netlify Identity).</p></div>
+      <div class="passo"><h3>Editar</h3><p>Escolher a secção (Notícias, Agenda, Galeria, Cartões) e preencher os campos.</p></div>
+      <div class="passo"><h3>Publicar</h3><p>Carregar em Publish. O site atualiza-se sozinho em cerca de um minuto.</p></div>
+    </div>
+    <p style="margin-top:18px"><a class="btn primario" href="admin/">🔒 Abrir o painel de edição</a></p>
+    <p style="font-size:13px;color:var(--cinza)">Guia completo: ficheiro LEIA-ME.md no repositório.</p>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Checklist de publicação</h2><div class="rule"></div>
+    <ul class="docs">
+      <li><a style="cursor:default">☐ Texto revisto (ortografia e tom institucional)</a></li>
+      <li><a style="cursor:default">☐ Imagem com consentimento RGPD registado</a></li>
+      <li><a style="cursor:default">☐ Texto alternativo (alt) preenchido</a></li>
+      <li><a style="cursor:default">☐ Ligação testada</a></li>
+      <li><a style="cursor:default">☐ Categoria correta</a></li>
+      <li><a style="cursor:default">☐ Data certa</a></li>
+    </ul>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Ligações rápidas de trabalho</h2><div class="rule"></div>
+    <div class="grid3" id="ligacoes-trabalho"></div>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Calendário editorial</h2><div class="rule"></div>
+    <table class="tbl">
+      <thead><tr><th>O quê</th><th>Com que frequência</th></tr></thead>
+      <tbody>
+        <tr><td>Notícias</td><td>Uma vez por semana</td></tr>
+        <tr><td>Agenda</td><td>No início de cada mês</td></tr>
+        <tr><td>Informação estática (horário, regras, documentos)</td><td>No início de cada período</td></tr>
+        <tr><td>Revisão de ligações (Biblioteca Digital e Ligações Úteis)</td><td>Uma vez por período</td></tr>
+        <tr><td>Iniciativas nacionais</td><td>No início do ano letivo</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:38px;color:var(--verde-esc)">Registo de consentimentos</h2><div class="rule"></div>
+    <div class="card"><span class="ic">🔐</span><h3>Antes de publicar fotografias</h3>
+      <p>Confirmar o consentimento na lista mantida pela equipa (fora do site, no OneDrive da Biblioteca) e registar a data.
+         Para retirar uma imagem, remover no painel e apagar o ficheiro da pasta de imagens.</p></div>
+  </div>
+
+</main>
+<div id="rodape"></div>
+<script>
+window.renderPagina = function(){
+  const L = (CONTEUDO.areaTrabalho && CONTEUDO.areaTrabalho.ligacoes) || [];
+  const el = document.getElementById('ligacoes-trabalho');
+  if (el) el.innerHTML = L.map(x => x.url
+    ? `<a class="card" href="${x.url}" target="_blank" rel="noopener"><span class="ic">🔗</span><h3>${x.nome}</h3></a>`
+    : `<div class="card"><span class="ic">🔗</span><h3>${x.nome}</h3><p style="color:var(--cinza)">Endereço a confirmar.</p></div>`).join('');
+};
+</script>
+<script src="motor.js"></script>
+</body>
+</html>

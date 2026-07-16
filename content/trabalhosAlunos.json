@@ -1,0 +1,27 @@
+{
+  "trabalhosAlunos": [
+    {
+      "titulo": "EXEMPLO, substituir por um trabalho real",
+      "autores": "Ana S., Bruno M. (10.º A)",
+      "descricao": "Descrição breve do trabalho. Usar apenas primeiro nome e inicial; nunca o nome completo de menores. Fotografias só com consentimento registado.",
+      "fotos": [
+        {
+          "ficheiro": "",
+          "alt": ""
+        },
+        {
+          "ficheiro": "",
+          "alt": ""
+        },
+        {
+          "ficheiro": "",
+          "alt": ""
+        },
+        {
+          "ficheiro": "",
+          "alt": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "metricas": [
+    {
+      "valor": "1 433",
+      "legenda": "alunos na escola"
+    },
+    {
+      "valor": "148",
+      "legenda": "docentes"
+    },
+    {
+      "valor": "18 776",
+      "legenda": "documentos no fundo"
+    },
+    {
+      "valor": "300 m²",
+      "legenda": "bloco E, 1.º andar"
+    }
+  ]
+}
