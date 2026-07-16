@@ -93,9 +93,10 @@ window.renderPagina = function(){
   const rg = document.getElementById('regras');
   if (rg) rg.innerHTML = (CONTEUDO.regras||[]).map(r => `<li><a style="cursor:default">📌 ${r}</a></li>`).join('');
   const pe = document.getElementById('projetos-escola-lista');
-  if (pe) pe.innerHTML = (CONTEUDO.projetosEscola||[]).map(p => p.url
-    ? `<a class="card" href="${p.url}" target="_blank" rel="noopener"><span class="ic">🔗</span><h3>${p.nome}</h3></a>`
-    : `<div class="card"><span class="ic">🔗</span><h3>${p.nome}</h3><p style="color:var(--cinza)">Ligação a confirmar.</p></div>`).join('');
+  if (pe) pe.innerHTML = (CONTEUDO.projetosEscola||[]).map(p => { const c = capaCartao(p);
+    return p.url
+    ? `<a class="card${c.cls}" href="${p.url}" target="_blank" rel="noopener">${c.bg}<span class="ic">🔗</span><h3>${p.nome}</h3></a>`
+    : `<div class="card${c.cls}">${c.bg}<span class="ic">🔗</span><h3>${p.nome}</h3><p style="color:var(--cinza)">Ligação a confirmar.</p></div>`; }).join('');
 };
 </script>
 <script src="motor.js"></script>

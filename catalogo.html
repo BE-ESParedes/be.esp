@@ -85,11 +85,11 @@ window.renderPagina = function(){
   const TIPOS = {todos:'Todos', ebooks:'E-books', audiolivros:'Audiolivros', imprensa:'Jornais e revistas', repositorios:'Repositórios'};
   const D = CONTEUDO.bibliotecaDigital || [];
   const lista = document.getElementById('lista-digital');
-  const pinta = t => lista.innerHTML = D.filter(x => t==='todos' || x.tipo===t).map(x =>
-    `<a class="card" href="${x.url}" target="_blank" rel="noopener"><span class="ic">🌐</span>
+  const pinta = t => lista.innerHTML = D.filter(x => t==='todos' || x.tipo===t).map(x => { const c = capaCartao(x);
+    return `<a class="card${c.cls}" href="${x.url}" target="_blank" rel="noopener">${c.bg}<span class="ic">🌐</span>
       <h3>${x.nome}${x.verificado?'<span class="selo">✓ verificado</span>':''}</h3>
       <p>${x.descricao}</p>
-      <p style="margin-top:8px;font-size:12px;color:var(--cinza)">${TIPOS[x.tipo]||x.tipo} · acesso ${x.acesso}</p></a>`).join('');
+      <p style="margin-top:8px;font-size:12px;color:var(--cinza)">${TIPOS[x.tipo]||x.tipo} · acesso ${x.acesso}</p></a>`; }).join('');
   const fd = document.getElementById('filtro-digital');
   if (fd) {
     fd.innerHTML = Object.entries(TIPOS).map(([k,v],n) => `<button class="fchip${n===0?' active':''}" data-t="${k}">${v}</button>`).join('');

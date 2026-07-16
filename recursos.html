@@ -69,9 +69,10 @@
 <script>
 window.renderPagina = function(){
   const g = document.getElementById('guioes');
-  if (g) g.innerHTML = (CONTEUDO.guioes||[]).map(x => x.url
-    ? `<a class="card" href="${x.url}" target="_blank" rel="noopener"><span class="ic">📄</span><h3>${x.titulo}</h3><p>${x.descricao}</p></a>`
-    : `<div class="card"><span class="ic">📄</span><h3>${x.titulo}</h3><p>${x.descricao}</p><p style="margin-top:8px;font-size:12px;color:var(--cinza)">brevemente disponível</p></div>`).join('');
+  if (g) g.innerHTML = (CONTEUDO.guioes||[]).map(x => { const c = capaCartao(x);
+    return x.url
+    ? `<a class="card${c.cls}" href="${x.url}" target="_blank" rel="noopener">${c.bg}<span class="ic">📄</span><h3>${x.titulo}</h3><p>${x.descricao}</p></a>`
+    : `<div class="card${c.cls}">${c.bg}<span class="ic">📄</span><h3>${x.titulo}</h3><p>${x.descricao}</p><p style="margin-top:8px;font-size:12px;color:var(--cinza)">brevemente disponível</p></div>`; }).join('');
   const li = (arr) => (arr||[]).map(x => x.url
     ? `<li><a href="${x.url}" target="_blank" rel="noopener">${x.titulo}</a></li>` : `<li>${x.titulo}</li>`).join('') || '<li style="color:var(--cinza)">Sem itens.</li>';
   const d = document.getElementById('disciplinas');

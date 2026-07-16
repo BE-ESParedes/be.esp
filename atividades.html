@@ -56,18 +56,20 @@ window.renderPagina = function(){
       <h3>${e.titulo}</h3><p style="color:var(--cinza);font-size:13px">${e.periodo||''}</p>
       <p style="margin-top:6px">${e.descricao||''}</p>${fotos(e.imagens,8)}</div>`).join('');
   const pr = document.getElementById('projetos');
-  if (pr) pr.innerHTML = (CONTEUDO.projetos||[]).map(p => `<div class="card"><span class="ic">📚</span>
+  if (pr) pr.innerHTML = (CONTEUDO.projetos||[]).map(p => { const c = capaCartao(p);
+    return `<div class="card${c.cls}">${c.bg}<span class="ic">📚</span>
       <h3>${p.nome}</h3><p>${p.descricao}</p>
-      <p style="margin-top:8px"><span class="chip" style="background:${p.estado==='ativo'?'#EAF4F0':'#F7F8F5'};color:var(--verde-esc)">${p.estado}</span></p></div>`).join('');
+      <p style="margin-top:8px"><span class="chip" style="background:${p.estado==='ativo'?'#EAF4F0':'#F7F8F5'};color:var(--verde-esc)">${p.estado}</span></p></div>`; }).join('');
   // Iniciativas nacionais, com filtro por área e arquivo à parte
   const IN = CONTEUDO.iniciativasNacionais || [];
   const areas = [...new Set(IN.map(x => x.area))];
   const ativas = IN.filter(x => x.estado !== 'arquivo');
   const arq = IN.filter(x => x.estado === 'arquivo');
-  const cartao = x => `<a class="card" href="${x.url}" target="_blank" rel="noopener"><span class="ic">🇵🇹</span>
+  const cartao = x => { const c = capaCartao(x);
+    return `<a class="card${c.cls}" href="${x.url}" target="_blank" rel="noopener">${c.bg}<span class="ic">🇵🇹</span>
       <h3>${x.nome}</h3><p>${x.descricao}</p>
       <p style="margin-top:8px"><span class="chip" style="background:var(--menta-wash);color:var(--verde-esc)">${x.estado}</span>
-      <span style="font-size:12px;color:var(--cinza)"> · ${x.area}</span></p></a>`;
+      <span style="font-size:12px;color:var(--cinza)"> · ${x.area}</span></p></a>`; };
   const lista = document.getElementById('iniciativas');
   const pinta = a => lista.innerHTML = ativas.filter(x => !a || x.area===a).map(cartao).join('');
   const fi = document.getElementById('filtro-iniciativas');

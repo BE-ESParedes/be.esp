@@ -57,9 +57,9 @@ window.renderPagina = function(){
   const i = CONTEUDO.info || {};
   const m = document.getElementById('missao'); if (m) m.textContent = i.missao || '';
   const ar = document.getElementById('acesso-rapido');
-  if (ar) ar.innerHTML = (CONTEUDO.acessoRapido||[]).map(a =>
-    `<a class="card" ${/^https?:/i.test(a.url)?`href="${a.url}" target="_blank" rel="noopener"`:`href="${a.url}"`}>
-       <span class="ic">${a.icone||'🔗'}</span><h3>${a.rotulo}</h3></a>`).join('');
+  if (ar) ar.innerHTML = (CONTEUDO.acessoRapido||[]).map(a => { const c = capaCartao(a);
+    return `<a class="card${c.cls}" ${/^https?:/i.test(a.url)?`href="${a.url}" target="_blank" rel="noopener"`:`href="${a.url}"`}>${c.bg}
+       <span class="ic">${a.icone||'🔗'}</span><h3>${a.rotulo}</h3></a>`; }).join('');
   const mt = document.getElementById('metricas');
   if (mt) mt.innerHTML = (CONTEUDO.metricas||[]).map(x => `<div><b>${x.valor}</b><span>${x.legenda}</span></div>`).join('');
 };
