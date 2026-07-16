@@ -561,3 +561,51 @@ collections:
                   - { label: "Nome", name: nome, widget: string }
                   - { label: "Ligação", name: url, widget: string, required: false }
 
+  - name: cartoes
+    label: "Cartões fixos (imagem, texto, link)"
+    delete: false
+    files:
+      - name: lista
+        label: "Personalizar cartões fixos"
+        file: "content/cartoes.json"
+        format: json
+        description: "Para os cartões que não têm secção própria (literacia digital, como requisitar, quem somos...). Escolhe o cartão e acrescenta imagem, texto ou link. Campos vazios mantêm o conteúdo atual."
+        fields:
+          - label: "Cartões personalizados"
+            name: cartoes
+            widget: list
+            label_singular: "Cartão"
+            summary: "{{fields.id}}"
+            fields:
+              - label: "Cartão"
+                name: id
+                widget: select
+                options:
+                  - { label: "Área de Trabalho — Antes de publicar fotografias", value: "area-1" }
+                  - { label: "A Biblioteca — Equipa", value: "biblioteca-1" }
+                  - { label: "A Biblioteca — Contactos e canais", value: "biblioteca-2" }
+                  - { label: "A Biblioteca — Funcionamento", value: "biblioteca-3" }
+                  - { label: "A Biblioteca — Espaço", value: "biblioteca-4" }
+                  - { label: "A Biblioteca — Formulário de contacto", value: "biblioteca-5" }
+                  - { label: "A Biblioteca — Sugestões e reclamações", value: "biblioteca-6" }
+                  - { label: "Catálogo — Pesquisa no catálogo (OPAC)", value: "catalogo-1" }
+                  - { label: "Catálogo — Apoio à pesquisa", value: "catalogo-2" }
+                  - { label: "Catálogo — Destaques do catálogo", value: "catalogo-3" }
+                  - { label: "Catálogo — Empréstimos e requisições", value: "catalogo-4" }
+                  - { label: "Catálogo — Formulário de contacto", value: "catalogo-5" }
+                  - { label: "Catálogo — Balcão de referência digital", value: "catalogo-6" }
+                  - { label: "Notícias — Newsletter", value: "noticias-1" }
+                  - { label: "Notícias — Newsletter", value: "noticias-2" }
+                  - { label: "Recursos — Trabalhar com a Biblioteca", value: "recursos-1" }
+                  - { label: "Recursos — Pesquisar em segurança", value: "recursos-2" }
+                  - { label: "Recursos — Avaliar informação em linha", value: "recursos-3" }
+                  - { label: "Recursos — Redes sociais e identidade digital", value: "recursos-4" }
+                  - { label: "Recursos — Imagem, vídeo e direitos de autor", value: "recursos-5" }
+                  - { label: "Recursos — Cidadania digital", value: "recursos-6" }
+                  - { label: "Recursos — Ferramentas digitais úteis", value: "recursos-7" }
+                  - { label: "Recursos — Portal MILD", value: "recursos-8" }
+                  - { label: "Recursos — recursos-9", value: "recursos-9" }
+              - { label: "Imagem (ocupa o cartão)", name: imagem, widget: image, required: false }
+              - { label: "Novo título (opcional)", name: titulo, widget: string, required: false }
+              - { label: "Novo texto (opcional)", name: texto, widget: text, required: false }
+              - { label: "Novo link (opcional)", name: link, widget: string, required: false, hint: "URL externo (https://...)" }

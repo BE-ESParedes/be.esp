@@ -22,7 +22,7 @@
     <h1 class="sec-title">Catálogo e Biblioteca Digital</h1><div class="rule"></div>
     <p class="sec-lead">O acervo da BE-ESP está no catálogo coletivo <strong>BiblioNet</strong>, partilhado com a Biblioteca Municipal de Paredes.</p>
 
-    <div class="card" id="opac" style="background:linear-gradient(135deg,var(--menta-wash),#ffffff 70%)">
+    <div class="card" data-card="catalogo-1" id="opac" style="background:linear-gradient(135deg,var(--menta-wash),#ffffff 70%)">
       <span class="ic">🔎</span><h3>Pesquisa no catálogo (OPAC)</h3>
       <p style="color:var(--cinza)">Pesquisa a partir de qualquer dispositivo. Requer credenciais BiblioNet para reservar e renovar.</p>
       <div class="btns" id="opac-botoes" style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap"></div>
@@ -30,9 +30,9 @@
 
     <h2 style="margin-top:38px;color:var(--verde-esc)">Como requisitar</h2><div class="rule"></div>
     <div class="grid3">
-      <div class="card"><span class="ic">🧭</span><h3>Apoio à pesquisa</h3><p>Tutoriais curtos sobre o uso do catálogo e a recuperação de informação.</p></div>
-      <div class="card"><span class="ic">⭐</span><h3>Destaques do catálogo</h3><div id="destaques-cat"></div></div>
-      <div class="card"><span class="ic">📖</span><h3>Empréstimos e requisições</h3><p>Quotas e prazos por categoria de utilizador (Art. 11.º do RI-BE). Ver as regras em A Biblioteca.</p></div>
+      <div class="card" data-card="catalogo-2"><span class="ic">🧭</span><h3>Apoio à pesquisa</h3><p>Tutoriais curtos sobre o uso do catálogo e a recuperação de informação.</p></div>
+      <div class="card" data-card="catalogo-3"><span class="ic">⭐</span><h3>Destaques do catálogo</h3><div id="destaques-cat"></div></div>
+      <div class="card" data-card="catalogo-4"><span class="ic">📖</span><h3>Empréstimos e requisições</h3><p>Quotas e prazos por categoria de utilizador (Art. 11.º do RI-BE). Ver as regras em A Biblioteca.</p></div>
     </div>
 
     <h2 id="digital" style="margin-top:38px;color:var(--verde-esc)">Biblioteca Digital</h2><div class="rule"></div>
@@ -42,7 +42,7 @@
     <p class="aviso">Os recursos listados são de acesso gratuito e legal. Respeita os direitos de autor: usa os conteúdos para fins educativos e cita sempre a fonte.</p>
 
     <h2 id="referencia" style="margin-top:38px;color:var(--verde-esc)">Serviço de referência e apoio à pesquisa</h2><div class="rule"></div>
-    <div class="grid2"><form id="form-contacto" class="card" novalidate>
+    <div class="grid2"><form id="form-contacto" class="card" data-card="catalogo-5" novalidate>
         <span class="ic">✉️</span><h3>Formulário de contacto</h3>
         <p style="margin-bottom:12px">Escreve-nos e respondemos com a maior brevidade.</p>
         <div class="field"><label for="f-nome">Nome</label><input id="f-nome" name="nome" required></div>
@@ -55,7 +55,7 @@
         <div class="field"><label for="f-msg">Mensagem</label><textarea id="f-msg" name="mensagem" rows="4" required></textarea></div>
         <p style="margin-top:12px"><button class="btn primario" type="submit">Enviar</button></p>
       </form>
-      <div class="card"><span class="ic">🎧</span><h3>Balcão de referência digital</h3>
+      <div class="card" data-card="catalogo-6"><span class="ic">🎧</span><h3>Balcão de referência digital</h3>
         <p>Marca uma sessão de apoio individualizado com a equipa, presencial ou em linha.</p>
         <p style="margin-top:12px" id="marcacao"></p></div>
     </div>
