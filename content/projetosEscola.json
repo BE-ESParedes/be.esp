@@ -2,15 +2,21 @@
   "projetosEscola": [
     {
       "nome": "Site da Escola Secundária de Paredes",
-      "url": "https://www.esparedes.pt/esp/"
+      "url": "https://www.esparedes.pt/esp/",
+      "imagem": "",
+      "icone": "ligacao"
     },
     {
       "nome": "CiVESP",
-      "url": ""
+      "url": "",
+      "imagem": "",
+      "icone": "ligacao"
     },
     {
       "nome": "Eco-Escolas",
-      "url": ""
+      "url": "",
+      "imagem": "",
+      "icone": "ligacao"
     }
   ]
 }

@@ -5,50 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Início · Biblioteca Escolar da ESP</title>
 <meta name="description" content="Site da Biblioteca Escolar da Escola Secundária de Paredes: catálogo, recursos, atividades e notícias.">
-<meta property="og:title" content="Início · Biblioteca Escolar da ESP">
-<meta property="og:description" content="Site da Biblioteca Escolar da Escola Secundária de Paredes: catálogo, recursos, atividades e notícias.">
-<meta property="og:image" content="imagens/logo/og.png">
-<meta property="og:type" content="website">
-<!-- Favicon do BrandKit (04_Icons). Substituir quando o ficheiro existir. -->
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Início · Biblioteca Escolar da ESP"><meta property="og:description" content="Site da Biblioteca Escolar da Escola Secundária de Paredes: catálogo, recursos, atividades e notícias.">
+<meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
 <link rel="icon" href="imagens/logo/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body id="p-inicio">
 <a class="skip" href="#conteudo">Saltar para o conteúdo</a>
 <div id="cabecalho"></div>
 <main id="conteudo">
+<h1 class="sr-only">Biblioteca Escolar da Escola Secundária de Paredes</h1>
 
-  <div class="carousel" id="carousel" role="region" aria-roledescription="carrossel" aria-label="Destaques da Biblioteca" tabindex="0">
-    <div class="slides" id="slides"></div>
-    <button class="car-btn prev" id="car-prev" aria-label="Destaque anterior">‹</button>
-    <button class="car-btn next" id="car-next" aria-label="Destaque seguinte">›</button>
-    <div class="dots" id="car-dots"></div>
-  </div>
+  <div class="wrap" style="padding-top:22px">
+    <div class="hero" id="carousel" role="region" aria-roledescription="carrossel" aria-label="Destaques da Biblioteca" tabindex="0">
+      <div class="slides" id="slides"></div>
+      <button class="car-btn prev" id="car-prev" aria-label="Destaque anterior">&lsaquo;</button>
+      <button class="car-btn next" id="car-next" aria-label="Destaque seguinte">&rsaquo;</button>
+      <div class="dots" id="car-dots"></div>
+    </div>
 
-  <div class="wrap pad">
-    <h2 class="sec-title">Notícias e destaques</h2><div class="rule"></div>
-    <div class="news" id="home-news"></div>
-    <p style="margin-top:22px"><a class="btn verde" href="noticias.html">Ver todas as notícias</a></p>
-  </div>
-
-  <div class="soft"><div class="wrap pad">
-    <h2 class="sec-title">Acesso rápido</h2><div class="rule"></div>
+    <h2 class="sec-title">acesso rápido</h2><div class="rule"></div>
     <div class="grid3" id="acesso-rapido"></div>
-  </div></div>
 
-  <div class="wrap pad">
-    <h2 class="sec-title">Bem-vindos à Biblioteca</h2><div class="rule"></div>
-    <p class="sec-lead" id="missao" style="max-width:860px"></p>
-    <div class="metric" id="metricas"></div>
-    <p class="note">Valores indicativos, a confirmar com os dados oficiais da Biblioteca.</p>
+    <div class="split">
+      <div>
+        <h2 class="sec-title">notícias e destaques <a class="mais" href="noticias.html">Ver todas &rarr;</a></h2>
+        <div class="rule"></div>
+        <div class="noticias" id="home-news"></div>
+      </div>
+      <div>
+        <h2 class="sec-title">agenda</h2><div class="rule"></div>
+        <ul class="agenda" id="home-agenda"></ul>
+        <p><a class="btn claro" href="atividades.html#agenda" style="margin-top:12px">Ver todas as atividades</a></p>
+      </div>
+    </div>
+
+    <div class="bloco-escuro" id="missao-bloco">
+      <span class="veu"></span>
+      <div class="conteudo">
+        <div class="eyebrow">Bem-vindos à Biblioteca</div>
+        <p id="missao"></p>
+        <div class="metricas" id="metricas"></div>
+      </div>
+    </div>
+    <p class="aviso">Valores indicativos, a confirmar com os dados oficiais da Biblioteca.</p>
   </div>
-
-  <div class="soft"><div class="wrap pad">
-    <h2 class="sec-title">Agenda</h2><div class="rule"></div>
-    <ul class="agenda" id="home-agenda"></ul>
-    <p style="margin-top:22px"><a class="btn outline" href="atividades.html">Ver todas as atividades</a></p>
-  </div></div>
 
 </main>
 <div id="rodape"></div>
@@ -57,11 +60,9 @@ window.renderPagina = function(){
   const i = CONTEUDO.info || {};
   const m = document.getElementById('missao'); if (m) m.textContent = i.missao || '';
   const ar = document.getElementById('acesso-rapido');
-  if (ar) ar.innerHTML = (CONTEUDO.acessoRapido||[]).map(a => { const c = capaCartao(a);
-    return `<a class="card${c.cls}" ${/^https?:/i.test(a.url)?`href="${a.url}" target="_blank" rel="noopener"`:`href="${a.url}"`}>${c.bg}
-       <span class="ic">${a.icone||'🔗'}</span><h3>${a.rotulo}</h3></a>`; }).join('');
+  if (ar) ar.innerHTML = (CONTEUDO.acessoRapido||[]).map(cartaoAcao).join('');
   const mt = document.getElementById('metricas');
-  if (mt) mt.innerHTML = (CONTEUDO.metricas||[]).map(x => `<div><b>${x.valor}</b><span>${x.legenda}</span></div>`).join('');
+  if (mt) mt.innerHTML = (CONTEUDO.metricas||[]).map(x => `<div><b>${esc(x.valor)}</b><span>${esc(x.legenda)}</span></div>`).join('');
 };
 </script>
 <script src="motor.js"></script>

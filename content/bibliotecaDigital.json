@@ -6,7 +6,9 @@
       "tipo": "repositorios",
       "acesso": "livre",
       "url": "https://cvc.instituto-camoes.pt",
-      "verificado": true
+      "verificado": true,
+      "imagem": "",
+      "icone": "globo"
     },
     {
       "nome": "Biblioteca Nacional Digital",
@@ -14,7 +16,9 @@
       "tipo": "repositorios",
       "acesso": "livre",
       "url": "https://bndigital.bnportugal.gov.pt",
-      "verificado": true
+      "verificado": true,
+      "imagem": "",
+      "icone": "globo"
     },
     {
       "nome": "Europeana",
@@ -22,7 +26,9 @@
       "tipo": "repositorios",
       "acesso": "livre",
       "url": "https://www.europeana.eu",
-      "verificado": true
+      "verificado": true,
+      "imagem": "",
+      "icone": "globo"
     },
     {
       "nome": "RCAAP",
@@ -30,7 +36,9 @@
       "tipo": "repositorios",
       "acesso": "livre",
       "url": "https://www.rcaap.pt",
-      "verificado": true
+      "verificado": true,
+      "imagem": "",
+      "icone": "globo"
     },
     {
       "nome": "Project Gutenberg",
@@ -38,7 +46,9 @@
       "tipo": "ebooks",
       "acesso": "livre",
       "url": "https://www.gutenberg.org",
-      "verificado": true
+      "verificado": true,
+      "imagem": "",
+      "icone": "globo"
     },
     {
       "nome": "DOAJ",
@@ -46,7 +56,9 @@
       "tipo": "imprensa",
       "acesso": "livre",
       "url": "https://doaj.org",
-      "verificado": true
+      "verificado": true,
+      "imagem": "",
+      "icone": "globo"
     },
     {
       "nome": "DOAB",
@@ -54,7 +66,9 @@
       "tipo": "ebooks",
       "acesso": "livre",
       "url": "https://www.doabooks.org",
-      "verificado": true
+      "verificado": true,
+      "imagem": "",
+      "icone": "globo"
     },
     {
       "nome": "Biblioteca Escolar Digital (RBE)",
@@ -62,7 +76,9 @@
       "tipo": "repositorios",
       "acesso": "livre",
       "url": "https://www.rbe.mec.pt/np4/bed.html",
-      "verificado": true
+      "verificado": true,
+      "imagem": "",
+      "icone": "globo"
     }
   ]
 }

@@ -3,47 +3,65 @@
     {
       "nome": "10 Minutos a Ler",
       "descricao": "Rotina diária de leitura em articulação com as disciplinas.",
-      "estado": "ativo"
+      "estado": "ativo",
+      "imagem": "",
+      "icone": "livro"
     },
     {
       "nome": "Primavera a Ler",
       "descricao": "Concurso de leitura com projeção municipal.",
-      "estado": "ativo"
+      "estado": "ativo",
+      "imagem": "",
+      "icone": "estrela"
     },
     {
       "nome": "Partilhas Literárias",
       "descricao": "Sessões de partilha de leituras com as turmas.",
-      "estado": "ativo"
+      "estado": "ativo",
+      "imagem": "",
+      "icone": "calendario"
     },
     {
       "nome": "Letras que Abraçam",
       "descricao": "Projeto de escrita e solidariedade com a comunidade.",
-      "estado": "ativo"
+      "estado": "ativo",
+      "imagem": "",
+      "icone": "balao"
     },
     {
       "nome": "Cinema na Biblioteca",
       "descricao": "Sessões de cinema seguidas de debate, no âmbito do Plano Nacional de Cinema.",
-      "estado": "ativo"
+      "estado": "ativo",
+      "imagem": "",
+      "icone": "monitor"
     },
     {
       "nome": "Livr'à Mão",
       "descricao": "Circulação de livros pela escola, ao alcance de todos.",
-      "estado": "ativo"
+      "estado": "ativo",
+      "imagem": "",
+      "icone": "pasta"
     },
     {
       "nome": "Semana dos Afetos",
       "descricao": "Atividades de leitura e expressão em torno das emoções e das relações.",
-      "estado": "ativo"
+      "estado": "ativo",
+      "imagem": "",
+      "icone": "maos"
     },
     {
       "nome": "Mês Internacional da Biblioteca Escolar",
       "descricao": "Programa de outubro dedicado à Biblioteca (MIBE).",
-      "estado": "ativo"
+      "estado": "ativo",
+      "imagem": "",
+      "icone": "alvo"
     },
     {
       "nome": "Palavras em Ação · Ler com a Biblioteca",
       "descricao": "Projeto RBE 2026-2028: sequências de leitura, roteiros literários e podcasts «Vozes da Família».",
-      "estado": "ativo"
+      "estado": "ativo",
+      "imagem": "",
+      "icone": "microfone"
     }
   ]
 }

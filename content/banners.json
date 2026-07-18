@@ -7,14 +7,15 @@
       "texto": "Recursos, apoio à pesquisa e um espaço de aprendizagem para toda a comunidade escolar.",
       "botoes": [
         {
-          "rotulo": "📚 Catálogo online",
+          "rotulo": "Catálogo online",
           "url": "http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
         },
         {
-          "rotulo": "🕐 Horário",
+          "rotulo": "Horário",
           "url": "biblioteca.html#horario"
         }
-      ]
+      ],
+      "alt": ""
     },
     {
       "imagem": "",
@@ -26,7 +27,8 @@
           "rotulo": "Saber mais",
           "url": "atividades.html"
         }
-      ]
+      ],
+      "alt": ""
     },
     {
       "imagem": "",
@@ -35,10 +37,11 @@
       "texto": "Marca uma sessão no balcão de referência digital e conta com o apoio da equipa da Biblioteca.",
       "botoes": [
         {
-          "rotulo": "📅 Marcar apoio",
+          "rotulo": "Marcar apoio",
           "url": "catalogo.html#referencia"
         }
-      ]
+      ],
+      "alt": ""
     }
   ]
 }
