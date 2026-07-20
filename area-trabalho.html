@@ -21,12 +21,12 @@
 
     <h2 class="sec-title">como atualizar o site</h2><div class="rule"></div>
     <div class="passos">
-      <div class="passo"><h3>Abrir o painel</h3><p>Entrar em /admin com a conta convidada.</p></div>
-      <div class="passo"><h3>Editar</h3><p>Escolher a secção (Notícias, Agenda, Galeria, Cartões) e preencher os campos.</p></div>
-      <div class="passo"><h3>Publicar</h3><p>Carregar em Publish. O site atualiza-se sozinho em cerca de um minuto.</p></div>
+      <div class="passo"><h3>Abrir o ficheiro</h3><p>No repositório GitHub, abrir a pasta content e o ficheiro certo (noticias, agenda, galeria…).</p></div>
+      <div class="passo"><h3>Editar</h3><p>Carregar no lápis, alterar o texto seguindo o padrão dos itens existentes.</p></div>
+      <div class="passo"><h3>Guardar</h3><p>Carregar em Commit changes. O site atualiza-se sozinho em um a dois minutos.</p></div>
     </div>
-    <p style="margin-top:20px"><a class="btn primario" href="admin/">Abrir o painel de edição</a></p>
-    <p style="font-size:13px;color:var(--cinza)">Guia completo: ficheiro LEIA-ME.md no repositório.</p>
+    <p style="margin-top:20px" id="btn-repo"></p>
+    <p style="font-size:13px;color:var(--cinza)">Guia completo, com exemplos: ficheiro LEIA-ME.md no repositório.</p>
 
     <h2 class="sec-title">checklist de publicação</h2><div class="rule"></div>
     <ul class="docs">
@@ -62,6 +62,11 @@
 <script>
 window.renderPagina = function(){
   document.querySelectorAll('[data-ico]').forEach(e=>e.innerHTML=icone(e.dataset.ico,22));
+  const i = CONTEUDO.info || {};
+  const br = document.getElementById('btn-repo');
+  if (br) br.innerHTML = temTexto(i.repositorioGitHub)
+    ? `<a class="btn primario" ${linkAttrs(i.repositorioGitHub)}>Abrir o repositório no GitHub</a>`
+    : `<span style="font-size:13px;color:var(--cinza)">Endereço do repositório a preencher em content/info.json (campo repositorioGitHub).</span>`;
   const L=(CONTEUDO.areaTrabalho&&CONTEUDO.areaTrabalho.ligacoes)||[];
   const el=document.getElementById('ligacoes-trabalho');
   if(el) el.innerHTML=L.map(x=>x.url

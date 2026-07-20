@@ -1,111 +1,128 @@
 # Guia de edição do site da Biblioteca Escolar
 
-Este guia é para quem atualiza o site. **Não é preciso saber programar.**
+Este guia é para quem atualiza o site. **Não é preciso saber programar** — apenas
+saber abrir uma página web e copiar/colar com cuidado.
 
 ---
 
-## 1. A regra de ouro
+## 1. Como funciona (a regra de ouro)
 
-Há duas partes no site:
-
-| | O quê | Quem mexe |
+| | O quê | Onde vive |
 |---|---|---|
-| **Conteúdo** | Notícias, agenda, fotografias, textos, ligações | **A equipa da Biblioteca**, pelo painel |
-| **Código** | `motor.js`, `estilos.css`, páginas `.html` | Só quem faz manutenção técnica |
+| **Conteúdo** | Notícias, agenda, textos, ligações, imagens | Pasta `content/` do repositório GitHub |
+| **Documentos e originais** | PDF oficiais, fotografias originais, consentimentos | **OneDrive da Biblioteca** (privado) |
+| **Código** | `motor.js`, `estilos.css`, páginas `.html` | Só a manutenção técnica mexe |
 
-**Para atualizar o site nunca é preciso tocar no código.** Tudo se faz no painel.
+**Para atualizar o site nunca é preciso tocar no código.** Edita-se apenas os
+ficheiros da pasta `content/`, diretamente no browser.
 
----
-
-## 2. Como entrar no painel (Área de Trabalho)
-
-1. No site, carrega no botão **🔒 Área de trabalho** (canto superior direito) ou vai a `.../admin/`.
-2. Entra com o teu email (tens de ter sido convidado; ver secção 7).
-3. Escolhe a secção que queres editar no menu da esquerda.
-4. Edita e carrega em **Publish**.
-5. O site atualiza-se **sozinho** em cerca de um minuto. Não é preciso republicar nada.
+**RGPD:** o repositório GitHub é público. Nunca lá colocar listas de alunos,
+consentimentos ou qualquer documento com dados pessoais — isso fica no OneDrive.
 
 ---
 
-## 3. O que podes editar (menu do painel)
+## 2. Editar um conteúdo (o gesto básico)
 
-| Secção | Serve para |
+1. Abrir o repositório no GitHub (ligação na página **Área de Trabalho** do site).
+2. Entrar na pasta **`content`** e abrir o ficheiro certo (tabela abaixo).
+3. Carregar no **lápis ✏️** (canto superior direito do ficheiro).
+4. Alterar o texto, **seguindo exatamente o padrão dos itens existentes**
+   (aspas, vírgulas e chavetas no mesmo sítio).
+5. Carregar em **Commit changes** (duas vezes, confirmando).
+6. Esperar 1 a 2 minutos e recarregar o site. Está publicado.
+
+> **Enganaste-te?** Nada se perde: o GitHub guarda todas as versões e é possível
+> voltar atrás (History → ver versão anterior).
+
+---
+
+## 3. Que ficheiro edito?
+
+| Quero mudar… | Ficheiro em `content/` |
 |---|---|
-| **Informação geral** | Contactos, horário, equipa, redes sociais, endereços do catálogo. Usada em todas as páginas. |
-| **Destaques (carrossel)** | Os banners rotativos da página inicial. |
-| **Notícias** | As notícias (página inicial e separador Notícias). |
-| **Agenda** | Próximas atividades. |
-| **Acesso rápido** | Os seis atalhos da página inicial. |
-| **Números da Biblioteca** | Os quatro números destacados. |
-| **Regras de utilização** | Regras mostradas em A Biblioteca. |
-| **Documentos** | PDF do Regulamento, PAA, PDC… |
-| **Projetos da escola** | Ligações a projetos da ESP. |
-| **Galeria** | Fotografias da Biblioteca. |
-| **Biblioteca Digital** | Os recursos digitais verificados. |
-| **Destaques do catálogo** | Sugestões de leitura. |
-| **Perguntas frequentes** | O acordeão do Catálogo. |
-| **Guiões e apoio ao estudo** | Guiões da página Recursos. |
-| **Recursos por disciplina** | Os recursos de cada disciplina. |
-| **Desafio do mês** | O destaque de literacia digital. |
-| **Ligações úteis** | Ligações por finalidade (Ler, Investigar…). |
-| **Exposições** | Exposições, com 8 fotografias. |
-| **Projetos da Biblioteca** | Os projetos próprios. |
-| **Iniciativas nacionais** | O diretório de programas nacionais. |
-| **Trabalhos de alunos** | Trabalhos, com 4 fotografias. |
-| **Área de Trabalho** | As ligações rápidas da equipa. |
-| **Cartões fixos** | Acrescentar imagem/texto/link a cartões que não têm secção própria. |
+| Contactos, horário, equipa, redes, endereços | `info.json` |
+| Banners do topo da página inicial | `banners.json` |
+| Notícias | `noticias.json` |
+| Agenda | `agenda.json` |
+| Atalhos do «acesso rápido» | `acessoRapido.json` |
+| Números da Biblioteca | `metricas.json` |
+| Regras de utilização | `regras.json` |
+| Documentos (títulos e links do OneDrive) | `documentos.json` |
+| Projetos da escola | `projetosEscola.json` |
+| Galeria de fotografias | `galeria.json` |
+| Sugestões de leitura (Catálogo) | `destaquesCatalogo.json` |
+| Recursos da Biblioteca Digital | `bibliotecaDigital.json` |
+| Perguntas frequentes | `faq.json` |
+| Guiões e métodos de estudo | `guioes.json` |
+| Recursos por disciplina | `disciplinas.json` |
+| Desafio do mês | `desafioMes.json` |
+| Ligações úteis (Recursos) | `ligacoesUteis.json` |
+| Exposições (8 fotos) | `exposicoes.json` |
+| Projetos da Biblioteca | `projetos.json` |
+| Iniciativas nacionais | `iniciativasNacionais.json` |
+| Trabalhos de alunos (4 fotos) | `trabalhosAlunos.json` |
+| Ligações da Área de Trabalho | `areaTrabalho.json` |
+| Imagem/texto/link de um cartão fixo | `cartoes.json` |
 
 ---
 
-## 4. Tarefas do dia a dia
+## 4. Tarefas do dia a dia (exemplos)
 
 ### Acrescentar uma notícia
-1. Painel → **Notícias** → **Add Notícia**.
-2. Preenche **Título**, **Data** (texto que aparece, ex.: `12 jul 2026`) e **Data de ordenação** (`2026-07-12`, é esta que define a ordem).
-3. **Categoria** (ex.: Leitura, Concurso). Cria a categoria que precisares: o filtro é automático.
-4. **Resumo** curto.
-5. **Imagem**: carrega a foto. Se não puseres, aparece o **ícone** com a cor escolhida.
-6. **Publish**.
+Em `noticias.json`, copiar um bloco entre `{ … }` (incluindo as chavetas), colá-lo
+no início da lista, e alterar:
+```json
+{
+  "titulo": "Encontro com a escritora Ana Maria",
+  "data": "14 out 2026",
+  "dataOrdenacao": "2026-10-14",
+  "categoria": "Leitura",
+  "resumo": "A Biblioteca recebeu a autora para uma conversa com o 9.º ano.",
+  "imagem": "imagens/noticias/encontro-ana-maria.jpg",
+  "emoji": "📖",
+  "cor": "#A8D8CC",
+  "url": ""
+}
+```
+- `dataOrdenacao` (AAAA-MM-DD) define a ordem; a mais recente aparece primeiro.
+- `imagem` vazia (`""`) → aparece um ícone com a cor escolhida. Nada fica partido.
+- Atenção à **vírgula** entre blocos: todos têm vírgula no fim, exceto o último.
 
 ### Acrescentar um evento à agenda
-Painel → **Agenda** → **Add Evento**: dia (`14`), mês (`Abr`), título, local e hora.
+Em `agenda.json`: `dia` (`"14"`), `mes` (`"Abr"`), `titulo`, `local`.
 
-### Acrescentar uma exposição (8 imagens)
-Painel → **Exposições** → **Add Exposição**: título, período, descrição e até **8 fotografias** (cada uma com texto alternativo).
+### Ligar um documento do OneDrive
+1. No OneDrive: botão direito no PDF → **Partilhar** → «Qualquer pessoa com a
+   ligação pode ver» → copiar ligação.
+2. Em `documentos.json`, colar no campo `"url"` do documento certo.
 
-### Acrescentar um trabalho de alunos (4 fotos)
-Painel → **Trabalhos de alunos**: título, **autores só com primeiro nome e inicial** (ex.: `Ana S., Bruno M. (10.º A)`), descrição e até **4 fotografias**.
+### Publicar uma fotografia
+1. Confirmar o **consentimento** na lista do OneDrive e registar a data.
+2. Exportar uma versão pequena (**até 300 KB**; original fica no OneDrive).
+3. No GitHub: pasta `imagens/` → **Add file → Upload files** → arrastar → Commit.
+4. No ficheiro JSON certo, referenciar como `"imagens/nome-da-foto.jpg"` e
+   preencher o **texto alternativo** (`alt`): descreve a imagem em poucas palavras.
 
-### Acrescentar uma iniciativa nacional
-Painel → **Iniciativas nacionais**: nome, área, descrição, **estado** (participamos / já participámos / aberta a inscrições / **arquivo**) e ligação oficial.
-As de estado **arquivo** aparecem agrupadas no fim, sem destaque.
-
-### Pôr uma imagem a ocupar um cartão
-Quase todos os cartões têm um campo **Imagem** na sua secção. Para os que não têm (literacia digital, «como requisitar», «quem somos»), usa **Cartões fixos**: escolhe o cartão na lista, carrega a imagem e, se quiseres, muda o texto e o link.
-
----
-
-## 5. Imagens: regras
-
-- **Pasta certa** (o painel trata disto sozinho): as imagens vão para `imagens/`.
-- **Tamanho**: até cerca de **300 KB** por imagem. Fotos muito grandes tornam o site lento.
-- **Texto alternativo (alt) é obrigatório**: descreve a imagem em poucas palavras, para quem não a vê. Ex.: «Alunos a ler na Biblioteca».
-- Sem imagem, o cartão mostra um ícone. Nada fica partido.
+### Rever as iniciativas nacionais (início do ano letivo)
+Em `iniciativasNacionais.json`, atualizar o `estado` de cada uma:
+`participamos` · `já participámos` · `aberta a inscrições` · `arquivo`
+(as de `arquivo` aparecem agrupadas no fim, sem destaque).
 
 ---
 
-## 6. ⚠️ Checklist RGPD antes de publicar fotografias
+## 5. ⚠️ Checklist antes de publicar
 
-Antes de carregar qualquer fotografia com pessoas:
-
-- [ ] **Consentimento confirmado** na lista mantida pela equipa (OneDrive da Biblioteca), com data registada.
-- [ ] Nos trabalhos de alunos, **apenas primeiro nome e inicial**. Nunca o nome completo de menores.
-- [ ] Texto alternativo preenchido.
-- [ ] Se alguém pedir a remoção: apagar no painel **e** remover o ficheiro da pasta de imagens.
+- [ ] Texto revisto (ortografia, tom institucional)
+- [ ] **Fotografia com consentimento RGPD registado** no OneDrive
+- [ ] Nos trabalhos de alunos: **apenas primeiro nome e inicial**
+- [ ] Texto alternativo (`alt`) preenchido
+- [ ] Ligação testada (abre e mostra o que deve)
+- [ ] Categoria correta e data certa
+- [ ] Para retirar uma imagem: apagar a referência no JSON **e** o ficheiro em `imagens/`
 
 ---
 
-## 7. Rotina editorial
+## 6. Rotina editorial
 
 | O quê | Quando |
 |---|---|
@@ -115,25 +132,26 @@ Antes de carregar qualquer fotografia com pessoas:
 | Rever ligações (Biblioteca Digital e Ligações Úteis) | Uma vez por período |
 | Iniciativas nacionais | No início do ano letivo |
 
-**Regra editorial:** o que **vai acontecer** vive em *Atividades*; o que **já aconteceu** vive em *Notícias*.
+**Regra editorial:** o que **vai acontecer** vive em *Atividades*; o que
+**já aconteceu** vive em *Notícias*.
 
 ---
 
-## 8. Dar acesso a mais pessoas
+## 7. Dar acesso a mais pessoas
 
-No Netlify: **Identity → Invite users** e escrever o email. A pessoa recebe um convite, define a palavra-passe e passa a poder editar. Convém haver sempre **dois responsáveis**, para o site não depender de uma só pessoa.
+No repositório: **Settings → Collaborators → Add people** e escrever o utilizador
+GitHub da pessoa. Convém haver sempre **dois responsáveis**, para o site não
+depender de uma só pessoa.
 
----
+## 8. Se alguma coisa correr mal
 
-## 9. Se alguma coisa correr mal
+- **O site ficou estranho depois de editar?** Quase de certeza foi uma vírgula ou
+  aspa a mais/menos no JSON. Abrir o ficheiro → **History** → repor a versão anterior.
+- **O site não atualizou?** Esperar 2 minutos e recarregar com força (Ctrl+Shift+R).
+- **Abriste os ficheiros da pasta no computador e está vazio?** É normal: o site
+  precisa de estar publicado (ou de um servidor local — ver `PUBLICAR.md`).
 
-- **Enganaste-te?** Todas as alterações ficam registadas no GitHub. É possível voltar atrás.
-- **O site não atualizou?** Espera 2 minutos e recarrega a página. Se persistir, ver o painel do Netlify (separador *Deploys*).
-- **Abriste os ficheiros da pasta e não funciona?** É normal: o site precisa de estar publicado (ou de um servidor local). Ver `PUBLICAR.md`.
-
----
-
-## 10. Estrutura da pasta (referência técnica)
+## 9. Estrutura da pasta (referência)
 
 ```
 index.html, biblioteca.html, catalogo.html, recursos.html,
@@ -142,8 +160,7 @@ area-trabalho.html                      → página da equipa
 acessibilidade.html, privacidade.html, 404.html
 estilos.css                             → aspeto (identidade visual)
 motor.js                                → desenha as páginas (não editar)
-content/*.json                          → TODO o conteúdo (editado pelo painel)
-admin/                                  → o painel de edição
-imagens/                                → fotografias e logótipo
-documentos/                             → PDF dos documentos
+content/*.json                          → TODO o conteúdo (o que se edita)
+imagens/                                → fotografias otimizadas e logótipo
+documentos/                             → (opcional) PDF alojados no repositório
 ```

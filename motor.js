@@ -2,8 +2,8 @@
    motor.js — Site da Biblioteca Escolar da Escola Secundária de Paredes
 
    NÃO É PRECISO EDITAR ESTE FICHEIRO PARA ATUALIZAR O SITE.
-   Todo o conteúdo vive em /content/*.json e edita-se na Área de Trabalho
-   (painel /admin). Este ficheiro apenas lê esse conteúdo e desenha as páginas.
+   Todo o conteúdo vive em /content/*.json e edita-se diretamente no GitHub
+   (lápis ✏️ → Commit). Este ficheiro apenas lê esse conteúdo e desenha as páginas.
 
    Cada página identifica-se pelo id do <body> (ex.: <body id="p-catalogo">).
    ═══════════════════════════════════════════════════════════════ */
