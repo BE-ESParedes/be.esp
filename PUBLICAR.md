@@ -19,20 +19,22 @@ Todas as ligações internas são relativas, por isso funciona em
 
 ---
 
-## 1. Criar o repositório e carregar o site
+## 1. Criar o repositório e carregar o site (sem Terminal, por arrastar)
 
 1. Criar conta GitHub (se ainda não houver) em <https://github.com/signup>.
    Pode ser criada com um email pessoal e mais tarde transferida; a decisão de usar
    o email institucional cabe à escola.
-2. Em <https://github.com/new>: nome `be-esparedes`, **Public**, sem README.
-3. No Terminal, dentro desta pasta:
-   ```bash
-   git remote add origin https://github.com/<utilizador>/be-esparedes.git
-   git branch -M main
-   git push -u origin main
-   ```
-   *(Sem Terminal: usar «uploading an existing file» na página do repositório e
-   arrastar o conteúdo da pasta — incluindo o ficheiro escondido `.nojekyll`.)*
+2. Em <https://github.com/new>: nome `be-esparedes`, **Public**, marcar
+   **«Add a README file»** e **Create repository**.
+3. No repositório: **Add file → Upload files**.
+4. No Finder, abrir esta pasta (`prototipo`), selecionar **tudo** (Cmd+A) e
+   **arrastar** para a área de upload do browser. Esperar que a lista carregue
+   (cerca de 50 ficheiros, incluindo a pasta `content`) e **Commit changes**.
+   - Os ficheiros escondidos (`.git`, `.nojekyll`) **não vêm** no arrasto — é
+     precisamente o que se quer para o `.git`; o `.nojekyll` cria-se no passo 5.
+   - Se o browser não aceitar arrastar pastas, usar Chrome ou Edge.
+5. Criar o `.nojekyll` à mão: **Add file → Create new file**, no nome escrever
+   exatamente `.nojekyll` (com o ponto), deixar o conteúdo vazio e **Commit changes**.
 
 ## 2. Ativar o GitHub Pages
 

@@ -100,6 +100,8 @@ Em `agenda.json`: `dia` (`"14"`), `mes` (`"Abr"`), `titulo`, `local`.
 1. Confirmar o **consentimento** na lista do OneDrive e registar a data.
 2. Exportar uma versão pequena (**até 300 KB**; original fica no OneDrive).
 3. No GitHub: pasta `imagens/` → **Add file → Upload files** → arrastar → Commit.
+   *(Se a pasta `imagens/` ainda não existir: no Finder, criar uma pasta chamada
+   `imagens` com a foto lá dentro e arrastar a pasta inteira — o GitHub cria o caminho.)*
 4. No ficheiro JSON certo, referenciar como `"imagens/nome-da-foto.jpg"` e
    preencher o **texto alternativo** (`alt`): descreve a imagem em poucas palavras.
 
