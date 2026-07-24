@@ -1,0 +1,20 @@
+{
+  "faq": [
+    {
+      "pergunta": "Quantos livros posso requisitar e por quanto tempo?",
+      "resposta": "Depende da categoria de utilizador (Art. 11.º do RI-BE): alunos 3 documentos por 10 dias úteis, docentes 6 por 30 dias, pessoal não docente 3 por 15 dias, encarregados de educação e utilizadores externos 2 por 15 dias."
+    },
+    {
+      "pergunta": "Posso pesquisar o catálogo a partir de casa?",
+      "resposta": "Sim. O catálogo integra o BiblioNet, acessível a partir de qualquer dispositivo para pesquisar, reservar e renovar empréstimos."
+    },
+    {
+      "pergunta": "A Biblioteca ajuda-me a fazer um trabalho de pesquisa?",
+      "resposta": "Sim. Podes marcar uma sessão no balcão de referência digital para apoio à definição do tema, à pesquisa, à avaliação de fontes e à citação."
+    },
+    {
+      "pergunta": "Como deixo uma sugestão de aquisição?",
+      "resposta": "Pelo formulário de contacto, escolhendo o assunto «Sugestão de aquisição», ou pelo correio biblioteca@esparedes.pt."
+    }
+  ]
+}

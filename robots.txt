@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /area-trabalho.html
+Disallow: /admin/

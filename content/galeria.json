@@ -1,0 +1,24 @@
+{
+  "galeria": [
+    {
+      "imagem": "",
+      "alt": "",
+      "legenda": "Espaço de leitura"
+    },
+    {
+      "imagem": "",
+      "alt": "",
+      "legenda": "Atividades"
+    },
+    {
+      "imagem": "",
+      "alt": "",
+      "legenda": "Exposições"
+    },
+    {
+      "imagem": "",
+      "alt": "",
+      "legenda": "Encontros com autores"
+    }
+  ]
+}

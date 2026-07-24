@@ -1,0 +1,238 @@
+{
+  "iniciativasNacionais": [
+    {
+      "nome": "Plano Nacional de Leitura (PNL2027)",
+      "area": "Leitura e escrita",
+      "descricao": "Quadro nacional de promoção da leitura, com listas de livros, projetos e apoios às escolas.",
+      "estado": "aberta a inscrições",
+      "url": "https://pnl2027.gov.pt",
+      "imagem": "",
+      "icone": "livro"
+    },
+    {
+      "nome": "aLer mais e melhor",
+      "area": "Leitura e escrita",
+      "descricao": "Programa RBE de desenvolvimento das competências e hábitos de leitura.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/aler.html",
+      "imagem": "",
+      "icone": "livro"
+    },
+    {
+      "nome": "Semana da Leitura",
+      "area": "Leitura e escrita",
+      "descricao": "Celebração anual da leitura, dinamizada nas escolas com o PNL e a RBE.",
+      "estado": "participamos",
+      "url": "https://www.rbe.mec.pt/np4/Semana-da-Leitura.html",
+      "imagem": "",
+      "icone": "livro"
+    },
+    {
+      "nome": "Conto Contigo",
+      "area": "Leitura e escrita",
+      "descricao": "Projeto RBE de leitura e escrita em rede entre bibliotecas.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/ContoContigo.html",
+      "imagem": "",
+      "icone": "livro"
+    },
+    {
+      "nome": "Clássicos em Rede",
+      "area": "Leitura e escrita",
+      "descricao": "Leitura e exploração dos clássicos da literatura em comunidade de escolas.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/ClassicosEmRede.html",
+      "imagem": "",
+      "icone": "livro"
+    },
+    {
+      "nome": "READ ON Portugal",
+      "area": "Leitura e escrita",
+      "descricao": "Projeto de leitura em língua inglesa para o ensino secundário.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/READONPortugal.html",
+      "imagem": "",
+      "icone": "livro"
+    },
+    {
+      "nome": "Ser Escritor é Cool",
+      "area": "Leitura e escrita",
+      "descricao": "Concurso de escrita com recurso aos media (descontinuado em 2025; arquivo das edições).",
+      "estado": "arquivo",
+      "url": "https://www.rbe.mec.pt/np4/SerEscritoreCool.html",
+      "imagem": "",
+      "icone": "livro"
+    },
+    {
+      "nome": "V Centenário de Camões",
+      "area": "Leitura e escrita",
+      "descricao": "Comemorações 2024-2026, encerradas; a ESP dinamizou exposições e palestra.",
+      "estado": "arquivo",
+      "url": "https://www.rbe.mec.pt/np4/camoes-engenho-e-arte.html",
+      "imagem": "",
+      "icone": "livro"
+    },
+    {
+      "nome": "Operação 7 Dias com os Media",
+      "area": "Media e informação",
+      "descricao": "Semana anual (maio) de atividades de educação para os media.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/7DiasComosMedia.html",
+      "imagem": "",
+      "icone": "microfone"
+    },
+    {
+      "nome": "Concurso Media@ção",
+      "area": "Media e informação",
+      "descricao": "Concurso RBE de produção media (vídeo, áudio, multimédia) sobre tema anual.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/Concurso-Mediaacao.html",
+      "imagem": "",
+      "icone": "microfone"
+    },
+    {
+      "nome": "Dia da Internet mais Segura",
+      "area": "Media e informação",
+      "descricao": "Efeméride de fevereiro dedicada à segurança digital (RBE e SeguraNet).",
+      "estado": "participamos",
+      "url": "https://www.rbe.mec.pt/np4/internet-segura.html",
+      "imagem": "",
+      "icone": "microfone"
+    },
+    {
+      "nome": "Jornalistas em Rede (PÚBLICO na Escola)",
+      "area": "Media e informação",
+      "descricao": "Concurso de reportagem e entrevista para o 3.º ciclo.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/PnE-jer.html",
+      "imagem": "",
+      "icone": "microfone"
+    },
+    {
+      "nome": "Isto também é comigo! (PÚBLICO na Escola)",
+      "area": "Media e informação",
+      "descricao": "Concurso de artigos de opinião para o secundário, a partir da leitura do PÚBLICO.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/PnE-itec.html",
+      "imagem": "",
+      "icone": "microfone"
+    },
+    {
+      "nome": "Jornal escolar",
+      "area": "Media e informação",
+      "descricao": "Portal nacional de apoio aos jornais escolares (DGE), com recursos e boas práticas.",
+      "estado": "aberta a inscrições",
+      "url": "https://jornaisescolares.dge.mec.pt",
+      "imagem": "",
+      "icone": "microfone"
+    },
+    {
+      "nome": "Rádio escolar",
+      "area": "Media e informação",
+      "descricao": "Recursos e práticas RBE para rádios escolares articuladas com a BE.",
+      "estado": "aberta a inscrições",
+      "url": "https://blogue.rbe.mec.pt/a-biblioteca-escolar-e-a-radio-escolar-2907297",
+      "imagem": "",
+      "icone": "microfone"
+    },
+    {
+      "nome": "Portal MILD (RBE)",
+      "area": "Media e informação",
+      "descricao": "Manual de Instruções para a Literacia Digital, plataforma para os 14-18 anos.",
+      "estado": "participamos",
+      "url": "https://mild.rbe.mec.pt",
+      "imagem": "",
+      "icone": "microfone"
+    },
+    {
+      "nome": "Cientificamente Provável",
+      "area": "Ciência e outras literacias",
+      "descricao": "Aproximação entre escolas e instituições científicas e de ensino superior.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/CientificamenteProvavel.html",
+      "imagem": "",
+      "icone": "cerebro"
+    },
+    {
+      "nome": "Newton gostava de ler!",
+      "area": "Ciência e outras literacias",
+      "descricao": "Cruza literatura e ciência com atividades experimentais a partir de livros.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/NewtonGostavadeLer.html",
+      "imagem": "",
+      "icone": "cerebro"
+    },
+    {
+      "nome": "Plano Nacional de Formação Financeira",
+      "area": "Ciência e outras literacias",
+      "descricao": "Literacia financeira nas escolas, com materiais próprios.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/Plano-Nacional-Literacia-Financeira.html",
+      "imagem": "",
+      "icone": "cerebro"
+    },
+    {
+      "nome": "Miúdos a Votos",
+      "area": "Cidadania e participação",
+      "descricao": "Eleição nacional dos livros preferidos, replicando um ato eleitoral real.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/MiudosaVotos.html",
+      "imagem": "",
+      "icone": "pessoas"
+    },
+    {
+      "nome": "LIDERA",
+      "area": "Cidadania e participação",
+      "descricao": "Programa RBE de liderança e participação dos alunos a partir da BE (2025).",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/lidera.html",
+      "imagem": "",
+      "icone": "pessoas"
+    },
+    {
+      "nome": "Juntos a Criar",
+      "area": "Cidadania e participação",
+      "descricao": "Projeto colaborativo de criação artística e cultural entre bibliotecas.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.rbe.mec.pt/np4/juntos-a-criar.html",
+      "imagem": "",
+      "icone": "pessoas"
+    },
+    {
+      "nome": "Plano Nacional das Artes",
+      "area": "Artes, cultura e efemérides",
+      "descricao": "Artes e património no centro das aprendizagens; articula com RBE e PNL.",
+      "estado": "aberta a inscrições",
+      "url": "https://www.pna.gov.pt",
+      "imagem": "",
+      "icone": "estrela"
+    },
+    {
+      "nome": "Plano Nacional de Cinema",
+      "area": "Artes, cultura e efemérides",
+      "descricao": "Literacia fílmica nas escolas (2021-2030); enquadra o Cinema na Biblioteca.",
+      "estado": "participamos",
+      "url": "https://pnc.gov.pt",
+      "imagem": "",
+      "icone": "estrela"
+    },
+    {
+      "nome": "Dia Mundial da Língua Portuguesa",
+      "area": "Artes, cultura e efemérides",
+      "descricao": "Efeméride de 5 de maio, com propostas anuais da RBE.",
+      "estado": "participamos",
+      "url": "https://www.rbe.mec.pt/np4/Dia-Mundial-Lingua-Portuguesa.html",
+      "imagem": "",
+      "icone": "estrela"
+    },
+    {
+      "nome": "Mês Internacional da Biblioteca Escolar",
+      "area": "Artes, cultura e efemérides",
+      "descricao": "Outubro, mês da BE; programa anual com tema internacional.",
+      "estado": "participamos",
+      "url": "https://www.rbe.mec.pt/np4/MIBE.html",
+      "imagem": "",
+      "icone": "estrela"
+    }
+  ]
+}

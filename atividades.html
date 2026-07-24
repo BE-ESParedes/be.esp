@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atividades e Projetos · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Agenda, exposições, projetos, iniciativas nacionais, parcerias e trabalhos de alunos.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="imagens/logo/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body id="p-atividades">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <div class="wrap pad">
+    <h1 class="sec-title">atividades e projetos</h1><div class="rule"></div>
+    <p class="sec-lead">O que vai acontecer divulga-se aqui. O que já aconteceu vive nas <a href="noticias.html">Notícias</a>.</p>
+
+    <h2 class="sec-title" id="agenda">próximas atividades</h2><div class="rule"></div>
+    <ul class="agenda" id="ativ-agenda"></ul>
+
+    <h2 class="sec-title" id="exposicoes">exposições</h2><div class="rule"></div>
+    <div id="lista-exposicoes"></div>
+
+    <h2 class="sec-title" id="projetos">projetos da biblioteca</h2><div class="rule"></div>
+    <div class="grid3" id="lista-projetos"></div>
+
+    <h2 class="sec-title" id="iniciativas">iniciativas nacionais</h2><div class="rule"></div>
+    <p class="sec-lead">Programas e concursos nacionais em que a Biblioteca participa ou que estão abertos a inscrições.</p>
+    <div class="filtros" id="filtro-iniciativas" role="group" aria-label="Filtrar por área"></div>
+    <div class="grid3" id="lista-iniciativas"></div>
+    <div id="iniciativas-arquivo"></div>
+
+    <h2 class="sec-title">parcerias</h2><div class="rule"></div>
+    <div class="grid3" id="lista-parcerias"></div>
+
+    <h2 class="sec-title" id="trabalhos">trabalhos de alunos</h2><div class="rule"></div>
+    <div id="lista-trabalhos"></div>
+    <p class="aviso">Os trabalhos são publicados com consentimento. Usa-se apenas o primeiro nome e a inicial, nunca o nome completo de menores.</p>
+  </div>
+
+</main>
+<div id="rodape"></div>
+<script>
+window.renderPagina = function(){
+  const i = CONTEUDO.info || {};
+  const fotos=(arr,n)=>`<div class="grelha-fotos">`+(arr||[]).slice(0,n).map(f=>f.ficheiro
+      ? `<div class="media tile"><img src="${esc(f.ficheiro)}" alt="${esc(f.alt||'')}"></div>`
+      : `<div class="media tile"><span class="ph">${icone('camara',22)}foto</span></div>`).join('')+`</div>`;
+  const ex=document.getElementById('lista-exposicoes');
+  if(ex) ex.innerHTML=(CONTEUDO.exposicoes||[]).map(e=>`<div class="card" style="margin-bottom:16px">
+      <h3>${esc(e.titulo)}</h3><p style="font-size:12.5px">${esc(e.periodo||'')}</p>
+      <p style="margin-top:8px">${esc(e.descricao||'')}</p>${fotos(e.imagens,8)}</div>`).join('');
+  const pr=document.getElementById('lista-projetos');
+  if(pr) pr.innerHTML=(CONTEUDO.projetos||[]).map(p=>{const c=capaCartao(p);
+    return `<div class="card${c.cls}">${c.bg}<span class="ico">${icone(p.icone||'livro',22)}</span>
+      <h3>${esc(p.nome)}</h3><p>${esc(p.descricao)}</p>
+      <p style="margin-top:10px"><span class="chip${p.estado==='ativo'?'':' gold'}">${esc(p.estado)}</span></p></div>`;}).join('');
+  const IN=CONTEUDO.iniciativasNacionais||[];
+  const areas=[...new Set(IN.map(x=>x.area))];
+  const ativas=IN.filter(x=>x.estado!=='arquivo'), arq=IN.filter(x=>x.estado==='arquivo');
+  const cartao=x=>{const c=capaCartao(x);
+    return `<a class="card${c.cls}" ${linkAttrs(x.url)}>${c.bg}<span class="ico">${icone(x.icone||'bandeira',22)}</span>
+      <h3>${esc(x.nome)}</h3><p>${esc(x.descricao)}</p>
+      <p style="margin-top:10px"><span class="chip">${esc(x.estado)}</span> <span style="font-size:12px;color:var(--cinza)">${esc(x.area)}</span></p></a>`;};
+  const lista=document.getElementById('lista-iniciativas');
+  const pinta=a=>lista.innerHTML=ativas.filter(x=>!a||x.area===a).map(cartao).join('');
+  const fi=document.getElementById('filtro-iniciativas');
+  if(fi){ fi.innerHTML=[`<button class="fchip active" data-a="">Todas</button>`]
+      .concat(areas.map(a=>`<button class="fchip" data-a="${esc(a)}">${esc(a)}</button>`)).join('');
+    fi.addEventListener('click',e=>{const b=e.target.closest('.fchip'); if(!b)return;
+      [...fi.children].forEach(x=>x.classList.toggle('active',x===b)); pinta(b.dataset.a);}); }
+  pinta('');
+  const ar=document.getElementById('iniciativas-arquivo');
+  if(ar&&arq.length) ar.innerHTML=`<h3 style="margin:28px 0 10px;color:var(--cinza)">Arquivo</h3>
+    <ul class="docs">${arq.map(x=>`<li><a ${linkAttrs(x.url)}><span class="ico">${icone('pasta',18)}</span>${esc(x.nome)} <em>— ${esc(x.descricao)}</em></a></li>`).join('')}</ul>`;
+  const pa=document.getElementById('lista-parcerias');
+  if(pa) pa.innerHTML=[
+    {n:'Biblioteca Municipal de Paredes',d:'Catálogo coletivo BiblioNet, empréstimo interbibliotecas e atividades culturais conjuntas.',u:i.bibliotecaMunicipal,ic:'livro'},
+    {n:'Rede Concelhia de Bibliotecas de Paredes',d:'Partilha de recursos, projetos conjuntos e boas práticas entre bibliotecas escolares.',u:'',ic:'maos'},
+    {n:'Rede de Bibliotecas Escolares (RBE)',d:'Referenciais, formação e projetos nacionais.',u:i.rbe,ic:'bandeira'},
+  ].map(p=>p.u?`<a class="card" ${linkAttrs(p.u)}><span class="ico">${icone(p.ic,22)}</span><h3>${p.n}</h3><p>${p.d}</p></a>`
+               :`<div class="card"><span class="ico">${icone(p.ic,22)}</span><h3>${p.n}</h3><p>${p.d}</p></div>`).join('');
+  const tr=document.getElementById('lista-trabalhos');
+  if(tr) tr.innerHTML=(CONTEUDO.trabalhosAlunos||[]).map(t=>`<div class="card" style="margin-bottom:16px">
+      <h3>${esc(t.titulo)}</h3><p style="font-size:12.5px">${esc(t.autores||'')}</p>
+      <p style="margin-top:8px">${esc(t.descricao||'')}</p>${fotos(t.fotos,4)}</div>`).join('');
+};
+</script>
+<script src="motor.js"></script>
+</body>
+</html>

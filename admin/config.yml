@@ -1,0 +1,620 @@
+# ═══════════════════════════════════════════════════════════════
+# Painel de edição do site da Biblioteca Escolar da ESP
+#
+# Este ficheiro descreve os FORMULÁRIOS que a equipa vê em /admin.
+# Quem atualiza o site NÃO precisa de abrir este ficheiro.
+# Só a manutenção técnica mexe aqui (para acrescentar um campo novo).
+# ═══════════════════════════════════════════════════════════════
+
+backend:
+  name: github
+  repo: BE-ESParedes/be.esp
+  branch: main
+  # Entrada no painel: botão «Sign in with Token» (não é preciso instalar nada).
+  # Se um dia se quiser o botão «Sign in with GitHub», acrescentar aqui
+  #   base_url: https://<autenticador>.workers.dev
+  # e instalar o Sveltia CMS Authenticator (ver ADMIN.md, secção «Entrada mais cómoda»).
+
+# Onde ficam as imagens e os cartazes carregados pelo painel.
+media_folder: imagens
+public_folder: imagens
+
+# Guardar rascunhos antes de publicar (fluxo editorial com revisão).
+publish_mode: simple
+
+output:
+  json:
+    indent_size: 2
+
+locale: pt
+
+collections:
+
+  # ─────────────────────────────────────────────────────────────
+  - name: inicio
+    label: 1 · Página inicial
+    icon: home
+    format: json
+    files:
+
+      - name: banners
+        label: Banners do topo
+        file: content/banners.json
+        description: As imagens grandes que rodam no topo da página inicial.
+        fields:
+          - name: banners
+            label: Banners
+            widget: list
+            label_singular: banner
+            summary: '{{fields.titulo}}'
+            fields:
+              - { name: imagem, label: Imagem de fundo, widget: image, required: false, media_folder: /imagens/banners, public_folder: imagens/banners, hint: 'Larga e horizontal. Exportar até 300 KB.' }
+              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'Descreve a imagem em poucas palavras, para quem não a vê.' }
+              - { name: tag, label: Etiqueta pequena, widget: string, required: false }
+              - { name: titulo, label: Título, widget: string, hint: 'Pode usar <em>palavra</em> para destacar uma palavra a dourado.' }
+              - { name: texto, label: Texto, widget: text, required: false }
+              - name: botoes
+                label: Botões
+                widget: list
+                required: false
+                label_singular: botão
+                summary: '{{fields.rotulo}}'
+                fields:
+                  - { name: rotulo, label: Texto do botão, widget: string }
+                  - { name: url, label: Ligação, widget: string, required: false }
+
+      - name: acessoRapido
+        label: Acesso rápido
+        file: content/acessoRapido.json
+        description: Os atalhos grandes logo abaixo dos banners.
+        fields:
+          - name: acessoRapido
+            label: Atalhos
+            widget: list
+            label_singular: atalho
+            summary: '{{fields.rotulo}}'
+            fields:
+              - { name: rotulo, label: Título, widget: string }
+              - { name: sub, label: Subtítulo, widget: string, required: false }
+              - { name: acao, label: Texto do botão, widget: string, required: false, hint: 'Ex.: Pesquisar, Abrir, Consultar.' }
+              - name: icone
+                label: Ícone
+                widget: select
+                required: false
+                options: [livro, monitor, lupa, relogio, calendario, correio, pessoas, local, ficheiro, globo, escudo, cerebro, auscultador, camara, estrela, ligacao, cadeado, maos, pasta, bandeira, microfone, balao, alvo, chave, seta, info]
+              - name: cor
+                label: Cor do cartão
+                widget: select
+                required: false
+                options:
+                  - { label: 'Neutra (branco)', value: '' }
+                  - { label: 'Menta', value: menta }
+                  - { label: 'Dourado', value: dourado }
+              - { name: imagem, label: Imagem de fundo (opcional), widget: image, required: false }
+              - { name: alt, label: Descrição da imagem, widget: string, required: false }
+              - { name: url, label: Ligação, widget: string, required: false }
+
+      - name: metricas
+        label: Números da Biblioteca
+        file: content/metricas.json
+        fields:
+          - name: metricas
+            label: Números
+            widget: list
+            label_singular: número
+            summary: '{{fields.valor}} — {{fields.legenda}}'
+            fields:
+              - { name: valor, label: Valor, widget: string, hint: 'Ex.: 1 433' }
+              - { name: legenda, label: Legenda, widget: string }
+
+  # ─────────────────────────────────────────────────────────────
+  - name: noticias
+    label: 2 · Notícias, agenda e vídeos
+    icon: newspaper
+    format: json
+    files:
+
+      - name: noticias
+        label: Notícias
+        file: content/noticias.json
+        description: O que JÁ aconteceu. O que vai acontecer vai para a Agenda.
+        fields:
+          - name: noticias
+            label: Notícias
+            widget: list
+            label_singular: notícia
+            summary: '{{fields.titulo}}'
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: dataOrdenacao, label: Data, widget: datetime, format: 'YYYY-MM-DD', date_format: 'DD-MM-YYYY', time_format: false, hint: 'Define a ordem. A mais recente aparece primeiro.' }
+              - { name: data, label: Data como aparece no site, widget: string, hint: 'Ex.: 14 out 2026' }
+              - name: categoria
+                label: Categoria
+                widget: select
+                create: true
+                options: [Leitura, Concurso, Formação, Exposição, Projeto, Visita, Aviso]
+              - { name: resumo, label: Resumo, widget: text }
+              - { name: imagem, label: Fotografia, widget: image, required: false, media_folder: /imagens/noticias, public_folder: imagens/noticias, hint: 'Só com consentimento RGPD registado. Exportar até 300 KB.' }
+              - { name: emoji, label: Emoji (se não houver fotografia), widget: string, required: false, default: '📖' }
+              - name: cor
+                label: Cor (se não houver fotografia)
+                widget: select
+                required: false
+                options:
+                  - { label: 'Menta', value: '#A8D8CC' }
+                  - { label: 'Dourado', value: '#D8B260' }
+                  - { label: 'Verde profundo', value: '#20493B' }
+                  - { label: 'Azul noturno', value: '#0A2036' }
+              - { name: url, label: Ligação (opcional), widget: string, required: false }
+              - { name: exemplo, label: É um exemplo por substituir, widget: boolean, required: false, default: false }
+
+      - name: agenda
+        label: Agenda
+        file: content/agenda.json
+        description: O que VAI acontecer.
+        fields:
+          - name: agenda
+            label: Eventos
+            widget: list
+            label_singular: evento
+            summary: '{{fields.dia}} {{fields.mes}} — {{fields.titulo}}'
+            fields:
+              - { name: dia, label: Dia, widget: string, hint: 'Ex.: 14' }
+              - name: mes
+                label: Mês
+                widget: select
+                options: [Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
+              - { name: ano, label: Ano, widget: string, hint: 'Ex.: 2026' }
+              - { name: titulo, label: Título, widget: string }
+              - { name: local, label: Local e hora, widget: string, required: false, hint: 'Ex.: Biblioteca · 14h30' }
+              - { name: url, label: Ligação (opcional), widget: string, required: false }
+
+      - name: videos
+        label: Vídeos
+        file: content/videos.json
+        description: Vídeos do YouTube. Basta colar o endereço do vídeo.
+        fields:
+          - name: videos
+            label: Vídeos
+            widget: list
+            label_singular: vídeo
+            summary: '{{fields.titulo}}'
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: descricao, label: Descrição breve, widget: text, required: false }
+              - { name: url, label: Endereço do vídeo, widget: string, hint: 'Colar o endereço do YouTube tal como aparece na barra do browser.' }
+              - { name: data, label: Data, widget: string, required: false, hint: 'Ex.: out 2026' }
+
+  # ─────────────────────────────────────────────────────────────
+  - name: biblioteca
+    label: 3 · A Biblioteca
+    icon: library_books
+    format: json
+    files:
+
+      - name: info
+        label: Informação geral e contactos
+        file: content/info.json
+        description: Contactos, horário, equipa, redes sociais e endereços usados em todo o site.
+        fields:
+          - name: info
+            label: Informação
+            widget: object
+            fields:
+              - { name: nome, label: Nome, widget: string }
+              - { name: escola, label: Escola, widget: string }
+              - { name: email, label: Correio eletrónico, widget: string }
+              - { name: telefone, label: Telefone, widget: string }
+              - { name: horario, label: Horário (curto), widget: string }
+              - { name: horarioLongo, label: Horário (versão longa), widget: text }
+              - { name: localizacao, label: Localização, widget: string }
+              - { name: lugares, label: Lugares, widget: string }
+              - { name: codigoRBE, label: Código RBE, widget: string }
+              - name: equipa
+                label: Equipa
+                widget: list
+                label_singular: pessoa
+                summary: '{{fields.nome}} — {{fields.funcao}}'
+                fields:
+                  - { name: funcao, label: Função, widget: string }
+                  - { name: nome, label: Nome, widget: string }
+              - { name: missao, label: Missão (texto completo), widget: text }
+              - { name: missaoCurta, label: Missão (versão curta), widget: text }
+              - { name: instagram, label: Instagram, widget: string, required: false }
+              - { name: facebook, label: Facebook, widget: string, required: false }
+              - { name: youtube, label: Canal de YouTube, widget: string, required: false }
+              - { name: siteEscola, label: Site da escola, widget: string, required: false }
+              - { name: opacSimples, label: 'Catálogo — pesquisa simples', widget: string, required: false }
+              - { name: opacAvancada, label: 'Catálogo — pesquisa avançada', widget: string, required: false }
+              - { name: bibliotecaMunicipal, label: Biblioteca Municipal, widget: string, required: false }
+              - { name: rbe, label: Portal RBE, widget: string, required: false }
+              - { name: pnl, label: PNL2027, widget: string, required: false }
+              - { name: dge, label: DGE, widget: string, required: false }
+              - { name: mapa, label: Mapa, widget: string, required: false }
+              - { name: linkMarcacao, label: Ligação para marcações (Bookings), widget: string, required: false }
+              - { name: linkFormulario, label: Ligação para formulário de contacto, widget: string, required: false, hint: 'Se ficar vazio, o site usa o correio eletrónico.' }
+              - { name: repositorioGitHub, label: Repositório do site, widget: string, required: false }
+
+      - name: regras
+        label: Regras de utilização
+        file: content/regras.json
+        fields:
+          - name: regras
+            label: Regras
+            widget: list
+            label_singular: regra
+            field: { name: regra, label: Regra, widget: text }
+
+      - name: documentos
+        label: Documentos oficiais
+        file: content/documentos.json
+        description: 'Os PDF vivem no OneDrive. Aqui cola-se apenas a ligação de partilha.'
+        fields:
+          - name: documentos
+            label: Documentos
+            widget: list
+            label_singular: documento
+            summary: '{{fields.titulo}}'
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: url, label: Ligação de partilha do OneDrive, widget: string, required: false, hint: 'Vazio = aparece como «brevemente disponível».' }
+
+      - name: galeria
+        label: Galeria de fotografias
+        file: content/galeria.json
+        fields:
+          - name: galeria
+            label: Fotografias
+            widget: list
+            label_singular: fotografia
+            summary: '{{fields.legenda}}'
+            fields:
+              - { name: imagem, label: Fotografia, widget: image, required: false, media_folder: /imagens/galeria, public_folder: imagens/galeria }
+              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false }
+              - { name: legenda, label: Legenda, widget: string }
+
+      - name: faq
+        label: Perguntas frequentes
+        file: content/faq.json
+        fields:
+          - name: faq
+            label: Perguntas
+            widget: list
+            label_singular: pergunta
+            summary: '{{fields.pergunta}}'
+            fields:
+              - { name: pergunta, label: Pergunta, widget: string }
+              - { name: resposta, label: Resposta, widget: text }
+
+      - name: projetosEscola
+        label: Projetos da escola
+        file: content/projetosEscola.json
+        fields:
+          - name: projetosEscola
+            label: Projetos
+            widget: list
+            label_singular: projeto
+            summary: '{{fields.nome}}'
+            fields:
+              - { name: nome, label: Nome, widget: string }
+              - { name: url, label: Ligação, widget: string, required: false }
+              - { name: imagem, label: Imagem, widget: image, required: false }
+              - name: icone
+                label: Ícone
+                widget: select
+                required: false
+                options: [ligacao, globo, livro, estrela, bandeira, maos, alvo, pasta]
+
+  # ─────────────────────────────────────────────────────────────
+  - name: recursos
+    label: 4 · Catálogo e recursos
+    icon: menu_book
+    format: json
+    files:
+
+      - name: bibliotecaDigital
+        label: Biblioteca Digital
+        file: content/bibliotecaDigital.json
+        description: Recursos em linha verificados pela Biblioteca.
+        fields:
+          - name: bibliotecaDigital
+            label: Recursos
+            widget: list
+            label_singular: recurso
+            summary: '{{fields.nome}}'
+            fields:
+              - { name: nome, label: Nome, widget: string }
+              - { name: descricao, label: Descrição breve, widget: text }
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - { label: 'Repositórios', value: repositorios }
+                  - { label: 'Livros digitais', value: ebooks }
+                  - { label: 'Imprensa', value: imprensa }
+                  - { label: 'Multimédia', value: multimedia }
+              - name: acesso
+                label: Tipo de acesso
+                widget: select
+                options:
+                  - { label: 'Livre', value: livre }
+                  - { label: 'Com registo', value: registo }
+                  - { label: 'Só na escola', value: escola }
+              - { name: url, label: Ligação, widget: string }
+              - { name: verificado, label: Verificado pela Biblioteca, widget: boolean, default: true }
+              - { name: imagem, label: Imagem, widget: image, required: false }
+              - name: icone
+                label: Ícone
+                widget: select
+                required: false
+                options: [globo, livro, monitor, ficheiro, lupa, estrela, camara, microfone]
+
+      - name: destaquesCatalogo
+        label: Sugestões de leitura
+        file: content/destaquesCatalogo.json
+        fields:
+          - name: destaquesCatalogo
+            label: Sugestões
+            widget: list
+            label_singular: sugestão
+            summary: '{{fields.titulo}}'
+            fields:
+              - { name: titulo, label: Título da obra, widget: string }
+              - { name: autor, label: Autor, widget: string }
+              - { name: nota, label: Nota da Biblioteca, widget: text, required: false }
+              - { name: imagem, label: Capa, widget: image, required: false }
+
+      - name: guioes
+        label: Guiões e métodos de estudo
+        file: content/guioes.json
+        fields:
+          - name: guioes
+            label: Guiões
+            widget: list
+            label_singular: guião
+            summary: '{{fields.titulo}}'
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: descricao, label: Descrição, widget: text, required: false }
+              - { name: url, label: Ligação (PDF do OneDrive), widget: string, required: false }
+              - name: icone
+                label: Ícone
+                widget: select
+                required: false
+                options: [alvo, ficheiro, estrela, escudo, cerebro, monitor, lupa, livro]
+
+      - name: disciplinas
+        label: Recursos por disciplina
+        file: content/disciplinas.json
+        fields:
+          - name: disciplinas
+            label: Disciplinas
+            widget: list
+            label_singular: disciplina
+            summary: '{{fields.nome}}'
+            fields:
+              - { name: nome, label: Disciplina, widget: string }
+              - name: essenciais
+                label: Recursos essenciais
+                widget: list
+                required: false
+                summary: '{{fields.titulo}}'
+                fields:
+                  - { name: titulo, label: Título, widget: string }
+                  - { name: url, label: Ligação, widget: string, required: false }
+              - name: aprofundamento
+                label: Aprofundamento
+                widget: list
+                required: false
+                summary: '{{fields.titulo}}'
+                fields:
+                  - { name: titulo, label: Título, widget: string }
+                  - { name: url, label: Ligação, widget: string, required: false }
+              - name: propostas
+                label: Propostas de aula ou projeto
+                widget: list
+                required: false
+                summary: '{{fields.titulo}}'
+                fields:
+                  - { name: titulo, label: Título, widget: string }
+                  - { name: url, label: Ligação, widget: string, required: false }
+              - name: testados
+                label: Materiais testados com turmas
+                widget: list
+                required: false
+                summary: '{{fields.titulo}}'
+                fields:
+                  - { name: titulo, label: Título, widget: string }
+                  - { name: url, label: Ligação, widget: string, required: false }
+
+      - name: ligacoesUteis
+        label: Ligações úteis
+        file: content/ligacoesUteis.json
+        fields:
+          - name: ligacoesUteis
+            label: Ligações
+            widget: list
+            label_singular: ligação
+            summary: '{{fields.grupo}} — {{fields.nome}}'
+            fields:
+              - name: grupo
+                label: Grupo
+                widget: select
+                create: true
+                options: [Ler, Investigar, Escrever, Criar, Cidadania]
+              - { name: nome, label: Nome, widget: string }
+              - { name: url, label: Ligação, widget: string, required: false }
+              - name: acesso
+                label: Tipo de acesso
+                widget: select
+                options:
+                  - { label: 'Livre', value: livre }
+                  - { label: 'Com registo', value: registo }
+                  - { label: 'Só na escola', value: escola }
+
+      - name: desafioMes
+        label: Desafio do mês
+        file: content/desafioMes.json
+        fields:
+          - name: desafioMes
+            label: Desafio
+            widget: object
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: texto, label: Texto, widget: text }
+              - { name: url, label: Ligação (opcional), widget: string, required: false }
+
+  # ─────────────────────────────────────────────────────────────
+  - name: atividades
+    label: 5 · Atividades e projetos
+    icon: flag
+    format: json
+    files:
+
+      - name: projetos
+        label: Projetos da Biblioteca
+        file: content/projetos.json
+        fields:
+          - name: projetos
+            label: Projetos
+            widget: list
+            label_singular: projeto
+            summary: '{{fields.nome}}'
+            fields:
+              - { name: nome, label: Nome, widget: string }
+              - { name: descricao, label: Descrição, widget: text }
+              - name: estado
+                label: Estado
+                widget: select
+                options:
+                  - { label: 'Ativo', value: ativo }
+                  - { label: 'Concluído', value: concluido }
+                  - { label: 'Arquivo', value: arquivo }
+              - { name: imagem, label: Imagem, widget: image, required: false }
+              - name: icone
+                label: Ícone
+                widget: select
+                required: false
+                options: [livro, estrela, calendario, balao, monitor, pasta, maos, bandeira, microfone, camara]
+
+      - name: iniciativasNacionais
+        label: Iniciativas nacionais
+        file: content/iniciativasNacionais.json
+        description: Rever no início de cada ano letivo.
+        fields:
+          - name: iniciativasNacionais
+            label: Iniciativas
+            widget: list
+            label_singular: iniciativa
+            summary: '{{fields.nome}} — {{fields.estado}}'
+            fields:
+              - { name: nome, label: Nome, widget: string }
+              - name: area
+                label: Área
+                widget: select
+                create: true
+                options: ['Leitura e escrita', 'Literacias e cidadania', 'Ciência e ambiente', 'Artes e cultura', 'Rede e formação']
+              - { name: descricao, label: Descrição, widget: text }
+              - name: estado
+                label: Estado
+                widget: select
+                options:
+                  - { label: 'Participamos', value: participamos }
+                  - { label: 'Já participámos', value: 'já participámos' }
+                  - { label: 'Aberta a inscrições', value: 'aberta a inscrições' }
+                  - { label: 'Arquivo', value: arquivo }
+              - { name: url, label: Ligação oficial, widget: string, required: false }
+              - { name: imagem, label: Imagem, widget: image, required: false }
+              - name: icone
+                label: Ícone
+                widget: select
+                required: false
+                options: [livro, globo, escudo, cerebro, estrela, bandeira, maos, alvo, camara, microfone]
+
+      - name: exposicoes
+        label: Exposições
+        file: content/exposicoes.json
+        description: Norma editorial – 8 fotografias por exposição.
+        fields:
+          - name: exposicoes
+            label: Exposições
+            widget: list
+            label_singular: exposição
+            summary: '{{fields.titulo}}'
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: periodo, label: Período, widget: string, hint: 'Ex.: Março de 2026' }
+              - { name: descricao, label: Descrição, widget: text }
+              - name: imagens
+                label: Fotografias
+                widget: list
+                label_singular: fotografia
+                required: false
+                fields:
+                  - { name: ficheiro, label: Fotografia, widget: image, required: false, media_folder: /imagens/exposicoes, public_folder: imagens/exposicoes }
+                  - { name: alt, label: Descrição da imagem, widget: string, required: false }
+
+      - name: trabalhosAlunos
+        label: Trabalhos de alunos
+        file: content/trabalhosAlunos.json
+        description: 'RGPD – apenas primeiro nome e inicial. Fotografias só com consentimento registado.'
+        fields:
+          - name: trabalhosAlunos
+            label: Trabalhos
+            widget: list
+            label_singular: trabalho
+            summary: '{{fields.titulo}}'
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: autores, label: Autores, widget: string, hint: 'Apenas primeiro nome e inicial. Ex.: Ana S., Bruno M. (10.º A)' }
+              - { name: descricao, label: Descrição, widget: text }
+              - name: fotos
+                label: Fotografias
+                widget: list
+                label_singular: fotografia
+                required: false
+                fields:
+                  - { name: ficheiro, label: Fotografia, widget: image, required: false, media_folder: /imagens/trabalhos, public_folder: imagens/trabalhos }
+                  - { name: alt, label: Descrição da imagem, widget: string, required: false }
+
+  # ─────────────────────────────────────────────────────────────
+  - name: equipa
+    label: 6 · Área de trabalho
+    icon: settings
+    format: json
+    files:
+
+      - name: areaTrabalho
+        label: Ligações da equipa
+        file: content/areaTrabalho.json
+        fields:
+          - name: areaTrabalho
+            label: Área de trabalho
+            widget: object
+            fields:
+              - name: ligacoes
+                label: Ligações
+                widget: list
+                label_singular: ligação
+                summary: '{{fields.nome}}'
+                fields:
+                  - { name: nome, label: Nome, widget: string }
+                  - { name: url, label: Ligação, widget: string, required: false }
+
+      - name: cartoes
+        label: Personalizar cartões fixos
+        file: content/cartoes.json
+        description: Avançado. Permite mudar o texto ou a imagem de um cartão fixo do site.
+        fields:
+          - name: cartoes
+            label: Cartões
+            widget: list
+            required: false
+            label_singular: cartão
+            summary: '{{fields.id}}'
+            fields:
+              - { name: id, label: Identificador do cartão, widget: string, hint: 'O valor de data-card no HTML.' }
+              - { name: titulo, label: Título, widget: string, required: false }
+              - { name: texto, label: Texto, widget: text, required: false }
+              - { name: link, label: Ligação, widget: string, required: false }
+              - { name: imagem, label: Imagem, widget: image, required: false }

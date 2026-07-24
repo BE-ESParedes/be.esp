@@ -1,0 +1,43 @@
+{
+  "exposicoes": [
+    {
+      "titulo": "EXEMPLO, substituir por uma exposição real",
+      "periodo": "Mês de 2026",
+      "descricao": "Descrição breve da exposição. Substituir por conteúdo real e usar 8 fotografias com consentimento RGPD.",
+      "imagens": [
+        {
+          "ficheiro": "",
+          "alt": ""
+        },
+        {
+          "ficheiro": "",
+          "alt": ""
+        },
+        {
+          "ficheiro": "",
+          "alt": ""
+        },
+        {
+          "ficheiro": "",
+          "alt": ""
+        },
+        {
+          "ficheiro": "",
+          "alt": ""
+        },
+        {
+          "ficheiro": "",
+          "alt": ""
+        },
+        {
+          "ficheiro": "",
+          "alt": ""
+        },
+        {
+          "ficheiro": "",
+          "alt": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Área de Trabalho · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Página de trabalho da equipa da Biblioteca Escolar da ESP.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="imagens/logo/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body id="p-area">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <div class="wrap pad">
+    <p class="aviso"><strong>Página de trabalho da equipa da Biblioteca.</strong> Não contém informação destinada ao público.</p>
+    <h1 class="sec-title">área de trabalho</h1><div class="rule"></div>
+
+    <h2 class="sec-title">como atualizar o site</h2><div class="rule"></div>
+    <p class="sec-lead">Toda a atualização se faz pelo <strong>painel de edição</strong>: formulários,
+      imagens por arrastar e vídeos por colar o endereço. Não é preciso mexer em código nem em ficheiros.</p>
+    <p style="margin:18px 0 26px">
+      <a class="btn primario" href="admin/">Abrir o painel de edição</a>
+    </p>
+    <div class="passos">
+      <div class="passo"><h3>Escolher</h3><p>No painel, escolher a secção na barra lateral e o item a alterar (Notícias, Agenda, Galeria…).</p></div>
+      <div class="passo"><h3>Preencher</h3><p>Preencher o formulário. Para acrescentar, botão Add; as imagens carregam-se por arrastar.</p></div>
+      <div class="passo"><h3>Guardar</h3><p>Carregar em Save. O site atualiza-se sozinho em um a dois minutos.</p></div>
+    </div>
+    <p style="margin-top:20px" id="btn-repo"></p>
+    <p style="font-size:13px;color:var(--cinza)">Guia de utilização: LEIA-ME.md · Instalação e entrada no painel: ADMIN.md</p>
+
+    <h2 class="sec-title">checklist de publicação</h2><div class="rule"></div>
+    <ul class="docs">
+      <li><span class="item">Texto revisto (ortografia e tom institucional)</span></li>
+      <li><span class="item">Imagem com consentimento RGPD registado</span></li>
+      <li><span class="item">Texto alternativo (alt) preenchido</span></li>
+      <li><span class="item">Ligação testada</span></li>
+      <li><span class="item">Categoria correta e data certa</span></li>
+    </ul>
+
+    <h2 class="sec-title">ligações rápidas de trabalho</h2><div class="rule"></div>
+    <div class="grid3" id="ligacoes-trabalho"></div>
+
+    <h2 class="sec-title">calendário editorial</h2><div class="rule"></div>
+    <table class="tbl">
+      <thead><tr><th>O quê</th><th>Com que frequência</th></tr></thead>
+      <tbody>
+        <tr><td>Notícias</td><td>Uma vez por semana</td></tr>
+        <tr><td>Agenda</td><td>No início de cada mês</td></tr>
+        <tr><td>Informação estática (horário, regras, documentos)</td><td>No início de cada período</td></tr>
+        <tr><td>Revisão de ligações (Biblioteca Digital e Ligações Úteis)</td><td>Uma vez por período</td></tr>
+        <tr><td>Iniciativas nacionais</td><td>No início do ano letivo</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="sec-title">registo de consentimentos</h2><div class="rule"></div>
+    <div class="card" data-card="area-1"><span class="ico" data-ico="chave"></span><h3>Antes de publicar fotografias</h3>
+      <p>Confirmar o consentimento na lista mantida pela equipa (fora do site, no OneDrive da Biblioteca) e registar a data. Para retirar uma imagem, remover no painel e apagar o ficheiro da pasta de imagens.</p></div>
+  </div>
+
+</main>
+<div id="rodape"></div>
+<script>
+window.renderPagina = function(){
+  document.querySelectorAll('[data-ico]').forEach(e=>e.innerHTML=icone(e.dataset.ico,22));
+  const i = CONTEUDO.info || {};
+  const br = document.getElementById('btn-repo');
+  if (br) br.innerHTML = temTexto(i.repositorioGitHub)
+    ? `<a class="btn claro" ${linkAttrs(i.repositorioGitHub)}>Abrir o repositório no GitHub</a>`
+    : `<span style="font-size:13px;color:var(--cinza)">Endereço do repositório a preencher em content/info.json (campo repositorioGitHub).</span>`;
+  const L=(CONTEUDO.areaTrabalho&&CONTEUDO.areaTrabalho.ligacoes)||[];
+  const el=document.getElementById('ligacoes-trabalho');
+  if(el) el.innerHTML=L.map(x=>x.url
+    ? `<a class="card" ${linkAttrs(x.url)}><span class="ico">${icone('ligacao',22)}</span><h3>${esc(x.nome)}</h3></a>`
+    : `<div class="card"><span class="ico">${icone('ligacao',22)}</span><h3>${esc(x.nome)}</h3><p>Endereço a confirmar.</p></div>`).join('');
+};
+</script>
+<script src="motor.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "info": {
+    "nome": "Biblioteca Escolar",
+    "escola": "Escola Secundária de Paredes",
+    "email": "biblioteca@esparedes.pt",
+    "telefone": "224 567 890",
+    "horario": "Seg–Sex: 8h00 – 18h30",
+    "horarioLongo": "Segunda a sexta, em período letivo, horário contínuo, das 8h00 às 18h30 (Art. 2.º do RI-BE)",
+    "localizacao": "Bloco E, 1.º andar",
+    "lugares": "Cerca de 60 lugares de leitura e estudo (300 m²)",
+    "codigoRBE": "402424",
+    "equipa": [
+      {
+        "funcao": "Professor bibliotecário",
+        "nome": "Carlos Manuel Barros Carneiro"
+      },
+      {
+        "funcao": "Atendimento",
+        "nome": "Maria José Moreira Magalhães"
+      }
+    ],
+    "missao": "A Biblioteca Escolar da ESP tem como missão proporcionar a toda a comunidade educativa acesso equitativo à informação, ao conhecimento e à cultura, promovendo o desenvolvimento de competências de literacia, o gosto pela leitura e a autonomia intelectual, em articulação com o currículo e com os projetos educativos da escola.",
+    "missaoCurta": "A Biblioteca Escolar da ESP tem como missão proporcionar acesso equitativo à informação, ao conhecimento e à cultura, promovendo o desenvolvimento de competências de literacia e o gosto pela leitura.",
+    "instagram": "https://www.instagram.com/beesparedes/",
+    "facebook": "https://www.facebook.com/biblioteca.escsecparedes",
+    "youtube": "",
+    "siteEscola": "https://www.esparedes.pt/esp/",
+    "opacSimples": "http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx",
+    "opacAvancada": "http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/AdvancedSearch.aspx",
+    "bibliotecaMunicipal": "http://bibliotecas.cm-paredes.pt/",
+    "rbe": "https://www.rbe.mec.pt/",
+    "pnl": "https://pnl2027.gov.pt",
+    "dge": "https://www.dge.mec.pt/",
+    "mapa": "https://maps.google.com/?q=Escola+Secundária+de+Paredes",
+    "linkMarcacao": "",
+    "linkFormulario": "",
+    "repositorioGitHub": "https://github.com/BE-ESParedes/be.esp"
+  }
+}
