@@ -1,36 +1,36 @@
 {
   "agenda": [
     {
-      "dia": "11",
-      "mes": "Abr",
+      "dia": "15",
+      "mes": "Set",
       "ano": "2026",
-      "titulo": "Oficina de Literacia da Informação, 10.º ano",
-      "local": "Sala de Informática · 10h00",
-      "url": ""
+      "titulo": "Abertura da Biblioteca",
+      "local": "Bloco E, 1.º andar · 8h00",
+      "url": "biblioteca.html#horario"
     },
     {
-      "dia": "14",
-      "mes": "Abr",
+      "dia": "01",
+      "mes": "Out",
       "ano": "2026",
-      "titulo": "Clube de Leitura, sessão mensal de partilha",
-      "local": "Biblioteca · 14h30",
-      "url": ""
+      "titulo": "Mês Internacional da Biblioteca Escolar",
+      "local": "Programa ao longo do mês",
+      "url": "atividades.html#concursos"
     },
     {
-      "dia": "22",
-      "mes": "Abr",
+      "dia": "12",
+      "mes": "Out",
       "ano": "2026",
-      "titulo": "Mostra «Dia Mundial da Terra»",
-      "local": "Biblioteca e corredor principal",
+      "titulo": "Formação de utilizadores, turmas do 7.º ano",
+      "local": "Biblioteca · a marcar com os diretores de turma",
       "url": ""
     },
     {
       "dia": "05",
-      "mes": "Mai",
+      "mes": "Nov",
       "ano": "2026",
-      "titulo": "Oficina «Citar e referenciar», 12.º ano",
-      "local": "Biblioteca · 9h00",
-      "url": ""
+      "titulo": "Exposição temática de outono",
+      "local": "Átrio da Biblioteca",
+      "url": "atividades.html#exposicoes"
     }
   ]
 }

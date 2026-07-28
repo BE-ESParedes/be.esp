@@ -1,0 +1,46 @@
+{
+  "pilares": [
+    {
+      "titulo": "Promoção da Leitura",
+      "texto": "Clubes, concursos, encontros com escritores e sessões de leitura orientada com as turmas.",
+      "imagem": "imagens/biblioteca/pilar-leitura.jpg",
+      "alt": "Ilustração de um livro aberto com uma lupa",
+      "icone": "livro"
+    },
+    {
+      "titulo": "Competências Digitais",
+      "texto": "Uso crítico das ferramentas digitais, segurança em linha e produção de conteúdos próprios.",
+      "imagem": "imagens/biblioteca/pilar-digital.jpg",
+      "alt": "Ilustração de um computador portátil rodeado de ícones digitais",
+      "icone": "monitor"
+    },
+    {
+      "titulo": "Investigação",
+      "texto": "Como procurar, avaliar e citar fontes. Do primeiro tema ao trabalho entregue.",
+      "imagem": "imagens/biblioteca/pilar-investigacao.jpg",
+      "alt": "Ilustração de um livro aberto com uma lupa sobre as páginas",
+      "icone": "lupa"
+    },
+    {
+      "titulo": "Apoio Curricular",
+      "texto": "Recursos por disciplina, selecionados com os professores e testados com as turmas.",
+      "imagem": "imagens/biblioteca/pilar-curriculo.jpg",
+      "alt": "Ilustração de livros empilhados com um livro aberto",
+      "icone": "pasta"
+    },
+    {
+      "titulo": "Projetos",
+      "texto": "Projetos próprios e em parceria, do Palavras em Ação às iniciativas nacionais.",
+      "imagem": "imagens/biblioteca/pilar-projetos.jpg",
+      "alt": "Ilustração de livros abertos sobre formas geométricas",
+      "icone": "alvo"
+    },
+    {
+      "titulo": "Cidadania",
+      "texto": "Espaço de debate, participação e encontro com a comunidade educativa.",
+      "imagem": "imagens/biblioteca/pilar-cidadania.jpg",
+      "alt": "Ilustração de pessoas em diálogo com balões de conversa",
+      "icone": "globo"
+    }
+  ]
+}

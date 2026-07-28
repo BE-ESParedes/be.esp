@@ -1,0 +1,40 @@
+IMAGENS DO SITE DA BIBLIOTECA
+=============================
+
+Não é preciso copiar ficheiros para aqui à mão. Use o painel de edição
+(cadeado no canto superior direito do site) e arraste a imagem para o campo:
+ela vai automaticamente para a pasta certa.
+
+Para onde vai cada imagem
+-------------------------
+banners/     imagens grandes do topo da página inicial
+noticias/    fotografia de cada notícia
+galeria/     fotografias do espaço da Biblioteca
+exposicoes/  fotografias das exposições (8 por exposição)
+trabalhos/   fotografias dos trabalhos de alunos (4 por trabalho)
+projetos/    imagens de projetos, iniciativas e capas de livros
+cartoes/     imagens de fundo dos cartões de acesso rápido
+logo/        logótipo e favicon do BrandKit
+
+Antes de carregar
+-----------------
+1. CONSENTIMENTO. Se a fotografia mostra pessoas identificáveis, confirme o
+   consentimento na lista da equipa (OneDrive) e registe a data.
+   Procedimento: POP-RGPD-01.
+2. TAMANHO. Exportar até 300 KB. Imagens pesadas tornam o site lento,
+   sobretudo nos telemóveis dos alunos.
+3. DESCRIÇÃO. Preencher sempre o campo de descrição da imagem. É o que
+   permite a quem não vê perceber o conteúdo, e é exigência de acessibilidade.
+4. FORMATO. JPG para fotografias, PNG para logótipos e grafismos.
+
+Medidas recomendadas
+--------------------
+banners      1600 x 700 px
+noticias      800 x 500 px
+galeria       900 x 700 px
+exposicoes    900 x 700 px
+trabalhos     900 x 700 px
+
+Para retirar uma imagem do site, apague-a no painel de edição. O ficheiro
+pode ficar na pasta sem aparecer no site; se for pedido o apagamento ao abrigo
+do RGPD, apague também o ficheiro no repositório.

@@ -8,9 +8,92 @@
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="Início · Biblioteca Escolar da ESP"><meta property="og:description" content="Site da Biblioteca Escolar da Escola Secundária de Paredes: catálogo, recursos, atividades e notícias.">
 <meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
-<link rel="icon" href="imagens/logo/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="imagens/logo/favicon.ico"><link rel="icon" type="image/svg+xml" href="imagens/logo/icone-app.svg">
+<link rel="apple-touch-icon" href="imagens/logo/apple-touch-icon.png">
+<meta name="theme-color" content="#F8F8F8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="estilos.css">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Página INÍCIO — componentes próprios.
+   Decisão de 28/07/2026: a homepage deixa de ser um índice do site e
+   passa a responder a três perguntas — onde estou, o que posso fazer,
+   qual é o próximo passo. Seis blocos, não mais:
+   abertura com pesquisa · carrossel · quero… · hoje e a seguir ·
+   três notícias · números e «sabias que».
+   Sai o acesso rápido (era o mesmo que as missões, por outras palavras)
+   e sai o bloco de boas-vindas (as missões dizem-no melhor).
+   ═══════════════════════════════════════════════════════════════ */
+#p-inicio{--menta-txt:#236B5C}
+.hsec{padding:40px 0}
+.hsec.alt{background:var(--areia)}
+.hsec .sec-title{margin-top:0}
+
+/* ---- a pesquisa é o centro do site: cresce ---- */
+#p-inicio .abertura{padding:52px 0 44px}
+#p-inicio .abertura .saudacao{font-size:clamp(30px,4vw,46px);margin-bottom:18px}
+#p-inicio .fp-form{max-width:680px;padding:7px 7px 7px 20px;border-width:2px}
+#p-inicio .fp-form input{font-size:17px;min-height:52px}
+#p-inicio .fp-res{max-width:680px}
+#p-inicio .fp-nota{margin-top:12px}
+
+/* ---- quero… ---- */
+.hmissoes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hmissao{display:flex;align-items:flex-start;gap:15px;background:var(--branco);
+  border:1px solid var(--linha);border-radius:var(--r-cartao);padding:22px;
+  text-decoration:none;color:inherit;transition:.16s;min-height:112px}
+.hmissao:hover{border-color:var(--menta);transform:translateY(-4px);box-shadow:var(--sombra-lg)}
+.hmissao .ic{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;
+  flex:none;background:var(--menta-wash);color:#1C5346}
+.hmissao b{display:block;font-size:16.5px;font-weight:800;color:var(--tinta);
+  letter-spacing:-.015em;line-height:1.28;margin-bottom:4px}
+.hmissao span{display:block;font-size:13.5px;color:var(--cinza);line-height:1.5}
+
+/* ---- hoje e a seguir ---- */
+.hdupla{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;align-items:stretch}
+.hhoje,.hagenda{background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao);padding:24px}
+.hestado{display:flex;align-items:center;gap:11px;padding-bottom:14px;margin-bottom:4px;
+  border-bottom:1px solid var(--linha);font-size:15px;font-weight:700;color:var(--tinta)}
+.hponto{width:10px;height:10px;border-radius:50%;background:var(--cinza);flex:none}
+.hponto.on{background:#2E8B6F}
+.hestado small{margin-left:auto;font-size:12.5px;font-weight:600;color:var(--cinza)}
+.hlinha{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--linha)}
+.hlinha:last-child{border-bottom:0;padding-bottom:0}
+.hhora{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:14px;
+  font-weight:700;color:var(--tinta);flex:none;width:100px}
+.hlinha b{flex:1;font-size:14.5px;font-weight:600;color:var(--tinta);min-width:0}
+.hmarca{font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:4px 10px;border-radius:var(--r-botao);flex:none;white-space:nowrap}
+.hmarca.agora{background:var(--menta);color:var(--tinta)}
+.hmarca.breve{background:var(--dourado-wash);border:1px solid var(--dourado-linha);color:var(--tinta)}
+.hvazio{margin:12px 0 0;color:var(--cinza);font-size:14px;line-height:1.6}
+.hagenda h3{font-size:15px;font-weight:800;margin:0 0 12px;color:var(--tinta);
+  text-transform:uppercase;letter-spacing:.05em}
+.hagenda ul{list-style:none;margin:0 0 16px;padding:0}
+.hagenda li{display:flex;gap:13px;align-items:baseline;padding:10px 0;
+  border-bottom:1px solid var(--linha)}
+.hagenda li:last-child{border-bottom:0}
+/* .dia global é um selo escuro de 50×50; aqui é só texto. Anula-se o fundo
+   e o tamanho fixo, senão os dias ficavam invisíveis (28/07/2026). */
+.hagenda .dia{background:none;width:76px;height:auto;border-radius:0;display:block;
+  font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--menta-txt);flex:none}
+.hagenda .tit{font-size:14px;color:var(--tinta);line-height:1.4}
+
+@media(max-width:980px){
+  .hmissoes{grid-template-columns:repeat(2,1fr)}
+  .hdupla{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .hsec{padding:28px 0}
+  .hmissoes{grid-template-columns:1fr}
+  .hlinha{flex-wrap:wrap;gap:8px}
+  .hhora{width:auto}
+  #p-inicio .abertura{padding:34px 0 30px}
+}
+@media(prefers-reduced-motion:reduce){ .hmissao:hover{transform:none} }
+</style>
 </head>
 <body id="p-inicio">
 <a class="skip" href="#conteudo">Saltar para o conteúdo</a>
@@ -18,51 +101,208 @@
 <main id="conteudo">
 <h1 class="sr-only">Biblioteca Escolar da Escola Secundária de Paredes</h1>
 
-  <div class="wrap" style="padding-top:22px">
-    <div class="hero" id="carousel" role="region" aria-roledescription="carrossel" aria-label="Destaques da Biblioteca" tabindex="0">
-      <div class="slides" id="slides"></div>
-      <button class="car-btn prev" id="car-prev" aria-label="Destaque anterior">&lsaquo;</button>
-      <button class="car-btn next" id="car-next" aria-label="Destaque seguinte">&rsaquo;</button>
-      <div class="dots" id="car-dots"></div>
+  <!-- Bloco de abertura.
+       Substitui a faixa de pesquisa a 26/07/2026: mantém a tarefa em primeiro
+       lugar mas acrescenta o estado da Biblioteca e uma saudação dirigida a quem
+       chega, em vez de começar por uma mensagem institucional.
+       Desde 27/07/2026 ocupa toda a largura da janela; o conteúdo continua
+       alinhado pela grelha através do .wrap interior. -->
+  <section class="abertura" aria-labelledby="fp-t">
+    <div class="wrap">
+      <h2 class="sr-only" id="fp-t">Pesquisar no catálogo</h2>
+      <p class="estado" id="ab-estado"></p>
+      <p class="saudacao">O que <em>procuras</em> hoje?</p>
+      <form class="fp-form" role="search" id="fp-form" aria-label="Pesquisar no site e no catálogo"
+            aria-owns="fp-res" aria-haspopup="listbox">
+        <label class="sr-only" for="fp-q">Pesquisar</label>
+        <svg class="fp-icone" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="fp-q" name="q" type="search" placeholder="Livros, recursos, atividades, notícias…"
+               autocomplete="off" role="combobox" aria-expanded="false" aria-controls="fp-res" aria-autocomplete="list">
+        <button class="btn primario" type="submit">Pesquisar</button>
+      </form>
+      <!-- Resultados de dentro do site. O catálogo fica sempre como último resultado. -->
+      <div class="fp-res" id="fp-res" role="listbox" aria-label="Resultados" hidden></div>
+      <p class="fp-sr sr-only" id="fp-sr" role="status" aria-live="polite"></p>
+      <p class="fp-nota">Procura em tudo o que o site tem: recursos, atividades, guiões, concursos e formulários.</p>
+      <div class="fp-atalhos" id="fp-atalhos"></div>
     </div>
+  </section>
 
-    <h2 class="sec-title">acesso rápido</h2><div class="rule"></div>
-    <div class="grid3" id="acesso-rapido"></div>
-
-    <div class="split">
-      <div>
-        <h2 class="sec-title">notícias e destaques <a class="mais" href="noticias.html">Ver todas &rarr;</a></h2>
-        <div class="rule"></div>
-        <div class="noticias" id="home-news"></div>
-      </div>
-      <div>
-        <h2 class="sec-title">agenda</h2><div class="rule"></div>
-        <ul class="agenda" id="home-agenda"></ul>
-        <p><a class="btn claro" href="atividades.html#agenda" style="margin-top:12px">Ver todas as atividades</a></p>
-      </div>
-    </div>
-
-    <div class="bloco-escuro" id="missao-bloco">
-      <span class="veu"></span>
-      <div class="conteudo">
-        <div class="eyebrow">Bem-vindos à Biblioteca</div>
-        <p id="missao"></p>
-        <div class="metricas" id="metricas"></div>
-      </div>
-    </div>
-    <p class="aviso">Valores indicativos, a confirmar com os dados oficiais da Biblioteca.</p>
+  <div class="hero" id="carousel" role="region" aria-roledescription="carrossel" aria-label="Destaques da Biblioteca" tabindex="0">
+    <div class="slides" id="slides"></div>
+    <button class="car-btn prev" id="car-prev" aria-label="Destaque anterior">&lsaquo;</button>
+    <button class="car-btn next" id="car-next" aria-label="Destaque seguinte">&rsaquo;</button>
+    <div class="dots" id="car-dots"></div>
   </div>
+
+  <!-- ═══ QUERO… ═══
+       Substitui o acesso rápido a 28/07/2026: seis missões, na mesma
+       linguagem do Catálogo, do Apoio ao Estudo e de A Biblioteca.
+       Cada uma responde a «o que posso fazer aqui». -->
+  <section class="hsec" id="missoes" aria-labelledby="t-mis">
+    <div class="wrap">
+      <h2 class="sec-title" id="t-mis">quero…</h2><div class="rule"></div>
+      <div class="hmissoes" id="missoes-lista"></div>
+    </div>
+  </section>
+
+  <!-- ═══ HOJE E A SEGUIR ═══
+       Versão curta do painel que vive na página Atividades: o estado do dia
+       calculado do relógio, e os próximos eventos datados ao lado. -->
+  <section class="hsec alt" id="hoje" aria-labelledby="t-hoje">
+    <div class="wrap">
+      <h2 class="sec-title" id="t-hoje">hoje e a seguir</h2><div class="rule"></div>
+      <div class="hdupla">
+        <div class="hhoje" id="hoje-painel"></div>
+        <div class="hagenda">
+          <h3>Próximos eventos</h3>
+          <ul id="home-agenda"></ul>
+          <a class="btn claro" href="atividades.html#calendario">Ver o ano inteiro</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NOTÍCIAS ═══ Três, nunca mais. -->
+  <section class="hsec alt" id="noticias" aria-labelledby="t-not">
+    <div class="wrap">
+      <h2 class="sec-title" id="t-not">notícias <a class="mais" href="noticias.html">Ver todas &rarr;</a></h2>
+      <div class="rule"></div>
+      <div class="noticias" id="home-news"></div>
+    </div>
+  </section>
 
 </main>
 <div id="rodape"></div>
 <script>
 window.renderPagina = function(){
   const i = CONTEUDO.info || {};
-  const m = document.getElementById('missao'); if (m) m.textContent = i.missao || '';
-  const ar = document.getElementById('acesso-rapido');
-  if (ar) ar.innerHTML = (CONTEUDO.acessoRapido||[]).map(cartaoAcao).join('');
-  const mt = document.getElementById('metricas');
-  if (mt) mt.innerHTML = (CONTEUDO.metricas||[]).map(x => `<div><b>${esc(x.valor)}</b><span>${esc(x.legenda)}</span></div>`).join('');
+
+  /* ── Quero… ──
+     Substitui o acesso rápido: seis missões, na linguagem do resto do site. */
+  const ml = document.getElementById('missoes-lista');
+  if (ml) ml.innerHTML = (CONTEUDO.missoes||[]).map(x =>
+    `<a class="hmissao" href="${esc(x.url)}">
+       <span class="ic">${icone(x.icone||'alvo',22)}</span>
+       <span><b>${esc(x.rotulo)}</b><span>${esc(x.texto)}</span></span></a>`).join('');
+
+  /* ── Hoje na Biblioteca ──
+     Versão curta do painel da página Atividades: lê a mesma rotina semanal
+     e o relógio do navegador. Ao fim de semana diz que está fechada. */
+  const DIAS = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+  const min = h => { const p = String(h||'').split(':'); return (+p[0])*60 + (+p[1]||0); };
+  const hp = document.getElementById('hoje-painel');
+  if (hp) {
+    const ag = new Date(), dia = ag.getDay(), mm = ag.getHours()*60 + ag.getMinutes();
+    const linhas = (CONTEUDO.rotina||[]).filter(r => (r.dias||[]).includes(dia))
+      .sort((a,b) => min(a.inicio) - min(b.inicio));
+    const aberta = linhas.some(r => mm >= min(r.inicio) && mm < min(r.fim));
+    const cabeca = `<p class="hestado"><span class="hponto${aberta ? ' on' : ''}" aria-hidden="true"></span>
+      ${aberta ? 'Aberta agora' : 'Fechada agora'}
+      <small>${esc(DIAS[dia])}</small></p>`;
+    hp.innerHTML = cabeca + (linhas.length
+      ? linhas.map(r => {
+          const ini = min(r.inicio), fim = min(r.fim);
+          let cls = '', txt = '';
+          if (mm >= ini && mm < fim)                { cls = 'agora'; txt = 'a decorrer'; }
+          else if (ini - mm > 0 && ini - mm <= 30)  { cls = 'breve'; txt = `daqui a ${ini - mm} min`; }
+          return `<div class="hlinha">
+            <span class="hhora">${esc(r.inicio)}–${esc(r.fim)}</span>
+            <b>${esc(r.titulo)}</b>
+            ${cls ? `<span class="hmarca ${cls}">${esc(txt)}</span>` : ''}</div>`;
+        }).join('')
+      : `<p class="hvazio">${dia === 0 || dia === 6
+          ? 'Fim de semana. De segunda a sexta, a sala abre às 8h00 e fecha às 18h30.'
+          : 'Sem atividades marcadas para hoje.'}</p>`);
+  }
+
+  /* ── Pesquisa ──────────────────────────────────────────────────────────
+     Procura primeiro dentro do próprio site: recursos, atividades, projetos,
+     notícias, guiões, iniciativas, perguntas frequentes e páginas. O catálogo
+     aparece sempre como última opção, para quem procura um livro.
+     O índice é construído a partir do conteúdo, pelo que se atualiza sozinho
+     quando a equipa publica algo de novo. */
+  const indice = construirIndice(CONTEUDO);
+  const campo = document.getElementById('fp-q');
+  const caixa = document.getElementById('fp-res');
+  const aviso = document.getElementById('fp-sr');
+  const f = document.getElementById('fp-form');
+  let marcado = -1;
+
+  function urlCatalogo(t){
+    const base = i.opacSimples || 'https://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx';
+    return t ? base + '?SearchText=' + encodeURIComponent(t) : base;
+  }
+  function mostrar(termo){
+    const r = procurar(indice, termo).slice(0, 7);
+    marcado = -1;
+    if (!termo.trim()) { caixa.hidden = true; campo.setAttribute('aria-expanded','false'); return; }
+    const itens = r.map((x,n) => `
+      <a class="fp-item" role="option" id="fp-op-${n}" ${linkAttrs(x.url)}>
+        <span class="fp-tipo">${esc(x.tipo)}</span>
+        <span class="fp-txt"><b>${esc(x.titulo)}</b>${x.nota ? `<span>${esc(x.nota)}</span>` : ''}</span>
+      </a>`).join('');
+    caixa.innerHTML = itens + `
+      <a class="fp-item fp-catalogo" role="option" id="fp-op-${r.length}"
+         href="${esc(urlCatalogo(termo))}" target="_blank" rel="noopener">
+        <span class="fp-tipo">Catálogo</span>
+        <span class="fp-txt"><b>Procurar «${esc(termo)}» no catálogo</b><span>Rede de bibliotecas de Paredes</span></span>
+      </a>`;
+    caixa.hidden = false;
+    campo.setAttribute('aria-expanded','true');
+    aviso.textContent = r.length
+      ? `${r.length} ${r.length === 1 ? 'resultado' : 'resultados'} no site.`
+      : 'Sem resultados no site. Pode procurar no catálogo.';
+  }
+  if (campo) {
+    let t;
+    campo.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => mostrar(campo.value), 120); });
+    campo.addEventListener('keydown', ev => {
+      const ops = [...caixa.querySelectorAll('.fp-item')];
+      if (!ops.length || caixa.hidden) return;
+      if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
+        ev.preventDefault();
+        marcado = (marcado + (ev.key === 'ArrowDown' ? 1 : -1) + ops.length) % ops.length;
+        ops.forEach((o,n) => o.classList.toggle('on', n === marcado));
+        campo.setAttribute('aria-activedescendant', ops[marcado].id);
+      } else if (ev.key === 'Enter' && marcado >= 0) { ev.preventDefault(); ops[marcado].click(); }
+      else if (ev.key === 'Escape') { caixa.hidden = true; campo.setAttribute('aria-expanded','false'); }
+    });
+    document.addEventListener('click', ev => {
+      if (!ev.target.closest('.abertura')) { caixa.hidden = true; campo.setAttribute('aria-expanded','false'); }
+    });
+  }
+  if (f) f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    const termo = (campo.value || '').trim();
+    const r = procurar(indice, termo);
+    /* Enter sem escolher: vai ao primeiro resultado do site; se não houver, ao catálogo. */
+    if (r.length) { const u = r[0].url; if (/^https?:/i.test(u)) window.open(u,'_blank','noopener'); else location.href = u; }
+    else window.open(urlCatalogo(termo), '_blank', 'noopener');
+  });
+
+  /* Atalhos da faixa: os quatro primeiros do acesso rápido, em formato compacto. */
+  const at = document.getElementById('fp-atalhos');
+  if (at) at.innerHTML = (CONTEUDO.acessoRapido||[]).slice(0,4)
+    .map(x => `<a class="fp-chip" ${linkAttrs(x.url)}>${esc(x.rotulo)}</a>`).join('');
+
+  /* Estado da Biblioteca na abertura. Lê as horas de info.json; se não
+     conseguir interpretá-las, mostra o horário em texto. */
+  const est = document.getElementById('ab-estado');
+  if (est) {
+    const ag = new Date(), h = ag.getHours(), dia = ag.getDay();
+    const horas = String(i.horario || '').match(/(\d{1,2})[h:](\d{2})/g) || [];
+    const agora = h * 60 + ag.getMinutes();
+    let aberta = null;
+    if (horas.length >= 2 && dia >= 1 && dia <= 5)
+      aberta = agora >= min(horas[0]) && agora < min(horas[1]);
+    else if (dia === 0 || dia === 6) aberta = false;
+    const txt = aberta === null
+      ? esc(i.horario || '')
+      : (aberta ? `<b>Aberta agora</b> · hoje até às ${esc(horas[1])}`
+                : `<b>Fechada agora</b> · ${esc(i.horario || '')}`);
+    est.innerHTML = `<span class="ponto${aberta ? ' on' : ''}"></span> ${txt}`;
+  }
 };
 </script>
 <script src="motor.js"></script>

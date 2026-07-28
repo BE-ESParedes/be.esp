@@ -1,0 +1,151 @@
+{
+  "destaquesDigitais": [
+    {
+      "faixa": "E-books em destaque",
+      "icone": "livro",
+      "nota": "Livros para ler no ecrã, de acesso livre e legal.",
+      "itens": [
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "faixa": "Audiolivros",
+      "icone": "auscultador",
+      "nota": "Para ouvir no caminho para a escola.",
+      "itens": [
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "faixa": "Revistas e jornais",
+      "icone": "ficheiro",
+      "nota": "Imprensa digital e publicações periódicas.",
+      "itens": [
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "",
+          "autor": "",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        }
+      ]
+    }
+  ]
+}

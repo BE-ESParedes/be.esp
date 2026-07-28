@@ -2,244 +2,613 @@
   "disciplinas": [
     {
       "nome": "Português",
-      "essenciais": [
+      "icone": "livro",
+      "areas": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso essencial",
-          "url": ""
+          "nome": "Leituras",
+          "itens": [
+            {
+              "titulo": "PNL2027 · listas por ano",
+              "url": "https://pnl2027.gov.pt"
+            },
+            {
+              "titulo": "Sugestões de leitura da Biblioteca",
+              "url": "catalogo.html#sugestoes"
+            }
+          ]
+        },
+        {
+          "nome": "Obras do programa",
+          "itens": [
+            {
+              "titulo": "Biblioteca Digital Camões",
+              "url": "https://cvc.instituto-camoes.pt"
+            },
+            {
+              "titulo": "Project Gutenberg · domínio público",
+              "url": "https://www.gutenberg.org"
+            }
+          ]
+        },
+        {
+          "nome": "Gramática",
+          "itens": [
+            {
+              "titulo": "Ciberdúvidas da Língua Portuguesa",
+              "url": "https://ciberduvidas.iscte-iul.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Escrever",
+          "itens": [
+            {
+              "titulo": "Guia para trabalhos escritos",
+              "url": "#guioes"
+            }
+          ]
+        },
+        {
+          "nome": "Exames",
+          "itens": [
+            {
+              "titulo": "IAVE · provas e critérios",
+              "url": "https://iave.pt"
+            }
+          ]
         }
       ],
-      "aprofundamento": [
+      "recursos": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
-          "url": ""
-        }
-      ],
-      "propostas": [
+          "titulo": "PNL2027 · listas por ano",
+          "area": "Leituras",
+          "url": "https://pnl2027.gov.pt",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
-          "url": ""
-        }
-      ],
-      "testados": [
+          "titulo": "Sugestões de leitura da Biblioteca",
+          "area": "Leituras",
+          "url": "catalogo.html#sugestoes",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
-          "url": ""
+          "titulo": "Biblioteca Digital Camões",
+          "area": "Obras do programa",
+          "url": "https://cvc.instituto-camoes.pt",
+          "imagem": "",
+          "alt": ""
+        },
+        {
+          "titulo": "Project Gutenberg · domínio público",
+          "area": "Obras do programa",
+          "url": "https://www.gutenberg.org",
+          "imagem": "",
+          "alt": ""
+        },
+        {
+          "titulo": "Ciberdúvidas da Língua Portuguesa",
+          "area": "Gramática",
+          "url": "https://ciberduvidas.iscte-iul.pt",
+          "imagem": "",
+          "alt": ""
+        },
+        {
+          "titulo": "Guia para trabalhos escritos",
+          "area": "Escrever",
+          "url": "#guioes",
+          "imagem": "",
+          "alt": ""
+        },
+        {
+          "titulo": "IAVE · provas e critérios",
+          "area": "Exames",
+          "url": "https://iave.pt",
+          "imagem": "",
+          "alt": ""
         }
       ]
     },
     {
       "nome": "História",
-      "essenciais": [
+      "icone": "globo",
+      "areas": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso essencial",
-          "url": ""
+          "nome": "Fontes",
+          "itens": [
+            {
+              "titulo": "Arquivo Nacional Torre do Tombo",
+              "url": "https://digitarq.arquivos.pt"
+            },
+            {
+              "titulo": "Biblioteca Nacional Digital",
+              "url": "https://bndigital.bnportugal.gov.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Património e museus",
+          "itens": [
+            {
+              "titulo": "Europeana",
+              "url": "https://www.europeana.eu"
+            }
+          ]
+        },
+        {
+          "nome": "Investigação",
+          "itens": [
+            {
+              "titulo": "RCAAP · repositórios científicos",
+              "url": "https://www.rcaap.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Exames",
+          "itens": [
+            {
+              "titulo": "IAVE · provas e critérios",
+              "url": "https://iave.pt"
+            }
+          ]
         }
       ],
-      "aprofundamento": [
+      "recursos": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
-          "url": ""
-        }
-      ],
-      "propostas": [
+          "titulo": "Arquivo Nacional Torre do Tombo",
+          "area": "Fontes",
+          "url": "https://digitarq.arquivos.pt",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
-          "url": ""
-        }
-      ],
-      "testados": [
+          "titulo": "Biblioteca Nacional Digital",
+          "area": "Fontes",
+          "url": "https://bndigital.bnportugal.gov.pt",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
-          "url": ""
+          "titulo": "Europeana",
+          "area": "Património e museus",
+          "url": "https://www.europeana.eu",
+          "imagem": "",
+          "alt": ""
+        },
+        {
+          "titulo": "RCAAP · repositórios científicos",
+          "area": "Investigação",
+          "url": "https://www.rcaap.pt",
+          "imagem": "",
+          "alt": ""
+        },
+        {
+          "titulo": "IAVE · provas e critérios",
+          "area": "Exames",
+          "url": "https://iave.pt",
+          "imagem": "",
+          "alt": ""
         }
       ]
     },
     {
       "nome": "Filosofia",
-      "essenciais": [
+      "icone": "cerebro",
+      "areas": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso essencial",
-          "url": ""
+          "nome": "Textos",
+          "itens": [
+            {
+              "titulo": "Project Gutenberg · clássicos",
+              "url": "https://www.gutenberg.org"
+            }
+          ]
+        },
+        {
+          "nome": "Argumentação",
+          "itens": [
+            {
+              "titulo": "Guia para trabalhos escritos",
+              "url": "#guioes"
+            }
+          ]
+        },
+        {
+          "nome": "Investigação",
+          "itens": [
+            {
+              "titulo": "RCAAP",
+              "url": "https://www.rcaap.pt"
+            }
+          ]
         }
       ],
-      "aprofundamento": [
+      "recursos": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
-          "url": ""
-        }
-      ],
-      "propostas": [
+          "titulo": "Project Gutenberg · clássicos",
+          "area": "Textos",
+          "url": "https://www.gutenberg.org",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
-          "url": ""
-        }
-      ],
-      "testados": [
+          "titulo": "Guia para trabalhos escritos",
+          "area": "Argumentação",
+          "url": "#guioes",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
-          "url": ""
+          "titulo": "RCAAP",
+          "area": "Investigação",
+          "url": "https://www.rcaap.pt",
+          "imagem": "",
+          "alt": ""
         }
       ]
     },
     {
       "nome": "Geografia",
-      "essenciais": [
+      "icone": "globo",
+      "areas": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso essencial",
-          "url": ""
+          "nome": "Dados e estatística",
+          "itens": [
+            {
+              "titulo": "INE · Instituto Nacional de Estatística",
+              "url": "https://www.ine.pt"
+            },
+            {
+              "titulo": "PORDATA",
+              "url": "https://www.pordata.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Mapas",
+          "itens": [
+            {
+              "titulo": "Direção-Geral do Território",
+              "url": "https://www.dgterritorio.gov.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Ambiente",
+          "itens": [
+            {
+              "titulo": "Agência Portuguesa do Ambiente",
+              "url": "https://apambiente.pt"
+            }
+          ]
         }
       ],
-      "aprofundamento": [
+      "recursos": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
-          "url": ""
-        }
-      ],
-      "propostas": [
+          "titulo": "INE · Instituto Nacional de Estatística",
+          "area": "Dados e estatística",
+          "url": "https://www.ine.pt",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
-          "url": ""
-        }
-      ],
-      "testados": [
+          "titulo": "PORDATA",
+          "area": "Dados e estatística",
+          "url": "https://www.pordata.pt",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
-          "url": ""
+          "titulo": "Direção-Geral do Território",
+          "area": "Mapas",
+          "url": "https://www.dgterritorio.gov.pt",
+          "imagem": "",
+          "alt": ""
+        },
+        {
+          "titulo": "Agência Portuguesa do Ambiente",
+          "area": "Ambiente",
+          "url": "https://apambiente.pt",
+          "imagem": "",
+          "alt": ""
         }
       ]
     },
     {
       "nome": "Ciências",
-      "essenciais": [
+      "icone": "alvo",
+      "areas": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso essencial",
-          "url": ""
+          "nome": "Simulações",
+          "itens": [
+            {
+              "titulo": "PhET · simulações interativas",
+              "url": "https://phet.colorado.edu/pt/"
+            }
+          ]
+        },
+        {
+          "nome": "Investigação",
+          "itens": [
+            {
+              "titulo": "RCAAP",
+              "url": "https://www.rcaap.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Divulgação",
+          "itens": [
+            {
+              "titulo": "Ciência Viva",
+              "url": "https://www.cienciaviva.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Exames",
+          "itens": [
+            {
+              "titulo": "IAVE · provas e critérios",
+              "url": "https://iave.pt"
+            }
+          ]
         }
       ],
-      "aprofundamento": [
+      "recursos": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
-          "url": ""
-        }
-      ],
-      "propostas": [
+          "titulo": "PhET · simulações interativas",
+          "area": "Simulações",
+          "url": "https://phet.colorado.edu/pt/",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
-          "url": ""
-        }
-      ],
-      "testados": [
+          "titulo": "RCAAP",
+          "area": "Investigação",
+          "url": "https://www.rcaap.pt",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
-          "url": ""
+          "titulo": "Ciência Viva",
+          "area": "Divulgação",
+          "url": "https://www.cienciaviva.pt",
+          "imagem": "",
+          "alt": ""
+        },
+        {
+          "titulo": "IAVE · provas e critérios",
+          "area": "Exames",
+          "url": "https://iave.pt",
+          "imagem": "",
+          "alt": ""
         }
       ]
     },
     {
       "nome": "Matemática",
-      "essenciais": [
+      "icone": "alvo",
+      "areas": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso essencial",
-          "url": ""
+          "nome": "Ferramentas",
+          "itens": [
+            {
+              "titulo": "GeoGebra",
+              "url": "https://www.geogebra.org/?lang=pt-PT"
+            }
+          ]
+        },
+        {
+          "nome": "Simulações",
+          "itens": [
+            {
+              "titulo": "PhET · matemática",
+              "url": "https://phet.colorado.edu/pt/simulations/filter?subjects=math"
+            }
+          ]
+        },
+        {
+          "nome": "Exames",
+          "itens": [
+            {
+              "titulo": "IAVE · provas e critérios",
+              "url": "https://iave.pt"
+            }
+          ]
         }
       ],
-      "aprofundamento": [
+      "recursos": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
-          "url": ""
-        }
-      ],
-      "propostas": [
+          "titulo": "GeoGebra",
+          "area": "Ferramentas",
+          "url": "https://www.geogebra.org/?lang=pt-PT",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
-          "url": ""
-        }
-      ],
-      "testados": [
+          "titulo": "PhET · matemática",
+          "area": "Simulações",
+          "url": "https://phet.colorado.edu/pt/simulations/filter?subjects=math",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
-          "url": ""
+          "titulo": "IAVE · provas e critérios",
+          "area": "Exames",
+          "url": "https://iave.pt",
+          "imagem": "",
+          "alt": ""
         }
       ]
     },
     {
-      "nome": "Línguas Estrangeiras",
-      "essenciais": [
+      "nome": "Línguas estrangeiras",
+      "icone": "balao",
+      "areas": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso essencial",
-          "url": ""
+          "nome": "Leitura",
+          "itens": [
+            {
+              "titulo": "Project Gutenberg · outras línguas",
+              "url": "https://www.gutenberg.org"
+            }
+          ]
+        },
+        {
+          "nome": "Certificação",
+          "itens": [
+            {
+              "titulo": "CLE · Clube de Línguas Estrangeiras",
+              "url": "biblioteca.html#projetos-escola"
+            }
+          ]
+        },
+        {
+          "nome": "Cultura",
+          "itens": [
+            {
+              "titulo": "Europeana",
+              "url": "https://www.europeana.eu"
+            }
+          ]
         }
       ],
-      "aprofundamento": [
+      "recursos": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
-          "url": ""
-        }
-      ],
-      "propostas": [
+          "titulo": "Project Gutenberg · outras línguas",
+          "area": "Leitura",
+          "url": "https://www.gutenberg.org",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
-          "url": ""
-        }
-      ],
-      "testados": [
+          "titulo": "CLE · Clube de Línguas Estrangeiras",
+          "area": "Certificação",
+          "url": "biblioteca.html#projetos-escola",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
-          "url": ""
+          "titulo": "Europeana",
+          "area": "Cultura",
+          "url": "https://www.europeana.eu",
+          "imagem": "",
+          "alt": ""
         }
       ]
     },
     {
       "nome": "Cidadania e Desenvolvimento",
-      "essenciais": [
+      "icone": "maos",
+      "areas": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso essencial",
-          "url": ""
+          "nome": "Direitos",
+          "itens": [
+            {
+              "titulo": "CNPD · proteção de dados",
+              "url": "https://www.cnpd.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Literacia digital",
+          "itens": [
+            {
+              "titulo": "Portal MILD da RBE",
+              "url": "https://mild.rbe.mec.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Participação",
+          "itens": [
+            {
+              "titulo": "CiVESP",
+              "url": "biblioteca.html#projetos-escola"
+            }
+          ]
         }
       ],
-      "aprofundamento": [
+      "recursos": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
-          "url": ""
-        }
-      ],
-      "propostas": [
+          "titulo": "CNPD · proteção de dados",
+          "area": "Direitos",
+          "url": "https://www.cnpd.pt",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
-          "url": ""
-        }
-      ],
-      "testados": [
+          "titulo": "Portal MILD da RBE",
+          "area": "Literacia digital",
+          "url": "https://mild.rbe.mec.pt",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
-          "url": ""
+          "titulo": "CiVESP",
+          "area": "Participação",
+          "url": "biblioteca.html#projetos-escola",
+          "imagem": "",
+          "alt": ""
         }
       ]
     },
     {
       "nome": "Tecnologias",
-      "essenciais": [
+      "icone": "monitor",
+      "areas": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso essencial",
-          "url": ""
+          "nome": "Criar",
+          "itens": [
+            {
+              "titulo": "Plano Nacional das Artes",
+              "url": "https://pna.gov.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Literacia digital",
+          "itens": [
+            {
+              "titulo": "Portal MILD da RBE",
+              "url": "https://mild.rbe.mec.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Direitos de autor",
+          "itens": [
+            {
+              "titulo": "Guião para validar sítios web",
+              "url": "#guioes"
+            }
+          ]
         }
       ],
-      "aprofundamento": [
+      "recursos": [
         {
-          "titulo": "EXEMPLO, substituir por um recurso de aprofundamento",
-          "url": ""
-        }
-      ],
-      "propostas": [
+          "titulo": "Plano Nacional das Artes",
+          "area": "Criar",
+          "url": "https://pna.gov.pt",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por uma proposta de aula ou projeto",
-          "url": ""
-        }
-      ],
-      "testados": [
+          "titulo": "Portal MILD da RBE",
+          "area": "Literacia digital",
+          "url": "https://mild.rbe.mec.pt",
+          "imagem": "",
+          "alt": ""
+        },
         {
-          "titulo": "EXEMPLO, substituir por um material da Biblioteca testado com turmas",
-          "url": ""
+          "titulo": "Guião para validar sítios web",
+          "area": "Direitos de autor",
+          "url": "#guioes",
+          "imagem": "",
+          "alt": ""
         }
       ]
     }

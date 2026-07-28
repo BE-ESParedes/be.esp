@@ -1,0 +1,275 @@
+{
+  "percursos": [
+    {
+      "id": "trabalho",
+      "icone": "ficheiro",
+      "rotulo": "Fazer um trabalho",
+      "resumo": "Sete passos, do tema em branco à entrega. Serve para um trabalho de grupo, um relatório ou uma apresentação.",
+      "duracao": "O percurso todo dá para uma semana de trabalho",
+      "passos": [
+        {
+          "n": "1",
+          "titulo": "Escolhe e delimita o tema",
+          "texto": "O erro mais comum é começar largo demais. «A Segunda Guerra Mundial» não é um tema, é uma prateleira. «O papel das mulheres nas fábricas portuguesas durante a guerra» já é um tema. Escreve o teu numa frase; se não couber numa frase, ainda é largo demais.",
+          "recursos": [
+            {
+              "titulo": "Guião de pesquisa BIG6",
+              "url": "#guioes"
+            },
+            {
+              "titulo": "Pergunta à equipa da Biblioteca",
+              "url": "biblioteca.html#contactos"
+            }
+          ]
+        },
+        {
+          "n": "2",
+          "titulo": "Vê o que já sabes",
+          "texto": "Antes de abrir o navegador, escreve tudo o que já sabes sobre o assunto e, a seguir, as perguntas a que não sabes responder. São essas perguntas que vais pesquisar. Poupas horas.",
+          "recursos": [
+            {
+              "titulo": "Guião de pesquisa BIG6",
+              "url": "#guioes"
+            }
+          ]
+        },
+        {
+          "n": "3",
+          "titulo": "Pesquisa",
+          "texto": "Começa pelo catálogo: um livro dá-te contexto que dez páginas soltas não dão. Depois vai às bases de dados e às bibliotecas digitais. O Google fica para o fim, e com aspas à volta das expressões exatas.",
+          "recursos": [
+            {
+              "titulo": "Catálogo da Biblioteca",
+              "url": "catalogo.html"
+            },
+            {
+              "titulo": "Biblioteca digital",
+              "url": "catalogo.html#digital"
+            },
+            {
+              "titulo": "RCAAP · repositórios científicos",
+              "url": "https://www.rcaap.pt"
+            },
+            {
+              "titulo": "Europeana",
+              "url": "https://www.europeana.eu"
+            }
+          ]
+        },
+        {
+          "n": "4",
+          "titulo": "Seleciona e avalia",
+          "texto": "Para cada fonte pergunta quatro coisas: quem escreveu, quando, com que intenção e o que é que confirma isto noutro sítio. Se não conseguires responder às quatro, não uses. Guarda desde já o endereço e a data em que consultaste — vais precisar na bibliografia.",
+          "recursos": [
+            {
+              "titulo": "Guião para validar sítios web",
+              "url": "#guioes"
+            },
+            {
+              "titulo": "Portal MILD da RBE",
+              "url": "https://mild.rbe.mec.pt"
+            }
+          ]
+        },
+        {
+          "n": "5",
+          "titulo": "Organiza",
+          "texto": "Faz o índice antes de escrever. Três a cinco secções, e debaixo de cada uma as ideias e as fontes que lhe correspondem. Um trabalho bem organizado escreve-se sozinho; um mal organizado reescreve-se três vezes.",
+          "recursos": [
+            {
+              "titulo": "Guia para trabalhos escritos",
+              "url": "#guioes"
+            }
+          ]
+        },
+        {
+          "n": "6",
+          "titulo": "Escreve",
+          "texto": "Escreve com as tuas palavras. Copiar e colar, mesmo com a fonte indicada, não é um trabalho — é uma colagem. A introdução e a conclusão escrevem-se no fim, quando já sabes o que descobriste.",
+          "recursos": [
+            {
+              "titulo": "Guia para trabalhos escritos",
+              "url": "#guioes"
+            }
+          ]
+        },
+        {
+          "n": "7",
+          "titulo": "Cita e entrega",
+          "texto": "Toda a ideia que não é tua leva referência. Revê a formatação, confirma que a bibliografia está completa e lê o trabalho em voz alta antes de entregar — as frases que não se conseguem ler são as que estão mal escritas.",
+          "recursos": [
+            {
+              "titulo": "Percurso «Aprender a citar»",
+              "url": "#percurso-citar"
+            },
+            {
+              "titulo": "Normas de citação APA",
+              "url": "#guioes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teste",
+      "icone": "alvo",
+      "rotulo": "Estudar para um teste",
+      "resumo": "Seis passos com métodos que a investigação mostra funcionarem. Nenhum deles é reler a matéria.",
+      "duracao": "Começa uma semana antes, não na véspera",
+      "passos": [
+        {
+          "n": "1",
+          "titulo": "Descobre o que sai",
+          "texto": "A matriz do teste, os critérios de avaliação, os apontamentos das últimas aulas. Estudar sem saber o que sai é estudar a dobrar. Se a matriz não foi dada, pergunta.",
+          "recursos": []
+        },
+        {
+          "n": "2",
+          "titulo": "Faz um plano",
+          "texto": "Divide a matéria pelos dias que faltam e escreve o plano num papel. Estudar um pouco por dia durante cinco dias fixa muito mais do que cinco horas seguidas na véspera — chama-se prática distribuída e é das conclusões mais sólidas da psicologia da aprendizagem.",
+          "recursos": [
+            {
+              "titulo": "Métodos de estudo",
+              "url": "#guioes"
+            }
+          ]
+        },
+        {
+          "n": "3",
+          "titulo": "Resume de forma ativa",
+          "texto": "Sublinhar e reler dá a sensação de estar a aprender, mas é das técnicas menos eficazes que existem. Em vez disso, fecha o livro e escreve o que te lembras. O que não conseguires escrever é exatamente o que ainda não sabes.",
+          "recursos": [
+            {
+              "titulo": "Mapas mentais e esquemas",
+              "url": "#guioes"
+            },
+            {
+              "titulo": "Fichas de revisão",
+              "url": "#guioes"
+            }
+          ]
+        },
+        {
+          "n": "4",
+          "titulo": "Estuda em blocos",
+          "texto": "Vinte e cinco minutos de estudo, cinco de pausa, e ao fim de quatro blocos uma pausa maior. Durante os vinte e cinco minutos o telemóvel fica noutra divisão, não em cima da mesa virado para baixo.",
+          "recursos": [
+            {
+              "titulo": "Técnica Pomodoro e gestão do tempo",
+              "url": "#guioes"
+            }
+          ]
+        },
+        {
+          "n": "5",
+          "titulo": "Testa-te",
+          "texto": "Faz exercícios, testes antigos, ou explica a matéria a alguém. Explicar em voz alta é o teste mais duro que há: percebe-se logo onde é que a explicação encalha.",
+          "recursos": [
+            {
+              "titulo": "Recursos por disciplina",
+              "url": "#disciplinas"
+            }
+          ]
+        },
+        {
+          "n": "6",
+          "titulo": "Na véspera, para",
+          "texto": "Na véspera revê só os resumos e dorme. Uma noite mal dormida apaga boa parte do que estudaste na semana. Não é conselho de bem-estar, é como a memória funciona.",
+          "recursos": []
+        }
+      ]
+    },
+    {
+      "id": "citar",
+      "icone": "balao",
+      "rotulo": "Aprender a citar",
+      "resumo": "O que é citar, porque se cita, e como se escreve cada tipo de fonte nas normas APA.",
+      "duracao": "Vinte minutos para perceber, um minuto por referência depois disso",
+      "passos": [
+        {
+          "n": "1",
+          "titulo": "Porque é que se cita",
+          "texto": "Por três razões: para dar crédito a quem teve a ideia, para o leitor poder ir verificar, e para mostrar em que é que o teu trabalho assenta. Não citar não é distração, é apresentar como teu o que é de outra pessoa.",
+          "recursos": []
+        },
+        {
+          "n": "2",
+          "titulo": "Dentro do texto",
+          "texto": "No sítio onde usas a ideia, escreve o apelido e o ano entre parênteses: (Saramago, 1995). Se citares as palavras exatas, põe-nas entre aspas e acrescenta a página: (Saramago, 1995, p. 47).",
+          "recursos": [
+            {
+              "titulo": "Normas de citação APA",
+              "url": "#guioes"
+            }
+          ]
+        },
+        {
+          "n": "3",
+          "titulo": "Um livro",
+          "texto": "Apelido, Inicial. (Ano). <em>Título em itálico</em>. Editora.<br>Saramago, J. (1995). <em>Ensaio sobre a cegueira</em>. Caminho.",
+          "recursos": []
+        },
+        {
+          "n": "4",
+          "titulo": "Um site ou uma página web",
+          "texto": "Autor ou organização. (Ano, dia de mês). <em>Título da página</em>. Nome do sítio. Endereço.<br>Se não houver autor, começa pelo título. Se não houver data, escreve (s.d.).",
+          "recursos": [
+            {
+              "titulo": "Guião para validar sítios web",
+              "url": "#guioes"
+            }
+          ]
+        },
+        {
+          "n": "5",
+          "titulo": "Um vídeo",
+          "texto": "Canal ou autor. (Ano, dia de mês). <em>Título do vídeo</em> [Vídeo]. YouTube. Endereço.<br>O nome do canal faz de autor quando não há outro identificado.",
+          "recursos": []
+        },
+        {
+          "n": "6",
+          "titulo": "Uma ferramenta de inteligência artificial",
+          "texto": "Se usaste uma ferramenta de IA e o professor o permitiu, tens de o dizer. Empresa. (Ano). <em>Nome da ferramenta</em> (versão) [Modelo de linguagem]. Endereço. Indica também o que lhe pediste e para que serviu. Atenção: se pode ou não usar-se em cada trabalho é decisão do professor, não da Biblioteca.",
+          "recursos": []
+        },
+        {
+          "n": "7",
+          "titulo": "Evitar o plágio",
+          "texto": "Plágio não é só copiar texto. É também traduzir sem dizer, parafrasear de perto sem referência, ou usar uma imagem, um gráfico ou uma tabela sem indicar de onde vieram. Na dúvida, cita: nunca ninguém teve problemas por citar demais.",
+          "recursos": [
+            {
+              "titulo": "Normas de citação APA",
+              "url": "#guioes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "informacao",
+      "icone": "lupa",
+      "rotulo": "Encontrar informação",
+      "preparacao": true,
+      "resumo": "Onde procurar consoante o que precisas: catálogo, bases de dados, bibliotecas digitais e arquivos.",
+      "nota": "Entretanto, o Catálogo já responde a boa parte disto.",
+      "atalho": "catalogo.html",
+      "atalhoRotulo": "Ir ao catálogo"
+    },
+    {
+      "id": "apresentacao",
+      "icone": "monitor",
+      "rotulo": "Criar uma apresentação",
+      "preparacao": true,
+      "resumo": "Do primeiro diapositivo à apresentação oral: estrutura, imagem, direitos de autor e como falar diante da turma.",
+      "nota": "Em preparação para o 2.º período."
+    },
+    {
+      "id": "ia",
+      "icone": "cerebro",
+      "rotulo": "Trabalhar com IA",
+      "preparacao": true,
+      "resumo": "Onde a inteligência artificial ajuda, onde atrapalha, e como usá-la sem passar por cima do trabalho que é teu.",
+      "nota": "À espera de orientação da escola sobre uso de IA em trabalhos escolares."
+    }
+  ]
+}

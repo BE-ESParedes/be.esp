@@ -1,40 +1,64 @@
 {
   "guioes": [
     {
-      "titulo": "Guião de pesquisa (modelo BIG6)",
-      "descricao": "Os seis passos para fazer um trabalho de pesquisa do início ao fim.",
-      "url": "",
-      "icone": "alvo"
+      "titulo": "Aprender com a Biblioteca Escolar",
+      "fonte": "Rede de Bibliotecas Escolares",
+      "icone": "cerebro",
+      "nivel": "Referencial oficial",
+      "descricao": "O referencial de aprendizagens associadas à biblioteca escolar: leitura, pesquisa, avaliação de fontes e produção, por ano de escolaridade.",
+      "url": "https://www.rbe.mec.pt/np4/aprender_be.html",
+      "imagem": "",
+      "alt": ""
     },
     {
-      "titulo": "Guia para trabalhos escritos",
-      "descricao": "Como estruturar, redigir e apresentar um trabalho.",
-      "url": "",
-      "icone": "ficheiro"
+      "titulo": "Portal MILD",
+      "fonte": "Rede de Bibliotecas Escolares",
+      "icone": "monitor",
+      "nivel": "Para os 14 aos 18",
+      "descricao": "Manual de Instruções para a Literacia Digital: pesquisar, avaliar, criar e partilhar com critério.",
+      "url": "https://mild.rbe.mec.pt",
+      "imagem": "",
+      "alt": ""
     },
     {
-      "titulo": "Normas de citação (APA) e integridade académica",
-      "descricao": "Como citar fontes e evitar plágio.",
-      "url": "",
-      "icone": "estrela"
+      "titulo": "Biblioteca Escolar Digital",
+      "fonte": "Rede de Bibliotecas Escolares",
+      "icone": "livro",
+      "nivel": "Recursos selecionados",
+      "descricao": "Recursos digitais escolhidos e organizados pela RBE para o trabalho em sala de aula e para o estudo autónomo.",
+      "url": "https://www.rbe.mec.pt/np4/bed.html",
+      "imagem": "",
+      "alt": ""
     },
     {
-      "titulo": "Guião para validar sítios web",
-      "descricao": "Critérios para avaliar a fiabilidade de uma fonte em linha.",
-      "url": "",
-      "icone": "escudo"
+      "titulo": "APA Style",
+      "fonte": "American Psychological Association",
+      "icone": "balao",
+      "nivel": "Norma internacional",
+      "descricao": "A fonte oficial das normas APA, com exemplos de todos os tipos de referência. Em inglês; o essencial em português está no percurso «Aprender a citar».",
+      "url": "https://apastyle.apa.org/",
+      "imagem": "",
+      "alt": ""
     },
     {
-      "titulo": "Métodos de estudo",
-      "descricao": "Técnicas de organização, memorização e gestão do tempo.",
-      "url": "",
-      "icone": "cerebro"
+      "titulo": "Ciberdúvidas da Língua Portuguesa",
+      "fonte": "ISCTE",
+      "icone": "balao",
+      "nivel": "Consulta rápida",
+      "descricao": "Respostas fundamentadas a dúvidas de gramática, ortografia e uso da língua. Serve para escrever melhor o trabalho.",
+      "url": "https://ciberduvidas.iscte-iul.pt",
+      "imagem": "",
+      "alt": ""
     },
     {
-      "titulo": "Vídeos curtos de apoio",
-      "descricao": "Tutoriais breves sobre pesquisa e uso do catálogo.",
-      "url": "",
-      "icone": "monitor"
+      "titulo": "IAVE · provas e critérios",
+      "fonte": "Instituto de Avaliação Educativa",
+      "icone": "ficheiro",
+      "nivel": "Preparação para exames",
+      "descricao": "Provas de anos anteriores, critérios de classificação e informações-prova. A melhor forma de te testares a sério.",
+      "url": "https://iave.pt",
+      "imagem": "",
+      "alt": ""
     }
   ]
 }

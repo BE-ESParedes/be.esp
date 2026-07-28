@@ -6,9 +6,9 @@
       "sub": "Pesquisar no BiblioNet",
       "acao": "Pesquisar",
       "cor": "",
-      "imagem": "",
-      "alt": "",
-      "url": "http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
+      "imagem": "imagens/cartoes/catalogo.jpg",
+      "alt": "Ilustração de pesquisa num ecrã, com ícones de livros e dados",
+      "url": "https://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
     },
     {
       "icone": "monitor",
@@ -16,8 +16,8 @@
       "sub": "Biblioteca Digital verificada",
       "acao": "Explorar",
       "cor": "menta",
-      "imagem": "",
-      "alt": "",
+      "imagem": "imagens/cartoes/recursos-digitais.jpg",
+      "alt": "Ilustração de recursos digitais ligados entre si",
       "url": "catalogo.html#digital"
     },
     {
@@ -26,8 +26,8 @@
       "sub": "Guiões e métodos de estudo",
       "acao": "Abrir",
       "cor": "dourado",
-      "imagem": "",
-      "alt": "",
+      "imagem": "imagens/cartoes/apoio-pesquisa.jpg",
+      "alt": "Ilustração de ícones de estudo e de investigação",
       "url": "recursos.html"
     },
     {
@@ -36,8 +36,8 @@
       "sub": "Seg–Sex · 8h00–18h30",
       "acao": "Consultar",
       "cor": "menta",
-      "imagem": "",
-      "alt": "",
+      "imagem": "imagens/cartoes/horario.jpg",
+      "alt": "Ilustração com ícones de tempo e de serviços",
       "url": "biblioteca.html#horario"
     },
     {
@@ -46,9 +46,9 @@
       "sub": "Próximas atividades",
       "acao": "Ver agenda",
       "cor": "dourado",
-      "imagem": "",
-      "alt": "",
-      "url": "atividades.html#agenda"
+      "imagem": "imagens/cartoes/agenda.jpg",
+      "alt": "Ilustração com ícones de calendário e de atividades",
+      "url": "atividades.html#proximos"
     },
     {
       "icone": "correio",
@@ -56,8 +56,8 @@
       "sub": "Fala com a equipa",
       "acao": "Contactar",
       "cor": "",
-      "imagem": "",
-      "alt": "",
+      "imagem": "imagens/cartoes/sugestoes.jpg",
+      "alt": "Ilustração com ícones de conversa e de mensagens",
       "url": "biblioteca.html#contactos"
     }
   ]

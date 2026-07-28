@@ -2,8 +2,12 @@
   "areaTrabalho": {
     "ligacoes": [
       {
+        "nome": "Painel de edição do site",
+        "url": "admin/"
+      },
+      {
         "nome": "Repositório do site (GitHub)",
-        "url": ""
+        "url": "https://github.com/BE-ESParedes/be.esp"
       },
       {
         "nome": "Área de Trabalho RBE",
@@ -19,7 +23,7 @@
       },
       {
         "nome": "Catálogo OPAC",
-        "url": "http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
+        "url": "https://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
       },
       {
         "nome": "GIAE",

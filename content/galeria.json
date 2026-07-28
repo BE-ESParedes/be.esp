@@ -1,24 +1,34 @@
 {
   "galeria": [
     {
-      "imagem": "",
-      "alt": "",
-      "legenda": "Espaço de leitura"
+      "imagem": "imagens/galeria/sala-de-leitura.jpg",
+      "alt": "Sala de leitura com mesas compridas e estantes de livros de ambos os lados",
+      "legenda": "Sala de leitura"
     },
     {
-      "imagem": "",
-      "alt": "",
-      "legenda": "Atividades"
+      "imagem": "imagens/galeria/zona-de-sessoes.jpg",
+      "alt": "Zona de sessões com cadeirões vermelhos, cadeiras e ecrã de projeção",
+      "legenda": "Zona de sessões"
     },
     {
-      "imagem": "",
-      "alt": "",
-      "legenda": "Exposições"
+      "imagem": "imagens/galeria/estantes.jpg",
+      "alt": "Corredor entre estantes, com um globo terrestre em primeiro plano",
+      "legenda": "Fundo documental"
     },
     {
-      "imagem": "",
-      "alt": "",
-      "legenda": "Encontros com autores"
+      "imagem": "imagens/galeria/expositor-novidades.jpg",
+      "alt": "Expositor com livros de capa voltada para a frente",
+      "legenda": "Novidades"
+    },
+    {
+      "imagem": "imagens/galeria/atendimento.jpg",
+      "alt": "Zona de atendimento e trabalho, junto às janelas",
+      "legenda": "Atendimento"
+    },
+    {
+      "imagem": "imagens/galeria/sala-de-estudo.jpg",
+      "alt": "Alunos a estudar nas mesas da Biblioteca",
+      "legenda": "Estudo e trabalho"
     }
   ]
 }

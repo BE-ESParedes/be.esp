@@ -1,0 +1,40 @@
+{
+  "missoes": [
+    {
+      "rotulo": "Encontrar um livro",
+      "texto": "Pesquisa no catálogo e vê onde está o exemplar.",
+      "icone": "livro",
+      "url": "catalogo.html"
+    },
+    {
+      "rotulo": "Fazer um trabalho",
+      "texto": "Sete passos, do tema em branco à entrega.",
+      "icone": "ficheiro",
+      "url": "recursos.html#percurso-trabalho"
+    },
+    {
+      "rotulo": "Participar numa atividade",
+      "texto": "O que acontece hoje, esta semana e ao longo do ano.",
+      "icone": "calendario",
+      "url": "atividades.html"
+    },
+    {
+      "rotulo": "Ver o que aconteceu",
+      "texto": "Notícias e registo do que se fez na Biblioteca.",
+      "icone": "camara",
+      "url": "noticias.html"
+    },
+    {
+      "rotulo": "Explorar a biblioteca digital",
+      "texto": "Livros, repositórios e imprensa em acesso livre.",
+      "icone": "monitor",
+      "url": "catalogo.html#digital"
+    },
+    {
+      "rotulo": "Pedir ajuda",
+      "texto": "A equipa ajuda-te a procurar, avaliar fontes e citar.",
+      "icone": "maos",
+      "url": "biblioteca.html#contactos"
+    }
+  ]
+}

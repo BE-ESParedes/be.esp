@@ -63,10 +63,20 @@ window.capa = capa; window.capaCartao = capaCartao;
 /* ---------- conteúdo ---------- */
 const CONTEUDO = {};
 const FICHEIROS = [
-  'info', 'banners', 'acessoRapido', 'metricas', 'noticias', 'agenda', 'regras',
-  'documentos', 'projetosEscola', 'galeria', 'destaquesCatalogo', 'bibliotecaDigital',
-  'faq', 'guioes', 'disciplinas', 'desafioMes', 'ligacoesUteis', 'exposicoes',
-  'projetos', 'iniciativasNacionais', 'trabalhosAlunos', 'areaTrabalho', 'cartoes'
+  'info', 'banners', 'acessoRapido', 'noticias', 'agenda',
+  'documentos', 'projetosEscola', 'galeria', 'bibliotecaDigital',
+  'faq', 'guioes', 'disciplinas', 'ligacoesUteis', 'exposicoes',
+  'projetos', 'iniciativasNacionais', 'areaTrabalho', 'cartoes',
+  'videos', 'missoes',
+  /* página A Biblioteca */
+  'equipa', 'pilares', 'zonas', 'passos',
+  /* página Catálogo */
+  'modosProcura', 'passosCatalogo', 'sugestoesLeitura', 'destaquesDigitais', 'etiquetasOpac',
+  /* página Apoio ao Estudo */
+  'percursos', 'literaciaPercurso', 'docentes',
+  /* página Acontece na Biblioteca */
+  'calendarioAno', 'rotina', 'temasAtividades',
+  'concursos', 'galeriaAlunos', 'arquivoAnos'
 ];
 async function carregarConteudo() {
   await Promise.all(FICHEIROS.map(async chave => {
@@ -84,26 +94,10 @@ const PAGINAS = [
   { id: 'p-inicio',     rotulo: 'Início',     url: 'index.html' },
   { id: 'p-biblioteca', rotulo: 'Biblioteca', url: 'biblioteca.html', completo: 'A Biblioteca' },
   { id: 'p-catalogo',   rotulo: 'Catálogo',   url: 'catalogo.html' },
-  { id: 'p-recursos',   rotulo: 'Recursos',   url: 'recursos.html' },
-  { id: 'p-atividades', rotulo: 'Atividades', url: 'atividades.html', completo: 'Atividades e Projetos' },
+  { id: 'p-recursos',   rotulo: 'Recursos',   url: 'recursos.html',   completo: 'Apoio ao Estudo' },
+  { id: 'p-atividades', rotulo: 'Atividades', url: 'atividades.html', completo: 'Acontece na Biblioteca' },
   { id: 'p-noticias',   rotulo: 'Notícias',   url: 'noticias.html' },
 ];
-const SUBNAV = {
-  'p-inicio':     [{ r: 'Catálogo online', u: 'OPAC' }, { r: 'Biblioteca Digital', u: 'catalogo.html#digital' },
-                   { r: 'Horário', u: 'biblioteca.html#horario' }, { r: 'Agenda', u: 'atividades.html#agenda' },
-                   { r: 'Contactos', u: 'biblioteca.html#contactos' }],
-  'p-biblioteca': [{ r: 'Quem somos', u: '#quem-somos' }, { r: 'Horário e regras', u: '#horario' },
-                   { r: 'Documentos', u: '#documentos' }, { r: 'Galeria', u: '#galeria-t' }, { r: 'Contactos', u: '#contactos' }],
-  'p-catalogo':   [{ r: 'Pesquisa no catálogo', u: '#opac' }, { r: 'Biblioteca Digital', u: '#digital' },
-                   { r: 'Apoio à pesquisa', u: '#referencia' }, { r: 'Perguntas frequentes', u: '#faq' }],
-  'p-recursos':   [{ r: 'Começa aqui', u: '#comecar' }, { r: 'Guiões e métodos de estudo', u: '#guioes' },
-                   { r: 'Por disciplina', u: '#disciplinas' }, { r: 'Literacia digital', u: '#literacia' },
-                   { r: 'Ligações úteis', u: '#ligacoes' }],
-  'p-atividades': [{ r: 'Agenda', u: '#agenda' }, { r: 'Exposições', u: '#exposicoes' },
-                   { r: 'Projetos da Biblioteca', u: '#projetos' }, { r: 'Iniciativas nacionais', u: '#iniciativas' },
-                   { r: 'Trabalhos de alunos', u: '#trabalhos' }],
-  'p-noticias':   [{ r: 'Todas as notícias', u: '#todas' }, { r: 'Segue-nos', u: '#redes' }],
-};
 
 /* ---------- cabeçalho ---------- */
 function renderCabecalho() {
@@ -111,28 +105,25 @@ function renderCabecalho() {
   const atual = document.body.id, i = CONTEUDO.info || {};
   const itens = PAGINAS.map(p =>
     `<a href="${p.url}"${p.id === atual ? ' class="active" aria-current="page"' : ''}>${esc(p.rotulo)}</a>`).join('');
-  const subs = (SUBNAV[atual] || []).map(s => {
-    const u = s.u === 'OPAC' ? (i.opacSimples || '#') : s.u;
-    return `<a ${linkAttrs(u)}>${esc(s.r)}</a>`;
-  }).join('');
   alvo.innerHTML = `
   <header>
     <div class="topbar">
-      <a class="brand" href="index.html">
-        <!-- Substituir pelo logótipo do BrandKit: imagens/logo/logo-horizontal.png -->
-        <span class="mono">BE</span>
-        <span class="brand-txt"><b>${esc(i.nome || 'Biblioteca Escolar')}</b><span>${esc(i.escola || '')}</span></span>
+      <!-- Logótipo oficial do BrandKit, versão Horizontal em SVG: já inclui o
+           descritivo "Biblioteca Escolar" exigido pelo manual. Em ecrã estreito
+           passa ao ícone, como o manual manda abaixo do tamanho mínimo. -->
+      <a class="brand" href="index.html" aria-label="Biblioteca Escolar da Escola Secundária de Paredes — página inicial">
+        <img class="logo" src="imagens/logo/logo-horizontal.svg" alt="Biblioteca Escolar ESParedes">
+        <img class="logo-icone" src="imagens/logo/icone.svg" alt="Biblioteca Escolar ESParedes">
       </a>
       <nav class="main" id="nav" aria-label="Menu principal">${itens}</nav>
       <div class="utils">
         ${temTexto(i.opacSimples) ? `<a class="util" ${linkAttrs(i.opacSimples)} title="Pesquisar no catálogo" aria-label="Pesquisar no catálogo">${icone('lupa', 17)}</a>` : ''}
-        <a class="util" href="atividades.html#agenda" title="Agenda" aria-label="Agenda">${icone('calendario', 17)}</a>
-        <a class="util area" href="area-trabalho.html" title="Área de Trabalho da equipa" aria-label="Área de Trabalho">${icone('cadeado', 16)}</a>
+        <a class="util" href="atividades.html#proximos" title="Agenda" aria-label="Agenda">${icone('calendario', 17)}</a>
+        <a class="util area" href="admin/" title="Painel de edição do site" aria-label="Painel de edição do site">${icone('cadeado', 16)}</a>
         <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">${icone('pasta', 18)}</button>
       </div>
     </div>
-  </header>
-  ${subs ? `<div class="subnav"><div class="subnav-in">${subs}</div></div>` : ''}`;
+  </header>`;
   const btn = $('.menu-toggle', alvo), nav = $('#nav', alvo);
   btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" ${P}><path d="M3 6h18M3 12h18M3 18h18"/></svg>`;
   btn.addEventListener('click', () => {
@@ -158,31 +149,35 @@ function renderRodape() {
   <footer>
     <div class="wrap foot-grid">
       <div class="foot-brand">
+        <img class="foot-logo" src="imagens/logo/logo-horizontal-negativo.svg" alt="">
         <b>${esc(i.nome || 'Biblioteca Escolar')}</b><span>${esc(i.escola || '')}</span>
-        <p class="foot-mission">${esc(i.missaoCurta || '')}</p>
         <div class="foot-social">${redes}</div>
       </div>
       <div><h4>Mapa do Site</h4>${PAGINAS.map(p => `<a href="${p.url}">${esc(p.completo || p.rotulo)}</a>`).join('')}</div>
       <div><h4>Ligações Úteis</h4>${uteis}</div>
-      <div><h4>Documentação</h4>
-        <a href="biblioteca.html#documentos">Regulamento Interno</a>
-        <a href="biblioteca.html#documentos">Políticas</a>
-        <a href="biblioteca.html#contactos">Contactos</a>
+      <div><h4>A Biblioteca</h4>
+        <a href="biblioteca.html#quem-somos">Quem somos</a>
+        <a href="biblioteca.html#espaco">O espaço</a>
+        <a href="biblioteca.html#documentos">Documentos orientadores</a>
+        <a href="recursos.html#docentes">Para docentes</a>
+        <a href="area-trabalho.html">Área de trabalho</a>
       </div>
       <div><h4>Contactos</h4>
         <address class="foot-contact">
           ${esc(i.localizacao || '')}<br>${esc(i.escola || '')}<br>
           ${temTexto(i.telefone) ? `<a href="tel:${esc((i.telefone || '').replace(/\s/g, ''))}">${esc(i.telefone)}</a><br>` : ''}
-          <a href="mailto:${esc(i.email)}">${esc(i.email)}</a><br>${esc(i.horario || '')}
+          <a href="mailto:${esc(i.email)}">${esc(i.email)}</a><br>
+          ${esc(i.horario || '')}${temTexto(i.atendimento) ? `<br><span class="foot-nota">Atendimento: ${esc(i.atendimento)}</span>` : ''}
           ${temTexto(i.mapa) ? `<br><a ${linkAttrs(i.mapa)}>Ver no Google Maps</a>` : ''}
         </address>
       </div>
     </div>
     <div class="foot-bottom wrap">
       © ${new Date().getFullYear()} ${esc(i.nome || '')} da ESP ·
+      ${temTexto(i.codigoRBE) ? `Rede de Bibliotecas Escolares, código ${esc(i.codigoRBE)} ·` : ''}
       <a href="acessibilidade.html">Acessibilidade</a> ·
       <a href="privacidade.html">Privacidade</a> ·
-      <a href="area-trabalho.html">Área de Trabalho</a>
+      <a href="admin/">Editar o site</a>
     </div>
   </footer>`;
 }
@@ -190,7 +185,9 @@ function renderRodape() {
 /* ---------- hero / carrossel ---------- */
 function renderCarrossel() {
   const car = $('#carousel'); if (!car) return;
-  const B = CONTEUDO.banners || [];
+  /* Limite de 4 destaques. Acima disso os últimos raramente chegam a ser vistos;
+     se acrescentar mais em content/banners.json, só os 4 primeiros são usados. */
+  const B = (CONTEUDO.banners || []).slice(0, 4);
   if (!B.length) { car.remove(); return; }
   const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
   $('#slides').innerHTML = B.map((b, k) => {
@@ -242,7 +239,7 @@ function cartaoAcao(x, n) {
 /* ---------- notícias ---------- */
 const ordenadas = () => (CONTEUDO.noticias || []).slice()
   .sort((a, b) => String(b.dataOrdenacao || '').localeCompare(String(a.dataOrdenacao || '')));
-const CHIP = { '#D8B260': 'gold', '#20493B': 'verde' };
+const CHIP = { '#D8AC47': 'gold', '#2B2B2B': 'grafite' };
 function cardNoticia(n) {
   const dest = temTexto(n.url) ? n.url : 'noticias.html';
   return `<a class="noticia" ${linkAttrs(dest)}>
@@ -273,12 +270,21 @@ function renderNoticias() {
 
 /* ---------- agenda ---------- */
 function renderAgenda() {
+  /* Na página inicial a agenda é compacta: dia, mês e título, no máximo
+     quatro entradas. A lista completa vive em Atividades (28/07/2026). */
+  const casa = $('#home-agenda');
+  if (casa) casa.innerHTML = (CONTEUDO.agenda || []).slice(0, 4).map(e => {
+    const t = temTexto(e.url) ? `<a ${linkAttrs(e.url)}>${esc(e.titulo)}</a>` : esc(e.titulo);
+    return `<li><span class="dia">${esc(e.dia)} ${esc(e.mes)}</span>
+      <span class="tit">${t}</span></li>`;
+  }).join('') || '<li><span class="tit">Sem eventos datados de momento.</span></li>';
+
   const html = (CONTEUDO.agenda || []).map(e => {
     const t = temTexto(e.url) ? `<a ${linkAttrs(e.url)}>${esc(e.titulo)}</a>` : esc(e.titulo);
     return `<li><span class="dia"><b>${esc(e.dia)}</b><span>${esc(e.mes)}</span></span>
       <span><h4>${t}</h4><small>${esc(e.local)}</small></span></li>`;
   }).join('');
-  ['#home-agenda', '#ativ-agenda'].forEach(s => { const el = $(s); if (el) el.innerHTML = html; });
+  ['#ativ-agenda'].forEach(s => { const el = $(s); if (el) el.innerHTML = html; });
 }
 
 /* ---------- galeria e documentos ---------- */
@@ -291,11 +297,46 @@ function renderGaleria() {
       : `<span class="ph">${icone('camara', 24)}${leg}</span>`}</div>`;
   }).join('');
 }
+/* ---------- vídeos ----------
+   Basta colar o endereço do YouTube no painel; aqui extrai-se o identificador.
+   O embutido usa youtube-nocookie.com (não deixa cookies antes de o utilizador
+   carregar em «reproduzir») e só carrega quando entra no ecrã. */
+function idYoutube(u) {
+  const m = String(u || '').match(
+    /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([\w-]{11})/);
+  return m ? m[1] : '';
+}
+function renderVideos() {
+  const el = $('#videos'); if (!el) return;
+  const lista = (CONTEUDO.videos || []).filter(v => v && idYoutube(v.url));
+  const seccao = el.closest('[data-seccao]');
+  if (!lista.length) { if (seccao) seccao.hidden = true; return; }
+  if (seccao) seccao.hidden = false;
+  el.innerHTML = lista.map(v => {
+    const id = idYoutube(v.url), t = esc(v.titulo || 'Vídeo da Biblioteca');
+    return `<figure class="video">
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/${esc(id)}" title="${t}"
+          loading="lazy" allowfullscreen
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <figcaption><strong>${t}</strong>${temTexto(v.data) ? ` <span class="video-data">${esc(v.data)}</span>` : ''}
+        ${temTexto(v.descricao) ? `<span class="video-desc">${esc(v.descricao)}</span>` : ''}</figcaption>
+    </figure>`;
+  }).join('');
+}
+/* Documentos estruturantes.
+   Por opção da Biblioteca, a documentação completa não é exposta em linha: a lista
+   dá a conhecer os documentos que existem e permite pedi-los. Basta preencher o
+   campo "url" em content/documentos.json para qualquer um passar a ficheiro público. */
 function renderDocumentos() {
   const el = $('#lista-documentos'); if (!el) return;
+  const email = ((CONTEUDO.info || {}).email) || 'biblioteca@esparedes.pt';
   el.innerHTML = (CONTEUDO.documentos || []).map(d => temTexto(d.url)
     ? `<li><a ${linkAttrs(d.url)}><span class="ico">${icone('ficheiro', 18)}</span>${esc(d.titulo)}</a></li>`
-    : `<li><span class="item"><span class="ico">${icone('ficheiro', 18)}</span>${esc(d.titulo)} <em>— brevemente disponível</em></span></li>`).join('');
+    : `<li><span class="item"><span class="ico">${icone('ficheiro', 18)}</span>${esc(d.titulo)}
+        <em>— consulta na Biblioteca ou <a href="mailto:${esc(email)}?subject=${encodeURIComponent('Pedido de consulta: ' + d.titulo)}">a pedido</a></em></span></li>`).join('');
 }
 
 /* ---------- personalização de cartões fixos ---------- */
@@ -338,11 +379,70 @@ function ligarFormulario() {
 }
 
 /* ---------- arranque ---------- */
+/* ---------- pesquisa dentro do site ----------
+   Constrói um índice a partir do próprio conteúdo, pelo que não é preciso
+   manter uma lista à parte: o que a equipa publicar entra na pesquisa. */
+function construirIndice(C) {
+  const ix = [];
+  const põe = (tipo, titulo, nota, url) => {
+    if (temTexto(titulo)) ix.push({ tipo, titulo, nota: nota || '', url: url || '#' });
+  };
+  (C.noticias || []).forEach(n => põe('Notícia', n.titulo, n.data, n.url || 'noticias.html'));
+  (C.agenda || []).forEach(a => põe('Agenda', a.titulo, [a.dia, a.mes, a.ano].filter(Boolean).join(' '), a.url || 'atividades.html#proximos'));
+  (C.projetos || []).forEach(p => põe('Projeto', p.nome, p.descricao, 'atividades.html#projetos'));
+  (C.iniciativasNacionais || []).forEach(i => põe('Iniciativa', i.nome, i.area, i.url));
+  (C.exposicoes || []).forEach(e => põe('Exposição', e.titulo, e.periodo, 'atividades.html#exposicoes'));
+  (C.trabalhosAlunos || []).forEach(t => põe('Trabalhos', t.titulo, t.autores, 'atividades.html#trabalhos'));
+  (C.guioes || []).forEach(g => põe('Guião', g.titulo, g.descricao, g.url || 'recursos.html#guioes'));
+  /* Nos recursos digitais junta-se o género (ebooks, audiolivros, repositórios)
+     e o tipo de acesso, para que quem escreve «ebook» os encontre. */
+  const GENERO = { ebooks: 'eBooks', audiolivros: 'Audiolivros', imprensa: 'Jornais e revistas', repositorios: 'Repositórios' };
+  (C.bibliotecaDigital || []).forEach(b => põe('Recurso digital', b.nome,
+    [GENERO[b.tipo] || b.tipo, b.acesso ? 'acesso ' + b.acesso : '', b.descricao].filter(Boolean).join(' · '), b.url));
+  (C.ligacoesUteis || []).forEach(l => põe('Ligação útil', l.nome, l.grupo, l.url));
+  (C.disciplinas || []).forEach(d => {
+    põe('Disciplina', d.nome, 'Recursos por disciplina', 'recursos.html#disciplinas');
+    ['essenciais', 'aprofundamento', 'propostas', 'testados'].forEach(k =>
+      (d[k] || []).forEach(r => põe('Recurso', r.titulo, d.nome, r.url || 'recursos.html#disciplinas')));
+  });
+  (C.faq || []).forEach(f => põe('Pergunta frequente', f.pergunta, '', 'catalogo.html#faq'));
+  (C.documentos || []).forEach(d => põe('Documento', d.titulo, '', d.url || 'biblioteca.html#documentos'));
+  (C.destaquesCatalogo || []).forEach(d => põe('Destaque', d.titulo, d.autor, 'catalogo.html'));
+  (C.acessoRapido || []).forEach(a => põe('Serviço', a.rotulo, a.sub, a.url));
+  if (C.desafioMes && C.desafioMes.titulo) põe('Desafio', C.desafioMes.titulo, '', C.desafioMes.url || 'recursos.html#literacia');
+  PAGINAS.forEach(p => põe('Página', p.completo || p.rotulo, '', p.url));
+  põe('Formulário', 'Sugerir a compra de um livro', 'Fala com a equipa', 'biblioteca.html#contactos');
+  põe('Formulário', 'Pedir apoio numa pesquisa', 'Serviço de referência', 'recursos.html');
+  põe('Formulário', 'Reservar espaço para uma turma', 'Para docentes', 'recursos.html');
+  return ix;
+}
+/* Comparação sem acentos nem maiúsculas, para «matematica» encontrar «Matemática». */
+const semAcento = t => String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+function procurar(ix, termo) {
+  const q = semAcento(termo).trim();
+  if (q.length < 2) return [];
+  const palavras = q.split(/\s+/);
+  return ix.map(x => {
+    const t = semAcento(x.titulo), n = semAcento(x.nota), c = semAcento(x.tipo);
+    let p = 0;
+    palavras.forEach(w => {
+      if (t.startsWith(w)) p += 10;
+      else if (t.includes(w)) p += 6;
+      if (n.includes(w)) p += 2;
+      /* A categoria também conta: quem escreve «formulário» ou «guião» procura
+         um género de coisa, não um título. */
+      if (c.includes(w)) p += 3;
+    });
+    return p ? { ...x, p } : null;
+  }).filter(Boolean).sort((a, b) => b.p - a.p || a.titulo.length - b.titulo.length);
+}
+window.construirIndice = construirIndice; window.procurar = procurar;
 window.esc = esc; window.temTexto = temTexto; window.linkAttrs = linkAttrs; window.cartaoAcao = cartaoAcao;
 (async function iniciar() {
   await carregarConteudo();
   renderCabecalho(); renderRodape();
   renderCarrossel(); renderNoticias(); renderAgenda(); renderGaleria(); renderDocumentos();
+  renderVideos();
   if (window.renderPagina) window.renderPagina();
   aplicarCartoes();
   ligarFormulario();

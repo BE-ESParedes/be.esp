@@ -23,17 +23,21 @@
     "missaoCurta": "A Biblioteca Escolar da ESP tem como missão proporcionar acesso equitativo à informação, ao conhecimento e à cultura, promovendo o desenvolvimento de competências de literacia e o gosto pela leitura.",
     "instagram": "https://www.instagram.com/beesparedes/",
     "facebook": "https://www.facebook.com/biblioteca.escsecparedes",
-    "youtube": "",
+    "youtube": "https://www.youtube.com/channel/UCCwLRKdwL8avft2EYrv4KRw",
     "siteEscola": "https://www.esparedes.pt/esp/",
-    "opacSimples": "http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx",
-    "opacAvancada": "http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/AdvancedSearch.aspx",
-    "bibliotecaMunicipal": "http://bibliotecas.cm-paredes.pt/",
+    "opacSimples": "https://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx",
+    "opacAvancada": "https://bibliotecas.cm-paredes.pt/Opac/Pages/Search/AdvancedSearch.aspx",
+    "bibliotecaMunicipal": "https://bibliotecas.cm-paredes.pt/",
     "rbe": "https://www.rbe.mec.pt/",
     "pnl": "https://pnl2027.gov.pt",
     "dge": "https://www.dge.mec.pt/",
     "mapa": "https://maps.google.com/?q=Escola+Secundária+de+Paredes",
     "linkMarcacao": "",
     "linkFormulario": "",
-    "repositorioGitHub": "https://github.com/BE-ESParedes/be-esparedes"
+    "videoTutorial": "",
+    "cotaExemplo": "821.134.1 QUE mai",
+    "repositorioGitHub": "https://github.com/BE-ESParedes/be.esp",
+    "atendimento": "8h30 – 16h00",
+    "atendimentoLongo": "A sala está aberta das 8h00 às 18h30; a equipa faz atendimento das 8h30 às 16h00"
   }
 }

@@ -8,7 +8,7 @@ Guia técnico de instalação. Para o **dia a dia da equipa**, ver o [LEIA-ME.md
 
 | Onde | O quê |
 |---|---|
-| **GitHub** (público) | O site: páginas, `estilos.css`, `motor.js`, conteúdo em `content/*.json` e imagens **otimizadas e com consentimento** em `imagens/` |
+| **GitHub** (público) | O site: páginas, `estilos.css`, `motor.js`, o painel `admin/`, conteúdo em `content/*.json` e imagens **otimizadas e com consentimento** em `imagens/` |
 | **OneDrive institucional** (privado) | A estrutura documental: pasta BE-ESP da aplicação, PDF oficiais (ligados ao site por *link de partilha*), fotografias originais, consentimentos, listas com dados pessoais |
 
 **Regra de ouro RGPD:** nada com dados pessoais entra no GitHub. O repositório é público.
@@ -27,7 +27,7 @@ Todas as ligações internas são relativas, por isso funciona em
 2. Em <https://github.com/new>: nome `be-esparedes`, **Public**, marcar
    **«Add a README file»** e **Create repository**.
 3. No repositório: **Add file → Upload files**.
-4. No Finder, abrir esta pasta (`prototipo`), selecionar **tudo** (Cmd+A) e
+4. No Finder, abrir esta pasta (`site`), selecionar **tudo** (Cmd+A) e
    **arrastar** para a área de upload do browser. Esperar que a lista carregue
    (cerca de 50 ficheiros, incluindo a pasta `content`) e **Commit changes**.
    - Os ficheiros escondidos (`.git`, `.nojekyll`) **não vêm** no arrasto — é
@@ -75,8 +75,15 @@ O mesmo vale para qualquer ligação em `content/` (guiões, materiais por disci
 
 ## Fluxo de edição do dia a dia
 
-Editar `content/<ficheiro>.json` na interface web do GitHub (lápis ✏️ → *Commit changes*).
-A publicação é automática em 1 a 2 minutos. Detalhes e exemplos no `LEIA-ME.md`.
+Pelo **painel de edição** em `/admin`: formulários, imagens por arrastar, vídeos por
+colar o endereço do YouTube. A equipa não toca em ficheiros nem em código.
+A publicação é automática em 1 a 2 minutos.
+
+- Instalação e entrada no painel: [ADMIN.md](ADMIN.md)
+- Utilização no dia a dia: [LEIA-ME.md](LEIA-ME.md)
+
+Editar os `content/*.json` à mão no GitHub continua a funcionar, mas é apenas o
+recurso de emergência — o caminho normal é o painel.
 
 ## Ver o site antes de publicar
 
@@ -94,10 +101,12 @@ ficheiro `CNAME` no repositório (Settings → Pages → Custom domain).
 
 ## Evolução futura (registada, não bloqueante)
 
+- **Entrada no painel com um clique**: instalar o Sveltia CMS Authenticator em
+  Cloudflare Workers (gratuito) para trocar o *token* pelo botão «Sign in with GitHub».
+  Ver [ADMIN.md](ADMIN.md), secção 2.
 - **Módulo «Site» na aplicação BE-ESP v7**: a app já autentica no Microsoft 365 e
   escreve no OneDrive; pode ganhar um ecrã que edita os `content/*.json` e os envia
-  ao GitHub pela API, usando as permissões já existentes. A equipa deixaria de tocar
-  no GitHub.
+  ao GitHub pela API, usando as permissões já existentes.
 - **Power Automate**: fluxo que copia ficheiros de uma pasta do OneDrive para o
   repositório (sincronização automática).
 
@@ -107,5 +116,7 @@ ficheiro `CNAME` no repositório (Settings → Pages → Custom domain).
 - **Como as páginas são desenhadas**: `motor.js`.
 - **Nova página**: copiar a estrutura de um `.html`, dar `id` novo ao `<body>` e
   acrescentar à lista `PAGINAS` (e `SUBNAV`) no `motor.js`.
-- **Novo campo editável**: criar `content/<nome>.json` e acrescentar a chave à
-  lista `FICHEIROS` do `motor.js`.
+- **Novo campo editável**: criar `content/<nome>.json`, acrescentar a chave à
+  lista `FICHEIROS` do `motor.js` **e** o bloco correspondente em `admin/config.yml`
+  (senão o campo existe mas não aparece no painel).
+- **Formulários do painel**: `admin/config.yml`.

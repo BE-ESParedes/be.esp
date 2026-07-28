@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de edição · Biblioteca Escolar da ESP</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../imagens/logo/favicon.ico">
+<style>
+  body { margin:0; font-family: "Open Sans", system-ui, sans-serif; background:#F8F8F8; color:#2B2B2B; }
+  .aviso { max-width:640px; margin:18vh auto; padding:0 24px; text-align:center; }
+  .aviso h1 { font-family:"Montserrat", system-ui, sans-serif; font-size:1.4rem; }
+  .aviso p { line-height:1.6; }
+  .aviso code { background:#fff; padding:2px 6px; border-radius:4px; }
+</style>
+</head>
+<body>
+
+<!-- Mensagem visível só enquanto o painel carrega (o Sveltia substitui-a). -->
+<div class="aviso" id="aviso">
+  <h1>Painel de edição da Biblioteca</h1>
+  <p>A carregar…</p>
+  <p><small>Se esta mensagem ficar visível, o painel ainda não está configurado.
+  Ver <code>ADMIN.md</code> no repositório.</small></p>
+</div>
+
+<!-- Sem type="module" e sem folha de estilos: o Sveltia traz tudo dentro deste ficheiro. -->
+<script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+</body>
+</html>

@@ -1,47 +1,64 @@
 {
   "banners": [
     {
-      "imagem": "",
-      "tag": "Biblioteca Escolar · ESP",
-      "titulo": "Abre as portas da <em>imaginação</em>",
-      "texto": "Recursos, apoio à pesquisa e um espaço de aprendizagem para toda a comunidade escolar.",
+      "imagem": "imagens/banners/biblioteca-aberta.jpg",
+      "tag": "Ano letivo 2026/2027",
+      "titulo": "A Biblioteca está <em>aberta</em>",
+      "alt": "Sala de leitura da Biblioteca com mesas amplas e estantes, iluminada por luz natural",
+      "texto": "De segunda a sexta, das 8h00 às 18h30, no bloco E. Leitura, estudo, apoio à pesquisa e recursos digitais.",
       "botoes": [
         {
-          "rotulo": "Catálogo online",
-          "url": "http://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
+          "rotulo": "Pesquisar no catálogo",
+          "url": "https://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
         },
         {
-          "rotulo": "Horário",
+          "rotulo": "Horário e regras",
           "url": "biblioteca.html#horario"
         }
-      ],
-      "alt": ""
+      ]
     },
     {
-      "imagem": "",
-      "tag": "Promoção da leitura",
-      "titulo": "Concurso <em>Primavera a Ler</em>",
-      "texto": "Participa na nova edição do concurso de leitura e representa a escola a nível municipal.",
+      "imagem": "imagens/banners/encontro-escritor.jpg",
+      "tag": "Projeto financiado pela RBE",
+      "titulo": "Palavras em <em>Ação</em>",
+      "alt": "Escritor a falar aos alunos entre as estantes da Biblioteca",
+      "texto": "Sequências de leitura, roteiros literários e leituras em família. Vinte turmas envolvidas até 2028.",
       "botoes": [
         {
-          "rotulo": "Saber mais",
-          "url": "atividades.html"
+          "rotulo": "Conhecer o projeto",
+          "url": "atividades.html#projetos"
         }
-      ],
-      "alt": ""
+      ]
     },
     {
-      "imagem": "",
+      "imagem": "imagens/banners/apoio-ao-estudo.jpg",
       "tag": "Apoio ao estudo",
-      "titulo": "Precisas de ajuda numa <em>pesquisa</em>?",
-      "texto": "Marca uma sessão no balcão de referência digital e conta com o apoio da equipa da Biblioteca.",
+      "titulo": "Precisas de ajuda num <em>trabalho</em>?",
+      "alt": "Alunos a estudar nas mesas da Biblioteca",
+      "texto": "Guiões de pesquisa, normas de citação e apoio da equipa para os teus trabalhos.",
       "botoes": [
         {
-          "rotulo": "Marcar apoio",
-          "url": "catalogo.html#referencia"
+          "rotulo": "Ver os recursos",
+          "url": "recursos.html"
         }
-      ],
-      "alt": ""
+      ]
+    },
+    {
+      "imagem": "imagens/cartoes/catalogo.jpg",
+      "tag": "Catálogo em linha",
+      "titulo": "Procura um <em>livro</em> a partir de casa",
+      "alt": "",
+      "texto": "O catálogo da rede de bibliotecas de Paredes está disponível a qualquer hora. Reserva e renova sem sair de casa.",
+      "botoes": [
+        {
+          "rotulo": "Abrir o catálogo",
+          "url": "https://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
+        },
+        {
+          "rotulo": "Como requisitar",
+          "url": "catalogo.html"
+        }
+      ]
     }
   ]
 }

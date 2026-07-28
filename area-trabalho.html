@@ -6,8 +6,10 @@
 <title>Área de Trabalho · Biblioteca Escolar da ESP</title>
 <meta name="description" content="Página de trabalho da equipa da Biblioteca Escolar da ESP.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="imagens/logo/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="imagens/logo/favicon.ico"><link rel="icon" type="image/svg+xml" href="imagens/logo/icone-app.svg">
+<link rel="apple-touch-icon" href="imagens/logo/apple-touch-icon.png">
+<meta name="theme-color" content="#F8F8F8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body id="p-area">
@@ -20,13 +22,18 @@
     <h1 class="sec-title">área de trabalho</h1><div class="rule"></div>
 
     <h2 class="sec-title">como atualizar o site</h2><div class="rule"></div>
+    <p class="sec-lead">Toda a atualização se faz pelo <strong>painel de edição</strong>: formulários,
+      imagens por arrastar e vídeos por colar o endereço. Não é preciso mexer em código nem em ficheiros.</p>
+    <p style="margin:18px 0 26px">
+      <a class="btn primario" href="admin/">Abrir o painel de edição</a>
+    </p>
     <div class="passos">
-      <div class="passo"><h3>Abrir o ficheiro</h3><p>No repositório GitHub, abrir a pasta content e o ficheiro certo (noticias, agenda, galeria…).</p></div>
-      <div class="passo"><h3>Editar</h3><p>Carregar no lápis, alterar o texto seguindo o padrão dos itens existentes.</p></div>
-      <div class="passo"><h3>Guardar</h3><p>Carregar em Commit changes. O site atualiza-se sozinho em um a dois minutos.</p></div>
+      <div class="passo"><h3>Escolher</h3><p>No painel, escolher a secção na barra lateral e o item a alterar (Notícias, Agenda, Galeria…).</p></div>
+      <div class="passo"><h3>Preencher</h3><p>Preencher o formulário. Para acrescentar, botão Add; as imagens carregam-se por arrastar.</p></div>
+      <div class="passo"><h3>Guardar</h3><p>Carregar em Save. O site atualiza-se sozinho em um a dois minutos.</p></div>
     </div>
     <p style="margin-top:20px" id="btn-repo"></p>
-    <p style="font-size:13px;color:var(--cinza)">Guia completo, com exemplos: ficheiro LEIA-ME.md no repositório.</p>
+    <p style="font-size:13px;color:var(--cinza)">Guia de utilização: LEIA-ME.md · Instalação e entrada no painel: ADMIN.md</p>
 
     <h2 class="sec-title">checklist de publicação</h2><div class="rule"></div>
     <ul class="docs">
@@ -65,7 +72,7 @@ window.renderPagina = function(){
   const i = CONTEUDO.info || {};
   const br = document.getElementById('btn-repo');
   if (br) br.innerHTML = temTexto(i.repositorioGitHub)
-    ? `<a class="btn primario" ${linkAttrs(i.repositorioGitHub)}>Abrir o repositório no GitHub</a>`
+    ? `<a class="btn claro" ${linkAttrs(i.repositorioGitHub)}>Abrir o repositório no GitHub</a>`
     : `<span style="font-size:13px;color:var(--cinza)">Endereço do repositório a preencher em content/info.json (campo repositorioGitHub).</span>`;
   const L=(CONTEUDO.areaTrabalho&&CONTEUDO.areaTrabalho.ligacoes)||[];
   const el=document.getElementById('ligacoes-trabalho');

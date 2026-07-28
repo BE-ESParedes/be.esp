@@ -3,94 +3,541 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recursos · Biblioteca Escolar da ESP</title>
-<meta name="description" content="Centro de apoio ao estudo e à pesquisa: guiões, recursos por disciplina, literacia digital e ligações úteis.">
+<title>Apoio ao Estudo · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Percursos de apoio ao estudo e à pesquisa: fazer um trabalho, estudar para um teste, aprender a citar. Recursos por disciplina e literacia digital.">
 <meta name="robots" content="index,follow">
-<link rel="icon" href="imagens/logo/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<meta property="og:title" content="Apoio ao Estudo · Biblioteca Escolar da ESP"><meta property="og:description" content="Em que te podemos ajudar hoje? Percursos passo a passo para o teu trabalho, o teu teste e as tuas citações.">
+<meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
+<link rel="icon" href="imagens/logo/favicon.ico"><link rel="icon" type="image/svg+xml" href="imagens/logo/icone-app.svg">
+<link rel="apple-touch-icon" href="imagens/logo/apple-touch-icon.png">
+<meta name="theme-color" content="#F8F8F8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="estilos.css">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Página APOIO AO ESTUDO (Recursos no menu).
+   Decisão de 28/07/2026: a página deixa de estar organizada por tipo
+   de documento e passa a estar organizada por objetivo do aluno.
+   Entra-se por «hoje quero…» e o percurso abre no lugar.
+   Três percursos completos; os outros três anunciam-se em preparação
+   em vez de abrirem para o vazio.
+   ═══════════════════════════════════════════════════════════════ */
+#p-recursos{
+  --menta-txt:#236B5C;
+  --r-cartao-b:24px; --r-bloco-b:16px; --r-pilula:50px;
+  --sombra-b:0 2px 12px rgba(43,43,43,.06);
+  --sombra-b2:0 12px 32px rgba(43,43,43,.12);
+}
+#p-recursos main{background:var(--papel)}
+
+/* ---- estrutura ---- */
+.asec{padding:44px 0}
+.asec.alt{background:var(--areia)}
+.awrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.afilete{width:56px;height:4px;background:var(--dourado);border-radius:2px;margin:0 0 14px}
+.atit{font-size:clamp(24px,2.6vw,30px);font-weight:800;letter-spacing:-.02em;
+  color:var(--tinta);margin:0 0 6px}
+.alead{color:var(--cinza);font-size:15.5px;margin:0 0 24px;max-width:70ch;line-height:1.6}
+.abt{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;cursor:pointer;
+  font-family:inherit;font-weight:700;font-size:14.5px;padding:13px 24px;border-radius:var(--r-pilula);
+  min-height:46px;text-decoration:none;color:var(--tinta);background:var(--menta);transition:.16s}
+.abt:hover{filter:brightness(.95);transform:translateY(-2px);color:var(--tinta)}
+.abt.linha{background:transparent;border:1.5px solid var(--linha)}
+.abt.linha:hover{border-color:var(--tinta);filter:none}
+.abt.peq{font-size:13.5px;padding:11px 20px;min-height:44px}
+
+/* ═══ HERO ═══ */
+.ahero{position:relative;min-height:clamp(400px,50vh,470px);display:flex;align-items:center;
+  overflow:hidden;isolation:isolate}
+.ahero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.ahero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(31,31,31,.52) 0%,rgba(31,31,31,.66) 45%,rgba(31,31,31,.86) 100%)}
+.ahero .awrap{width:100%;padding-top:56px;padding-bottom:56px}
+.ahero .rotulo{display:inline-block;background:var(--dourado);color:var(--tinta);font-weight:700;
+  font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;padding:8px 16px;
+  border-radius:var(--r-pilula);margin:0 0 20px}
+.ahero h1{color:#fff;font-size:clamp(31px,5vw,54px);font-weight:800;line-height:1.06;
+  letter-spacing:-.035em;margin:0 0 16px;max-width:18ch}
+.ahero p{color:rgba(255,255,255,.93);font-size:clamp(15px,1.7vw,18.5px);line-height:1.6;
+  max-width:58ch;margin:0}
+
+/* ═══ HOJE QUERO ═══ */
+.aobjs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.aobj{display:flex;align-items:flex-start;gap:15px;text-align:left;background:var(--branco);
+  border:2px solid var(--linha);border-radius:var(--r-cartao-b);padding:22px;cursor:pointer;
+  font-family:inherit;width:100%;transition:.16s;min-height:118px}
+.aobj:hover{border-color:var(--menta);transform:translateY(-3px);box-shadow:var(--sombra-b2)}
+.aobj[aria-selected="true"]{border-color:var(--menta);background:var(--menta-wash);
+  box-shadow:var(--sombra-b2)}
+.aobj .ic{display:grid;place-items:center;width:44px;height:44px;border-radius:13px;flex:none;
+  background:var(--menta-wash);color:#1C5346}
+.aobj[aria-selected="true"] .ic{background:var(--menta);color:var(--tinta)}
+.aobj b{display:block;font-size:16.5px;font-weight:800;color:var(--tinta);letter-spacing:-.015em;
+  line-height:1.28;margin-bottom:5px}
+.aobj span{display:block;font-size:13.5px;color:var(--cinza);line-height:1.5}
+.aobj.espera{cursor:default;background:var(--areia);border-style:dashed}
+.aobj.espera:hover{transform:none;box-shadow:none;border-color:var(--claro-2)}
+.aobj.espera .ic{background:var(--cinza-bloco);color:#5F5F5F}
+.aobj .breve{display:inline-block;margin-top:8px;font-size:11px;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;background:var(--dourado-wash);border:1px solid var(--dourado-linha);
+  color:var(--tinta);padding:3px 10px;border-radius:var(--r-pilula)}
+
+/* ═══ PERCURSO ═══ */
+.apercurso{margin-top:26px;background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao-b);box-shadow:var(--sombra-b);padding:clamp(24px,3vw,34px)}
+.apercurso[hidden]{display:none}
+.apc-topo{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;
+  padding-bottom:20px;margin-bottom:24px;border-bottom:1px solid var(--linha);flex-wrap:wrap}
+.apc-topo h3{font-size:22px;font-weight:800;margin:0 0 6px;color:var(--tinta);letter-spacing:-.02em}
+.apc-topo p{margin:0;color:var(--cinza);font-size:14.5px;line-height:1.6;max-width:62ch}
+.apc-dur{display:inline-flex;align-items:center;gap:8px;background:var(--dourado-wash);
+  border:1px solid var(--dourado-linha);color:var(--tinta);font-size:12.5px;font-weight:600;
+  padding:8px 15px;border-radius:var(--r-pilula);flex:none}
+/* Cada passo é uma linha com o número à esquerda e uma guia vertical a ligá-los. */
+.apasso{position:relative;padding:0 0 26px 56px}
+.apasso:last-child{padding-bottom:0}
+.apasso::before{content:"";position:absolute;left:17px;top:38px;bottom:0;width:2px;
+  background:var(--linha)}
+.apasso:last-child::before{display:none}
+.apasso .n{position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;
+  background:var(--menta);color:var(--tinta);display:grid;place-items:center;
+  font-weight:800;font-size:15px}
+.apasso h4{font-size:17px;font-weight:700;margin:6px 0 7px;color:var(--tinta);letter-spacing:-.01em}
+.apasso p{margin:0;color:var(--tinta);font-size:14.5px;line-height:1.7;max-width:74ch}
+.apasso p em{font-style:italic}
+.arec{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.arec a{display:inline-flex;align-items:center;gap:7px;background:var(--papel);
+  border:1px solid var(--linha);border-radius:var(--r-pilula);padding:8px 15px;
+  font-size:13px;font-weight:600;color:var(--tinta);text-decoration:none;transition:.15s}
+.arec a:hover{border-color:var(--menta);background:var(--menta-wash)}
+.arec a::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--menta-txt);flex:none}
+.apc-fim{margin-top:26px;padding-top:22px;border-top:1px solid var(--linha);
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.apc-fim p{margin:0;color:var(--cinza);font-size:14px}
+
+/* ═══ CARRIL PARTILHADO ═══
+   Guias, disciplinas e «onde ir buscar» usam todos o mesmo cartão: uma
+   moldura 16:10 com a imagem do sítio de destino, título e uma linha a
+   dizer para que serve. Enquanto a imagem não for carregada, a moldura
+   mostra o endereço em vez de ficar em branco (28/07/2026). */
+.afaixa{margin-bottom:30px}
+.afaixa:last-child{margin-bottom:0}
+.afaixa-topo{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 12px}
+.afaixa-topo h3{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:800;
+  margin:0;color:var(--tinta);letter-spacing:-.015em}
+.afaixa-topo h3 .ic{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;
+  background:var(--menta-wash);color:#1C5346;flex:none}
+.anav{display:flex;gap:8px;flex:none}
+.anav button{width:36px;height:36px;border-radius:50%;border:1px solid var(--linha);
+  background:var(--branco);color:var(--tinta);cursor:pointer;font-size:16px;line-height:1;
+  display:grid;place-items:center;transition:.15s}
+.anav button:hover{border-color:var(--menta);background:var(--menta-wash)}
+.anav button[disabled]{opacity:.35;cursor:default}
+.acarril{display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;padding:4px 2px 14px;
+  scrollbar-width:thin;scrollbar-color:var(--menta-media) transparent}
+.acarril::-webkit-scrollbar{height:7px}
+.acarril::-webkit-scrollbar-track{background:transparent}
+.acarril::-webkit-scrollbar-thumb{background:var(--menta-media);border-radius:4px}
+.asite{flex:0 0 244px;background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao-b);overflow:hidden;text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s,border-color .18s}
+a.asite:hover{transform:translateY(-4px);box-shadow:var(--sombra-b2);border-color:var(--menta)}
+.asite .capa{position:relative;aspect-ratio:16/10;background:var(--cinza-bloco);
+  border-bottom:1px solid var(--linha);display:grid;place-items:center;overflow:hidden}
+.asite .capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:top center;transition:transform .3s}
+a.asite:hover .capa img{transform:scale(1.04)}
+.asite .capa .vazio{display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px;
+  color:#5F5F5F;font-size:11px;text-align:center;line-height:1.35;word-break:break-all}
+.asite .tx{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.asite .etiq{display:inline-block;align-self:flex-start;font-size:10.5px;font-weight:800;
+  letter-spacing:.06em;text-transform:uppercase;background:var(--dourado-wash);
+  border:1px solid var(--dourado-linha);color:var(--tinta);padding:3px 9px;
+  border-radius:var(--r-pilula);margin-bottom:8px}
+.asite h4{font-size:14.5px;font-weight:700;margin:0 0 4px;color:var(--tinta);line-height:1.32}
+.asite .fonte{font-size:11.5px;font-weight:700;color:var(--menta-txt);margin:0 0 6px}
+.asite p{margin:0;font-size:12.5px;color:var(--cinza);line-height:1.5;flex:1}
+.asite .ir{margin-top:12px;font-size:12.5px;font-weight:800;color:var(--menta-txt)}
+
+/* ═══ GUIAS E REFERENCIAIS ═══ */
+.aguioes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.aguioes .asite{flex:auto}
+
+/* ═══ DISCIPLINAS ═══ */
+.adiscs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.adisc-bt{display:inline-flex;align-items:center;gap:10px;background:var(--branco);
+  border:2px solid var(--linha);border-radius:var(--r-pilula);padding:10px 20px 10px 12px;
+  cursor:pointer;font-family:inherit;font-size:14.5px;font-weight:700;color:var(--tinta);
+  transition:.15s;min-height:48px}
+.adisc-bt:hover{border-color:var(--menta);background:var(--menta-wash)}
+.adisc-bt[aria-selected="true"]{background:var(--menta);border-color:var(--menta)}
+.adisc-bt .ic{display:grid;place-items:center;width:28px;height:28px;border-radius:9px;
+  background:var(--menta-wash);color:#1C5346;flex:none}
+.adisc-bt[aria-selected="true"] .ic{background:var(--branco)}
+.adisc-painel{background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao-b);padding:24px}
+
+/* ═══ LITERACIA ═══ */
+.alit{display:flex;align-items:stretch;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}
+.aetapa{flex:1 0 176px;background:var(--branco);border:1px solid var(--linha);
+  border-top:4px solid var(--dourado);border-radius:var(--r-bloco-b);padding:20px 18px}
+.aetapa .ic{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;
+  background:var(--menta-wash);color:#1C5346;margin-bottom:12px}
+.aetapa .n{font-size:11.5px;font-weight:800;color:var(--menta-txt);letter-spacing:.08em}
+.aetapa h3{font-size:16px;font-weight:700;margin:3px 0 6px;color:var(--tinta)}
+.aetapa p{margin:0;color:var(--cinza);font-size:13.5px;line-height:1.55}
+.aseta{display:grid;place-items:center;padding:0 9px;color:var(--menta-txt);flex:none}
+
+/* ═══ DOCENTES ═══ */
+.adoc-bloco{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao-b);
+  box-shadow:var(--sombra-b);padding:clamp(24px,3vw,34px)}
+.adocs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.adoc{background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-bloco-b);
+  padding:20px;text-decoration:none;color:inherit;display:block;transition:.16s}
+.adoc:hover{border-color:var(--menta);background:var(--menta-wash);transform:translateY(-3px)}
+.adoc .ic{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;
+  background:var(--branco);color:#1C5346;margin-bottom:12px}
+.adoc h4{font-size:15px;font-weight:700;margin:0 0 5px;color:var(--tinta);line-height:1.3}
+.adoc p{margin:0;font-size:13px;color:var(--cinza);line-height:1.55}
+
+/* ═══ ONDE IR BUSCAR ═══ (usa o carril partilhado) */
+
+/* ═══ FECHO ═══ */
+.afecho{background:linear-gradient(140deg,var(--branco) 0%,var(--areia) 55%,var(--menta-wash) 100%);
+  border:1px solid var(--linha);border-radius:var(--r-cartao-b);
+  padding:clamp(36px,5vw,54px) clamp(26px,5vw,52px)}
+.afecho h2{font-size:clamp(23px,2.9vw,32px);font-weight:800;margin:0 0 12px;color:var(--tinta);
+  letter-spacing:-.025em;max-width:22ch}
+.afecho p{margin:0 0 24px;max-width:56ch;color:var(--cinza);font-size:16px;line-height:1.65}
+
+@media(max-width:980px){
+  .aobjs,.aguioes,.adocs{grid-template-columns:repeat(2,1fr)}
+  .aseta{display:none}
+  .alit{gap:12px}
+  .aetapa{flex:0 0 200px}
+}
+@media(max-width:620px){
+  .asec{padding:32px 0}
+  .aobjs,.aguioes,.adocs{grid-template-columns:1fr}
+  .asite{flex:0 0 210px}
+  .anav{display:none}
+  .apasso{padding-left:48px}
+  .apercurso{padding:22px 18px}
+}
+@media(prefers-reduced-motion:reduce){
+  .aobj:hover,.adoc:hover,a.asite:hover{transform:none}
+  .acarril{scroll-behavior:auto}
+}
+</style>
 </head>
 <body id="p-recursos">
 <a class="skip" href="#conteudo">Saltar para o conteúdo</a>
 <div id="cabecalho"></div>
 <main id="conteudo">
 
-  <div class="wrap pad">
-    <h1 class="sec-title">recursos</h1><div class="rule"></div>
-    <p class="sec-lead">Um centro de apoio ao estudo e à pesquisa, com entradas claras e poucos cliques até ao conteúdo.</p>
-
-    <h2 class="sec-title" id="comecar">começa aqui</h2><div class="rule"></div>
-    <div class="passos">
-      <div class="passo"><h3>Define o tema</h3><p>Delimita o assunto e escreve o que precisas de descobrir.</p></div>
-      <div class="passo"><h3>Pesquisa e seleciona</h3><p>Procura em fontes fiáveis e avalia criticamente o que encontras.</p></div>
-      <div class="passo"><h3>Organiza e cita</h3><p>Estrutura, escreve e cita sempre as fontes usadas.</p></div>
+  <!-- ═══ HERO ═══ -->
+  <header class="ahero">
+    <img src="imagens/apoio/hero.jpg" alt="">
+    <div class="awrap">
+      <p class="rotulo">Apoio ao estudo</p>
+      <h1>Em que te podemos ajudar hoje?</h1>
+      <p>Diz-nos o objetivo e mostramos-te o caminho todo, passo a passo.</p>
     </div>
-    <p style="margin-top:20px"><a class="btn primario" href="#apoio">Pedir apoio à Biblioteca</a></p>
+  </header>
 
-    <h2 class="sec-title" id="guioes">guiões e métodos de estudo</h2><div class="rule"></div>
-    <div class="grid3" id="lista-guioes"></div>
+  <!-- ═══ HOJE QUERO ═══ -->
+  <section class="asec" id="objetivos" aria-labelledby="t-obj">
+    <div class="awrap">
+      <div class="afilete"></div>
+      <h2 class="atit" id="t-obj">Hoje quero…</h2>
+      <p class="alead">Escolhe um objetivo. O percurso abre aqui, com os recursos certos
+        em cada passo.</p>
+      <div class="aobjs" id="objetivos-lista" role="tablist" aria-label="Objetivos"></div>
+      <div class="apercurso" id="percurso" role="tabpanel" hidden></div>
+    </div>
+  </section>
 
-    <h2 class="sec-title" id="disciplinas">apoio ao currículo, por disciplina</h2><div class="rule"></div>
-    <div class="faq" id="lista-disciplinas"></div>
+  <!-- ═══ GUIÕES ═══ -->
+  <section class="asec alt" id="guioes" aria-labelledby="t-gui">
+    <div class="awrap">
+      <div class="afilete"></div>
+      <h2 class="atit" id="t-gui">Guias e referenciais</h2>
+      <p class="alead">Os guias oficiais em que a Biblioteca se apoia.</p>
+      <div class="aguioes" id="guioes-lista"></div>
+    </div>
+  </section>
 
-    <div class="bloco-escuro" id="apoio">
-      <span class="veu"></span>
-      <div class="conteudo">
-        <div class="eyebrow">Docentes</div>
-        <p style="font-family:var(--head);font-size:24px;font-weight:800;color:#fff;margin-bottom:10px">Trabalhar com a Biblioteca</p>
-        <p>Agende uma aula na Biblioteca ou peça apoio para projetos de literacia da sua turma.</p>
-        <p style="margin-top:20px"><a class="btn primario" href="biblioteca.html#contactos">Pedir apoio ou reservar espaço</a></p>
+  <!-- ═══ DISCIPLINAS ═══ -->
+  <section class="asec" id="disciplinas" aria-labelledby="t-dis">
+    <div class="awrap">
+      <div class="afilete"></div>
+      <h2 class="atit" id="t-dis">Aprender por disciplina</h2>
+      <p class="alead">Recursos escolhidos com os professores. Escolhe a disciplina.</p>
+      <div class="adiscs" id="disciplinas-botoes" role="tablist" aria-label="Disciplinas"></div>
+      <div class="adisc-painel" id="disciplinas-painel" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <!-- ═══ LITERACIA ═══ -->
+  <section class="asec alt" id="literacia" aria-labelledby="t-lit">
+    <div class="awrap">
+      <div class="afilete"></div>
+      <h2 class="atit" id="t-lit">Literacia digital</h2>
+      <p class="alead">Seis competências, por esta ordem, segundo o referencial da RBE.</p>
+      <div class="alit" id="literacia-lista"></div>
+      <p style="margin-top:20px"><a class="abt linha peq" href="https://mild.rbe.mec.pt"
+         target="_blank" rel="noopener">Portal MILD da RBE &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ DOCENTES ═══ -->
+  <section class="asec" id="docentes" aria-labelledby="t-doc">
+    <div class="awrap">
+      <div class="afilete"></div>
+      <h2 class="atit" id="t-doc">Trabalhar com a Biblioteca</h2>
+      <p class="alead">Para docentes. A Biblioteca é um recurso da escola inteira, não um
+        serviço de empréstimo.</p>
+      <div class="adoc-bloco"><div class="adocs" id="docentes-lista"></div></div>
+    </div>
+  </section>
+
+  <!-- ═══ LIGAÇÕES ═══ -->
+  <section class="asec alt" id="ligacoes" aria-labelledby="t-lig">
+    <div class="awrap">
+      <div class="afilete"></div>
+      <h2 class="atit" id="t-lig">Onde ir buscar</h2>
+      <p class="alead">Sítios validados pela Biblioteca, de acesso livre. Abrem em
+        separador novo.</p>
+      <div id="ligacoes-lista"></div>
+    </div>
+  </section>
+
+  <!-- ═══ FECHO ═══ -->
+  <section class="asec">
+    <div class="awrap">
+      <div class="afecho">
+        <h2>Não encontraste o que precisavas?</h2>
+        <p>A equipa ajuda-te a definir o tema, a encontrar as fontes e a citar como deve ser.</p>
+        <p style="margin:0"><a class="abt" href="biblioteca.html#contactos">Pedir apoio à Biblioteca</a></p>
       </div>
     </div>
-
-    <h2 class="sec-title" id="literacia">literacia e cidadania digital</h2><div class="rule"></div>
-    <div class="grid3">
-      <div class="card" data-card="recursos-1"><span class="ico" data-ico="lupa"></span><h3>Pesquisar em segurança</h3><p>Estratégias de pesquisa e proteção de dados pessoais.</p></div>
-      <div class="card" data-card="recursos-2"><span class="ico" data-ico="cerebro"></span><h3>Avaliar informação em linha</h3><p>Como verificar fontes e detetar desinformação.</p></div>
-      <div class="card" data-card="recursos-3"><span class="ico" data-ico="monitor"></span><h3>Redes sociais e identidade digital</h3><p>Pegada digital, reputação e bem-estar em linha.</p></div>
-      <div class="card" data-card="recursos-4"><span class="ico" data-ico="camara"></span><h3>Imagem, vídeo e direitos de autor</h3><p>Usar e criar conteúdos respeitando os direitos.</p></div>
-      <div class="card" data-card="recursos-5"><span class="ico" data-ico="maos"></span><h3>Cidadania digital</h3><p>Participação, respeito e responsabilidade em linha.</p></div>
-      <div class="card" data-card="recursos-6"><span class="ico" data-ico="escudo"></span><h3>Ferramentas digitais úteis</h3><p>Aplicações de apoio ao estudo e à criação.</p></div>
-    </div>
-    <div class="grid2" style="margin-top:16px">
-      <a class="card" href="https://mild.rbe.mec.pt" target="_blank" rel="noopener" data-card="recursos-7">
-        <span class="ico" data-ico="ficheiro"></span><h3>Portal MILD</h3>
-        <p>Manual de Instruções para a Literacia Digital da RBE, para os 14 aos 18 anos.</p></a>
-      <div class="card" id="desafio" data-card="recursos-8"></div>
-    </div>
-
-    <h2 class="sec-title" id="ligacoes">ligações úteis</h2><div class="rule"></div>
-    <div id="lista-ligacoes"></div>
-  </div>
+  </section>
 
 </main>
 <div id="rodape"></div>
+
 <script>
 window.renderPagina = function(){
-  document.querySelectorAll('[data-ico]').forEach(e=>e.innerHTML=icone(e.dataset.ico,22));
-  const g=document.getElementById('lista-guioes');
-  if(g) g.innerHTML=(CONTEUDO.guioes||[]).map(x=>{const c=capaCartao(x);
-    return x.url ? `<a class="card${c.cls}" ${linkAttrs(x.url)}>${c.bg}<span class="ico">${icone(x.icone||'ficheiro',22)}</span><h3>${esc(x.titulo)}</h3><p>${esc(x.descricao)}</p></a>`
-                 : `<div class="card${c.cls}">${c.bg}<span class="ico">${icone(x.icone||'ficheiro',22)}</span><h3>${esc(x.titulo)}</h3><p>${esc(x.descricao)}</p><p style="margin-top:8px;font-size:12px;color:var(--cinza)">brevemente disponível</p></div>`;}).join('');
-  const li=a=>(a||[]).map(x=>x.url?`<li><a ${linkAttrs(x.url)}>${esc(x.titulo)}</a></li>`:`<li>${esc(x.titulo)}</li>`).join('')||'<li style="color:var(--cinza)">Sem itens.</li>';
-  const d=document.getElementById('lista-disciplinas');
-  if(d) d.innerHTML=(CONTEUDO.disciplinas||[]).map(x=>`<details><summary>${esc(x.nome)}</summary>
-      <div class="grid2" style="margin:8px 0 16px">
-        <div><h4 style="color:var(--verde);margin:0 0 6px;font-size:13px">Recursos essenciais</h4><ul style="margin:0;padding-left:18px;font-size:13.5px">${li(x.essenciais)}</ul></div>
-        <div><h4 style="color:var(--verde);margin:0 0 6px;font-size:13px">Aprofundamento</h4><ul style="margin:0;padding-left:18px;font-size:13.5px">${li(x.aprofundamento)}</ul></div>
-        <div><h4 style="color:var(--verde);margin:0 0 6px;font-size:13px">Propostas de aula ou projeto</h4><ul style="margin:0;padding-left:18px;font-size:13.5px">${li(x.propostas)}</ul></div>
-        <div><h4 style="color:var(--verde);margin:0 0 6px;font-size:13px">Materiais da BE testados</h4><ul style="margin:0;padding-left:18px;font-size:13.5px">${li(x.testados)}</ul></div>
-      </div></details>`).join('');
-  const dm=CONTEUDO.desafioMes||{}, de=document.getElementById('desafio');
-  if(de) de.innerHTML=`<span class="ico">${icone('alvo',22)}</span><h3>${esc(dm.titulo||'Desafio do mês')}</h3><p>${esc(dm.texto||'')}</p>`
-    + (dm.url?`<p style="margin-top:14px"><a class="btn claro" ${linkAttrs(dm.url)}>Participar</a></p>`:'');
-  const GR=['Ler','Investigar','Escrever','Criar','Aprender digitalmente'];
-  const lu=document.getElementById('lista-ligacoes');
-  if(lu) lu.innerHTML=GR.map(gr=>{
-    const it=(CONTEUDO.ligacoesUteis||[]).filter(x=>x.grupo===gr); if(!it.length) return '';
-    return `<h3 style="margin:22px 0 10px">${gr}</h3><ul class="docs">${it.map(x=>x.url
-      ? `<li><a ${linkAttrs(x.url)}><span class="ico">${icone('ligacao',18)}</span>${esc(x.nome)} <em>— acesso ${esc(x.acesso)}</em></a></li>`
-      : `<li><span class="item"><span class="ico">${icone('ligacao',18)}</span>${esc(x.nome)} <em>— brevemente disponível</em></span></li>`).join('')}</ul>`;}).join('');
+  const P = CONTEUDO.percursos || [];
+
+  /* ── Hoje quero… ──
+     Os objetivos funcionam como separadores: o percurso escolhido abre no
+     painel logo abaixo, sem mudar de página nem perder o contexto.
+     Os que ainda não têm conteúdo não são clicáveis: dizem-no e ficam-se
+     por aí, em vez de abrirem para o vazio. */
+  const ol = document.getElementById('objetivos-lista');
+  const pn = document.getElementById('percurso');
+
+  function mostrar(n){
+    const p = P[n]; if (!p || p.preparacao) return;
+    pn.innerHTML = `
+      <div class="apc-topo">
+        <div><h3>${esc(p.rotulo)}</h3><p>${esc(p.resumo)}</p></div>
+        ${p.duracao ? `<span class="apc-dur">${icone('relogio',15)} ${esc(p.duracao)}</span>` : ''}
+      </div>
+      ${(p.passos||[]).map(s => `
+        <div class="apasso">
+          <span class="n">${esc(s.n)}</span>
+          <h4>${esc(s.titulo)}</h4>
+          <p>${s.texto}</p>
+          ${(s.recursos||[]).length ? `<div class="arec">${s.recursos.map(r =>
+             `<a ${linkAttrs(r.url)}>${esc(r.titulo)}</a>`).join('')}</div>` : ''}
+        </div>`).join('')}
+      <div class="apc-fim">
+        <p>Precisas de ajuda nalgum passo?</p>
+        <a class="abt peq" href="biblioteca.html#contactos">Falar com a Biblioteca</a>
+      </div>`;
+    pn.hidden = false;
+    pn.id = 'percurso';
+    [...ol.children].forEach((b,k) => {
+      if (b.classList.contains('espera')) return;
+      b.setAttribute('aria-selected', String(k === n));
+    });
+    /* Âncoras estáveis para se poder ligar diretamente a um percurso. */
+    pn.setAttribute('data-percurso', p.id);
+  }
+
+  if (ol) {
+    ol.innerHTML = P.map((p,n) => {
+      const dentro = `<span class="ic">${icone(p.icone||'alvo',22)}</span>
+        <span><b>${esc(p.rotulo)}</b><span>${esc(p.resumo)}</span>
+        ${p.preparacao ? `<span class="breve">${esc(p.nota ? 'Em preparação' : 'Em preparação')}</span>` : ''}</span>`;
+      return p.preparacao
+        ? `<div class="aobj espera" title="${esc(p.nota||'')}">${dentro}</div>`
+        : `<button class="aobj" type="button" role="tab" aria-selected="false"
+             aria-controls="percurso" data-n="${n}">${dentro}</button>`;
+    }).join('');
+    ol.addEventListener('click', e => {
+      const b = e.target.closest('.aobj[data-n]'); if (!b) return;
+      mostrar(+b.dataset.n);
+      pn.scrollIntoView({behavior:'smooth', block:'nearest'});
+    });
+    /* Abre o primeiro percurso por omissão, ou o que vier na ligação
+       (#percurso-citar, #percurso-teste, #percurso-trabalho). */
+    const alvo = (location.hash||'').replace('#percurso-','');
+    const n = Math.max(0, P.findIndex(p => p.id === alvo && !p.preparacao));
+    mostrar(n);
+  }
+  /* As ligações internas #percurso-xxx trocam o painel sem recarregar. */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#percurso-"]'); if (!a) return;
+    const id = a.getAttribute('href').replace('#percurso-','');
+    const n = P.findIndex(p => p.id === id && !p.preparacao);
+    if (n < 0) return;
+    e.preventDefault();
+    mostrar(n);
+    document.getElementById('objetivos').scrollIntoView({behavior:'smooth'});
+  });
+
+  /* ── Guiões ── */
+  /* ── Cartão de sítio, partilhado por guias, disciplinas e «onde ir buscar» ──
+     A moldura mostra a imagem da página de destino. Enquanto essa imagem não
+     for carregada pelo painel, mostra o endereço — nunca fica em branco. */
+  function dominio(u){
+    try { return new URL(u).hostname.replace(/^www\./,''); } catch(e){ return u || ''; }
+  }
+  function cartaoSite(x){
+    const nome = x.titulo || x.nome || '';
+    const capa = temTexto(x.imagem)
+      ? `<img src="${esc(x.imagem)}" alt="${esc(x.alt||'Página inicial de '+nome)}" loading="lazy">`
+      : `<span class="vazio">
+           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+             <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20"/>
+             <circle cx="5.5" cy="6.5" r=".6"/><circle cx="8" cy="6.5" r=".6"/></svg>
+           ${esc(dominio(x.url))}</span>`;
+    const dentro = `<span class="capa">${capa}</span>
+      <span class="tx">
+        ${x.area ? `<span class="etiq">${esc(x.area)}</span>` : ''}
+        <h4>${esc(nome)}</h4>
+        ${x.fonte ? `<span class="fonte">${esc(x.fonte)}</span>` : ''}
+        ${x.nivel ? `<span class="fonte">${esc(x.nivel)}</span>` : ''}
+        <p>${esc(x.descricao || x.para || '')}</p>
+        ${temTexto(x.url) ? '<span class="ir">Abrir &rarr;</span>' : ''}
+      </span>`;
+    return temTexto(x.url) ? `<a class="asite" ${linkAttrs(x.url)}>${dentro}</a>`
+                           : `<div class="asite">${dentro}</div>`;
+  }
+
+  /* Faixa horizontal com setas e navegação por teclado. */
+  let contaFaixa = 0;
+  function faixa(titulo, ic, itens){
+    const id = 'carril-' + (++contaFaixa);
+    return `<div class="afaixa">
+      <div class="afaixa-topo">
+        <h3>${ic ? `<span class="ic">${icone(ic,18)}</span>` : ''}${esc(titulo)}</h3>
+        <div class="anav" data-alvo="${id}"></div>
+      </div>
+      <div class="acarril" id="${id}" tabindex="0" role="group" aria-label="${esc(titulo)}">
+        ${itens.map(cartaoSite).join('')}
+      </div></div>`;
+  }
+  function ligarFaixas(raiz){
+    (raiz||document).querySelectorAll('.anav:empty').forEach(nav => {
+      const c = document.getElementById(nav.dataset.alvo); if (!c) return;
+      nav.innerHTML = `<button type="button" data-d="-1" aria-label="Recuar">&lsaquo;</button>
+                       <button type="button" data-d="1" aria-label="Avançar">&rsaquo;</button>`;
+      const passo = () => Math.max(240, c.clientWidth * 0.8);
+      const estado = () => {
+        const [a,b] = nav.children;
+        a.disabled = c.scrollLeft <= 2;
+        b.disabled = c.scrollLeft + c.clientWidth >= c.scrollWidth - 2;
+      };
+      nav.addEventListener('click', e => {
+        const b = e.target.closest('button'); if (!b) return;
+        c.scrollBy({left: passo() * (+b.dataset.d), behavior:'smooth'});
+      });
+      c.addEventListener('scroll', estado, {passive:true});
+      c.addEventListener('keydown', e => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        c.scrollBy({left: passo() * (e.key === 'ArrowRight' ? 1 : -1), behavior:'smooth'});
+      });
+      estado();
+    });
+  }
+
+  /* ── Guias e referenciais ── */
+  const gl = document.getElementById('guioes-lista');
+  if (gl) gl.innerHTML = (CONTEUDO.guioes||[]).map(cartaoSite).join('');
+
+  /* ── Aprender por disciplina ──
+     Escolhe-se a disciplina numa pílula e os recursos abrem em faixa
+     horizontal, como no Catálogo. */
+  const D  = CONTEUDO.disciplinas || [];
+  const db = document.getElementById('disciplinas-botoes');
+  const dp = document.getElementById('disciplinas-painel');
+  function pintaDisciplina(n){
+    const d = D[n]; if (!d) return;
+    dp.innerHTML = faixa(d.nome, d.icone || 'livro', d.recursos || []);
+    ligarFaixas(dp);
+    [...db.children].forEach((b,k) => {
+      b.setAttribute('aria-selected', String(k === n));
+      b.tabIndex = k === n ? 0 : -1;
+    });
+  }
+  if (db && D.length) {
+    db.innerHTML = D.map((d,n) =>
+      `<button class="adisc-bt" type="button" role="tab" aria-selected="${n===0}"
+               tabindex="${n===0?0:-1}">
+         <span class="ic">${icone(d.icone||'livro',17)}</span>${esc(d.nome)}</button>`).join('');
+    db.addEventListener('click', e => {
+      const b = e.target.closest('.adisc-bt'); if (b) pintaDisciplina([...db.children].indexOf(b));
+    });
+    db.addEventListener('keydown', e => {
+      if (!['ArrowRight','ArrowLeft'].includes(e.key)) return;
+      e.preventDefault();
+      const at = [...db.children].findIndex(b => b.getAttribute('aria-selected') === 'true');
+      const n = (at + (e.key === 'ArrowRight' ? 1 : -1) + D.length) % D.length;
+      pintaDisciplina(n); db.children[n].focus();
+    });
+    pintaDisciplina(0);
+  }
+
+  /* ── Literacia digital ── */
+  const ll = document.getElementById('literacia-lista');
+  if (ll) ll.innerHTML = (CONTEUDO.literaciaPercurso||[]).map((x,n,a) =>
+    `<div class="aetapa"><span class="ic">${icone(x.icone||'alvo',19)}</span>
+       <span class="n">ETAPA ${esc(x.n)}</span>
+       <h3>${esc(x.titulo)}</h3><p>${esc(x.texto)}</p></div>` +
+    (n < a.length-1 ? `<div class="aseta" aria-hidden="true">
+       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+     </div>` : '')).join('');
+
+  /* ── Docentes ── */
+  const dc = document.getElementById('docentes-lista');
+  if (dc) dc.innerHTML = (CONTEUDO.docentes||[]).map(x =>
+    `<a class="adoc" ${linkAttrs(x.url)}>
+       <span class="ic">${icone(x.icone||'ligacao',19)}</span>
+       <h4>${esc(x.titulo)}</h4><p>${esc(x.texto)}</p></a>`).join('');
+
+  /* ── Onde ir buscar: uma faixa por grupo ── */
+  const GRUPOS = [
+    {nome:'Ler',                   ic:'livro'},
+    {nome:'Investigar',            ic:'lupa'},
+    {nome:'Escrever',              ic:'ficheiro'},
+    {nome:'Criar',                 ic:'camara'},
+    {nome:'Aprender digitalmente', ic:'monitor'}
+  ];
+  const lg = document.getElementById('ligacoes-lista');
+  if (lg) {
+    lg.innerHTML = GRUPOS.map(g => {
+      const itens = (CONTEUDO.ligacoesUteis||[]).filter(x => x.grupo === g.nome);
+      return itens.length ? faixa(g.nome, g.ic, itens) : '';
+    }).join('');
+    ligarFaixas(lg);
+  }
 };
 </script>
 <script src="motor.js"></script>

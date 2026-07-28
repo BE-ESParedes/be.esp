@@ -8,8 +8,10 @@
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="Notícias · Biblioteca Escolar da ESP"><meta property="og:description" content="Novidades, exposições e iniciativas da Biblioteca Escolar da Escola Secundária de Paredes.">
 <meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
-<link rel="icon" href="imagens/logo/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="imagens/logo/favicon.ico"><link rel="icon" type="image/svg+xml" href="imagens/logo/icone-app.svg">
+<link rel="apple-touch-icon" href="imagens/logo/apple-touch-icon.png">
+<meta name="theme-color" content="#F8F8F8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body id="p-noticias">
@@ -23,6 +25,13 @@
     <div class="filtros" id="filtro-noticias" role="group" aria-label="Filtrar por categoria"></div>
     <div class="noticias grelha" id="all-news"></div>
     <!-- 2.ª fase: aqui entrará o feed automático do Instagram e do Facebook. -->
+
+    <!-- A secção esconde-se sozinha enquanto não houver vídeos no painel. -->
+    <section data-seccao hidden>
+      <h2 class="sec-title" id="videos-titulo">vídeos</h2><div class="rule"></div>
+      <p class="sec-lead">Registos em vídeo das atividades e tutoriais de apoio.</p>
+      <div class="videos" id="videos"></div>
+    </section>
 
     <h2 class="sec-title" id="redes">segue-nos</h2><div class="rule"></div>
     <div class="grid2">

@@ -4,79 +4,181 @@
       "grupo": "Ler",
       "nome": "PNL2027",
       "url": "https://pnl2027.gov.pt",
-      "acesso": "livre"
+      "para": "Listas de leitura por ano de escolaridade e projetos de promoção da leitura.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     },
     {
       "grupo": "Ler",
-      "nome": "Biblioteca Escolar Digital (RBE)",
+      "nome": "Biblioteca Escolar Digital · RBE",
       "url": "https://www.rbe.mec.pt/np4/bed.html",
-      "acesso": "livre"
+      "para": "Recursos digitais selecionados pela Rede de Bibliotecas Escolares.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     },
     {
       "grupo": "Ler",
       "nome": "Portal da Literatura",
       "url": "https://portaldaliteratura.com/",
-      "acesso": "livre"
+      "para": "Autores, obras e biografias da literatura em língua portuguesa.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
+    },
+    {
+      "grupo": "Ler",
+      "nome": "Biblioteca Digital Camões",
+      "url": "https://cvc.instituto-camoes.pt",
+      "para": "Textos integrais de literatura e cultura em língua portuguesa.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
+    },
+    {
+      "grupo": "Ler",
+      "nome": "Project Gutenberg",
+      "url": "https://www.gutenberg.org",
+      "para": "Milhares de obras em domínio público, para descarregar e ler no telemóvel.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     },
     {
       "grupo": "Investigar",
       "nome": "Recursos RBE",
-      "url": "https://www.rbe.mec.pt/np4/recursos",
-      "acesso": "livre"
+      "url": "https://www.rbe.mec.pt",
+      "para": "Portal da Rede de Bibliotecas Escolares: referenciais, guiões e recursos.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     },
     {
       "grupo": "Investigar",
       "nome": "RCAAP",
       "url": "https://www.rcaap.pt",
-      "acesso": "livre"
+      "para": "Teses, artigos e trabalhos científicos das universidades portuguesas, em acesso aberto.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     },
     {
       "grupo": "Investigar",
       "nome": "Europeana",
       "url": "https://www.europeana.eu",
-      "acesso": "livre"
+      "para": "Milhões de objetos digitalizados de museus, arquivos e bibliotecas da Europa.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
+    },
+    {
+      "grupo": "Investigar",
+      "nome": "Biblioteca Nacional Digital",
+      "url": "https://bndigital.bnportugal.gov.pt",
+      "para": "Obras patrimoniais, jornais antigos e fontes históricas portuguesas.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
+    },
+    {
+      "grupo": "Investigar",
+      "nome": "Arquivo Torre do Tombo",
+      "url": "https://digitarq.arquivos.pt",
+      "para": "Documentos originais do arquivo nacional, digitalizados.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
+    },
+    {
+      "grupo": "Investigar",
+      "nome": "PORDATA",
+      "url": "https://www.pordata.pt",
+      "para": "Estatísticas de Portugal e da Europa, prontas a citar num trabalho.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     },
     {
       "grupo": "Escrever",
       "nome": "Aprender com a Biblioteca Escolar",
-      "url": "https://www.rbe.mec.pt/np4/AprendercBE.html",
-      "acesso": "livre"
+      "url": "https://www.rbe.mec.pt/np4/aprender_be.html",
+      "para": "O referencial da RBE para pesquisa, escrita e produção de trabalhos.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     },
     {
       "grupo": "Escrever",
-      "nome": "Normas APA (guia da BE)",
-      "url": "",
-      "acesso": "livre"
+      "nome": "APA Style",
+      "url": "https://apastyle.apa.org/",
+      "para": "A norma oficial de citação, com exemplos de cada tipo de fonte.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
+    },
+    {
+      "grupo": "Escrever",
+      "nome": "Ciberdúvidas",
+      "url": "https://ciberduvidas.iscte-iul.pt",
+      "para": "Dúvidas de língua respondidas por especialistas.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     },
     {
       "grupo": "Criar",
-      "nome": "Jornais escolares (DGE)",
-      "url": "https://jornaisescolares.dge.mec.pt",
-      "acesso": "livre"
+      "nome": "Jornais escolares · DGE",
+      "url": "https://www.dge.mec.pt/",
+      "para": "Orientações e recursos para produção de conteúdos na escola.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     },
     {
       "grupo": "Criar",
       "nome": "Plano Nacional das Artes",
-      "url": "https://www.pna.gov.pt",
-      "acesso": "livre"
+      "url": "https://pna.gov.pt",
+      "para": "Projetos, recursos e ideias para trabalho artístico e criativo.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     },
     {
       "grupo": "Aprender digitalmente",
-      "nome": "Portal MILD (RBE)",
+      "nome": "Portal MILD · RBE",
       "url": "https://mild.rbe.mec.pt",
-      "acesso": "livre"
+      "para": "Literacia digital para os 14 aos 18: pesquisar, avaliar, criar e partilhar.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     },
     {
       "grupo": "Aprender digitalmente",
-      "nome": "PhET, simulações interativas",
-      "url": "https://phet.colorado.edu/",
-      "acesso": "livre"
+      "nome": "PhET",
+      "url": "https://phet.colorado.edu/pt/",
+      "para": "Simulações interativas de física, química, biologia e matemática.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     },
     {
       "grupo": "Aprender digitalmente",
-      "nome": "BBC Learning English",
-      "url": "https://www.bbc.co.uk/learningenglish/",
-      "acesso": "livre"
+      "nome": "GeoGebra",
+      "url": "https://www.geogebra.org/?lang=pt-PT",
+      "para": "Geometria, álgebra e gráficos numa ferramenta livre.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
+    },
+    {
+      "grupo": "Aprender digitalmente",
+      "nome": "CNPD",
+      "url": "https://www.cnpd.pt",
+      "para": "Proteção de dados pessoais: o que podes e não podes publicar sobre ti e sobre os outros.",
+      "acesso": "livre",
+      "imagem": "",
+      "alt": ""
     }
   ]
 }

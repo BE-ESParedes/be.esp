@@ -1,0 +1,40 @@
+{
+  "docentes": [
+    {
+      "titulo": "Agendar uma sessão",
+      "icone": "calendario",
+      "texto": "Aula na Biblioteca, sessão de literacia da informação ou apoio a um trabalho de turma.",
+      "url": "biblioteca.html#contactos"
+    },
+    {
+      "titulo": "Coensino",
+      "icone": "pessoas",
+      "texto": "Planear e lecionar em conjunto uma unidade que envolva pesquisa, leitura ou produção de conteúdos.",
+      "url": "biblioteca.html#contactos"
+    },
+    {
+      "titulo": "Projetos",
+      "icone": "alvo",
+      "texto": "Integrar a turma nos projetos da Biblioteca ou construir um projeto novo a partir da sua disciplina.",
+      "url": "atividades.html#projetos"
+    },
+    {
+      "titulo": "Literacias",
+      "icone": "cerebro",
+      "texto": "Referencial de literacias da RBE aplicado ao currículo, por ano e por domínio.",
+      "url": "https://www.rbe.mec.pt/np4/aprender_be.html"
+    },
+    {
+      "titulo": "Guiões e materiais",
+      "icone": "ficheiro",
+      "texto": "Instrumentos prontos a usar com a turma: grelhas de pesquisa, fichas de avaliação de fontes, modelos de trabalho.",
+      "url": "#guioes"
+    },
+    {
+      "titulo": "Sugestões de aquisição",
+      "icone": "livro",
+      "texto": "Propor títulos para o fundo documental, em articulação com a política de desenvolvimento da coleção.",
+      "url": "biblioteca.html#documentos"
+    }
+  ]
+}

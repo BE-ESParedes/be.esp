@@ -1,0 +1,25 @@
+IMAGENS DOS SÍTIOS EXTERNOS
+===========================
+
+Aqui vão as imagens que aparecem nos cartões de:
+  · Guias e referenciais
+  · Aprender por disciplina
+  · Onde ir buscar
+
+Como obter cada imagem
+----------------------
+1. Abrir o sítio no navegador.
+2. Captura de ecrã da página inicial (Cmd+Shift+4 no Mac).
+3. Recortar para o formato 16:10 — por exemplo 800 x 500 px.
+4. Guardar aqui em .jpg, com nome simples e sem acentos:
+   rbe-aprender.jpg, mild.jpg, pnl2027.jpg, rcaap.jpg, europeana.jpg...
+
+Depois
+------
+No painel de edição, no campo "imagem" do recurso, escrever:
+   imagens/sites/nome-do-ficheiro.jpg
+
+Enquanto o campo estiver vazio, o cartão mostra uma moldura
+cinzenta com o endereço do sítio. Não fica partido.
+
+Peso: até 120 KB por imagem, para a página não ficar lenta.

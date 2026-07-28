@@ -1,6 +1,14 @@
 {
   "projetos": [
     {
+      "nome": "Leituras… com a biblioteca",
+      "descricao": "Projeto financiado pela Rede de Bibliotecas Escolares, selecionado entre dezasseis candidaturas a nível nacional. Três ações: sequências de leitura orientada em sala de aula, roteiros literários interativos pela escola e leituras partilhadas em família com o podcast «Vozes da Família». Envolve vinte turmas e cerca de 520 alunos.",
+      "estado": "ativo",
+      "imagem": "imagens/projetos/leituras-com-a-biblioteca.jpg",
+      "icone": "microfone",
+      "alt": "Jovem a ler sentada num cadeirão junto a uma janela, numa biblioteca"
+    },
+    {
       "nome": "10 Minutos a Ler",
       "descricao": "Rotina diária de leitura em articulação com as disciplinas.",
       "estado": "ativo",
@@ -11,15 +19,17 @@
       "nome": "Primavera a Ler",
       "descricao": "Concurso de leitura com projeção municipal.",
       "estado": "ativo",
-      "imagem": "",
-      "icone": "estrela"
+      "imagem": "imagens/projetos/primavera-a-ler.jpg",
+      "icone": "estrela",
+      "alt": "Cartaz do concurso Primavera a Ler, com livros abertos entre flores"
     },
     {
       "nome": "Partilhas Literárias",
       "descricao": "Sessões de partilha de leituras com as turmas.",
       "estado": "ativo",
-      "imagem": "",
-      "icone": "calendario"
+      "imagem": "imagens/projetos/encontros-comunidade.jpg",
+      "icone": "calendario",
+      "alt": "Mesa preparada para o acolhimento numa sessão com a comunidade"
     },
     {
       "nome": "Letras que Abraçam",
@@ -33,7 +43,8 @@
       "descricao": "Sessões de cinema seguidas de debate, no âmbito do Plano Nacional de Cinema.",
       "estado": "ativo",
       "imagem": "",
-      "icone": "monitor"
+      "icone": "monitor",
+      "alt": ""
     },
     {
       "nome": "Livr'à Mão",
@@ -47,21 +58,16 @@
       "descricao": "Atividades de leitura e expressão em torno das emoções e das relações.",
       "estado": "ativo",
       "imagem": "",
-      "icone": "maos"
+      "icone": "maos",
+      "alt": ""
     },
     {
       "nome": "Mês Internacional da Biblioteca Escolar",
       "descricao": "Programa de outubro dedicado à Biblioteca (MIBE).",
       "estado": "ativo",
-      "imagem": "",
-      "icone": "alvo"
-    },
-    {
-      "nome": "Palavras em Ação · Ler com a Biblioteca",
-      "descricao": "Projeto RBE 2026-2028: sequências de leitura, roteiros literários e podcasts «Vozes da Família».",
-      "estado": "ativo",
-      "imagem": "",
-      "icone": "microfone"
+      "imagem": "imagens/projetos/cartaz-mibe-2025.jpg",
+      "icone": "alvo",
+      "alt": "Cartaz do MIBE 2025, «Para além das estantes: IA, bibliotecas e o futuro das histórias»"
     }
   ]
 }

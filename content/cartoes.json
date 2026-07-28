@@ -1,3 +1,16 @@
 {
-  "cartoes": []
+  "cartoes": [
+    {
+      "id": "missao",
+      "titulo": "O que podes fazer aqui",
+      "texto": "Dezoito mil livros à tua espera. Mesas para estudares sozinho ou com os colegas, tablets para usares, e recursos digitais abertos a qualquer hora, de casa ou da escola. Precisas de ajuda num trabalho? A equipa mostra-te onde procurar e como citar. E há clubes de leitura, concursos e encontros com escritores, se quiseres fazer parte.",
+      "imagem": "imagens/cartoes/boas-vindas.jpg",
+      "alt": "Ilustração com dezenas de ícones de livros, leitura e conhecimento"
+    },
+    {
+      "id": "agenda",
+      "imagem": "imagens/cartoes/agenda-fundo.jpg",
+      "alt": "Mesa com cadernos abertos, um tablet e uma caneta"
+    }
+  ]
 }

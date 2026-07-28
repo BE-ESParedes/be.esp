@@ -1,0 +1,40 @@
+{
+  "literaciaPercurso": [
+    {
+      "n": "1",
+      "titulo": "Pesquisar",
+      "texto": "Escolher onde procurar, usar operadores e palavras-chave, e saber quando parar de pesquisar.",
+      "icone": "lupa"
+    },
+    {
+      "n": "2",
+      "titulo": "Avaliar",
+      "texto": "Distinguir informação de opinião e de publicidade. Reconhecer desinformação e verificar antes de acreditar.",
+      "icone": "escudo"
+    },
+    {
+      "n": "3",
+      "titulo": "Utilizar",
+      "texto": "Ler, selecionar, resumir e transformar a informação em conhecimento próprio, sem copiar.",
+      "icone": "cerebro"
+    },
+    {
+      "n": "4",
+      "titulo": "Criar",
+      "texto": "Produzir texto, imagem, vídeo ou som com intenção, respeitando direitos de autor e licenças.",
+      "icone": "camara"
+    },
+    {
+      "n": "5",
+      "titulo": "Partilhar",
+      "texto": "Publicar com critério: o que fica, quem vê, e o que é que isso diz sobre ti daqui a dez anos.",
+      "icone": "globo"
+    },
+    {
+      "n": "6",
+      "titulo": "Ser responsável",
+      "texto": "Identidade digital, pegada, privacidade e o respeito por quem está do outro lado do ecrã.",
+      "icone": "maos"
+    }
+  ]
+}

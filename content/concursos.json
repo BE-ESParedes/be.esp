@@ -1,0 +1,44 @@
+{
+  "concursos": [
+    {
+      "nome": "Concurso Nacional de Leitura",
+      "estado": "aberto",
+      "quando": "Outubro 2026 a maio 2027",
+      "quem": "3.º ciclo e secundário",
+      "texto": "Fase de escola, depois municipal, intermunicipal e nacional.",
+      "url": "https://pnl2027.gov.pt",
+      "imagem": "",
+      "alt": ""
+    },
+    {
+      "nome": "Primavera a Ler",
+      "estado": "em breve",
+      "quando": "Março a maio de 2027",
+      "quem": "Comunidade escolar",
+      "texto": "Concurso de leitura da Biblioteca. Inscrições abrem no 2.º período.",
+      "url": "",
+      "imagem": "",
+      "alt": ""
+    },
+    {
+      "nome": "Semana Concelhia da Leitura",
+      "estado": "em breve",
+      "quando": "Março de 2027",
+      "quem": "Comunidade escolar e concelho",
+      "texto": "Programa conjunto com a Biblioteca Municipal e as escolas do concelho.",
+      "url": "",
+      "imagem": "",
+      "alt": ""
+    },
+    {
+      "nome": "Ler em Voz Alta",
+      "estado": "em breve",
+      "quando": "2.º e 3.º períodos",
+      "quem": "Turmas do 3.º ciclo",
+      "texto": "Desafios de oralidade e leitura expressiva.",
+      "url": "",
+      "imagem": "",
+      "alt": ""
+    }
+  ]
+}
