@@ -15,7 +15,7 @@ Guia técnico de instalação. Para o **dia a dia da equipa**, ver o [LEIA-ME.md
 
 **Site estático, sem build.** O GitHub Pages serve os ficheiros tal como estão.
 Todas as ligações internas são relativas, por isso funciona em
-`https://<utilizador>.github.io/be-esparedes/` sem alterações.
+`https://be-esparedes.github.io/be.esp/` sem alterações.
 
 ---
 
@@ -40,7 +40,7 @@ Todas as ligações internas são relativas, por isso funciona em
 
 1. No repositório: **Settings → Pages**.
 2. Em **Source**: *Deploy from a branch* → branch `main` → pasta `/ (root)` → **Save**.
-3. Em 1 a 2 minutos o site fica em `https://<utilizador>.github.io/be-esparedes/`.
+3. Em 1 a 2 minutos o site fica em `https://be-esparedes.github.io/be.esp/`.
 
 ## 3. Depois de publicar, atualizar 3 coisas
 
