@@ -2,9 +2,9 @@
   "banners": [
     {
       "imagem": "imagens/banners/biblioteca-aberta.jpg",
+      "alt": "Sala de leitura da Biblioteca com mesas amplas e estantes, iluminada por luz natural",
       "tag": "Ano letivo 2026/2027",
       "titulo": "A Biblioteca está <em>aberta</em>",
-      "alt": "Sala de leitura da Biblioteca com mesas amplas e estantes, iluminada por luz natural",
       "texto": "De segunda a sexta, das 8h00 às 18h30, no bloco E. Leitura, estudo, apoio à pesquisa e recursos digitais.",
       "botoes": [
         {
@@ -19,9 +19,9 @@
     },
     {
       "imagem": "imagens/banners/encontro-escritor.jpg",
+      "alt": "Escritor a falar aos alunos entre as estantes da Biblioteca",
       "tag": "Projeto financiado pela RBE",
       "titulo": "Palavras em <em>Ação</em>",
-      "alt": "Escritor a falar aos alunos entre as estantes da Biblioteca",
       "texto": "Sequências de leitura, roteiros literários e leituras em família. Vinte turmas envolvidas até 2028.",
       "botoes": [
         {
@@ -32,9 +32,9 @@
     },
     {
       "imagem": "imagens/banners/apoio-ao-estudo.jpg",
+      "alt": "Alunos a estudar nas mesas da Biblioteca",
       "tag": "Apoio ao estudo",
       "titulo": "Precisas de ajuda num <em>trabalho</em>?",
-      "alt": "Alunos a estudar nas mesas da Biblioteca",
       "texto": "Guiões de pesquisa, normas de citação e apoio da equipa para os teus trabalhos.",
       "botoes": [
         {
@@ -44,10 +44,10 @@
       ]
     },
     {
-      "imagem": "imagens/cartoes/catalogo.jpg",
+      "imagem": "/imagens/banners/logotiporbparedes_1_980_2500.jpg",
+      "alt": "",
       "tag": "Catálogo em linha",
       "titulo": "Procura um <em>livro</em> a partir de casa",
-      "alt": "",
       "texto": "O catálogo da rede de bibliotecas de Paredes está disponível a qualquer hora. Reserva e renova sem sair de casa.",
       "botoes": [
         {
