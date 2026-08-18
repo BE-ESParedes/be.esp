@@ -18,7 +18,7 @@
      · menta e dourado lavados, que o guia define como rgba a 20% e 15%, aqui
        resolvidos em cor sólida para poderem servir de fundo.
 
-   Tipografia: Plus Jakarta Sans (títulos e texto), oficial desde 27/07/2026.
+   Tipografia: a letra do sistema (títulos e texto), oficial desde 17/08/2026.
    Raios: 24 px em cartões, 16 px em blocos, 50 px em botões.
    Referência: BE-ESP/09_Comunicacao_e_Imagem/BrandKit_BE_ESParedes/07_Manual/
    Paleta_Cores_BE_ESParedes_v2.0.pdf
@@ -52,10 +52,11 @@
   --verde:var(--tinta); --verde-fundo:var(--escuro);
   --dourado-d:var(--tinta);
   /* Tipografia */
-  /* Tipografia oficial desde 27/07/2026: Plus Jakarta Sans em toda a interface,
-     conforme a Paleta v2.0 do BrandKit. Substitui Space Grotesk + Open Sans. */
-  --head:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
-  --body:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  /* Tipografia oficial desde 17/08/2026 (decisão D9): a letra do sistema, nativa
+     de cada equipamento. Nada se descarrega e nenhuma página liga a servidores de
+     terceiros. Substitui a Plus Jakarta Sans, que vinha do Google Fonts. */
+  --head:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --body:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
   /* Elevação e forma */
   --sombra:0 1px 3px rgba(43,43,43,.06),0 6px 18px rgba(43,43,43,.05);
   --sombra-lg:0 2px 6px rgba(43,43,43,.1),0 12px 30px rgba(43,43,43,.12);
@@ -105,8 +106,9 @@ header{background:var(--branco);border-bottom:1px solid var(--linha);
 .brand .logo{height:38px;width:auto;display:block;flex:none}
 .brand .logo-icone{display:none;height:34px;width:auto;flex:none}
 nav.main{display:flex;flex:1;justify-content:center;min-width:0;height:var(--topo)}
-/* Com Plus Jakarta Sans as maiúsculas ficam mais estreitas: sobe-se ligeiramente
-   o corpo e o espacejamento para manter a mesma mancha (27/07/2026). */
+/* O espacejamento das maiúsculas foi calibrado a 27/07/2026 para a Plus Jakarta
+   Sans, mais estreita. Com a letra do sistema (17/08/2026) mantém-se, por dar boa
+   mancha nas três plataformas; rever se o menu passar a quebrar de linha. */
 nav.main a{display:flex;align-items:center;font-family:var(--head);font-weight:700;font-size:13px;
   letter-spacing:.045em;text-transform:uppercase;color:var(--verde);text-decoration:none;padding:0 14px;
   height:var(--topo);border-bottom:4px solid transparent;transition:.15s}

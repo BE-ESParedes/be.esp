@@ -25,7 +25,7 @@ Se editou pelo painel, essas alterações **não descem sozinhas**. Antes de mex
 na pasta local, abra o Terminal e corra:
 
 ```bash
-cd ~/Claude/Projects/Biblioteca/Digital/Site_BE-ESParedes/site
+cd ~/Claude/Projects/Codigo-Web/Site_BE-ESParedes/site
 git pull
 ```
 
@@ -35,7 +35,7 @@ recusado — foi o que aconteceu a 28 de julho de 2026.
 ## Depois de mexer nos ficheiros do computador
 
 ```bash
-cd ~/Claude/Projects/Biblioteca/Digital/Site_BE-ESParedes/site
+cd ~/Claude/Projects/Codigo-Web/Site_BE-ESParedes/site
 git add -A
 git commit -m "descrever em poucas palavras o que mudou"
 git push
