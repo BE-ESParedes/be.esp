@@ -1,53 +1,60 @@
 {
   "projetosEscola": [
     {
-      "grupo": "Projetos",
       "nome": "Erasmus+",
-      "descricao": "Mobilidade europeia e cooperação internacional: intercâmbios, estágios e trabalho conjunto com escolas parceiras.",
+      "url": "https://esparedes.pt/esp/965-exames-251",
+      "imagem": "/imagens/projetos/fd022e594cc07f743a337276bd82bae2_w200_h100_cp.png",
       "icone": "globo",
-      "url": ""
+      "descricao": "Mobilidade europeia e cooperação internacional: intercâmbios, estágios e trabalho conjunto com escolas parceiras.",
+      "grupo": "Projetos"
     },
     {
-      "grupo": "Projetos",
       "nome": "PADDE e Escola Digital",
-      "descricao": "Plano de Ação para o Desenvolvimento Digital da Escola: transição digital, capacitação tecnológica e cidadania digital.",
+      "url": "https://esparedes.pt/esp/seguranet-3",
+      "imagem": "/imagens/projetos/Escola_Digital_imagem.jpg",
       "icone": "monitor",
-      "url": ""
+      "descricao": "Plano de Ação para o Desenvolvimento Digital da Escola: transição digital, capacitação tecnológica e cidadania digital.",
+      "grupo": "Projetos"
     },
     {
-      "grupo": "Projetos",
-      "nome": "Olimpíadas de Inteligência Artificial",
-      "descricao": "As ONIA desafiam os alunos a resolver problemas reais com ferramentas de aprendizagem automática.",
-      "icone": "cerebro",
-      "url": ""
-    },
-    {
-      "grupo": "Projetos",
       "nome": "Olimpíadas de Física e de Química",
-      "descricao": "Provas nacionais que levam o que se aprende nas aulas para problemas novos e para a competição entre escolas.",
+      "url": "",
+      "imagem": "",
       "icone": "alvo",
-      "url": ""
+      "descricao": "Provas nacionais que levam o que se aprende nas aulas para problemas novos e para a competição entre escolas.",
+      "grupo": "Projetos"
     },
     {
-      "grupo": "Clubes",
       "nome": "CLE · Clube de Línguas Estrangeiras",
-      "descricao": "Enriquecimento linguístico com preparação e certificação oficial em francês, o diploma DELF.",
+      "url": "",
+      "imagem": "",
       "icone": "balao",
-      "url": ""
+      "descricao": "Enriquecimento linguístico com preparação e certificação oficial em francês, o diploma DELF.",
+      "grupo": "Clubes"
     },
     {
-      "grupo": "Clubes",
       "nome": "ETC · English Theatre Company",
-      "descricao": "Teatro em língua inglesa para o 2.º e 3.º ciclos, para trabalhar a compreensão oral e o gosto pela cultura anglófona.",
+      "url": "",
+      "imagem": "",
       "icone": "microfone",
-      "url": ""
+      "descricao": "Teatro em língua inglesa para o 2.º e 3.º ciclos, para trabalhar a compreensão oral e o gosto pela cultura anglófona.",
+      "grupo": "Clubes"
     },
     {
-      "grupo": "Clubes",
       "nome": "CiVESP",
-      "descricao": "Núcleo de Cidadania e Vontade Estudantil da ESP: participação, representação e iniciativa dos alunos.",
+      "url": "",
+      "imagem": "",
       "icone": "pessoas",
-      "url": ""
+      "descricao": "Núcleo de Cidadania e Vontade Estudantil da ESP: participação, representação e iniciativa dos alunos.",
+      "grupo": "Clubes"
+    },
+    {
+      "nome": "CiVESP",
+      "url": "",
+      "imagem": "",
+      "icone": "pessoas",
+      "descricao": "Núcleo de Cidadania e Vontade Estudantil da ESP: participação, representação e iniciativa dos alunos.",
+      "grupo": "Clubes"
     }
   ]
 }
