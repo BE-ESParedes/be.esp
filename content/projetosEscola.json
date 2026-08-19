@@ -3,7 +3,7 @@
     {
       "nome": "Erasmus+",
       "url": "https://esparedes.pt/esp/965-exames-251",
-      "imagem": "/imagens/projetos/fd022e594cc07f743a337276bd82bae2_w200_h100_cp.png",
+      "imagem": "imagens/projetos/fd022e594cc07f743a337276bd82bae2_w200_h100_cp.png",
       "icone": "globo",
       "descricao": "Mobilidade europeia e cooperação internacional: intercâmbios, estágios e trabalho conjunto com escolas parceiras.",
       "grupo": "Projetos"
@@ -11,7 +11,7 @@
     {
       "nome": "PADDE e Escola Digital",
       "url": "https://esparedes.pt/esp/seguranet-3",
-      "imagem": "/imagens/projetos/Escola_Digital_imagem.jpg",
+      "imagem": "imagens/projetos/Escola_Digital_imagem.jpg",
       "icone": "monitor",
       "descricao": "Plano de Ação para o Desenvolvimento Digital da Escola: transição digital, capacitação tecnológica e cidadania digital.",
       "grupo": "Projetos"
@@ -19,7 +19,7 @@
     {
       "nome": "Olimpíadas de Física e de Química",
       "url": "https://esparedes.pt/esp/977-ofisica",
-      "imagem": "/imagens/projetos/9d41f4158929ceb608ced4c2c0c74802_w200_h100_cp.png",
+      "imagem": "imagens/projetos/9d41f4158929ceb608ced4c2c0c74802_w200_h100_cp.png",
       "icone": "alvo",
       "descricao": "Provas nacionais que levam o que se aprende nas aulas para problemas novos e para a competição entre escolas.",
       "grupo": "Projetos"
@@ -27,7 +27,7 @@
     {
       "nome": "CLE · Clube de Línguas Estrangeiras",
       "url": "https://esparedes.pt/esp/985-delf2025-12",
-      "imagem": "/imagens/projetos/703ca2d1d75bbdcc4de6d76b5621a410_w200_h100_cp.jpg",
+      "imagem": "imagens/projetos/703ca2d1d75bbdcc4de6d76b5621a410_w200_h100_cp.jpg",
       "icone": "balao",
       "descricao": "Enriquecimento linguístico com preparação e certificação oficial em francês, o diploma DELF.",
       "grupo": "Clubes"
@@ -35,7 +35,7 @@
     {
       "nome": "CiVESP",
       "url": "https://sites.google.com/view/civesp/in%C3%ADcio",
-      "imagem": "/imagens/projetos/Logo_CiVESP_cor_horizontal.png",
+      "imagem": "imagens/projetos/Logo_CiVESP_cor_horizontal.png",
       "icone": "pessoas",
       "descricao": "Núcleo de Cidadania e Vontade Estudantil da ESP: participação, representação e iniciativa dos alunos.",
       "grupo": "Clubes"
