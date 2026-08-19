@@ -49,7 +49,7 @@
         {
           "titulo": "Capitães da Areia",
           "autor": "Jorge Amado",
-          "imagem": "",
+          "imagem": "/imagens/capas/shopping.webp",
           "alt": "",
           "url": ""
         },
@@ -97,7 +97,7 @@
         {
           "titulo": "Mensagem",
           "autor": "Fernando Pessoa",
-          "imagem": "",
+          "imagem": "/imagens/capas/images.jpeg",
           "alt": "",
           "url": ""
         },
@@ -111,7 +111,7 @@
         {
           "titulo": "Felizmente Há Luar!",
           "autor": "Luís de Sttau Monteiro",
-          "imagem": "",
+          "imagem": "/imagens/capas/images (1).jpeg",
           "alt": "",
           "url": ""
         },
@@ -131,21 +131,21 @@
         {
           "titulo": "O Senhor dos Anéis",
           "autor": "J. R. R. Tolkien",
-          "imagem": "",
+          "imagem": "/imagens/capas/images (2).jpeg",
           "alt": "",
           "url": ""
         },
         {
           "titulo": "Os Anagramas de Varsóvia",
           "autor": "Richard Zimler",
-          "imagem": "",
+          "imagem": "/imagens/capas/images (3).jpeg",
           "alt": "",
           "url": ""
         },
         {
           "titulo": "O Último Cabalista de Lisboa",
           "autor": "Richard Zimler",
-          "imagem": "",
+          "imagem": "/imagens/capas/images (4).jpeg",
           "alt": "",
           "url": ""
         },
