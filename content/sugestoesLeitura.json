@@ -35,7 +35,7 @@
         {
           "titulo": "Ulisses",
           "autor": "Maria Alberta Menéres",
-          "imagem": "/imagens/capas/300x.webp",
+          "imagem": "imagens/capas/300x.webp",
           "alt": "",
           "url": ""
         },
@@ -49,7 +49,7 @@
         {
           "titulo": "Capitães da Areia",
           "autor": "Jorge Amado",
-          "imagem": "/imagens/capas/shopping.webp",
+          "imagem": "imagens/capas/shopping.webp",
           "alt": "",
           "url": ""
         },
@@ -97,7 +97,7 @@
         {
           "titulo": "Mensagem",
           "autor": "Fernando Pessoa",
-          "imagem": "/imagens/capas/images.jpeg",
+          "imagem": "imagens/capas/images.jpeg",
           "alt": "",
           "url": ""
         },
@@ -111,7 +111,7 @@
         {
           "titulo": "Felizmente Há Luar!",
           "autor": "Luís de Sttau Monteiro",
-          "imagem": "/imagens/capas/images (1).jpeg",
+          "imagem": "imagens/capas/images (1).jpeg",
           "alt": "",
           "url": ""
         },
@@ -131,56 +131,56 @@
         {
           "titulo": "O Senhor dos Anéis",
           "autor": "J. R. R. Tolkien",
-          "imagem": "/imagens/capas/images (2).jpeg",
+          "imagem": "imagens/capas/images (2).jpeg",
           "alt": "",
           "url": ""
         },
         {
           "titulo": "Os Anagramas de Varsóvia",
           "autor": "Richard Zimler",
-          "imagem": "/imagens/capas/images (3).jpeg",
+          "imagem": "imagens/capas/images (3).jpeg",
           "alt": "",
           "url": ""
         },
         {
           "titulo": "O Último Cabalista de Lisboa",
           "autor": "Richard Zimler",
-          "imagem": "/imagens/capas/images (4).jpeg",
+          "imagem": "imagens/capas/images (4).jpeg",
           "alt": "",
           "url": ""
         },
         {
           "titulo": "O Pêndulo de Foucault",
           "autor": "Umberto Eco",
-          "imagem": "/imagens/capas/images (5).jpeg",
+          "imagem": "imagens/capas/images (5).jpeg",
           "alt": "",
           "url": ""
         },
         {
           "titulo": "Os Melhores Contos de Edgar Allan Poe",
           "autor": "Edgar Allan Poe",
-          "imagem": "/imagens/capas/images (6).jpeg",
+          "imagem": "imagens/capas/images (6).jpeg",
           "alt": "",
           "url": ""
         },
         {
           "titulo": "O Pavilhão Púrpura",
           "autor": "José Rodrigues dos Santos",
-          "imagem": "/imagens/capas/images (7).jpeg",
+          "imagem": "imagens/capas/images (7).jpeg",
           "alt": "",
           "url": ""
         },
         {
           "titulo": "A Lei do Amor",
           "autor": "Laura Esquivel",
-          "imagem": "/imagens/capas/images (8).jpeg",
+          "imagem": "imagens/capas/images (8).jpeg",
           "alt": "",
           "url": ""
         },
         {
           "titulo": "A Irmandade do Santo Sudário",
           "autor": "Julia Navarro",
-          "imagem": "/imagens/capas/images (9).jpeg",
+          "imagem": "imagens/capas/images (9).jpeg",
           "alt": "",
           "url": ""
         }
