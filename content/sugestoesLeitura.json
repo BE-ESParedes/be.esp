@@ -1,190 +1,190 @@
 {
- "sugestoesLeitura": [
-  {
-   "faixa": "Leituras recomendadas · 7.º ao 9.º ano",
-   "nota": "Escolhas da equipa para o 3.º ciclo, em articulação com as Metas de Português.",
-   "livros": [
+  "sugestoesLeitura": [
     {
-     "titulo": "O Cavaleiro da Dinamarca",
-     "autor": "Sophia de Mello Breyner Andresen",
-     "imagem": "imagens/capas/o-cavaleiro-da-dinamarca.jpg",
-     "alt": "Capa de O Cavaleiro da Dinamarca",
-     "url": ""
+      "faixa": "Leituras recomendadas · 7.º ao 9.º ano",
+      "nota": "Escolhas da equipa para o 3.º ciclo, em articulação com as Metas de Português.",
+      "livros": [
+        {
+          "titulo": "O Cavaleiro da Dinamarca",
+          "autor": "Sophia de Mello Breyner Andresen",
+          "imagem": "imagens/capas/o-cavaleiro-da-dinamarca.jpg",
+          "alt": "Capa de O Cavaleiro da Dinamarca",
+          "url": ""
+        },
+        {
+          "titulo": "Leandro, Rei da Helíria",
+          "autor": "Alice Vieira",
+          "imagem": "imagens/capas/leandro-rei-da-heliria.jpg",
+          "alt": "Capa de Leandro, Rei da Helíria",
+          "url": ""
+        },
+        {
+          "titulo": "Aventuras de João sem Medo",
+          "autor": "José Gomes Ferreira",
+          "imagem": "imagens/capas/aventuras-de-joao-sem-medo.jpg",
+          "alt": "Capa de Aventuras de João sem Medo",
+          "url": ""
+        },
+        {
+          "titulo": "História de uma Gaivota e do Gato que a Ensinou a Voar",
+          "autor": "Luís Sepúlveda",
+          "imagem": "imagens/capas/historia-de-uma-gaivota-e-do-gato-que-a-ensinou-.jpg",
+          "alt": "Capa de História de uma Gaivota e do Gato que a Ensinou a Voar",
+          "url": ""
+        },
+        {
+          "titulo": "Ulisses",
+          "autor": "Maria Alberta Menéres",
+          "imagem": "/imagens/capas/300x.webp",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "Sexta-feira ou a Vida Selvagem",
+          "autor": "Michel Tournier",
+          "imagem": "imagens/capas/sexta-feira-ou-a-vida-selvagem.jpg",
+          "alt": "Capa de Sexta-feira ou a Vida Selvagem",
+          "url": ""
+        },
+        {
+          "titulo": "Capitães da Areia",
+          "autor": "Jorge Amado",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "Diário de Anne Frank",
+          "autor": "Anne Frank",
+          "imagem": "imagens/capas/diario-de-anne-frank.jpg",
+          "alt": "Capa de Diário de Anne Frank",
+          "url": ""
+        }
+      ]
     },
     {
-     "titulo": "Leandro, Rei da Helíria",
-     "autor": "Alice Vieira",
-     "imagem": "imagens/capas/leandro-rei-da-heliria.jpg",
-     "alt": "Capa de Leandro, Rei da Helíria",
-     "url": ""
+      "faixa": "Leituras recomendadas · 10.º ao 12.º ano",
+      "nota": "Títulos do secundário, dentro e fora do programa.",
+      "livros": [
+        {
+          "titulo": "Os Lusíadas",
+          "autor": "Luís de Camões",
+          "imagem": "imagens/capas/os-lusiadas.jpg",
+          "alt": "Capa de Os Lusíadas",
+          "url": ""
+        },
+        {
+          "titulo": "Frei Luís de Sousa",
+          "autor": "Almeida Garrett",
+          "imagem": "imagens/capas/frei-luis-de-sousa.jpg",
+          "alt": "Capa de Frei Luís de Sousa",
+          "url": ""
+        },
+        {
+          "titulo": "Os Maias",
+          "autor": "Eça de Queirós",
+          "imagem": "imagens/capas/os-maias.jpg",
+          "alt": "Capa de Os Maias",
+          "url": ""
+        },
+        {
+          "titulo": "Amor de Perdição",
+          "autor": "Camilo Castelo Branco",
+          "imagem": "imagens/capas/amor-de-perdicao.jpg",
+          "alt": "Capa de Amor de Perdição",
+          "url": ""
+        },
+        {
+          "titulo": "Mensagem",
+          "autor": "Fernando Pessoa",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "Memorial do Convento",
+          "autor": "José Saramago",
+          "imagem": "imagens/capas/memorial-do-convento.jpg",
+          "alt": "Capa de Memorial do Convento",
+          "url": ""
+        },
+        {
+          "titulo": "Felizmente Há Luar!",
+          "autor": "Luís de Sttau Monteiro",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "Mar Me Quer",
+          "autor": "Mia Couto",
+          "imagem": "imagens/capas/mar-me-quer.jpg",
+          "alt": "Capa de Mar Me Quer",
+          "url": ""
+        }
+      ]
     },
     {
-     "titulo": "Aventuras de João sem Medo",
-     "autor": "José Gomes Ferreira",
-     "imagem": "imagens/capas/aventuras-de-joao-sem-medo.jpg",
-     "alt": "Capa de Aventuras de João sem Medo",
-     "url": ""
-    },
-    {
-     "titulo": "História de uma Gaivota e do Gato que a Ensinou a Voar",
-     "autor": "Luís Sepúlveda",
-     "imagem": "imagens/capas/historia-de-uma-gaivota-e-do-gato-que-a-ensinou-.jpg",
-     "alt": "Capa de História de uma Gaivota e do Gato que a Ensinou a Voar",
-     "url": ""
-    },
-    {
-     "titulo": "Ulisses",
-     "autor": "Maria Alberta Menéres",
-     "imagem": "",
-     "alt": "",
-     "url": ""
-    },
-    {
-     "titulo": "Sexta-feira ou a Vida Selvagem",
-     "autor": "Michel Tournier",
-     "imagem": "imagens/capas/sexta-feira-ou-a-vida-selvagem.jpg",
-     "alt": "Capa de Sexta-feira ou a Vida Selvagem",
-     "url": ""
-    },
-    {
-     "titulo": "Capitães da Areia",
-     "autor": "Jorge Amado",
-     "imagem": "",
-     "alt": "",
-     "url": ""
-    },
-    {
-     "titulo": "Diário de Anne Frank",
-     "autor": "Anne Frank",
-     "imagem": "imagens/capas/diario-de-anne-frank.jpg",
-     "alt": "Capa de Diário de Anne Frank",
-     "url": ""
+      "faixa": "Últimas aquisições e novidades",
+      "nota": "O que entrou no fundo documental este período.",
+      "livros": [
+        {
+          "titulo": "O Senhor dos Anéis",
+          "autor": "J. R. R. Tolkien",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "Os Anagramas de Varsóvia",
+          "autor": "Richard Zimler",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "O Último Cabalista de Lisboa",
+          "autor": "Richard Zimler",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "O Pêndulo de Foucault",
+          "autor": "Umberto Eco",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "Os Melhores Contos de Edgar Allan Poe",
+          "autor": "Edgar Allan Poe",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "O Pavilhão Púrpura",
+          "autor": "José Rodrigues dos Santos",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "A Lei do Amor",
+          "autor": "Laura Esquivel",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        },
+        {
+          "titulo": "A Irmandade do Santo Sudário",
+          "autor": "Julia Navarro",
+          "imagem": "",
+          "alt": "",
+          "url": ""
+        }
+      ]
     }
-   ]
-  },
-  {
-   "faixa": "Leituras recomendadas · 10.º ao 12.º ano",
-   "nota": "Títulos do secundário, dentro e fora do programa.",
-   "livros": [
-    {
-     "titulo": "Os Lusíadas",
-     "autor": "Luís de Camões",
-     "imagem": "imagens/capas/os-lusiadas.jpg",
-     "alt": "Capa de Os Lusíadas",
-     "url": ""
-    },
-    {
-     "titulo": "Frei Luís de Sousa",
-     "autor": "Almeida Garrett",
-     "imagem": "imagens/capas/frei-luis-de-sousa.jpg",
-     "alt": "Capa de Frei Luís de Sousa",
-     "url": ""
-    },
-    {
-     "titulo": "Os Maias",
-     "autor": "Eça de Queirós",
-     "imagem": "imagens/capas/os-maias.jpg",
-     "alt": "Capa de Os Maias",
-     "url": ""
-    },
-    {
-     "titulo": "Amor de Perdição",
-     "autor": "Camilo Castelo Branco",
-     "imagem": "imagens/capas/amor-de-perdicao.jpg",
-     "alt": "Capa de Amor de Perdição",
-     "url": ""
-    },
-    {
-     "titulo": "Mensagem",
-     "autor": "Fernando Pessoa",
-     "imagem": "",
-     "alt": "",
-     "url": ""
-    },
-    {
-     "titulo": "Memorial do Convento",
-     "autor": "José Saramago",
-     "imagem": "imagens/capas/memorial-do-convento.jpg",
-     "alt": "Capa de Memorial do Convento",
-     "url": ""
-    },
-    {
-     "titulo": "Felizmente Há Luar!",
-     "autor": "Luís de Sttau Monteiro",
-     "imagem": "",
-     "alt": "",
-     "url": ""
-    },
-    {
-     "titulo": "Mar Me Quer",
-     "autor": "Mia Couto",
-     "imagem": "imagens/capas/mar-me-quer.jpg",
-     "alt": "Capa de Mar Me Quer",
-     "url": ""
-    }
-   ]
-  },
-  {
-   "faixa": "Últimas aquisições e novidades",
-   "nota": "O que entrou no fundo documental este período.",
-   "livros": [
-    {
-     "titulo": "O Senhor dos Anéis",
-     "autor": "J. R. R. Tolkien",
-     "imagem": "",
-     "alt": "",
-     "url": ""
-    },
-    {
-     "titulo": "Os Anagramas de Varsóvia",
-     "autor": "Richard Zimler",
-     "imagem": "",
-     "alt": "",
-     "url": ""
-    },
-    {
-     "titulo": "O Último Cabalista de Lisboa",
-     "autor": "Richard Zimler",
-     "imagem": "",
-     "alt": "",
-     "url": ""
-    },
-    {
-     "titulo": "O Pêndulo de Foucault",
-     "autor": "Umberto Eco",
-     "imagem": "",
-     "alt": "",
-     "url": ""
-    },
-    {
-     "titulo": "Os Melhores Contos de Edgar Allan Poe",
-     "autor": "Edgar Allan Poe",
-     "imagem": "",
-     "alt": "",
-     "url": ""
-    },
-    {
-     "titulo": "O Pavilhão Púrpura",
-     "autor": "José Rodrigues dos Santos",
-     "imagem": "",
-     "alt": "",
-     "url": ""
-    },
-    {
-     "titulo": "A Lei do Amor",
-     "autor": "Laura Esquivel",
-     "imagem": "",
-     "alt": "",
-     "url": ""
-    },
-    {
-     "titulo": "A Irmandade do Santo Sudário",
-     "autor": "Julia Navarro",
-     "imagem": "",
-     "alt": "",
-     "url": ""
-    }
-   ]
-  }
- ]
+  ]
 }
