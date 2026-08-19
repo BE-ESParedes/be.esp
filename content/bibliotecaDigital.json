@@ -57,7 +57,7 @@
       "acesso": "livre",
       "url": "https://doaj.org",
       "verificado": true,
-      "imagem": "",
+      "imagem": "/imagens/projetos/transferir.png",
       "icone": "globo"
     },
     {
@@ -71,14 +71,14 @@
       "icone": "globo"
     },
     {
-      "nome": "Biblioteca Escolar Digital (RBE)",
-      "descricao": "Recursos validados pela Rede de Bibliotecas Escolares.",
-      "tipo": "repositorios",
+      "nome": "PressReader",
+      "descricao": "O PressReader permite aceder a mais de 7.000 publicações de cerca de 120 a 150 países.",
+      "tipo": "imprensa",
       "acesso": "livre",
-      "url": "https://www.rbe.mec.pt/np4/bed.html",
+      "url": "https://www.pressreader.com/catalog",
       "verificado": true,
-      "imagem": "",
-      "icone": "globo"
+      "imagem": "/imagens/projetos/images.jpeg",
+      "icone": ""
     }
   ]
 }
