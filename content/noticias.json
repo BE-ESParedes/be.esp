@@ -10,7 +10,7 @@
       "emoji": "",
       "cor": "#A8D8CC",
       "url": "biblioteca.html#horario",
-      "exemplo": false,
+      "exemplo": true,
       "alt": "Entrada da Biblioteca, com o letreiro BIBLIOTECA na porta de vidro"
     },
     {
@@ -23,7 +23,7 @@
       "emoji": "",
       "cor": "#D8AC47",
       "url": "atividades.html#projetos",
-      "exemplo": false,
+      "exemplo": true,
       "alt": "Jovem a ler sentada num cadeirão junto a uma janela, numa biblioteca"
     },
     {
@@ -36,7 +36,7 @@
       "emoji": "🌱",
       "cor": "#A8D8CC",
       "url": "",
-      "exemplo": false,
+      "exemplo": true,
       "alt": "Cartaz do concurso Primavera a Ler, com livros abertos entre flores"
     },
     {
@@ -49,7 +49,7 @@
       "emoji": "📚",
       "cor": "#A8D8CC",
       "url": "atividades.html#exposicoes",
-      "exemplo": false,
+      "exemplo": true,
       "alt": "Escritor a falar aos alunos entre as estantes da Biblioteca"
     },
     {
@@ -59,10 +59,10 @@
       "categoria": "Leitura",
       "resumo": "Duzentos e cinquenta e sete alunos e dez docentes escreveram mensagens dirigidas à comunidade. Foi a atividade com maior participação do ano no domínio da leitura e da escrita.",
       "imagem": "/imagens/noticias/IMG_4936.JPG",
-      "emoji": "✍️",
+      "emoji": "",
       "cor": "#D8AC47",
       "url": "",
-      "exemplo": false,
+      "exemplo": true,
       "alt": ""
     },
     {
@@ -72,10 +72,10 @@
       "categoria": "Encontros",
       "resumo": "Cinquenta e três participantes, entre docentes, encarregados de educação e público em geral, numa sessão organizada em parceria com o Município de Paredes e a Associação Cultural Hexágono.",
       "imagem": "imagens/noticias/mesa-redonda-damas.jpg",
-      "emoji": "🗣️",
+      "emoji": "",
       "cor": "#2B2B2B",
       "url": "",
-      "exemplo": false,
+      "exemplo": true,
       "alt": "Dois oradores em conversa no palco da Biblioteca, acompanhados por um músico"
     },
     {
