@@ -2,8 +2,8 @@
   "noticias": [
     {
       "titulo": "A Biblioteca abre a 15 de setembro",
-      "data": "1 de setembro de 2026",
       "dataOrdenacao": "2026-09-01",
+      "data": "1 de setembro de 2026",
       "categoria": "Biblioteca",
       "resumo": "Retomamos o horário completo, das 8h00 às 18h30, de segunda a sexta. Requisições, sala de estudo e apoio à pesquisa disponíveis desde o primeiro dia de aulas.",
       "imagem": "imagens/noticias/abertura.jpg",
@@ -15,11 +15,11 @@
     },
     {
       "titulo": "Leituras… com a biblioteca arranca este ano letivo",
-      "data": "1 de setembro de 2026",
       "dataOrdenacao": "2026-08-31",
-      "categoria": "Projetos",
+      "data": "1 de setembro de 2026",
+      "categoria": "Leitura",
       "resumo": "O projeto foi selecionado entre dezasseis candidaturas a nível nacional e é financiado pela Rede de Bibliotecas Escolares. Envolve vinte turmas em sequências de leitura, roteiros literários pela escola e leituras em família.",
-      "imagem": "imagens/projetos/leituras-com-a-biblioteca.jpg",
+      "imagem": "/imagens/noticias/IMG_4932.JPG",
       "emoji": "🎙️",
       "cor": "#D8AC47",
       "url": "atividades.html#projetos",
@@ -28,8 +28,8 @@
     },
     {
       "titulo": "Primavera a Ler levou a escola ao concurso municipal",
-      "data": "Maio de 2026",
       "dataOrdenacao": "2026-05-20",
+      "data": "Maio de 2026",
       "categoria": "Leitura",
       "resumo": "Sessenta e um alunos e catorze docentes participaram na edição deste ano, integrada na Semana Concelhia da Leitura, em articulação com a Biblioteca Municipal de Paredes.",
       "imagem": "imagens/projetos/primavera-a-ler.jpg",
@@ -41,21 +41,21 @@
     },
     {
       "titulo": "Semana da Leitura: três dias a falar de livros",
-      "data": "26 de março de 2026",
       "dataOrdenacao": "2026-03-26",
+      "data": "26 de março de 2026",
       "categoria": "Leitura",
       "resumo": "Cada aluno escolheu um livro e apresentou-o aos colegas, com a capa projetada. A semana abriu com um encontro com escritor, realizado entre as estantes da Biblioteca.",
       "imagem": "imagens/noticias/semana-da-leitura.jpg",
-      "alt": "Escritor a falar aos alunos entre as estantes da Biblioteca",
       "emoji": "📚",
       "cor": "#A8D8CC",
       "url": "atividades.html#exposicoes",
-      "exemplo": false
+      "exemplo": false,
+      "alt": "Escritor a falar aos alunos entre as estantes da Biblioteca"
     },
     {
       "titulo": "Letras que Abraçam juntou escrita e solidariedade",
-      "data": "Março de 2026",
       "dataOrdenacao": "2026-03-15",
+      "data": "Março de 2026",
       "categoria": "Leitura",
       "resumo": "Duzentos e cinquenta e sete alunos e dez docentes escreveram mensagens dirigidas à comunidade. Foi a atividade com maior participação do ano no domínio da leitura e da escrita.",
       "imagem": "",
@@ -67,8 +67,8 @@
     },
     {
       "titulo": "Mesa-redonda com José A. Damas reuniu famílias e comunidade",
-      "data": "28 de janeiro de 2026",
       "dataOrdenacao": "2026-01-28",
+      "data": "28 de janeiro de 2026",
       "categoria": "Encontros",
       "resumo": "Cinquenta e três participantes, entre docentes, encarregados de educação e público em geral, numa sessão organizada em parceria com o Município de Paredes e a Associação Cultural Hexágono.",
       "imagem": "imagens/noticias/mesa-redonda-damas.jpg",
@@ -80,8 +80,8 @@
     },
     {
       "titulo": "Ler, pensar, crescer juntos assinalou o Mês da Biblioteca Escolar",
-      "data": "Outubro de 2025",
       "dataOrdenacao": "2025-10-20",
+      "data": "Outubro de 2025",
       "categoria": "Biblioteca",
       "resumo": "Duzentos e sessenta e dois alunos e vinte docentes participaram no programa de outubro, o mês internacional das bibliotecas escolares.",
       "imagem": "imagens/noticias/mibe.jpg",
