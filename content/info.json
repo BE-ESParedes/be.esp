@@ -3,7 +3,7 @@
     "nome": "Biblioteca Escolar",
     "escola": "Escola Secundária de Paredes",
     "email": "biblioteca@esparedes.pt",
-    "telefone": "",
+    "telefone": "255 782 127",
     "horario": "Seg–Sex: 8h00 – 18h30",
     "horarioLongo": "Segunda a sexta, em período letivo, horário contínuo, das 8h00 às 18h30 (Art. 2.º do RI-BE)",
     "localizacao": "Bloco E, 1.º andar",
@@ -12,7 +12,7 @@
     "equipa": [
       {
         "funcao": "Professor bibliotecário",
-        "nome": "Carlos Manuel Barros Carneiro"
+        "nome": "Carlos Carneiro"
       },
       {
         "funcao": "Atendimento",
@@ -34,10 +34,10 @@
     "mapa": "https://maps.google.com/?q=Escola+Secundária+de+Paredes",
     "linkMarcacao": "",
     "linkFormulario": "",
-    "videoTutorial": "",
-    "cotaExemplo": "821.134.1 QUE mai",
     "repositorioGitHub": "https://github.com/BE-ESParedes/be.esp",
+    "atendimentoLongo": "A sala está aberta das 8h00 às 18h30; a equipa faz atendimento das 8h30 às 16h00",
     "atendimento": "8h30 – 16h00",
-    "atendimentoLongo": "A sala está aberta das 8h00 às 18h30; a equipa faz atendimento das 8h30 às 16h00"
+    "cotaExemplo": "821.134.1 QUE mai",
+    "videoTutorial": ""
   }
 }
