@@ -5,10 +5,10 @@
       "descricao": "Literatura e cultura em língua portuguesa.",
       "tipo": "repositorios",
       "acesso": "livre",
-      "url": "https://cvc.instituto-camoes.pt",
+      "url": "https://bibliotecas.instituto-camoes.pt/",
       "verificado": true,
-      "imagem": "",
-      "icone": "globo"
+      "imagem": "/imagens/projetos/banner_logo.png",
+      "icone": ""
     },
     {
       "nome": "Biblioteca Nacional Digital",
