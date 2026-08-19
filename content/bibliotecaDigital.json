@@ -79,6 +79,16 @@
       "verificado": true,
       "imagem": "/imagens/projetos/images.jpeg",
       "icone": ""
+    },
+    {
+      "nome": "BiblioLED",
+      "descricao": "A BiblioLED é uma biblioteca pública para Leitura e o Empréstimo Digital que presta um serviço de empréstimo gratuito de livros digitais e audiolivros disponibilizado através das bibliotecas municipais aderentes que integram a Rede Nacional de Bibliotecas Públicas (RNBP).",
+      "tipo": "repositorios",
+      "acesso": "livre",
+      "url": "https://www.biblioled.gov.pt/about",
+      "verificado": true,
+      "imagem": "/imagens/projetos/66f2d6245b0de1efa964d661-logo-2x.png",
+      "icone": ""
     }
   ]
 }
