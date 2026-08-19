@@ -3,7 +3,7 @@
     {
       "nome": "Biblioteca Digital Camões",
       "descricao": "Literatura e cultura em língua portuguesa.",
-      "tipo": "repositorios",
+      "tipo": "ebooks",
       "acesso": "livre",
       "url": "https://bibliotecas.instituto-camoes.pt/",
       "verificado": true,
@@ -17,8 +17,8 @@
       "acesso": "livre",
       "url": "https://bndigital.bnportugal.gov.pt",
       "verificado": true,
-      "imagem": "",
-      "icone": "globo"
+      "imagem": "/imagens/projetos/bnd_logo_dark.png",
+      "icone": ""
     },
     {
       "nome": "Europeana",
@@ -27,8 +27,8 @@
       "acesso": "livre",
       "url": "https://www.europeana.eu",
       "verificado": true,
-      "imagem": "",
-      "icone": "globo"
+      "imagem": "/imagens/projetos/logo.3ebdec7.svg",
+      "icone": ""
     },
     {
       "nome": "RCAAP",
@@ -37,7 +37,7 @@
       "acesso": "livre",
       "url": "https://www.rcaap.pt",
       "verificado": true,
-      "imagem": "",
+      "imagem": "/imagens/projetos/header_logo_fccn_2024_3.svg",
       "icone": "globo"
     },
     {
@@ -47,8 +47,8 @@
       "acesso": "livre",
       "url": "https://www.gutenberg.org",
       "verificado": true,
-      "imagem": "",
-      "icone": "globo"
+      "imagem": "/imagens/projetos/pg-logo-new.jpg",
+      "icone": ""
     },
     {
       "nome": "DOAJ",
