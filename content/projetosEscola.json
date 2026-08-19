@@ -18,26 +18,18 @@
     },
     {
       "nome": "Olimpíadas de Física e de Química",
-      "url": "",
-      "imagem": "/imagens/projetos/a78b537822f6b81da787b008b162496d_w200_h100_cp.png",
+      "url": "https://esparedes.pt/esp/977-ofisica",
+      "imagem": "/imagens/projetos/9d41f4158929ceb608ced4c2c0c74802_w200_h100_cp.png",
       "icone": "alvo",
       "descricao": "Provas nacionais que levam o que se aprende nas aulas para problemas novos e para a competição entre escolas.",
       "grupo": "Projetos"
     },
     {
       "nome": "CLE · Clube de Línguas Estrangeiras",
-      "url": "",
-      "imagem": "",
+      "url": "https://esparedes.pt/esp/985-delf2025-12",
+      "imagem": "/imagens/projetos/703ca2d1d75bbdcc4de6d76b5621a410_w200_h100_cp.jpg",
       "icone": "balao",
       "descricao": "Enriquecimento linguístico com preparação e certificação oficial em francês, o diploma DELF.",
-      "grupo": "Clubes"
-    },
-    {
-      "nome": "ETC · English Theatre Company",
-      "url": "",
-      "imagem": "",
-      "icone": "microfone",
-      "descricao": "Teatro em língua inglesa para o 2.º e 3.º ciclos, para trabalhar a compreensão oral e o gosto pela cultura anglófona.",
       "grupo": "Clubes"
     },
     {
@@ -50,8 +42,8 @@
     },
     {
       "nome": "CiVESP",
-      "url": "",
-      "imagem": "",
+      "url": "https://sites.google.com/view/civesp/in%C3%ADcio",
+      "imagem": "/imagens/projetos/Logo_CiVESP_cor_horizontal.png",
       "icone": "pessoas",
       "descricao": "Núcleo de Cidadania e Vontade Estudantil da ESP: participação, representação e iniciativa dos alunos.",
       "grupo": "Clubes"
