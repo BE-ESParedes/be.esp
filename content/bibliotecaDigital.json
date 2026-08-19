@@ -67,8 +67,8 @@
       "acesso": "livre",
       "url": "https://www.doabooks.org",
       "verificado": true,
-      "imagem": "",
-      "icone": "globo"
+      "imagem": "/imagens/projetos/transferir.jpeg",
+      "icone": ""
     },
     {
       "nome": "PressReader",
