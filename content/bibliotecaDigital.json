@@ -7,7 +7,7 @@
       "acesso": "livre",
       "url": "https://bibliotecas.instituto-camoes.pt/",
       "verificado": true,
-      "imagem": "/imagens/projetos/banner_logo.png",
+      "imagem": "imagens/projetos/banner_logo.png",
       "icone": ""
     },
     {
@@ -17,7 +17,7 @@
       "acesso": "livre",
       "url": "https://bndigital.bnportugal.gov.pt",
       "verificado": true,
-      "imagem": "/imagens/projetos/bnd_logo_dark.png",
+      "imagem": "imagens/projetos/bnd_logo_dark.png",
       "icone": ""
     },
     {
@@ -27,7 +27,7 @@
       "acesso": "livre",
       "url": "https://www.europeana.eu",
       "verificado": true,
-      "imagem": "/imagens/projetos/logo.3ebdec7.svg",
+      "imagem": "imagens/projetos/logo.3ebdec7.svg",
       "icone": ""
     },
     {
@@ -37,7 +37,7 @@
       "acesso": "livre",
       "url": "https://www.rcaap.pt",
       "verificado": true,
-      "imagem": "/imagens/projetos/header_logo_fccn_2024_3.svg",
+      "imagem": "imagens/projetos/header_logo_fccn_2024_3.svg",
       "icone": "globo"
     },
     {
@@ -47,7 +47,7 @@
       "acesso": "livre",
       "url": "https://www.gutenberg.org",
       "verificado": true,
-      "imagem": "/imagens/projetos/pg-logo-new.jpg",
+      "imagem": "imagens/projetos/pg-logo-new.jpg",
       "icone": ""
     },
     {
@@ -57,7 +57,7 @@
       "acesso": "livre",
       "url": "https://doaj.org",
       "verificado": true,
-      "imagem": "/imagens/projetos/transferir.png",
+      "imagem": "imagens/projetos/transferir.png",
       "icone": "globo"
     },
     {
@@ -67,7 +67,7 @@
       "acesso": "livre",
       "url": "https://www.doabooks.org",
       "verificado": true,
-      "imagem": "/imagens/projetos/transferir.jpeg",
+      "imagem": "imagens/projetos/transferir.jpeg",
       "icone": ""
     },
     {
@@ -77,7 +77,7 @@
       "acesso": "livre",
       "url": "https://www.pressreader.com/catalog",
       "verificado": true,
-      "imagem": "/imagens/projetos/images.jpeg",
+      "imagem": "imagens/projetos/images.jpeg",
       "icone": ""
     },
     {
@@ -87,7 +87,7 @@
       "acesso": "livre",
       "url": "https://www.biblioled.gov.pt/about",
       "verificado": true,
-      "imagem": "/imagens/projetos/66f2d6245b0de1efa964d661-logo-2x.png",
+      "imagem": "imagens/projetos/66f2d6245b0de1efa964d661-logo-2x.png",
       "icone": ""
     }
   ]
