@@ -13,9 +13,15 @@
       "detalhe": "Apoio à literacia da informação, workshops de escrita e acompanhamento dos alunos nos seus trabalhos."
     },
     {
-      "nome": "Maria José Magalhães e Verónica Pacheco de Sousa",
-      "iniciais": "AO",
-      "funcao": "Assistentes operacionais",
+      "nome": "Maria José Magalhães",
+      "iniciais": "MJ",
+      "funcao": "Assistente operacional",
+      "detalhe": "Atendimento diário e apoio aos alunos no espaço da Biblioteca."
+    },
+    {
+      "nome": "Verónica Pacheco de Sousa",
+      "iniciais": "VP",
+      "funcao": "Assistente operacional",
       "detalhe": "Atendimento diário e apoio aos alunos no espaço da Biblioteca."
     }
   ]
