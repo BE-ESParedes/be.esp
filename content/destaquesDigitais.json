@@ -6,11 +6,11 @@
       "nota": "Livros para ler no ecrã, de acesso livre e legal.",
       "itens": [
         {
-          "titulo": "",
-          "autor": "",
-          "imagem": "",
-          "alt": "",
-          "url": ""
+          "titulo": "Grandes Contos e Novelas da Língua Portuguesa",
+          "autor": "Organização: Ricardo Lourenço",
+          "imagem": "/imagens/capas/grandes_contos_e_novelas_capa.jpg",
+          "alt": "Uma porta de entrada para dezenas de autores e estilos, ideal para descobrir que a literatura em português também cabe em leituras breves.",
+          "url": "https://projectoadamastor.org/grandes-contos-e-novelas-da-lingua-portuguesa/"
         },
         {
           "titulo": "",
