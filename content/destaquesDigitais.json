@@ -27,25 +27,25 @@
           "url": "https://projectoadamastor.org/dom-casmurro-machado-de-assis/"
         },
         {
-          "titulo": "",
-          "autor": "",
-          "imagem": "",
-          "alt": "",
-          "url": ""
+          "titulo": "Hamlet",
+          "autor": "William Shakespeare; tradução de D. Luís I",
+          "imagem": "/imagens/capas/Hamlet-Capa.jpg",
+          "alt": "“Ser ou não ser” é apenas o começo de uma tragédia sobre escolhas, consciência e poder que continua a gerar perguntas difíceis.",
+          "url": "https://projectoadamastor.org/hamlet-william-shakespeare/"
         },
         {
-          "titulo": "",
-          "autor": "",
-          "imagem": "",
-          "alt": "",
-          "url": ""
+          "titulo": "O Mandarim",
+          "autor": "Eça de Queirós",
+          "imagem": "/imagens/capas/O-Mandarim-Capa-1.jpg",
+          "alt": "Um pacto impossível transforma uma escolha aparentemente fácil num divertido e inquietante teste à consciência do leitor.",
+          "url": "https://projectoadamastor.org/o-mandarim-eca-de-queiros/"
         },
         {
-          "titulo": "",
-          "autor": "",
-          "imagem": "",
-          "alt": "",
-          "url": ""
+          "titulo": "As Minas de Salomão",
+          "autor": "H. Rider Haggard; tradução de Eça de Queirós",
+          "imagem": "/imagens/capas/As-Minas-de-Salomão-Capa.jpg",
+          "alt": "Mapas, perigos, amizade e tesouros fazem desta aventura clássica uma excelente escolha para reacender o gosto por virar a página.",
+          "url": "https://projectoadamastor.org/as-minas-de-salomao-h-rider-haggard/"
         }
       ]
     },
