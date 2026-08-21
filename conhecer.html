@@ -246,17 +246,40 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
   .bpilar:hover .im img{transform:none}
 }
 /* ---- galeria do espaço ---- */
-.bgal:has(#galeria:empty){display:none}
+.bgal:has(+ .bgaleria:empty){display:none}
+.bgal-topo{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
+  margin:var(--e-6) 0 var(--e-3)}
+.bgal-nav{display:flex;gap:8px;flex:none}
+.bgal-nav button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
+  background:transparent;color:#fff;cursor:pointer;font-size:19px;line-height:1;
+  display:grid;place-items:center;transition:transform var(--mov) var(--curva),
+  background var(--mov-rapido),border-color var(--mov-rapido)}
+.bgal-nav button:hover:not([disabled]){background:rgba(255,255,255,.14);
+  border-color:rgba(255,255,255,.6);transform:rotate(-12deg) scale(1.06)}
+.bgal-nav button[disabled]{opacity:.28;cursor:default}
 .bgal-tit{font-size:17px;font-weight:800;color:var(--tinta);margin:34px 0 14px;letter-spacing:-.015em}
-.bgaleria{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.bgaleria .media{position:relative;aspect-ratio:4/3;border-radius:var(--r-bloco-b,16px);
-  overflow:hidden;background:var(--areia);border:1px solid var(--linha)}
-.bgaleria .media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
-.bgaleria .media:hover img{transform:scale(1.04)}
-.bgaleria .media .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;gap:8px;color:var(--cinza);font-size:13px;text-align:center;padding:14px}
-@media(max-width:900px){.bgaleria{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.bgaleria{grid-template-columns:1fr}}
+/* Carrossel a toda a largura. Ocupa o ecrã na horizontal mas NÃO prende o
+   scroll vertical: quem desce, continua a descer. */
+.bgaleria{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;padding:0 max(20px,calc((100vw - 1180px) / 2)) var(--e-3);
+  scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.bgaleria::-webkit-scrollbar{display:none}
+.bgaleria:focus-visible{outline:3px solid var(--dourado);outline-offset:4px}
+.bgfoto{flex:0 0 min(62vw,720px);margin:0;scroll-snap-align:center;position:relative;
+  border-radius:var(--r-bloco-b,16px);overflow:hidden;background:rgba(255,255,255,.06)}
+.bgfoto img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;
+  transition:transform var(--mov-lento) var(--curva)}
+.bgfoto:hover img{transform:scale(1.03)}
+.bgfoto figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 22px 18px;
+  font-size:14.5px;font-weight:600;color:#fff;
+  background:linear-gradient(180deg,rgba(20,22,21,0),rgba(20,22,21,.82))}
+.bgfoto .ph{display:grid;place-items:center;aspect-ratio:4/3;color:rgba(255,255,255,.5)}
+@media(max-width:760px){.bgfoto{flex:0 0 84vw}}
+@media(prefers-reduced-motion:reduce){
+  .bgaleria{scroll-behavior:auto;scroll-snap-type:none}
+  .bgfoto:hover img{transform:none}
+  .bgal-nav button:hover{transform:none}
+}
 
 </style>
 </head>
@@ -320,9 +343,17 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
            agosto de 2026 não tinham onde aparecer: o contentor tinha-se
            perdido numa remodelação anterior das páginas. -->
       <div class="bgal">
-        <h3 class="bgal-tit">A Biblioteca por dentro</h3>
-        <div class="bgaleria" id="galeria"></div>
+        <div class="bgal-topo">
+          <h3 class="bgal-tit">A Biblioteca por dentro</h3>
+          <div class="bgal-nav" id="galeria-nav"></div>
+        </div>
       </div>
+    </div>
+    <!-- A galeria sai da grelha e ocupa toda a largura: é a fotografia que
+         dá a sensação de lugar, e dentro da coluna de texto não a dava. -->
+    <div class="bgaleria" id="galeria" tabindex="0" role="group"
+         aria-label="Fotografias da Biblioteca"></div>
+    <div class="bwrap">
     </div>
   </section>
 

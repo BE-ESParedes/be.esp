@@ -731,8 +731,9 @@ a.mpub-item:hover{background:var(--menta-wash,#E8F2EF);color:inherit}
    ─────────────────────────────────────────────────────────────────────
    CONCEITO. Uma biblioteca não é um monte de livros: é um sítio onde cada
    livro tem um lugar, e é essa ordem que torna a descoberta possível. A
-   COTA é o alfabeto próprio desta casa — 821.134.1 QUE mai diz o assunto,
-   o autor e o título. O site passa a falar essa língua.
+   COTA é o alfabeto próprio desta casa — 82-3 SAR/ENS (v.2) diz o assunto,
+   o autor, o título e o volume, na forma que o ANX-CDU-01 fixa. O site passa
+   a falar essa língua.
 
    O QUE ESTE BLOCO ACRESCENTA (é aditivo: nada do que existia foi tocado)
      · escala tipográfica fluida, para os títulos poderem ser monumentais
@@ -818,9 +819,13 @@ a.mpub-item:hover{background:var(--menta-wash,#E8F2EF);color:inherit}
 .estante{display:flex;width:100%;height:clamp(148px,20vw,232px);border-radius:var(--r-bloco);
   overflow:hidden;border:1px solid var(--linha);background:var(--areia)}
 .estante-c{position:relative;display:flex;flex-direction:column;justify-content:flex-end;
-  padding:14px 12px;min-width:34px;background:var(--branco);cursor:default;
+  flex:var(--g,1) 1 0;padding:14px 12px;min-width:34px;background:var(--branco);
   border-right:1px solid var(--linha);overflow:hidden;
-  transition:flex-grow var(--mov) var(--curva),background var(--mov-rapido)}
+  transition:flex-grow var(--mov-lento) var(--curva),background var(--mov-rapido)}
+/* Ao apontar, a classe abre-se e mostra o que tem: é a forma de percorrer a
+   coleção sem sair da página. Cresce meia barra, o suficiente para o número
+   monumental caber sem esmagar as vizinhas. */
+.estante-c:hover,.estante-c:focus-visible{flex-grow:calc(var(--g,1) + .55)}
 .estante-c:last-child{border-right:0}
 .estante-c::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;
   background:var(--c,var(--menta-media));transition:height var(--mov) var(--curva)}
@@ -828,7 +833,7 @@ a.mpub-item:hover{background:var(--menta-wash,#E8F2EF);color:inherit}
 .estante-c:hover::before,.estante-c:focus-visible::before{height:9px}
 .estante-c .n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:clamp(20px,2.4vw,34px);
   font-weight:700;color:var(--tinta);line-height:1;letter-spacing:-.02em}
-.estante-c .d{font-size:12px;color:var(--cinza);line-height:1.32;margin-top:6px;
+.estante-c .d{flex:none;font-size:12px;color:var(--cinza);line-height:1.32;margin-top:6px;
   max-height:0;opacity:0;overflow:hidden;transition:max-height var(--mov) var(--curva),opacity var(--mov)}
 .estante-c:hover .d,.estante-c:focus-visible .d{max-height:64px;opacity:1}
 /* Blocos com largura suficiente dizem o nome sem ser preciso apontar. */
@@ -1077,3 +1082,133 @@ a.rec:hover .rec-capa img{transform:scale(1.05) rotate(-.6deg)}
 /* Componentes que pintam o seu próprio chão de areia herdam o cinzento
    legível, senão ficam nos 4,38:1 do #707070 sobre areia. */
 .cvideo,.cvideo .espera,.vhoje,.vfaixa,.aficha{--cinza:var(--cinza-legivel)}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   O CARTÃO COMO LIVRO
+   ─────────────────────────────────────────────────────────────────────
+   O cartão deixa de ser um retângulo digital e passa a ter as marcas de um
+   livro na estante: uma LOMBADA de cor à esquerda (uma por formato), a capa
+   com sombra projetada em vez de difusa, e um ligeiro sair-para-fora quando
+   se aponta — o gesto de tirar um livro da prateleira.
+
+   A sombra dura fica só nas CAPAS, que são objetos-livro. Aplicada a todos
+   os cartões dava aspeto de autocolante e matava a montra editorial.
+   ═══════════════════════════════════════════════════════════════════════ */
+.rec{padding-left:5px;background:
+  linear-gradient(90deg,var(--lombada,var(--menta)) 0 5px,var(--branco,#fff) 5px)}
+.rec-capa{border-radius:0}
+
+/* A capa ganha peso: sombra projetada com aresta, como um volume pousado. */
+.rec-capa img{box-shadow:none}
+.montra .rec-lider .rec-capa img{
+  box-shadow:-3px 3px 0 rgba(43,43,43,.16),-7px 7px 0 rgba(43,43,43,.07),
+             0 10px 22px rgba(43,43,43,.18)}
+
+/* Ao apontar, o livro sai e inclina-se. Só o cartão inteiro se move — a
+   capa por dentro não roda, senão o texto acompanha e fica tonto. */
+a.rec:hover{transform:translateY(-6px) rotate(-.35deg)}
+a.rec:hover .rec-capa img{transform:scale(1.04)}
+
+/* A etiqueta de formato passa a marcador: um triângulo dobrado no canto,
+   como a fita que se deixa entre páginas. */
+.rec-formato{border-radius:0 0 8px 0;top:0;left:0;padding:6px 12px 6px 9px;
+  box-shadow:0 2px 8px rgba(43,43,43,.16)}
+
+/* Na prateleira, a sombra projetada substitui a difusa. */
+.prat-l{box-shadow:-3px 4px 0 rgba(43,43,43,.13),-8px 10px 22px rgba(43,43,43,.20)}
+.prat-l:hover,.prat-l:focus-visible{
+  box-shadow:-4px 6px 0 rgba(43,43,43,.16),-12px 18px 34px rgba(43,43,43,.28)}
+.prat-l:focus-visible{box-shadow:-4px 6px 0 rgba(43,43,43,.16),
+  -12px 18px 34px rgba(43,43,43,.28),0 0 0 3px var(--menta-txt)}
+
+/* Legenda das lombadas, para a cor não ser um enigma. */
+.lombadas{display:flex;flex-wrap:wrap;gap:14px;margin-top:var(--e-3);
+  font-size:var(--t-micro);color:var(--cinza)}
+.lombadas span{display:inline-flex;align-items:center;gap:6px}
+.lombadas i{width:4px;height:14px;border-radius:2px;background:var(--c);flex:none}
+
+@media(prefers-reduced-motion:reduce){
+  a.rec:hover{transform:none}
+  a.rec:hover .rec-capa img{transform:none}
+}
+@media(hover:none){a.rec:hover{transform:none}}
+
+/* ═══ A ESTANTE COMO MOMENTO ISOLADO ═══
+   Deixa de estar encaixada numa secção normal: ocupa quase o ecrã inteiro,
+   e ao apontar uma classe o número de livros aparece em escala monumental.
+   Não são 100vh — num portátil de 768 px isso fecha o utilizador lá dentro. */
+#colecao{min-height:78vh;display:flex;align-items:center}
+#colecao>.wrap{width:100%}
+#colecao .estante{height:clamp(200px,34vh,340px)}
+/* O número monumental é item de fluxo, não posicionado por cima: em
+   absoluto sobrepunha-se ao número da classe e à designação. Assim abre
+   espaço a si próprio e nada colide. */
+/* O número monumental vive no TOPO do bloco, que está vazio — o conteúdo
+   normal está alinhado em baixo. Assim não colide com nada e não precisa de
+   abrir espaço a si próprio, que era o que o deixava cortado.
+   O bloco também abre a uma largura mínima: as classes estreitas cresciam
+   para 67 px e o número não cabia lá de nenhuma maneira. */
+.estante-c:hover,.estante-c:focus-visible{min-width:min(210px,42vw)}
+.estante-c .q-grande{position:absolute;top:14px;left:12px;right:12px;
+  font-size:clamp(26px,3.2vw,46px);font-weight:800;letter-spacing:-.03em;
+  line-height:1.1;color:#fff;white-space:nowrap;
+  opacity:0;transform:translateY(-6px);pointer-events:none;
+  transition:opacity var(--mov) var(--curva),transform var(--mov) var(--curva)}
+.estante-c:hover .q-grande,.estante-c:focus-visible .q-grande{opacity:1;transform:none}
+.estante-c .q-grande::after{content:" exemplares";font-size:.30em;font-weight:600;
+  letter-spacing:.04em;color:rgba(255,255,255,.6);display:block;margin-top:2px}
+.estante-c .cor-nome{font-size:10.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--c);opacity:0;max-height:0;overflow:hidden;
+  transition:opacity var(--mov) var(--curva),max-height var(--mov) var(--curva)}
+.estante-c:hover .cor-nome,.estante-c:focus-visible .cor-nome{opacity:1;max-height:18px;margin-top:3px}
+/* Enquanto uma classe está aberta, o número pequeno sai da frente. */
+.estante-c:hover .q,.estante-c:focus-visible .q{opacity:0}
+.estante-c .q{transition:opacity var(--mov-rapido)}
+.estante-c:hover .n,.estante-c:focus-visible .n{opacity:.55}
+/* A divisa, na margem. */
+.col-divisa{font-size:var(--t-3);font-weight:300;letter-spacing:-.015em;
+  color:rgba(255,255,255,.42);margin:var(--e-4) 0 0;font-style:italic}
+@media(max-width:620px){
+  #colecao{min-height:auto}
+  #colecao .estante{height:auto}
+  .estante-c .q-grande{display:none}
+  .estante-c .cor-nome{opacity:1;max-height:none;margin-top:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .estante-c:hover,.estante-c:focus-visible{flex-grow:var(--g,1)}
+  .estante-c .q-grande{display:none}
+  .estante-c:hover .q{opacity:1}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   A MARGEM VIVA
+   Uma barra por secção, na margem esquerda. Preenche-se ao descer e diz o
+   nome ao aproximar. É navegação a sério: são ligações, respondem ao
+   teclado e têm nome acessível. Só existe onde há margem a sobrar.
+   ═══════════════════════════════════════════════════════════════════════ */
+.margem{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:40;
+  pointer-events:none;width:14px}
+.margem ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.margem a{position:relative;display:flex;align-items:center;text-decoration:none;
+  pointer-events:auto;background:none;padding:2px 0}
+.margem .tr{display:block;width:3px;height:22px;border-radius:2px;flex:none;
+  background:var(--linha);transition:background var(--mov) var(--curva),
+  height var(--mov) var(--curva)}
+.margem a[aria-current="true"] .tr{background:var(--dourado);height:34px}
+.margem a:hover .tr,.margem a:focus-visible .tr{background:var(--menta-media)}
+/* O rótulo é posicionado: em fluxo, alargava a barra lateral e esta
+   sobrepunha-se à coluna de texto, mesmo estando invisível. */
+.margem .rot{position:absolute;left:14px;top:50%;margin-top:-13px;
+  font-size:11.5px;font-weight:700;letter-spacing:.02em;color:var(--tinta);
+  white-space:nowrap;background:var(--branco);border:1px solid var(--linha);
+  border-radius:50px;padding:5px 12px;opacity:0;transform:translateX(-6px);
+  pointer-events:none;box-shadow:0 4px 14px rgba(43,43,43,.10);
+  transition:opacity var(--mov) var(--curva),transform var(--mov) var(--curva)}
+.margem a:hover .rot,.margem a:focus-visible .rot{opacity:1;transform:none}
+/* Sobre chão escuro a barra inverte-se, senão desaparecia. */
+.margem.sobre-escuro .tr{background:rgba(255,255,255,.28)}
+.margem.sobre-escuro a[aria-current="true"] .tr{background:var(--dourado)}
+@media(max-width:1180px){.margem{display:none}}
+@media(prefers-reduced-motion:reduce){
+  .margem .tr,.margem .rot{transition:none}
+}

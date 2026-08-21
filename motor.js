@@ -151,15 +151,18 @@ async function carregarConteudo() {
      porque (a frase editorial) · fonte · cta · url
      destaque · destaqueHome
    ═══════════════════════════════════════════════════════════════ */
+/* Cada formato tem a sua LOMBADA: a faixa de cor à esquerda do cartão, como
+   a lombada de um livro na estante. Todas saem da paleta v2.0 — não há cores
+   novas, só usos diferentes das que já existem. */
 const FORMATOS = {
-  sugestoesLeitura: { rotulo: 'Livro',            icone: 'livro' },
-  livrosDigitais:   { rotulo: 'Livro digital',    icone: 'monitor' },
-  audiolivros:      { rotulo: 'Audiolivro',       icone: 'auscultador' },
-  podcasts:         { rotulo: 'Podcast',          icone: 'microfone' },
-  videos:           { rotulo: 'Vídeo',            icone: 'camara' },
-  leituraAcessivel: { rotulo: 'Leitura acessível', icone: 'maos' },
-  bibliotecaDigital:{ rotulo: 'Plataforma',       icone: 'globo' },
-  galeriaAlunos:    { rotulo: 'Feito por alunos', icone: 'estrela' },
+  sugestoesLeitura: { rotulo: 'Livro',             icone: 'livro',       lombada: 'var(--menta)' },
+  livrosDigitais:   { rotulo: 'Livro digital',     icone: 'monitor',     lombada: 'var(--dourado)' },
+  audiolivros:      { rotulo: 'Audiolivro',        icone: 'auscultador', lombada: 'var(--menta-media)' },
+  podcasts:         { rotulo: 'Podcast',           icone: 'microfone',   lombada: 'var(--dourado-txt)' },
+  videos:           { rotulo: 'Vídeo',             icone: 'camara',      lombada: 'var(--cinza)' },
+  leituraAcessivel: { rotulo: 'Leitura acessível', icone: 'maos',        lombada: 'var(--menta-txt)' },
+  bibliotecaDigital:{ rotulo: 'Plataforma',        icone: 'globo',       lombada: 'var(--dourado-linha)' },
+  galeriaAlunos:    { rotulo: 'Feito por alunos',  icone: 'estrela',     lombada: 'var(--menta)' },
 };
 window.FORMATOS = FORMATOS;
 
@@ -193,9 +196,10 @@ function cartaoRecurso(x, opcoes = {}) {
         ${temTexto(x.url) ? `<span class="rec-cta">${esc(x.cta || 'Abrir')} &rarr;</span>` : ''}
       </span>
     </span>`;
+  const lombada = fmt ? ` style="--lombada:${fmt.lombada}"` : '';
   return temTexto(x.url)
-    ? `<a class="rec" ${linkAttrs(x.url)}>${dentro}</a>`
-    : `<div class="rec">${dentro}</div>`;
+    ? `<a class="rec"${lombada} ${linkAttrs(x.url)}>${dentro}</a>`
+    : `<div class="rec"${lombada}>${dentro}</div>`;
 }
 window.cartaoRecurso = cartaoRecurso;
 
@@ -380,12 +384,16 @@ function renderEstante(idAlvo) {
     /* Um bloco com espaço mostra o nome da classe sempre; um estreito só o
        revela ao aproximar. Em repouso, os números sozinhos não diziam nada. */
     const larga = parte > 0.07 ? ' larga' : '';
-    return `<div class="estante-c${larga}" style="flex:${parte.toFixed(4)} 1 0;--c:${esc(x.cor || '#7FB8A8')}"
+    /* A proporção vai numa variável, e não no atributo flex: assim o CSS
+       pode fazê-la crescer ao apontar sem lutar com o estilo em linha. */
+    return `<div class="estante-c${larga}" style="--g:${parte.toFixed(4)};--c:${esc(x.cor || '#7FB8A8')}"
                  tabindex="0" role="group"
                  aria-label="${esc(x.classe)} ${esc(x.designacao)}, ${esc(x.nomeCor || '')}: ${esc(x.exemplares)} exemplares">
       <span class="n">${esc(x.classe)}</span>
       <span class="d">${esc(x.designacao)}</span>
       <span class="q">${Number(x.exemplares).toLocaleString('pt-PT')}</span>
+      <span class="q-grande" aria-hidden="true">${Number(x.exemplares).toLocaleString('pt-PT')}</span>
+      <span class="cor-nome" aria-hidden="true">${esc(x.nomeCor || '')}</span>
     </div>`;
   }).join('');
   const pe = document.getElementById(idAlvo + '-pe');
@@ -412,6 +420,55 @@ function renderPrateleira(idAlvo, itens, limite) {
   return lista.length;
 }
 window.renderPrateleira = renderPrateleira;
+
+/* ── a margem viva ────────────────────────────────────────────────────
+   Na margem esquerda, uma barra por secção da página: preenche-se à medida
+   que se desce e diz o nome ao passar por cima. Não é decoração — é
+   navegação, e responde ao teclado como qualquer lista de ligações.
+
+   Não leva números de página nem citações: seriam informação inventada num
+   site que tem por regra não inventar nada.
+
+   Só aparece em ecrãs largos, onde há margem a sobrar. */
+function ligarMargem() {
+  if (matchMedia('(max-width:1180px)').matches) return;
+  const secs = $$('main > section[id], main > header[id]').filter(s => {
+    const h = s.querySelector('h1,h2');
+    return h && h.textContent.trim() && !s.hasAttribute('hidden');
+  });
+  if (secs.length < 3) return;
+
+  const nav = document.createElement('nav');
+  nav.className = 'margem';
+  nav.setAttribute('aria-label', 'Secções desta página');
+  nav.innerHTML = `<ol>${secs.map(s => {
+    const t = (s.querySelector('h1,h2').textContent || '').trim().replace(/\s+/g, ' ');
+    return `<li><a href="#${esc(s.id)}"><span class="tr"></span><span class="rot">${esc(t)}</span></a></li>`;
+  }).join('')}</ol>`;
+  document.body.appendChild(nav);
+
+  const marcas = $$('a', nav);
+  /* Assinala a secção em que estamos. O observador dá a que ocupa mais
+     ecrã; sem ele, nada acontece e a margem fica só como índice. */
+  if ('IntersectionObserver' in window) {
+    const vis = new Map();
+    const obs = new IntersectionObserver(es => {
+      for (const e of es) vis.set(e.target, e.intersectionRatio);
+      let melhor = null, r = 0;
+      for (const [el, v] of vis) if (v > r) { r = v; melhor = el; }
+      marcas.forEach((a, i) => a.setAttribute('aria-current',
+        secs[i] === melhor ? 'true' : 'false'));
+    }, { threshold: [0, .12, .3, .55, .8, 1] });
+    secs.forEach(s => obs.observe(s));
+  }
+  /* Estado inicial: sem isto, quem chega ao topo não vê secção nenhuma
+     assinalada até começar a descer. */
+  setTimeout(() => {
+    if (marcas.some(a => a.getAttribute('aria-current') === 'true')) return;
+    marcas.forEach((a, i) => a.setAttribute('aria-current', i === 0 ? 'true' : 'false'));
+  }, 400);
+}
+window.ligarMargem = ligarMargem;
 
 /* ---------- páginas e subsecções ---------- */
 /* A navegação segue o que o utilizador quer FAZER, e não o tipo de conteúdo
@@ -577,14 +634,45 @@ function renderAgenda() {
 }
 
 /* ---------- galeria e documentos ---------- */
+/* A galeria do espaço: fotografias grandes, a correr na horizontal, com
+   legenda. Desliza-se com o rato, com os botões ou com as setas do teclado —
+   nunca sequestrando o scroll vertical da página, que é o que torna estas
+   galerias insuportáveis no telemóvel. */
 function renderGaleria() {
   const el = $('#galeria'); if (!el) return;
-  el.innerHTML = (CONTEUDO.galeria || []).map(g => {
-    const leg = esc(g.legenda || 'foto');
-    return `<div class="media tile" title="${leg}">${temTexto(g.imagem)
-      ? `<img src="${esc(caminho(g.imagem))}" alt="${esc(g.alt || g.legenda || '')}">`
-      : `<span class="ph">${icone('camara', 24)}${leg}</span>`}</div>`;
+  const fotos = publicados('galeria');
+  if (!fotos.length) return;
+  el.innerHTML = fotos.map((g, i) => {
+    const leg = esc(g.legenda || '');
+    return `<figure class="bgfoto" aria-roledescription="fotografia" aria-label="${i + 1} de ${fotos.length}">
+      ${temTexto(g.imagem)
+        ? `<img src="${esc(caminho(g.imagem))}" alt="${esc(g.alt || g.legenda || '')}" loading="lazy" decoding="async">`
+        : `<span class="ph">${icone('camara', 26)}</span>`}
+      ${leg ? `<figcaption>${leg}</figcaption>` : ''}
+    </figure>`;
   }).join('');
+
+  const nav = $('#galeria-nav');
+  if (!nav) return;
+  nav.innerHTML = `<button type="button" data-d="-1" aria-label="Fotografia anterior">&lsaquo;</button>
+                   <button type="button" data-d="1" aria-label="Fotografia seguinte">&rsaquo;</button>`;
+  const passo = () => Math.max(240, el.clientWidth * .72);
+  const estado = () => {
+    const [a, b] = nav.children;
+    a.disabled = el.scrollLeft <= 2;
+    b.disabled = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+  };
+  nav.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    el.scrollBy({ left: passo() * (+b.dataset.d), behavior: 'smooth' });
+  });
+  el.addEventListener('scroll', estado, { passive: true });
+  el.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    el.scrollBy({ left: passo() * (e.key === 'ArrowRight' ? 1 : -1), behavior: 'smooth' });
+  });
+  estado();
 }
 /* ---------- vídeos ----------
    Basta colar o endereço do YouTube no painel; aqui extrai-se o identificador.
@@ -736,4 +824,5 @@ window.esc = esc; window.temTexto = temTexto; window.linkAttrs = linkAttrs; wind
   aplicarCartoes();
   ligarFormulario();
   ligarRevelacao();
+  ligarMargem();
 })();
