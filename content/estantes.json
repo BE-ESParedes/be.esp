@@ -1,3 +1,85 @@
 {
-  "estantes": []
+  "estantes": [
+    {
+      "classe": "0",
+      "designacao": "Referência e informação",
+      "nomeCor": "castanho",
+      "cor": "#6D4C41",
+      "exemplares": 1459,
+      "oque": "Livro ilustrado para os mais novos · Enciclopédias e obras de referência · Dicionários de português e dicionários gerais",
+      "notacoes": "087.5, 030, 038"
+    },
+    {
+      "classe": "1",
+      "designacao": "Filosofia e psicologia",
+      "nomeCor": "lilás",
+      "cor": "#B39DDB",
+      "exemplares": 815,
+      "oque": "Filosofia · Psicologia · Ética e moral",
+      "notacoes": "1, 159.9, 17"
+    },
+    {
+      "classe": "2",
+      "designacao": "Religião",
+      "nomeCor": "vermelho",
+      "cor": "#D32F2F",
+      "exemplares": 115,
+      "oque": "Religião e teologia · Religiões não cristãs e mitologia",
+      "notacoes": "2, 29"
+    },
+    {
+      "classe": "3",
+      "designacao": "Sociedade, educação e direito",
+      "nomeCor": "amarelo",
+      "cor": "#FDD835",
+      "exemplares": 1299,
+      "oque": "Educação e ensino · Sociologia · Política",
+      "notacoes": "37, 316, 32"
+    },
+    {
+      "classe": "5",
+      "designacao": "Ciências exatas e naturais",
+      "nomeCor": "verde",
+      "cor": "#388E3C",
+      "exemplares": 777,
+      "oque": "Matemática · Ciências naturais e exatas · Matemática. Manuais escolares",
+      "notacoes": "51, 5, 51(07)"
+    },
+    {
+      "classe": "6",
+      "designacao": "Ciências aplicadas",
+      "nomeCor": "azul",
+      "cor": "#1976D2",
+      "exemplares": 294,
+      "oque": "Medicina e saúde · Gestão e organização · Higiene e saúde individual",
+      "notacoes": "61, 65, 613"
+    },
+    {
+      "classe": "7",
+      "designacao": "Arte, espetáculo e desporto",
+      "nomeCor": "rosa",
+      "cor": "#EC407A",
+      "exemplares": 1187,
+      "oque": "Cinema e videogramas · Arte · Espetáculo e teatro",
+      "notacoes": "791, 7, 79"
+    },
+    {
+      "classe": "8",
+      "designacao": "Língua e literatura",
+      "nomeCor": "amarelo acastanhado",
+      "cor": "#C9A227",
+      "exemplares": 10341,
+      "oque": "Ficção e narrativa estrangeira traduzida · Literatura infantojuvenil · Ficção e narrativa portuguesa",
+      "notacoes": "82-3, 82-93, 821-3"
+    },
+    {
+      "classe": "9",
+      "designacao": "História e geografia",
+      "nomeCor": "roxo",
+      "cor": "#7B1FA2",
+      "exemplares": 1988,
+      "oque": "História de Portugal · História geral e por períodos · Biografias",
+      "notacoes": "94(469), 94, 929"
+    }
+  ]
 }

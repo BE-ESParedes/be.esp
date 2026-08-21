@@ -100,11 +100,11 @@
       "titulo": "Como leio uma cota e encontro o livro na estante?",
       "categoria": "Biblioteca",
       "icone": "local",
-      "resumo": "Números primeiro, letras depois. É tudo o que precisas de saber.",
-      "corpo": "Uma cota como **821.134.1 QUE mai** tem três partes.\n\n**Os números** dizem o assunto — 821.134.1 é literatura portuguesa. São a classificação CDU, a mesma em quase todas as bibliotecas do país.\n\n**As três primeiras letras** são o apelido do autor: QUE de Queirós.\n\n**As últimas** são o título: mai de *Os Maias*.\n\nNa estante segue os **números por ordem crescente** e, dentro do mesmo número, as **letras por ordem alfabética**. Cada área tem uma cor na sinalética.\n\nSe não encontrares, pergunta no balcão — encontramos contigo, e é assim que se aprende.",
+      "resumo": "Notação, apelido, título. Três pedaços e uma barra — e sabes onde procurar.",
+      "corpo": "Uma cota como **82-3 SAR/ENS (v.2)** tem quatro pedaços, sempre por esta ordem.\n\n**A notação** diz o assunto. 82-3 é ficção e narrativa estrangeira traduzida. É a Classificação Decimal Universal, na tabela simplificada da Biblioteca — 102 notações agrupadas em nove classes, e cada classe tem uma cor na sinalética.\n\n**Três letras em maiúsculas**, a seguir a um espaço: o apelido do autor. SAR de Saramago.\n\n**Barra e mais três letras:** a primeira palavra significativa do título, ignorando o artigo. ENS de *Ensaio sobre a Cegueira*.\n\n**Entre parênteses**, quando existe: o volume ou tomo. (v.2).\n\nNa estante segue os **números por ordem crescente** e, dentro do mesmo número, as **letras por ordem alfabética**. Se não encontrares, pergunta no balcão — encontramos contigo, e é assim que se aprende.",
       "recursos": [
         {
-          "titulo": "Como estão organizadas as estantes",
+          "titulo": "Ver as nove classes e as suas cores",
           "url": "encontrar.html#estantes"
         },
         {

@@ -145,28 +145,6 @@ collections:
 
               - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
               - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
-      - name: colecao
-        label: A coleção em números
-        file: content/colecao.json
-        description: 'Os números que desenham a estante da página inicial. Saem da tabela de cotas da Biblioteca; quando a coleção crescer, corrigem-se aqui.'
-        fields:
-          - name: colecao
-            label: A coleção
-            widget: object
-            fields:
-              - { name: nota, label: Nota de rodapé, widget: string, required: false, hint: 'Ex.: Contagem de 1 de agosto de 2026, da tabela de cotas da Biblioteca.' }
-              - { name: atualizado, label: Data da contagem, widget: string, required: false }
-              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho, a estante desaparece da página inicial.' }
-              - name: classes
-                label: Classes da CDU
-                widget: list
-                label_singular: classe
-                summary: '{{fields.classe}} — {{fields.designacao}} ({{fields.exemplares}})'
-                fields:
-                  - { name: classe, label: Número da classe, widget: string, required: true, hint: 'De 0 a 9.' }
-                  - { name: designacao, label: Designação, widget: string, required: true }
-                  - { name: exemplares, label: Exemplares, widget: number, required: true, value_type: int }
-
       - name: escolhas
         label: Escolhas da Biblioteca (por público)
         file: content/escolhas.json
@@ -1128,6 +1106,12 @@ collections:
               - { name: designacao, label: Designação, widget: string, required: true }
               - { name: cor, label: Cor da classe, widget: string, required: false, hint: 'Código como #388E3C, igual ao da sinalética.' }
               - { name: onde, label: Onde fica na Biblioteca, widget: string, required: false }
+              - { name: nomeCor, label: Nome da cor, widget: string, required: false, hint: 'Como se diz na sinalética: castanho, lilás, vermelho, amarelo, verde, azul, rosa, amarelo acastanhado, roxo.' }
+              - { name: oque, label: O que lá está, widget: string, required: false, hint: 'As matérias mais representadas, separadas por · — ajuda quem não sabe o que é «Classe 3».' }
+              - { name: exemplares, label: Exemplares, widget: number, required: false, value_type: int, hint: 'Desenha a largura do bloco na estante da página inicial.' }
+              - { name: notacoes, label: Notações principais, widget: string, required: false }
+              - { name: ordem, label: Posição, widget: number, required: false, value_type: int }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho] }
 
       - name: areaTrabalho
         label: Ligações da equipa

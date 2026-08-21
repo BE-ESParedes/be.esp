@@ -29,13 +29,13 @@
 #p-encontrar main{background:var(--papel)}
 
 /* ---- estrutura ---- */
-.csec{padding:44px 0}
+.csec{padding:var(--e-7) 0}
 .csec.alt{background:var(--areia)}
 .cwrap{max-width:1180px;margin:0 auto;padding:0 20px}
-.cfilete{width:56px;height:4px;background:var(--dourado);border-radius:2px;margin:0 0 14px}
-.ctit{font-size:clamp(24px,2.6vw,30px);font-weight:800;letter-spacing:-.02em;
+.cfilete{width:44px;height:5px;background:var(--dourado);border-radius:2px;margin:0 0 14px}
+.ctit{font-size:var(--t-2);font-weight:800;letter-spacing:var(--tr-2);
   color:var(--tinta);margin:0 0 6px}
-.clead{color:var(--cinza);font-size:15.5px;margin:0 0 24px;max-width:70ch;line-height:1.6}
+.clead{color:var(--cinza);font-size:16.5px;margin:0 0 var(--e-4);max-width:52ch;line-height:1.6}
 
 /* ═══ 1 · CABEÇALHO A TODA A LARGURA ═══ */
 .chero{position:relative;min-height:clamp(400px,50vh,480px);display:flex;align-items:center;
@@ -478,12 +478,21 @@ window.renderPagina = function(){
      sinalética física. Enquanto não houver conteúdo, mostra-se o convite. */
   const est = document.getElementById('estantes-lista');
   const estVazio = document.getElementById('estantes-vazio');
-  const estantes = CONTEUDO.estantes || [];
+  const estantes = publicados('estantes');
+  /* As cores são as da sinalética física, tal como estão no ANX-CDU-01:
+     castanho, lilás, vermelho, amarelo, verde, azul, rosa, amarelo
+     acastanhado e roxo. Quem procura na estante procura a cor primeiro. */
   if (est) est.innerHTML = estantes.map(e =>
-    `<div class="cestante">
-       <span class="cor" style="background:${esc(e.cor||'#707070')}"></span>
+    `<div class="cestante" style="--c:${esc(e.cor||'#707070')}">
+       <span class="cor"></span>
        <span class="num">${esc(e.classe||'')}</span>
-       <span><b>${esc(e.designacao||'')}</b><span>${esc(e.onde||'')}</span></span>
+       <span class="tx">
+         <b>${esc(e.designacao||'')}</b>
+         <span class="oque">${esc(e.oque || e.onde || '')}</span>
+       </span>
+       <span class="quanto"><b>${Number(e.exemplares||0).toLocaleString('pt-PT')}</b>
+         <span>${(+e.exemplares===1?'exemplar':'exemplares')}</span></span>
+       <span class="etiq">${esc(e.nomeCor||'')}</span>
      </div>`).join('');
   if (estVazio && !estantes.length) estVazio.hidden = false;
 
@@ -538,13 +547,15 @@ window.renderPagina = function(){
   let ultimoFoco = null;
   function abrir(){
     ultimoFoco = document.activeElement;
-    document.getElementById('modal-t').textContent = 'Maias, Os';
-    document.getElementById('modal-a').textContent = 'Eça de Queirós · resultado de exemplo';
-    document.getElementById('modal-c').textContent = i.cotaExemplo || '821.134.1 QUE mai';
+    document.getElementById('modal-t').textContent = 'Ensaio sobre a Cegueira';
+    document.getElementById('modal-a').textContent = 'José Saramago · resultado de exemplo';
+    document.getElementById('modal-c').textContent = i.cotaExemplo || '82-3 SAR/ENS (v.2)';
     document.getElementById('modal-o').textContent =
-      'Sala de leitura, estante 4, prateleira do meio. Os três primeiros números dizem-te a '
-      + 'secção (821.134.1 é literatura portuguesa), as três letras seguintes são o apelido do '
-      + 'autor e as últimas o título. Segue os números por ordem crescente e depois as letras.';
+      'A notação diz-te o assunto — 82-3 é ficção estrangeira traduzida, e essa classe tem '
+      + 'a sua cor na sinalética. As três letras a seguir são o apelido do autor (SAR de '
+      + 'Saramago) e, depois da barra, as três primeiras do título (ENS de Ensaio sobre a '
+      + 'Cegueira). O que está entre parênteses é o volume. Na estante segue os números por '
+      + 'ordem crescente e, dentro do mesmo número, as letras por ordem alfabética.';
     const bt = document.getElementById('modal-bt');
     if (i.opacSimples) bt.href = i.opacSimples; else bt.style.display = 'none';
     modal.hidden = false;

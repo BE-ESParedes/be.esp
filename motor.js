@@ -102,7 +102,7 @@ const FICHEIROS = [
   /* área LER — formatos de leitura (podem estar vazios até haver curadoria) */
   'livrosDigitais', 'audiolivros', 'podcasts', 'leituraAcessivel',
   /* camada editorial: montras por público, descoberta da semana e explicações */
-  'escolhas', 'semana', 'explica', 'colecao',
+  'escolhas', 'semana', 'explica',
   /* área ENCONTRAR — organização física do fundo */
   'estantes',
   /* área APRENDER — ferramentas, separadas das fontes */
@@ -353,8 +353,10 @@ window.cota = cota;
    desatualizados, corrige-se lá, não aqui. */
 function renderEstante(idAlvo) {
   const el = document.getElementById(idAlvo); if (!el) return 0;
-  const c = CONTEUDO.colecao || {};
-  const classes = (c.classes || []).filter(x => x && +x.exemplares > 0);
+  /* Fonte única: as MESMAS classes que a página Encontrar mostra em lista,
+     com as MESMAS cores da sinalética física. Ter dois ficheiros com os
+     mesmos números era garantir que um deles envelhecia. */
+  const classes = publicados('estantes').filter(x => +x.exemplares > 0);
   if (!classes.length) return 0;
   const total = classes.reduce((s, x) => s + (+x.exemplares || 0), 0);
   el.innerHTML = classes.map(x => {
@@ -362,9 +364,9 @@ function renderEstante(idAlvo) {
     /* Um bloco com espaço mostra o nome da classe sempre; um estreito só o
        revela ao aproximar. Em repouso, os números sozinhos não diziam nada. */
     const larga = parte > 0.07 ? ' larga' : '';
-    return `<div class="estante-c${larga}" style="flex:${parte.toFixed(4)} 1 0"
+    return `<div class="estante-c${larga}" style="flex:${parte.toFixed(4)} 1 0;--c:${esc(x.cor || '#7FB8A8')}"
                  tabindex="0" role="group"
-                 aria-label="${esc(x.classe)} ${esc(x.designacao)}: ${esc(x.exemplares)} exemplares">
+                 aria-label="${esc(x.classe)} ${esc(x.designacao)}, ${esc(x.nomeCor || '')}: ${esc(x.exemplares)} exemplares">
       <span class="n">${esc(x.classe)}</span>
       <span class="d">${esc(x.designacao)}</span>
       <span class="q">${Number(x.exemplares).toLocaleString('pt-PT')}</span>
@@ -372,8 +374,8 @@ function renderEstante(idAlvo) {
   }).join('');
   const pe = document.getElementById(idAlvo + '-pe');
   if (pe) pe.innerHTML =
-    `<span><b>${total.toLocaleString('pt-PT')}</b> exemplares, arrumados por assunto</span>
-     <span>${esc(c.nota || '')}</span>`;
+    `<span><b>${total.toLocaleString('pt-PT')}</b> exemplares, em nove classes, cada uma com a sua cor na estante</span>
+     <span>Contagem da tabela de cotas da Biblioteca.</span>`;
   return classes.length;
 }
 window.renderEstante = renderEstante;
