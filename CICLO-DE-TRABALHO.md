@@ -8,7 +8,7 @@ Editar num sem trazer o outro é a única forma de estragar alguma coisa.
 - Site publicado: <https://be-esparedes.github.io/be.esp/>
 - Painel de edição: <https://be-esparedes.github.io/be.esp/admin/>
 - Repositório: <https://github.com/BE-ESParedes/be.esp>
-- Pasta no computador: `Biblioteca/Digital/Site_BE-ESParedes/site`
+- Pasta no computador: `~/Claude/Projects/Codigo-Web/Site_BE-ESParedes/site`
 
 ## Editar conteúdo — o caminho normal
 

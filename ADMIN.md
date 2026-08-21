@@ -15,7 +15,7 @@ O painel escreve os ficheiros e publica sozinho.
 | Ficheiro | Papel |
 |---|---|
 | `admin/index.html` | A página do painel |
-| `admin/config.yml` | Os formulários de **todos os 24 ficheiros** de `content/` |
+| `admin/config.yml` | Os formulários dos **44 ficheiros** de `content/` |
 | `robots.txt` | Já impede que o painel apareça no Google |
 
 Nada mais é preciso criar. Basta publicar o site como habitualmente.
@@ -84,7 +84,7 @@ Só quem tiver acesso de escrita ao repositório. Para acrescentar alguém:
 ## 3. Como se usa (o dia a dia)
 
 1. Abrir `.../admin/`.
-2. Escolher a secção na barra lateral (ex.: **2 · Notícias, agenda e vídeos**).
+2. Escolher a secção na barra lateral (ex.: **4 · Comunicação**).
 3. Escolher o item (ex.: **Notícias**).
 4. Preencher o formulário. Para acrescentar, **Add notícia**; para remover, o menu do item.
 5. Carregar em **Save** (ou *Publish*).
@@ -110,7 +110,7 @@ Exportar as fotografias **até 300 KB**. O original fica no OneDrive.
 
 Secção **Vídeos**: colar o endereço do YouTube tal como aparece na barra do browser.
 Aceita `youtube.com/watch?v=…`, `youtu.be/…`, `/shorts/…` e `/live/…`.
-O vídeo aparece na página de **Notícias**; enquanto não houver vídeos, a secção não aparece.
+O vídeo aparece em **Ler → Vídeos**; enquanto não houver vídeos, a secção mostra um aviso discreto.
 
 Os vídeos ficam alojados no YouTube (não pesam no site) e são embutidos em modo
 sem cookies (`youtube-nocookie.com`), que só regista o utilizador se ele carregar em «reproduzir».
@@ -119,14 +119,47 @@ sem cookies (`youtube-nocookie.com`), que só regista o utilizador se ele carreg
 
 ## 4. Estrutura do painel
 
+O painel está organizado **pelo tipo de trabalho**, e não pelas páginas do
+site. O site público responde a «o que queres fazer?»; quem edita pergunta
+«o que preciso de atualizar?» — e nem sempre é a mesma arrumação.
+
 | Secção | Contém |
 |---|---|
-| 1 · Página inicial | Banners, Acesso rápido, Números |
-| 2 · Notícias, agenda e vídeos | Notícias, Agenda, Vídeos |
-| 3 · A Biblioteca | Informação e contactos, Regras, Documentos, Galeria, FAQ, Projetos da escola |
-| 4 · Catálogo e recursos | Biblioteca Digital, Sugestões de leitura, Guiões, Disciplinas, Ligações úteis, Desafio do mês |
-| 5 · Atividades e projetos | Projetos, Iniciativas nacionais, Exposições, Trabalhos de alunos |
-| 6 · Área de trabalho | Ligações da equipa, Personalizar cartões |
+| 1 · Página inicial | Banners do topo, Atalhos, Destaques |
+| 2 · Conteúdos para ler e usar | Livros, Livros digitais, Audiolivros, Podcasts, Vídeos, Leitura acessível, Biblioteca digital, Disciplinas, Ligações úteis, Ferramentas, Guiões, Percursos, Literacia digital, Trabalhar com a Biblioteca |
+| 3 · Programação | Agenda, Calendário do ano, Rotina semanal, Temas, Projetos, Iniciativas nacionais, Concursos, Exposições, Trabalhos dos alunos, Arquivo |
+| 4 · Comunicação | Notícias |
+| 5 · A Biblioteca | Informação e contactos, O que fazemos, Zonas, Galeria, Como funciona, FAQ, Equipa, Documentos, Projetos da escola |
+| 6 · Configuração | Catálogo (modos de procura, tutorial, campos), Estantes, Área de trabalho, Cartões |
+
+### Onde encontro o que costumava editar?
+
+| Antes | Agora |
+|---|---|
+| 2 · Notícias, agenda e vídeos | Notícias → **4 · Comunicação**; Agenda → **3 · Programação**; Vídeos → **2 · Conteúdos** |
+| 3 · A Biblioteca | **5 · A Biblioteca** (mesmos formulários) |
+| 4 · Catálogo e recursos | Sugestões, digital e recursos → **2 · Conteúdos**; catálogo → **6 · Configuração** |
+| 5 · Atividades e projetos | **3 · Programação** |
+| 6 · Área de trabalho | **6 · Configuração** |
+
+Nenhum formulário desapareceu e nenhum campo mudou: só se agruparam de
+outra maneira.
+
+### Formulários novos (agosto de 2026)
+
+Estão vazios à espera de curadoria. Enquanto não tiverem conteúdo, a
+secção correspondente do site mostra um aviso discreto em vez de um
+espaço vazio.
+
+- **Livros digitais** — obras completas de acesso livre (ex.: Projeto Adamastor)
+- **Audiolivros** — histórias para ouvir
+- **Podcasts** — conversas sobre livros e ideias
+- **Leitura acessível** — formatos para diferentes formas de ler
+- **Ferramentas** — cada uma explicada: o que é, para que serve, quando usar
+- **Estantes** — as classes da CDU, com a cor e onde ficam
+
+> Nos endereços (URL) escreve-se sempre o endereço real e verificado.
+> Uma ligação inventada é pior do que uma ficha por preencher.
 
 ---
 

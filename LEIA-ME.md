@@ -152,8 +152,10 @@ depender de uma só pessoa. Cada pessoa entra no painel com o seu próprio acess
 ## 9. Estrutura da pasta (referência)
 
 ```
-index.html, biblioteca.html, catalogo.html, recursos.html,
-atividades.html, noticias.html          → as páginas do menu
+index.html, encontrar.html, aprender.html, ler.html,
+participar.html, conhecer.html          → as páginas do menu
+catalogo.html, recursos.html, atividades.html,
+biblioteca.html, noticias.html          → endereços antigos, só reencaminham
 area-trabalho.html                      → página da equipa
 acessibilidade.html, privacidade.html, 404.html
 estilos.css                             → aspeto (identidade visual)
