@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Participar · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Eventos, projetos, concursos, exposições, produções dos alunos e novidades da Biblioteca Escolar">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Participar · Biblioteca Escolar da ESP"><meta property="og:description" content="A Biblioteca acontece todos os dias. Descobre o que podes viver aqui ao longo do ano.">
+<meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
+<link rel="icon" href="imagens/logo/favicon.ico"><link rel="icon" type="image/svg+xml" href="imagens/logo/icone-app.svg">
+<link rel="apple-touch-icon" href="imagens/logo/apple-touch-icon.png">
+<meta name="theme-color" content="#F8F8F8">
+<link rel="stylesheet" href="estilos.css">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Página ACONTECE NA BIBLIOTECA (Atividades no menu).
+   Decisão de 28/07/2026: deixa de ser uma agenda cronológica e passa
+   a ser o roteiro do ano letivo. O centro da página é o calendário
+   dos dez meses, montado a partir do PAA 2026/2027.
+   O painel «hoje» calcula-se do relógio a partir de uma rotina semanal
+   escrita uma vez por período — não exige edição diária, e por isso
+   não mente nos dias em que ninguém lhe mexe.
+   ═══════════════════════════════════════════════════════════════ */
+#p-participar{
+  --menta-txt:#236B5C;
+  --r-cartao-b:24px; --r-bloco-b:16px; --r-pilula:50px;
+  --sombra-b:0 2px 12px rgba(43,43,43,.06);
+  --sombra-b2:0 12px 32px rgba(43,43,43,.12);
+}
+#p-participar main{background:var(--papel)}
+
+/* ---- estrutura ---- */
+.vsec{padding:44px 0}
+.vsec.alt{background:var(--areia)}
+.vwrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.vfilete{width:56px;height:4px;background:var(--dourado);border-radius:2px;margin:0 0 14px}
+.vtit{font-size:clamp(24px,2.6vw,30px);font-weight:800;letter-spacing:-.02em;
+  color:var(--tinta);margin:0 0 6px}
+.vlead{color:var(--cinza);font-size:15.5px;margin:0 0 24px;max-width:70ch;line-height:1.6}
+.vbt{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;cursor:pointer;
+  font-family:inherit;font-weight:700;font-size:14.5px;padding:13px 24px;border-radius:var(--r-pilula);
+  min-height:46px;text-decoration:none;color:var(--tinta);background:var(--menta);transition:.16s}
+.vbt:hover{filter:brightness(.95);transform:translateY(-2px);color:var(--tinta)}
+.vbt.linha{background:transparent;border:1.5px solid var(--linha)}
+.vbt.linha:hover{border-color:var(--tinta);filter:none}
+.vbt.peq{font-size:13.5px;padding:11px 20px;min-height:44px}
+
+/* ═══ HERO ═══ */
+.vhero{position:relative;min-height:clamp(420px,52vh,500px);display:flex;align-items:center;
+  overflow:hidden;isolation:isolate}
+.vhero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.vhero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(31,31,31,.50) 0%,rgba(31,31,31,.66) 45%,rgba(31,31,31,.88) 100%)}
+.vhero .vwrap{width:100%;padding-top:56px;padding-bottom:56px}
+.vhero h1{color:#fff;font-size:clamp(32px,5.2vw,56px);font-weight:800;line-height:1.05;
+  letter-spacing:-.035em;margin:0 0 16px;max-width:17ch}
+.vhero p{color:rgba(255,255,255,.93);font-size:clamp(15px,1.7vw,18.5px);line-height:1.6;
+  max-width:52ch;margin:0 0 28px}
+
+/* ═══ HOJE ═══ */
+.vhoje{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao-b);
+  box-shadow:var(--sombra-b);padding:clamp(22px,3vw,30px)}
+.vhoje-topo{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding-bottom:16px;margin-bottom:6px;border-bottom:1px solid var(--linha);flex-wrap:wrap}
+.vhoje-topo h2{font-size:20px;font-weight:800;margin:0;color:var(--tinta);letter-spacing:-.02em}
+.vdata{display:inline-flex;align-items:center;gap:9px;background:var(--menta-wash);
+  border:1px solid var(--menta);color:var(--tinta);font-size:13px;font-weight:600;
+  padding:8px 15px;border-radius:var(--r-pilula)}
+.vponto{width:9px;height:9px;border-radius:50%;background:#2E8B6F;flex:none}
+.vlinha{display:flex;align-items:center;gap:18px;padding:16px 0;border-bottom:1px solid var(--linha)}
+.vlinha:last-child{border-bottom:0;padding-bottom:0}
+.vhora{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:15.5px;font-weight:700;
+  color:var(--tinta);flex:none;width:108px;letter-spacing:.01em}
+.vlinha .tx{flex:1;min-width:0}
+.vlinha h3{font-size:15.5px;font-weight:700;margin:0 0 3px;color:var(--tinta)}
+.vlinha p{margin:0;font-size:13.5px;color:var(--cinza);line-height:1.5}
+.vestado{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:5px 12px;border-radius:var(--r-pilula);flex:none;white-space:nowrap}
+.vestado.agora{background:var(--menta);color:var(--tinta)}
+.vestado.breve{background:var(--dourado-wash);border:1px solid var(--dourado-linha);color:var(--tinta)}
+.vestado.depois{background:var(--areia);border:1px solid var(--linha);color:#5F5F5F}
+.vfechada{display:flex;align-items:center;gap:16px;padding:8px 0 0;flex-wrap:wrap}
+.vfechada p{margin:0;color:var(--cinza);font-size:14.5px;line-height:1.6;flex:1;min-width:260px}
+
+/* ═══ CALENDÁRIO DO ANO ═══ */
+.vtemas{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 22px}
+.vtema{display:inline-flex;align-items:center;gap:8px;background:var(--branco);
+  border:1.5px solid var(--linha);border-radius:var(--r-pilula);padding:9px 17px;cursor:pointer;
+  font-family:inherit;font-size:13.5px;font-weight:600;color:var(--tinta);transition:.15s;
+  min-height:44px}
+.vtema:hover{border-color:var(--menta);background:var(--menta-wash)}
+.vtema[aria-pressed="true"]{background:var(--menta);border-color:var(--menta)}
+.vmeses{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.vmes{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao-b);
+  padding:20px 18px;cursor:pointer;font-family:inherit;text-align:left;width:100%;
+  transition:.16s;display:flex;flex-direction:column;min-height:174px}
+.vmes:hover{border-color:var(--menta);transform:translateY(-3px);box-shadow:var(--sombra-b2)}
+.vmes[aria-selected="true"]{background:var(--menta-wash);border-color:var(--menta);
+  box-shadow:var(--sombra-b2)}
+.vmes .ic{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;
+  background:var(--menta-wash);color:#1C5346;margin-bottom:12px}
+.vmes[aria-selected="true"] .ic{background:var(--menta);color:var(--tinta)}
+.vmes b{display:block;font-size:16px;font-weight:800;color:var(--tinta);letter-spacing:-.015em;
+  margin-bottom:3px}
+.vmes .lema{display:block;font-size:12.5px;color:var(--cinza);line-height:1.4;flex:1}
+.vmes .conta{display:inline-block;margin-top:10px;font-size:11px;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase;background:var(--dourado-wash);
+  border:1px solid var(--dourado-linha);color:var(--tinta);padding:3px 10px;
+  border-radius:var(--r-pilula);align-self:flex-start}
+/* Mês sem nada com o tema escolhido: fica assinalado a tracejado, mas
+   legível — a 45% de opacidade o nome descia a 2,6:1 (28/07/2026). */
+.vmes.apagado{border-style:dashed;background:var(--areia)}
+.vmes.apagado .ic{background:var(--cinza-bloco);color:#4A4A4A}
+.vmes.apagado .conta{background:var(--branco);border-color:var(--linha);color:#5F5F5F}
+.vpainel{margin-top:22px;background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao-b);box-shadow:var(--sombra-b);padding:clamp(24px,3vw,32px)}
+.vpainel-topo{padding-bottom:18px;margin-bottom:20px;border-bottom:1px solid var(--linha)}
+.vpainel-topo .lema{font-size:11.5px;font-weight:800;color:var(--menta-txt);margin:0 0 6px;
+  text-transform:uppercase;letter-spacing:.07em}
+.vpainel-topo h3{font-size:22px;font-weight:800;margin:0 0 6px;color:var(--tinta);letter-spacing:-.02em}
+.vpainel-topo p{margin:0;color:var(--cinza);font-size:14.5px;line-height:1.6;max-width:66ch}
+.vativs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.vativ{background:var(--papel);border:1px solid var(--linha);border-left:4px solid var(--dourado);
+  border-radius:var(--r-bloco-b);padding:16px 18px}
+.vativ h4{font-size:15px;font-weight:700;margin:0 0 5px;color:var(--tinta);line-height:1.35}
+.vativ p{margin:0;font-size:13px;color:var(--cinza)}
+.vativ .marcas{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.vmarca{font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  background:var(--menta-wash);border:1px solid var(--menta);color:var(--tinta);
+  padding:3px 9px;border-radius:var(--r-pilula)}
+.vvazio{color:var(--cinza);font-size:14.5px;margin:0}
+
+/* ═══ PRÓXIMOS · LINHA TEMPORAL ═══ */
+.vlinhat{position:relative;padding-left:42px}
+.vlinhat::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;
+  background:var(--linha)}
+.vev{position:relative;padding:0 0 22px}
+.vev:last-child{padding-bottom:0}
+.vev .bolha{position:absolute;left:-42px;top:2px;width:24px;height:24px;border-radius:50%;
+  background:var(--menta);border:4px solid var(--papel)}
+.vev .quando{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--menta-txt);margin-bottom:4px}
+.vev h3{font-size:16.5px;font-weight:700;margin:0 0 4px;color:var(--tinta)}
+.vev p{margin:0;font-size:13.5px;color:var(--cinza)}
+
+/* ═══ PROJETOS ═══ */
+.vprojs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.vproj{position:relative;overflow:hidden;background:var(--branco);
+  border:1px solid var(--linha);border-radius:var(--r-cartao-b);display:flex;
+  flex-direction:column;text-decoration:none;color:inherit;transition:.18s}
+a.vproj:hover{transform:translateY(-4px);box-shadow:var(--sombra-b2);border-color:var(--menta)}
+.vproj .capa{position:relative;aspect-ratio:16/10;background:var(--cinza-bloco);
+  border-bottom:1px solid var(--linha);display:grid;place-items:center;overflow:hidden}
+.vproj .capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vproj .capa .vazio{color:#5F5F5F;font-size:11.5px;padding:14px;text-align:center}
+.vproj .tx{padding:20px;display:flex;flex-direction:column;flex:1}
+.vproj h3{font-size:17px;font-weight:800;margin:0 0 7px;color:var(--tinta);letter-spacing:-.015em;
+  line-height:1.3}
+.vproj p{margin:0 0 14px;font-size:13.5px;color:var(--cinza);line-height:1.55;flex:1}
+.vfactos{display:flex;flex-wrap:wrap;gap:7px}
+.vfacto{font-size:11.5px;font-weight:700;background:var(--areia);border:1px solid var(--linha);
+  color:var(--tinta);padding:5px 11px;border-radius:var(--r-pilula)}
+.vfacto.ativo{background:var(--menta-wash);border-color:var(--menta)}
+
+/* ═══ EXPOSIÇÕES ═══ */
+.vexpos{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.vexpo{position:relative;overflow:hidden;isolation:isolate;border-radius:var(--r-cartao-b);
+  min-height:260px;display:flex;align-items:flex-end;text-decoration:none;
+  background:#3A3A3A;transition:.18s}
+a.vexpo:hover{transform:translateY(-4px);box-shadow:var(--sombra-b2)}
+.vexpo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.vexpo .veu{position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(31,31,31,.24) 30%,rgba(31,31,31,.70) 62%,rgba(31,31,31,.90))}
+.vexpo .tx{position:relative;padding:24px 26px 26px;color:#fff;width:100%}
+.vexpo h3{font-size:19px;font-weight:800;margin:0 0 6px;letter-spacing:-.015em;
+  text-shadow:0 1px 3px rgba(0,0,0,.35)}
+.vexpo p{margin:0;font-size:13.5px;color:rgba(255,255,255,.92);line-height:1.5}
+
+/* ═══ CONCURSOS ═══ */
+.vgrupo-est{margin-bottom:26px}
+.vgrupo-est:last-child{margin-bottom:0}
+.vrot{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;padding:7px 15px;border-radius:var(--r-pilula);
+  margin:0 0 14px}
+.vrot.aberto{background:var(--menta);color:var(--tinta)}
+.vrot.breve{background:var(--dourado-wash);border:1px solid var(--dourado-linha);color:var(--tinta)}
+.vrot.fim{background:var(--areia);border:1px solid var(--linha);color:#5F5F5F}
+.vconcs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.vconc{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao-b);
+  padding:22px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:.16s}
+a.vconc:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-color:var(--menta)}
+.vconc h3{font-size:16px;font-weight:700;margin:0 0 6px;color:var(--tinta);line-height:1.3}
+.vconc .quando{font-size:12.5px;font-weight:700;color:var(--menta-txt);margin:0 0 9px}
+.vconc p{margin:0 0 13px;font-size:13.5px;color:var(--cinza);line-height:1.55;flex:1}
+
+/* ═══ INICIATIVAS ═══ */
+.vinics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.vinic{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-bloco-b);
+  padding:16px 18px;text-decoration:none;color:inherit;display:block;transition:.15s}
+.vinic:hover{border-color:var(--menta);background:var(--menta-wash)}
+.vinic b{display:block;font-size:14px;font-weight:700;color:var(--tinta);line-height:1.35}
+.vinic span{display:block;margin-top:3px;font-size:12px;color:var(--cinza)}
+
+/* ═══ GALERIA DOS ALUNOS ═══ */
+.vfaixa{margin-bottom:30px}
+.vfaixa:last-child{margin-bottom:0}
+.vfaixa-topo{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 12px}
+.vfaixa-topo h3{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:800;
+  margin:0 0 2px;color:var(--tinta);letter-spacing:-.015em}
+.vfaixa-topo h3 .ic{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;
+  background:var(--menta-wash);color:#1C5346;flex:none}
+.vfaixa-topo p{margin:0;font-size:13px;color:var(--cinza)}
+.vnav{display:flex;gap:8px;flex:none}
+.vnav button{width:36px;height:36px;border-radius:50%;border:1px solid var(--linha);
+  background:var(--branco);color:var(--tinta);cursor:pointer;font-size:16px;line-height:1;
+  display:grid;place-items:center;transition:.15s}
+.vnav button:hover{border-color:var(--menta);background:var(--menta-wash)}
+.vnav button[disabled]{opacity:.35;cursor:default}
+.vcarril{display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;padding:4px 2px 14px;
+  scrollbar-width:thin;scrollbar-color:var(--menta-media) transparent}
+.vcarril::-webkit-scrollbar{height:7px}
+.vcarril::-webkit-scrollbar-track{background:transparent}
+.vcarril::-webkit-scrollbar-thumb{background:var(--menta-media);border-radius:4px}
+.vitem{flex:0 0 208px;text-decoration:none;color:inherit}
+.vitem .capa{position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;
+  background:var(--cinza-bloco);border:1px solid var(--linha);margin-bottom:9px;
+  display:grid;place-items:center;transition:transform .25s}
+a.vitem:hover .capa{transform:scale(1.04)}
+.vitem .capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vitem .capa .vazio{color:#5F5F5F;font-size:11px;text-align:center;padding:10px;line-height:1.4}
+.vitem b{display:block;font-size:13.5px;font-weight:700;color:var(--tinta);line-height:1.32}
+.vitem span{display:block;font-size:12.5px;color:var(--cinza);margin-top:2px}
+.vitem .porpreencher{color:#6E6E6E;font-style:italic}
+/* O primeiro cartão de cada faixa é um modelo: mostra o que se preenche
+   em cada campo. Fica assinalado para não se confundir com trabalho real. */
+.vitem.modelo .capa{border-style:dashed;border-color:var(--menta-media);background:var(--menta-wash)}
+.vitem.modelo .capa .vazio{color:#1C5346}
+.vitem.modelo b,.vitem.modelo span{color:#4A4A4A}
+.vselo{display:inline-block;margin-bottom:5px;font-size:10px;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;background:var(--dourado);color:var(--tinta);padding:3px 9px;
+  border-radius:var(--r-pilula)}
+
+/* ═══ ARQUIVO ═══ */
+.vano-bloco{margin-bottom:30px}
+.vano-bloco:last-child{margin-bottom:0}
+.vano-topo{display:flex;align-items:baseline;gap:14px;margin:0 0 4px;flex-wrap:wrap}
+.vano-topo h3{font-size:22px;font-weight:800;margin:0;color:var(--tinta);letter-spacing:-.025em}
+.vano-topo .est{font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:4px 11px;border-radius:var(--r-pilula);background:var(--branco);
+  border:1px solid var(--linha);color:#5F5F5F}
+.vano-bloco > p{margin:0 0 14px;font-size:14px;color:var(--cinza);line-height:1.55}
+.vdest{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.vd{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao-b);
+  overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;
+  transition:transform .18s,box-shadow .18s,border-color .18s}
+a.vd:hover{transform:translateY(-4px);box-shadow:var(--sombra-b2);border-color:var(--menta)}
+.vd .capa{position:relative;aspect-ratio:16/10;background:var(--cinza-bloco);
+  border-bottom:1px solid var(--linha);display:grid;place-items:center;overflow:hidden}
+.vd .capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vd .capa .vazio{color:#5F5F5F;font-size:11px;padding:10px;text-align:center;line-height:1.4}
+.vd .tx{padding:15px 16px 17px;display:flex;flex-direction:column;flex:1}
+.vd .quando{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--menta-txt);margin:0 0 5px}
+.vd h4{font-size:14px;font-weight:700;margin:0 0 5px;color:var(--tinta);line-height:1.3}
+.vd p{margin:0;font-size:12.5px;color:var(--cinza);line-height:1.5}
+.vsem{margin:0;font-size:14px;color:var(--cinza);font-style:italic}
+
+@media(max-width:1080px){
+  .vmeses{grid-template-columns:repeat(4,1fr)}
+  .vinics{grid-template-columns:repeat(3,1fr)}
+  .vdest{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:980px){
+  .vprojs,.vconcs{grid-template-columns:repeat(2,1fr)}
+  .vexpos,.vativs{grid-template-columns:1fr}
+  .vmeses{grid-template-columns:repeat(3,1fr)}
+  .vinics{grid-template-columns:repeat(2,1fr)}
+  .vdest{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:620px){
+  .vsec{padding:32px 0}
+  .vprojs,.vconcs,.vinics{grid-template-columns:1fr}
+  .vmeses{grid-template-columns:repeat(2,1fr)}
+  .vlinha{flex-wrap:wrap;gap:10px}
+  .vhora{width:auto}
+  .vitem{flex:0 0 170px}
+  .vdest{grid-template-columns:repeat(2,1fr)}
+  .vnav{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .vmes:hover,a.vproj:hover,a.vexpo:hover,a.vconc:hover{transform:none}
+  .vcarril{scroll-behavior:auto}
+}
+</style>
+</head>
+<body id="p-participar">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <!-- ═══ HERO ═══ -->
+  <header class="vhero">
+    <img src="imagens/atividades/hero.jpg" alt="">
+    <div class="vwrap">
+      <h1>A Biblioteca acontece todos os dias.</h1>
+      <p>Projetos, concursos, exposições e desafios que podes viver ao longo do ano.</p>
+      <a class="vbt" href="#calendario">Ver o ano inteiro</a>
+    </div>
+  </header>
+
+  <!-- ═══ 1 · HOJE ═══ -->
+  <section class="vsec" id="hoje" aria-labelledby="t-hoje">
+    <div class="vwrap"><div class="vhoje" id="hoje-painel"></div></div>
+  </section>
+
+  <!-- ═══ 3 · CALENDÁRIO DO ANO ═══ -->
+  <section class="vsec alt" id="calendario" aria-labelledby="t-cal">
+    <div class="vwrap">
+      <div class="vfilete"></div>
+      <h2 class="vtit" id="t-cal">O ano letivo da Biblioteca</h2>
+      <div class="vtemas" id="temas-lista" role="group" aria-label="Filtrar por tema"></div>
+      <div class="vmeses" id="meses-lista" role="tablist" aria-label="Meses do ano letivo"></div>
+      <div class="vpainel" id="mes-painel" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <!-- ═══ 4 · PRÓXIMOS ═══ -->
+  <section class="vsec" id="proximos" aria-labelledby="t-prox">
+    <div class="vwrap">
+      <div class="vfilete"></div>
+      <h2 class="vtit" id="t-prox">Próximos eventos</h2>
+      <p class="vlead">O que vem a seguir, por ordem de data.</p>
+      <div class="vlinhat" id="proximos-lista"></div>
+    </div>
+  </section>
+
+  <!-- ═══ 5 · PROJETOS ═══ -->
+  <section class="vsec alt" id="projetos" aria-labelledby="t-proj">
+    <div class="vwrap">
+      <div class="vfilete"></div>
+      <h2 class="vtit" id="t-proj">Projetos da Biblioteca</h2>
+      <p class="vlead">O trabalho que atravessa o ano inteiro, e quem participa em cada um.</p>
+      <div class="vprojs" id="projetos-lista"></div>
+    </div>
+  </section>
+
+  <!-- ═══ 6 · EXPOSIÇÕES ═══ -->
+  <section class="vsec" id="exposicoes" aria-labelledby="t-exp">
+    <div class="vwrap">
+      <div class="vfilete"></div>
+      <h2 class="vtit" id="t-exp">Exposições</h2>
+      <p class="vlead">O que esteve e o que vai estar exposto na Biblioteca.</p>
+      <div class="vexpos" id="exposicoes-lista"></div>
+    </div>
+  </section>
+
+  <!-- ═══ 7 · CONCURSOS E INICIATIVAS ═══ -->
+  <section class="vsec alt" id="concursos" aria-labelledby="t-conc">
+    <div class="vwrap">
+      <div class="vfilete"></div>
+      <h2 class="vtit" id="t-conc">Concursos e iniciativas</h2>
+      <p class="vlead">O que está aberto, o que vem aí e o que já fechou.</p>
+      <div id="concursos-lista"></div>
+      <h3 style="font-size:18px;font-weight:800;margin:34px 0 14px;letter-spacing:-.015em">
+        Iniciativas nacionais</h3>
+      <div class="vinics" id="iniciativas-lista"></div>
+    </div>
+  </section>
+
+  <!-- ═══ 8 · TRABALHOS DOS ALUNOS ═══ -->
+  <section class="vsec" id="alunos" aria-labelledby="t-alu">
+    <div class="vwrap">
+      <div class="vfilete"></div>
+      <h2 class="vtit" id="t-alu">Os nossos alunos criaram</h2>
+      <p class="vlead">Vídeos, podcasts, booktrailers e trabalhos feitos na Biblioteca.</p>
+      <div id="alunos-faixas"></div>
+    </div>
+  </section>
+
+  <!-- ═══ ARQUIVO ═══ -->
+  <!-- Novidades: veio da antiga página «Notícias», que deixou de ser separador
+       principal. O conteúdo e a edição no painel mantêm-se exatamente iguais. -->
+  <section class="vsec alt" id="novidades" aria-labelledby="t-nov">
+    <div class="vwrap">
+      <div class="vfilete"></div>
+      <h2 class="vtit" id="t-nov">Novidades</h2>
+      <p class="vlead">O que já aconteceu: notícias, resultados e recapitulações das atividades.</p>
+      <div class="filtros" id="filtro-noticias" role="group" aria-label="Filtrar por categoria"></div>
+      <div class="noticias grelha" id="all-news"></div>
+    </div>
+  </section>
+
+  <section class="vsec" id="arquivo" aria-labelledby="t-arq">
+    <div class="vwrap">
+      <div class="vfilete"></div>
+      <h2 class="vtit" id="t-arq">Arquivo</h2>
+      <p class="vlead">O que ficou de cada ano letivo.</p>
+      <div id="arquivo-lista"></div>
+    </div>
+  </section>
+
+  <section class="vsec alt" id="redes" aria-labelledby="t-redes">
+    <div class="vwrap">
+      <div class="vfilete"></div>
+      <h2 class="vtit" id="t-redes">Segue a Biblioteca</h2>
+      <p class="vlead">Acompanha o dia a dia e recebe as novidades.</p>
+      <div class="grid2">
+        <div class="card" id="redes-card"></div>
+        <div class="card">
+          <span class="ico" id="ico-news"></span>
+          <h3>Novidades por email</h3>
+          <p>Recebe as novidades da Biblioteca no teu correio eletrónico.</p>
+          <p style="margin-top:14px"><a class="btn primario" id="btn-news">Subscrever novidades</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<div id="rodape"></div>
+
+<script>
+window.renderPagina = function(){
+  /* ── redes e newsletter (vieram da antiga página «Notícias») ── */
+  const inf = CONTEUDO.info || {};
+  const icoNews = document.getElementById('ico-news');
+  if (icoNews) icoNews.innerHTML = icone('correio', 22);
+  const redes = document.getElementById('redes-card');
+  if (redes) redes.innerHTML = icone('balao', 22)
+    + `<h3>Redes sociais</h3><p>Acompanha o dia a dia da Biblioteca.</p>
+       <p style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">` + [
+      inf.instagram && `<a class="btn claro" ${linkAttrs(inf.instagram)}>Instagram</a>`,
+      inf.facebook  && `<a class="btn claro" ${linkAttrs(inf.facebook)}>Facebook</a>`,
+      inf.youtube   && `<a class="btn claro" ${linkAttrs(inf.youtube)}>YouTube</a>`,
+    ].filter(Boolean).join('') + `</p>`;
+  const btnNews = document.getElementById('btn-news');
+  if (btnNews) btnNews.href = `mailto:${inf.email}?subject=`
+    + encodeURIComponent('Subscrever novidades da BE');
+
+  const MESES = {Jan:0,Fev:1,Mar:2,Abr:3,Mai:4,Jun:5,Jul:6,Ago:7,Set:8,Out:9,Nov:10,Dez:11};
+  const DIAS  = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+  const NOMES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto',
+                 'setembro','outubro','novembro','dezembro'];
+  const agora = new Date();
+
+  /* ── 1 · Hoje na Biblioteca ──
+     Calculado do relógio a partir da rotina semanal, que se escreve uma vez
+     por período. Ao fim de semana, ou quando não há nada marcado, diz isso
+     em vez de mostrar um horário que não se cumpre. */
+  function minutos(h){ const p = String(h||'').split(':'); return (+p[0])*60 + (+p[1]||0); }
+  const hp = document.getElementById('hoje-painel');
+  if (hp) {
+    const dia = agora.getDay(), m = agora.getHours()*60 + agora.getMinutes();
+    const hoje = (CONTEUDO.rotina||[]).filter(r => (r.dias||[]).includes(dia))
+      .sort((a,b) => minutos(a.inicio) - minutos(b.inicio));
+    const dataTxt = `${DIAS[dia]}, ${agora.getDate()} de ${NOMES[agora.getMonth()]}`;
+    const cabeca = `<div class="vhoje-topo">
+        <h2 id="t-hoje">Hoje na Biblioteca</h2>
+        <span class="vdata"><span class="vponto" aria-hidden="true"></span>${esc(dataTxt)}</span>
+      </div>`;
+    if (!hoje.length) {
+      hp.innerHTML = cabeca + `<div class="vfechada">
+        <p>${dia === 0 || dia === 6
+            ? 'Hoje é fim de semana e a Biblioteca está fechada. De segunda a sexta, das 8h00 às 18h30.'
+            : 'Sem atividades marcadas para hoje. A sala de leitura está aberta como sempre.'}</p>
+        <a class="vbt peq linha" href="#calendario">Ver o calendário</a></div>`;
+    } else {
+      hp.innerHTML = cabeca + hoje.map(r => {
+        const ini = minutos(r.inicio), fim = minutos(r.fim);
+        let cls = 'depois', txt = 'mais logo';
+        if (m >= ini && m < fim)                 { cls = 'agora'; txt = 'a decorrer'; }
+        else if (ini - m > 0 && ini - m <= 30)   { cls = 'breve'; txt = `daqui a ${ini - m} min`; }
+        else if (m >= fim)                       { cls = 'depois'; txt = 'terminou'; }
+        return `<div class="vlinha">
+          <span class="vhora">${esc(r.inicio)}–${esc(r.fim)}</span>
+          <span class="tx"><h3>${esc(r.titulo)}${r.frequencia ? ' · ' + esc(r.frequencia) : ''}</h3>
+            <p>${esc(r.local)}${r.nota ? ' · ' + esc(r.nota) : ''}</p></span>
+          <span class="vestado ${cls}">${esc(txt)}</span>
+        </div>`;
+      }).join('');
+    }
+  }
+
+  /* ── 3 · Calendário do ano letivo ──
+     Montado a partir do PAA 2026/2027. Ao filtrar por tema, os meses sem
+     nada esbatem-se em vez de desaparecerem: a forma do ano mantém-se. */
+  const CAL = CONTEUDO.calendarioAno || [];
+  const DOMINIOS = {A:'Currículo e literacias', B:'Leitura', C:'Projetos e parcerias', D:'Gestão'};
+  let temaAtivo = '', mesAtivo = 0;
+
+  const ml = document.getElementById('meses-lista');
+  const mp = document.getElementById('mes-painel');
+  const filtradas = m => (m.atividades||[]).filter(a => !temaAtivo || a.tema === temaAtivo);
+
+  function pintaMes(n){
+    const m = CAL[n]; if (!m) return;
+    mesAtivo = n;
+    const ats = filtradas(m);
+    mp.innerHTML = `
+      <div class="vpainel-topo">
+        <p class="lema">${esc(m.lema)}</p>
+        <h3>${esc(m.mes)} de ${esc(m.ano)}</h3>
+        <p>${esc(m.texto)}</p>
+      </div>
+      ${ats.length
+        ? `<div class="vativs">${ats.map(a => `
+            <div class="vativ"><h4>${esc(a.nome)}</h4>
+              <p>${esc(a.publico)}</p>
+              <div class="marcas"><span class="vmarca">${esc(DOMINIOS[a.dominio]||a.dominio)}</span></div>
+            </div>`).join('')}</div>`
+        : `<p class="vvazio">Neste mês não há nada com este tema. Experimenta outro, ou desliga o filtro.</p>`}`;
+    [...ml.children].forEach((b,k) => {
+      b.setAttribute('aria-selected', String(k === n));
+      b.tabIndex = k === n ? 0 : -1;
+    });
+  }
+  function pintaMeses(){
+    ml.innerHTML = CAL.map((m,n) => {
+      const q = filtradas(m).length;
+      return `<button class="vmes${q ? '' : ' apagado'}" type="button" role="tab"
+                aria-selected="${n===mesAtivo}" tabindex="${n===mesAtivo?0:-1}">
+        <span class="ic">${icone(m.icone||'calendario',19)}</span>
+        <b>${esc(m.mes)}</b><span class="lema">${esc(m.lema)}</span>
+        <span class="conta">${q} ${q === 1 ? 'atividade' : 'atividades'}</span>
+      </button>`;
+    }).join('');
+  }
+  if (ml && CAL.length) {
+    pintaMeses();
+    /* Abre no mês corrente, se estivermos dentro do ano letivo. */
+    const idx = CAL.findIndex(m => NOMES.indexOf(m.mes.toLowerCase()) === agora.getMonth());
+    pintaMes(idx >= 0 ? idx : 0);
+    ml.addEventListener('click', e => {
+      const b = e.target.closest('.vmes'); if (b) pintaMes([...ml.children].indexOf(b));
+    });
+    ml.addEventListener('keydown', e => {
+      if (!['ArrowRight','ArrowLeft'].includes(e.key)) return;
+      e.preventDefault();
+      const n = (mesAtivo + (e.key === 'ArrowRight' ? 1 : -1) + CAL.length) % CAL.length;
+      pintaMes(n); ml.children[n].focus();
+    });
+  }
+
+  const tl = document.getElementById('temas-lista');
+  if (tl) {
+    tl.innerHTML = (CONTEUDO.temasAtividades||[]).map(t =>
+      `<button class="vtema" type="button" aria-pressed="false" data-t="${esc(t.id)}">
+         ${icone(t.icone||'alvo',16)} ${esc(t.nome)}</button>`).join('');
+    tl.addEventListener('click', e => {
+      const b = e.target.closest('.vtema'); if (!b) return;
+      const ligado = b.getAttribute('aria-pressed') === 'true';
+      [...tl.children].forEach(x => x.setAttribute('aria-pressed','false'));
+      temaAtivo = ligado ? '' : b.dataset.t;
+      if (!ligado) b.setAttribute('aria-pressed','true');
+      pintaMeses(); pintaMes(mesAtivo);
+    });
+  }
+
+  /* ── 4 · Próximos eventos ── */
+  const pl = document.getElementById('proximos-lista');
+  if (pl) {
+    const evs = (CONTEUDO.agenda||[]).map(a => {
+      const mes = MESES[a.mes];
+      return {...a, quando: mes === undefined ? null : new Date(+a.ano, mes, +a.dia)};
+    }).filter(a => a.quando).sort((a,b) => a.quando - b.quando);
+    pl.innerHTML = evs.length
+      ? evs.map(a => `<article class="vev">
+          <span class="bolha" aria-hidden="true"></span>
+          <span class="quando">${esc(a.dia)} ${esc(a.mes)} ${esc(a.ano)}</span>
+          <h3>${esc(a.titulo)}</h3>
+          ${a.local ? `<p>${esc(a.local)}</p>` : ''}
+        </article>`).join('')
+      : '<p class="vvazio">Sem eventos datados de momento. O calendário do ano tem o programa completo.</p>';
+  }
+
+  /* ── 5 · Projetos ──
+     Os factos vêm do PAA: público-alvo e período. Não há contadores de
+     participação, porque esses números só existem no fim do ano. */
+  const prl = document.getElementById('projetos-lista');
+  if (prl) prl.innerHTML = (CONTEUDO.projetos||[]).map(p => {
+    const capa = temTexto(p.imagem)
+      ? `<img src="${esc(p.imagem)}" alt="${esc(p.alt||'')}" loading="lazy">`
+      : `<span class="vazio">Fotografia por carregar</span>`;
+    const dentro = `<span class="capa">${capa}</span>
+      <span class="tx">
+        <h3>${esc(p.nome || p.titulo || '')}</h3>
+        <p>${esc(p.descricao || p.texto || '')}</p>
+        <span class="vfactos">
+          ${p.publico ? `<span class="vfacto">${esc(p.publico)}</span>` : ''}
+          ${p.periodo ? `<span class="vfacto">${esc(p.periodo)}</span>` : ''}
+          ${p.estado ? `<span class="vfacto ativo">${esc(p.estado)}</span>` : ''}
+        </span></span>`;
+    return temTexto(p.url) ? `<a class="vproj" ${linkAttrs(p.url)}>${dentro}</a>`
+                           : `<div class="vproj">${dentro}</div>`;
+  }).join('');
+
+  /* ── 6 · Exposições ── */
+  const exl = document.getElementById('exposicoes-lista');
+  if (exl) {
+    const E = CONTEUDO.exposicoes || [];
+    exl.innerHTML = E.length ? E.map(x => {
+      const dentro = `${temTexto(x.imagem)
+          ? `<img src="${esc(x.imagem)}" alt="${esc(x.alt||'')}" loading="lazy">` : ''}
+        <span class="veu"></span>
+        <span class="tx"><h3>${esc(x.titulo)}</h3>
+          <p>${esc(x.descricao || x.nota || '')}${x.quando ? ' · ' + esc(x.quando) : ''}</p></span>`;
+      return temTexto(x.url) ? `<a class="vexpo" ${linkAttrs(x.url)}>${dentro}</a>`
+                             : `<div class="vexpo">${dentro}</div>`;
+    }).join('') : '<p class="vvazio">Sem exposições registadas.</p>';
+  }
+
+  /* ── 7 · Concursos por estado ── */
+  const ESTADOS = [
+    {id:'aberto',    rot:'Abertos',    cls:'aberto'},
+    {id:'em breve',  rot:'Em breve',   cls:'breve'},
+    {id:'terminado', rot:'Terminados', cls:'fim'}
+  ];
+  const cl = document.getElementById('concursos-lista');
+  if (cl) cl.innerHTML = ESTADOS.map(e => {
+    const itens = (CONTEUDO.concursos||[]).filter(c => c.estado === e.id);
+    if (!itens.length) return '';
+    return `<div class="vgrupo-est">
+      <span class="vrot ${e.cls}">${esc(e.rot)}</span>
+      <div class="vconcs">${itens.map(c => {
+        const dentro = `<h3>${esc(c.nome)}</h3>
+          <p class="quando">${esc(c.quando)}</p>
+          <p>${esc(c.texto)}</p>
+          <span class="vfactos"><span class="vfacto">${esc(c.quem)}</span></span>`;
+        return temTexto(c.url) ? `<a class="vconc" ${linkAttrs(c.url)}>${dentro}</a>`
+                               : `<div class="vconc">${dentro}</div>`;
+      }).join('')}</div></div>`;
+  }).join('');
+
+  const il = document.getElementById('iniciativas-lista');
+  if (il) il.innerHTML = (CONTEUDO.iniciativasNacionais||[]).slice(0,12).map(x =>
+    temTexto(x.url)
+      ? `<a class="vinic" ${linkAttrs(x.url)}><b>${esc(x.nome || x.titulo || '')}</b>
+           ${x.entidade ? `<span>${esc(x.entidade)}</span>` : ''}</a>`
+      : `<div class="vinic"><b>${esc(x.nome || x.titulo || '')}</b></div>`).join('');
+
+  /* ── 8 · Trabalhos dos alunos, em faixas ── */
+  let conta = 0;
+  const al = document.getElementById('alunos-faixas');
+  if (al) {
+    al.innerHTML = (CONTEUDO.galeriaAlunos||[]).map(f => {
+      const id = 'carril-' + (++conta);
+      return `<div class="vfaixa">
+        <div class="vfaixa-topo">
+          <div><h3><span class="ic">${icone(f.icone||'camara',18)}</span>${esc(f.faixa)}</h3>
+            <p>${esc(f.nota||'')}</p></div>
+          <div class="vnav" data-alvo="${id}"></div>
+        </div>
+        <div class="vcarril" id="${id}" tabindex="0" role="group" aria-label="${esc(f.faixa)}">
+          ${(f.itens||[]).map(x => {
+            const capa = temTexto(x.imagem)
+              ? `<img src="${esc(x.imagem)}" alt="${esc(x.alt||'')}" loading="lazy">`
+              : `<span class="vazio">${x.exemplo ? 'Miniatura do trabalho' : 'Por carregar'}</span>`;
+            const dentro = `<span class="capa">${capa}</span>
+              ${x.exemplo ? '<span class="vselo">modelo</span>' : ''}
+              <b>${temTexto(x.titulo) ? esc(x.titulo) : '<span class="porpreencher">Por preencher</span>'}</b>
+              <span>${[x.turma, x.ano].filter(Boolean).map(esc).join(' · ')}</span>`;
+            return temTexto(x.url) ? `<a class="vitem" ${linkAttrs(x.url)}>${dentro}</a>`
+                                   : `<div class="vitem${x.exemplo ? ' modelo' : ''}">${dentro}</div>`;
+          }).join('')}
+        </div></div>`;
+    }).join('');
+    al.querySelectorAll('.vnav').forEach(nav => {
+      const c = document.getElementById(nav.dataset.alvo); if (!c) return;
+      nav.innerHTML = `<button type="button" data-d="-1" aria-label="Recuar">&lsaquo;</button>
+                       <button type="button" data-d="1" aria-label="Avançar">&rsaquo;</button>`;
+      const passo = () => Math.max(220, c.clientWidth * 0.8);
+      const estado = () => {
+        const [a,b] = nav.children;
+        a.disabled = c.scrollLeft <= 2;
+        b.disabled = c.scrollLeft + c.clientWidth >= c.scrollWidth - 2;
+      };
+      nav.addEventListener('click', e => {
+        const b = e.target.closest('button'); if (!b) return;
+        c.scrollBy({left: passo() * (+b.dataset.d), behavior:'smooth'});
+      });
+      c.addEventListener('scroll', estado, {passive:true});
+      c.addEventListener('keydown', e => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        c.scrollBy({left: passo() * (e.key === 'ArrowRight' ? 1 : -1), behavior:'smooth'});
+      });
+      estado();
+    });
+  }
+
+  /* ── Arquivo: destaques por ano letivo ──
+     Só entram fotografias já validadas. As atividades sem fotografia
+     aparecem na mesma, com a moldura por preencher. */
+  const arl = document.getElementById('arquivo-lista');
+  if (arl) arl.innerHTML = (CONTEUDO.arquivoAnos||[]).map(a => {
+    const cartoes = (a.destaques||[]).map(d => {
+      const capa = temTexto(d.imagem)
+        ? `<img src="${esc(d.imagem)}" alt="${esc(d.alt||'')}" loading="lazy">`
+        : `<span class="vazio">Fotografia por carregar</span>`;
+      const dentro = `<span class="capa">${capa}</span>
+        <span class="tx"><span class="quando">${esc(d.quando)}</span>
+          <h4>${esc(d.nome)}</h4><p>${esc(d.texto)}</p></span>`;
+      return temTexto(d.url) ? `<a class="vd" ${linkAttrs(d.url)}>${dentro}</a>`
+                             : `<div class="vd">${dentro}</div>`;
+    }).join('');
+    return `<div class="vano-bloco">
+      <div class="vano-topo"><h3>${esc(a.ano)}</h3>
+        <span class="est">${esc(a.estado)}</span></div>
+      <p>${esc(a.texto)}</p>
+      ${cartoes ? `<div class="vdest">${cartoes}</div>`
+                : `<p class="vsem">Sem registo fotográfico organizado. A documentação está no arquivo interno.</p>`}
+    </div>`;
+  }).join('');
+};
+</script>
+<script src="motor.js"></script>
+</body>
+</html>

@@ -76,7 +76,13 @@ const FICHEIROS = [
   'percursos', 'literaciaPercurso', 'docentes',
   /* página Acontece na Biblioteca */
   'calendarioAno', 'rotina', 'temasAtividades',
-  'concursos', 'galeriaAlunos', 'arquivoAnos'
+  'concursos', 'galeriaAlunos', 'arquivoAnos',
+  /* área LER — formatos de leitura (podem estar vazios até haver curadoria) */
+  'livrosDigitais', 'audiolivros', 'podcasts', 'leituraAcessivel',
+  /* área ENCONTRAR — organização física do fundo */
+  'estantes',
+  /* área APRENDER — ferramentas, separadas das fontes */
+  'ferramentas'
 ];
 async function carregarConteudo() {
   await Promise.all(FICHEIROS.map(async chave => {
@@ -90,13 +96,16 @@ async function carregarConteudo() {
 }
 
 /* ---------- páginas e subsecções ---------- */
+/* A navegação segue o que o utilizador quer FAZER, e não o tipo de conteúdo
+   que a Biblioteca tem. Um aluno e um professor podem ambos querer encontrar
+   um livro ou participar numa atividade — por isso não há menus por perfil. */
 const PAGINAS = [
   { id: 'p-inicio',     rotulo: 'Início',     url: 'index.html' },
-  { id: 'p-biblioteca', rotulo: 'Biblioteca', url: 'biblioteca.html', completo: 'A Biblioteca' },
-  { id: 'p-catalogo',   rotulo: 'Catálogo',   url: 'catalogo.html' },
-  { id: 'p-recursos',   rotulo: 'Recursos',   url: 'recursos.html',   completo: 'Apoio ao Estudo' },
-  { id: 'p-atividades', rotulo: 'Atividades', url: 'atividades.html', completo: 'Acontece na Biblioteca' },
-  { id: 'p-noticias',   rotulo: 'Notícias',   url: 'noticias.html' },
+  { id: 'p-encontrar',  rotulo: 'Encontrar',  url: 'encontrar.html',  nota: 'Procura. Descobre. Escolhe.' },
+  { id: 'p-aprender',   rotulo: 'Aprender',   url: 'aprender.html',   nota: 'Pesquisa melhor. Aprende melhor.' },
+  { id: 'p-ler',        rotulo: 'Ler',        url: 'ler.html',        nota: 'Livros para ler. Histórias para ouvir.' },
+  { id: 'p-participar', rotulo: 'Participar', url: 'participar.html', nota: 'Há sempre qualquer coisa a acontecer.' },
+  { id: 'p-conhecer',   rotulo: 'Conhecer',   url: 'conhecer.html',   nota: 'A Biblioteca, as pessoas e os serviços.' },
 ];
 
 /* ---------- cabeçalho ---------- */
@@ -118,7 +127,7 @@ function renderCabecalho() {
       <nav class="main" id="nav" aria-label="Menu principal">${itens}</nav>
       <div class="utils">
         ${temTexto(i.opacSimples) ? `<a class="util" ${linkAttrs(i.opacSimples)} title="Pesquisar no catálogo" aria-label="Pesquisar no catálogo">${icone('lupa', 17)}</a>` : ''}
-        <a class="util" href="atividades.html#proximos" title="Agenda" aria-label="Agenda">${icone('calendario', 17)}</a>
+        <a class="util" href="participar.html#proximos" title="Agenda" aria-label="Agenda">${icone('calendario', 17)}</a>
         <a class="util area" href="admin/" title="Painel de edição do site" aria-label="Painel de edição do site">${icone('cadeado', 16)}</a>
         <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">${icone('pasta', 18)}</button>
       </div>
@@ -156,10 +165,10 @@ function renderRodape() {
       <div><h4>Mapa do Site</h4>${PAGINAS.map(p => `<a href="${p.url}">${esc(p.completo || p.rotulo)}</a>`).join('')}</div>
       <div><h4>Ligações Úteis</h4>${uteis}</div>
       <div><h4>A Biblioteca</h4>
-        <a href="biblioteca.html#quem-somos">Quem somos</a>
-        <a href="biblioteca.html#espaco">O espaço</a>
-        <a href="biblioteca.html#documentos">Documentos orientadores</a>
-        <a href="recursos.html#docentes">Para docentes</a>
+        <a href="conhecer.html#quem-somos">Quem somos</a>
+        <a href="conhecer.html#espaco">O espaço</a>
+        <a href="conhecer.html#documentos">Documentos orientadores</a>
+        <a href="aprender.html#docentes">Para docentes</a>
         <a href="area-trabalho.html">Área de trabalho</a>
       </div>
       <div><h4>Contactos</h4>
@@ -241,7 +250,7 @@ const ordenadas = () => (CONTEUDO.noticias || []).slice()
   .sort((a, b) => String(b.dataOrdenacao || '').localeCompare(String(a.dataOrdenacao || '')));
 const CHIP = { '#D8AC47': 'gold', '#2B2B2B': 'grafite' };
 function cardNoticia(n) {
-  const dest = temTexto(n.url) ? n.url : 'noticias.html';
+  const dest = temTexto(n.url) ? n.url : 'participar.html';
   return `<a class="noticia" ${linkAttrs(dest)}>
     <span class="capa">${temTexto(n.imagem)
       ? `<img src="${esc(n.imagem)}" alt="${esc(n.alt || n.titulo || '')}">`
@@ -387,13 +396,13 @@ function construirIndice(C) {
   const põe = (tipo, titulo, nota, url) => {
     if (temTexto(titulo)) ix.push({ tipo, titulo, nota: nota || '', url: url || '#' });
   };
-  (C.noticias || []).forEach(n => põe('Notícia', n.titulo, n.data, n.url || 'noticias.html'));
-  (C.agenda || []).forEach(a => põe('Agenda', a.titulo, [a.dia, a.mes, a.ano].filter(Boolean).join(' '), a.url || 'atividades.html#proximos'));
-  (C.projetos || []).forEach(p => põe('Projeto', p.nome, p.descricao, 'atividades.html#projetos'));
+  (C.noticias || []).forEach(n => põe('Notícia', n.titulo, n.data, n.url || 'participar.html'));
+  (C.agenda || []).forEach(a => põe('Agenda', a.titulo, [a.dia, a.mes, a.ano].filter(Boolean).join(' '), a.url || 'participar.html#proximos'));
+  (C.projetos || []).forEach(p => põe('Projeto', p.nome, p.descricao, 'participar.html#projetos'));
   (C.iniciativasNacionais || []).forEach(i => põe('Iniciativa', i.nome, i.area, i.url));
-  (C.exposicoes || []).forEach(e => põe('Exposição', e.titulo, e.periodo, 'atividades.html#exposicoes'));
-  (C.trabalhosAlunos || []).forEach(t => põe('Trabalhos', t.titulo, t.autores, 'atividades.html#trabalhos'));
-  (C.guioes || []).forEach(g => põe('Guião', g.titulo, g.descricao, g.url || 'recursos.html#guioes'));
+  (C.exposicoes || []).forEach(e => põe('Exposição', e.titulo, e.periodo, 'participar.html#exposicoes'));
+  (C.trabalhosAlunos || []).forEach(t => põe('Trabalhos', t.titulo, t.autores, 'participar.html#trabalhos'));
+  (C.guioes || []).forEach(g => põe('Guião', g.titulo, g.descricao, g.url || 'aprender.html#guioes'));
   /* Nos recursos digitais junta-se o género (ebooks, audiolivros, repositórios)
      e o tipo de acesso, para que quem escreve «ebook» os encontre. */
   const GENERO = { ebooks: 'eBooks', audiolivros: 'Audiolivros', imprensa: 'Jornais e revistas', repositorios: 'Repositórios' };
@@ -401,19 +410,19 @@ function construirIndice(C) {
     [GENERO[b.tipo] || b.tipo, b.acesso ? 'acesso ' + b.acesso : '', b.descricao].filter(Boolean).join(' · '), b.url));
   (C.ligacoesUteis || []).forEach(l => põe('Ligação útil', l.nome, l.grupo, l.url));
   (C.disciplinas || []).forEach(d => {
-    põe('Disciplina', d.nome, 'Recursos por disciplina', 'recursos.html#disciplinas');
+    põe('Disciplina', d.nome, 'Recursos por disciplina', 'aprender.html#disciplinas');
     ['essenciais', 'aprofundamento', 'propostas', 'testados'].forEach(k =>
-      (d[k] || []).forEach(r => põe('Recurso', r.titulo, d.nome, r.url || 'recursos.html#disciplinas')));
+      (d[k] || []).forEach(r => põe('Recurso', r.titulo, d.nome, r.url || 'aprender.html#disciplinas')));
   });
-  (C.faq || []).forEach(f => põe('Pergunta frequente', f.pergunta, '', 'catalogo.html#faq'));
-  (C.documentos || []).forEach(d => põe('Documento', d.titulo, '', d.url || 'biblioteca.html#documentos'));
-  (C.destaquesCatalogo || []).forEach(d => põe('Destaque', d.titulo, d.autor, 'catalogo.html'));
+  (C.faq || []).forEach(f => põe('Pergunta frequente', f.pergunta, '', 'encontrar.html#faq'));
+  (C.documentos || []).forEach(d => põe('Documento', d.titulo, '', d.url || 'conhecer.html#documentos'));
+  (C.destaquesCatalogo || []).forEach(d => põe('Destaque', d.titulo, d.autor, 'encontrar.html'));
   (C.acessoRapido || []).forEach(a => põe('Serviço', a.rotulo, a.sub, a.url));
-  if (C.desafioMes && C.desafioMes.titulo) põe('Desafio', C.desafioMes.titulo, '', C.desafioMes.url || 'recursos.html#literacia');
+  if (C.desafioMes && C.desafioMes.titulo) põe('Desafio', C.desafioMes.titulo, '', C.desafioMes.url || 'aprender.html#literacia');
   PAGINAS.forEach(p => põe('Página', p.completo || p.rotulo, '', p.url));
-  põe('Formulário', 'Sugerir a compra de um livro', 'Fala com a equipa', 'biblioteca.html#contactos');
-  põe('Formulário', 'Pedir apoio numa pesquisa', 'Serviço de referência', 'recursos.html');
-  põe('Formulário', 'Reservar espaço para uma turma', 'Para docentes', 'recursos.html');
+  põe('Formulário', 'Sugerir a compra de um livro', 'Fala com a equipa', 'conhecer.html#contactos');
+  põe('Formulário', 'Pedir apoio numa pesquisa', 'Serviço de referência', 'aprender.html');
+  põe('Formulário', 'Reservar espaço para uma turma', 'Para docentes', 'aprender.html');
   return ix;
 }
 /* Comparação sem acentos nem maiúsculas, para «matematica» encontrar «Matemática». */

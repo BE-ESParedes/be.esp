@@ -2,66 +2,20 @@
 <html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Notícias · Biblioteca Escolar da ESP</title>
-<meta name="description" content="Novidades, exposições e iniciativas da Biblioteca Escolar da Escola Secundária de Paredes.">
-<meta name="robots" content="index,follow">
-<meta property="og:title" content="Notícias · Biblioteca Escolar da ESP"><meta property="og:description" content="Novidades, exposições e iniciativas da Biblioteca Escolar da Escola Secundária de Paredes.">
-<meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
-<link rel="icon" href="imagens/logo/favicon.ico"><link rel="icon" type="image/svg+xml" href="imagens/logo/icone-app.svg">
-<link rel="apple-touch-icon" href="imagens/logo/apple-touch-icon.png">
-<meta name="theme-color" content="#F8F8F8">
+<title>Novidades · Biblioteca Escolar da ESP</title>
+<!-- Esta página mudou de sítio na reorganização de agosto de 2026.
+     Fica aqui o reencaminhamento para não partir ligações já divulgadas
+     (cartazes, emails, marcadores do navegador, resultados de pesquisa). -->
+<link rel="canonical" href="participar.html#novidades">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url=participar.html#novidades">
 <link rel="stylesheet" href="estilos.css">
 </head>
-<body id="p-noticias">
-<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
-<div id="cabecalho"></div>
-<main id="conteudo">
-
-  <div class="wrap pad">
-    <h1 class="sec-title" id="todas">notícias</h1><div class="rule"></div>
-    <p class="sec-lead">Novidades, exposições e iniciativas da Biblioteca. O que vai acontecer está em <a href="atividades.html">Atividades</a>.</p>
-    <div class="filtros" id="filtro-noticias" role="group" aria-label="Filtrar por categoria"></div>
-    <div class="noticias grelha" id="all-news"></div>
-    <!-- 2.ª fase: aqui entrará o feed automático do Instagram e do Facebook. -->
-
-    <!-- A secção esconde-se sozinha enquanto não houver vídeos no painel. -->
-    <section data-seccao hidden>
-      <h2 class="sec-title" id="videos-titulo">vídeos</h2><div class="rule"></div>
-      <p class="sec-lead">Registos em vídeo das atividades e tutoriais de apoio.</p>
-      <div class="videos" id="videos"></div>
-    </section>
-
-    <h2 class="sec-title" id="redes">segue-nos</h2><div class="rule"></div>
-    <div class="grid2">
-      <div class="card" id="redes-card"></div>
-      <div class="card">
-        <span class="ico" id="ico-news"></span>
-        <h3>Newsletter</h3>
-        <p>Recebe as novidades da Biblioteca no teu correio eletrónico.</p>
-        <p style="margin-top:14px"><a class="btn primario" id="btn-news">Subscrever novidades</a></p>
-        <!-- Solução simples de lançamento (mailto). Migrar futuramente para formulário. -->
-      </div>
-    </div>
-  </div>
-
-</main>
-<div id="rodape"></div>
-<script>
-window.renderPagina = function(){
-  const i = CONTEUDO.info || {};
-  document.getElementById('ico-news').innerHTML = icone('correio', 22);
-  const r = document.getElementById('redes-card');
-  if (r) r.innerHTML = icone('balao',22) + `<h3>Redes sociais</h3><p>Acompanha o dia a dia da Biblioteca.</p>
-    <p style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">` + [
-      i.instagram && `<a class="btn claro" ${linkAttrs(i.instagram)}>Instagram</a>`,
-      i.facebook  && `<a class="btn claro" ${linkAttrs(i.facebook)}>Facebook</a>`,
-      i.youtube   && `<a class="btn claro" ${linkAttrs(i.youtube)}>YouTube</a>`,
-    ].filter(Boolean).join('') + `</p>`;
-  const b = document.getElementById('btn-news');
-  if (b) b.href = `mailto:${i.email}?subject=` + encodeURIComponent('Subscrever novidades da BE');
-};
-</script>
-<script src="motor.js"></script>
+<body>
+<div class="wrap pad" style="text-align:center;padding:16vh 20px">
+  <p>Esta página mudou de sítio.</p>
+  <p><a class="btn primario" href="participar.html#novidades">Continuar para «Novidades»</a></p>
+</div>
+<script>location.replace('participar.html#novidades');</script>
 </body>
 </html>
