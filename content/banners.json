@@ -13,7 +13,7 @@
         },
         {
           "rotulo": "Horário e regras",
-          "url": "biblioteca.html#horario"
+          "url": "conhecer.html#horario"
         }
       ]
     },
@@ -26,7 +26,7 @@
       "botoes": [
         {
           "rotulo": "Conhecer o projeto",
-          "url": "atividades.html#projetos"
+          "url": "participar.html#projetos"
         }
       ]
     },
@@ -39,7 +39,7 @@
       "botoes": [
         {
           "rotulo": "Ver os recursos",
-          "url": "recursos.html"
+          "url": "aprender.html"
         }
       ]
     },
@@ -56,7 +56,7 @@
         },
         {
           "rotulo": "Como requisitar",
-          "url": "catalogo.html"
+          "url": "encontrar.html"
         }
       ]
     }

@@ -11,7 +11,7 @@
           "texto": "«Ler, pensar, crescer juntos»: exposição, encontros e trabalho com as turmas do 7.º ano.",
           "imagem": "imagens/noticias/mibe.jpg",
           "alt": "Exposição do MIBE na Biblioteca",
-          "url": "noticias.html"
+          "url": "participar.html#novidades"
         },
         {
           "nome": "Semana da Leitura",
@@ -19,7 +19,7 @@
           "texto": "Uma semana inteira com sessões, leituras partilhadas e a comunidade escolar toda envolvida.",
           "imagem": "imagens/noticias/semana-da-leitura.jpg",
           "alt": "Sessão da Semana da Leitura",
-          "url": "noticias.html"
+          "url": "participar.html#novidades"
         },
         {
           "nome": "Mesa-redonda «As Damas»",
@@ -27,7 +27,7 @@
           "texto": "Encontro e debate na Biblioteca a partir da obra em estudo.",
           "imagem": "imagens/noticias/mesa-redonda-damas.jpg",
           "alt": "Mesa-redonda na Biblioteca",
-          "url": "noticias.html"
+          "url": "participar.html#novidades"
         },
         {
           "nome": "Primavera a Ler",
@@ -35,7 +35,7 @@
           "texto": "Concurso de leitura da Biblioteca, aberto a toda a escola.",
           "imagem": "imagens/projetos/primavera-a-ler.jpg",
           "alt": "Primavera a Ler",
-          "url": "noticias.html"
+          "url": "participar.html#novidades"
         },
         {
           "nome": "Palavras em Ação",
@@ -43,7 +43,7 @@
           "texto": "Projeto financiado pela RBE: leitura literária, roteiros e leituras em família.",
           "imagem": "imagens/noticias/palavras-em-acao.jpg",
           "alt": "Projeto Palavras em Ação",
-          "url": "noticias.html"
+          "url": "participar.html#novidades"
         }
       ]
     },

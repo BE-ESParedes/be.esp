@@ -4,19 +4,19 @@
       "titulo": "Agendar uma sessão",
       "icone": "calendario",
       "texto": "Aula na Biblioteca, sessão de literacia da informação ou apoio a um trabalho de turma.",
-      "url": "biblioteca.html#contactos"
+      "url": "conhecer.html#contactos"
     },
     {
       "titulo": "Coensino",
       "icone": "pessoas",
       "texto": "Planear e lecionar em conjunto uma unidade que envolva pesquisa, leitura ou produção de conteúdos.",
-      "url": "biblioteca.html#contactos"
+      "url": "conhecer.html#contactos"
     },
     {
       "titulo": "Projetos",
       "icone": "alvo",
       "texto": "Integrar a turma nos projetos da Biblioteca ou construir um projeto novo a partir da sua disciplina.",
-      "url": "atividades.html#projetos"
+      "url": "participar.html#projetos"
     },
     {
       "titulo": "Literacias",
@@ -34,7 +34,7 @@
       "titulo": "Sugestões de aquisição",
       "icone": "livro",
       "texto": "Propor títulos para o fundo documental, em articulação com a política de desenvolvimento da coleção.",
-      "url": "biblioteca.html#documentos"
+      "url": "conhecer.html#documentos"
     }
   ]
 }

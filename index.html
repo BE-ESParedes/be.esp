@@ -36,6 +36,44 @@
 #p-inicio .fp-res{max-width:680px}
 #p-inicio .fp-nota{margin-top:12px}
 
+/* ---- as cinco portas ---- */
+.hportas{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.hporta{display:flex;flex-direction:column;gap:9px;background:var(--branco);
+  border:1px solid var(--linha);border-radius:var(--r-cartao);padding:24px 20px;
+  text-decoration:none;color:inherit;transition:.16s}
+.hporta:hover{border-color:var(--menta);transform:translateY(-4px);box-shadow:var(--sombra-lg)}
+.hporta .hp-ico{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;
+  background:var(--menta-wash);color:#1C5346}
+.hporta b{font-size:17px;letter-spacing:-.015em}
+.hporta>span:last-child{font-size:13.5px;color:var(--cinza);line-height:1.5}
+
+/* ---- atalhos («ou vai direto a») ---- */
+.hatalhos-rot{margin:26px 0 10px;font-size:13px;color:var(--cinza)}
+.hatalhos{display:flex;flex-wrap:wrap;gap:8px}
+.hatalho{display:inline-flex;align-items:center;gap:8px;background:var(--branco);
+  border:1px solid var(--linha);border-radius:var(--r-botao,50px);padding:9px 16px;
+  font-size:13.5px;font-weight:600;color:inherit;text-decoration:none;transition:.15s;min-height:44px}
+.hatalho:hover{border-color:var(--menta);background:var(--menta-wash)}
+
+/* ---- em destaque ---- */
+.hdestaques{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.hdest{display:flex;flex-direction:column;background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao);overflow:hidden;text-decoration:none;color:inherit;transition:.16s}
+.hdest:hover{border-color:var(--menta);transform:translateY(-4px);box-shadow:var(--sombra-lg)}
+.hd-capa{display:block;aspect-ratio:3/4;background:var(--areia);overflow:hidden}
+.hd-capa img{width:100%;height:100%;object-fit:cover}
+.hd-tx{padding:14px 16px 18px;display:flex;flex-direction:column;gap:4px}
+.hd-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--menta-txt)}
+.hd-tx b{font-size:14.5px;line-height:1.35}
+.hd-tx>span:last-child{font-size:12.5px;color:var(--cinza)}
+
+/* ---- precisas de ajuda? ---- */
+.hajuda{background:var(--menta-wash);border:1px solid var(--menta);border-radius:var(--r-cartao);
+  padding:clamp(26px,4vw,40px);text-align:center}
+.hajuda h2{font-size:clamp(22px,2.6vw,30px);font-weight:800;margin:0 0 10px;letter-spacing:-.02em}
+.hajuda p{margin:0 auto;max-width:56ch;color:var(--tinta);font-size:15.5px;line-height:1.65}
+.hajuda-bts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px!important}
+
 /* ---- quero… ---- */
 .hmissoes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .hmissao{display:flex;align-items:flex-start;gap:15px;background:var(--branco);
@@ -80,6 +118,10 @@
   color:var(--menta-txt);flex:none}
 .hagenda .tit{font-size:14px;color:var(--tinta);line-height:1.4}
 
+@media(max-width:1080px){
+  .hportas{grid-template-columns:repeat(3,1fr)}
+  .hdestaques{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:980px){
   .hmissoes{grid-template-columns:repeat(2,1fr)}
   .hdupla{grid-template-columns:1fr}
@@ -87,11 +129,15 @@
 @media(max-width:620px){
   .hsec{padding:28px 0}
   .hmissoes{grid-template-columns:1fr}
+  .hportas{grid-template-columns:1fr}
+  .hdestaques{grid-template-columns:repeat(2,1fr)}
   .hlinha{flex-wrap:wrap;gap:8px}
   .hhora{width:auto}
   #p-inicio .abertura{padding:34px 0 30px}
 }
-@media(prefers-reduced-motion:reduce){ .hmissao:hover{transform:none} }
+@media(prefers-reduced-motion:reduce){
+  .hmissao:hover,.hporta:hover,.hdest:hover{transform:none}
+}
 </style>
 </head>
 <body id="p-inicio">
@@ -138,10 +184,53 @@
        Substitui o acesso rápido a 28/07/2026: seis missões, na mesma
        linguagem do Catálogo, do Apoio ao Estudo e de A Biblioteca.
        Cada uma responde a «o que posso fazer aqui». -->
-  <section class="hsec" id="missoes" aria-labelledby="t-mis">
+  <!-- ═══ O QUE QUERES FAZER HOJE? ═══
+       As cinco portas da Biblioteca. São a própria arquitetura do site, por
+       isso vivem aqui e não no painel: mudam quando a arquitetura mudar.
+       Por baixo, os atalhos de missoes.json, que a equipa edita no painel. -->
+  <section class="hsec" id="fazer" aria-labelledby="t-fazer">
     <div class="wrap">
-      <h2 class="sec-title" id="t-mis">quero…</h2><div class="rule"></div>
-      <div class="hmissoes" id="missoes-lista"></div>
+      <h2 class="sec-title" id="t-fazer">o que queres fazer hoje?</h2><div class="rule"></div>
+      <div class="hportas">
+        <a class="hporta" href="encontrar.html">
+          <span class="hp-ico" data-ico="lupa"></span>
+          <b>Encontrar</b>
+          <span>Procura um livro, uma sugestão ou um recurso.</span>
+        </a>
+        <a class="hporta" href="aprender.html">
+          <span class="hp-ico" data-ico="alvo"></span>
+          <b>Aprender</b>
+          <span>Pesquisa, estuda, encontra fontes e ferramentas.</span>
+        </a>
+        <a class="hporta" href="ler.html">
+          <span class="hp-ico" data-ico="livro"></span>
+          <b>Ler</b>
+          <span>Livros, audiolivros e outros formatos digitais.</span>
+        </a>
+        <a class="hporta" href="participar.html">
+          <span class="hp-ico" data-ico="estrela"></span>
+          <b>Participar</b>
+          <span>Vê o que está a acontecer na Biblioteca.</span>
+        </a>
+        <a class="hporta" href="conhecer.html">
+          <span class="hp-ico" data-ico="pessoas"></span>
+          <b>Conhecer</b>
+          <span>A Biblioteca, os serviços e como funciona.</span>
+        </a>
+      </div>
+      <p class="hatalhos-rot">Ou vai direto a:</p>
+      <div class="hatalhos" id="missoes-lista"></div>
+    </div>
+  </section>
+
+  <!-- ═══ EM DESTAQUE ═══
+       Curadoria da Biblioteca, não um mural automático: mostram-se poucos,
+       escolhidos, vindos dos destaques que já se editam no painel. -->
+  <section class="hsec alt" id="destaques" aria-labelledby="t-des">
+    <div class="wrap">
+      <h2 class="sec-title" id="t-des">em destaque
+        <a class="mais" href="ler.html#novidades">Ver tudo &rarr;</a></h2><div class="rule"></div>
+      <div class="hdestaques" id="home-destaques"></div>
     </div>
   </section>
 
@@ -162,12 +251,30 @@
     </div>
   </section>
 
-  <!-- ═══ NOTÍCIAS ═══ Três, nunca mais. -->
+  <!-- ═══ NOVIDADES ═══ Três, nunca mais. -->
   <section class="hsec alt" id="noticias" aria-labelledby="t-not">
     <div class="wrap">
-      <h2 class="sec-title" id="t-not">notícias <a class="mais" href="participar.html">Ver todas &rarr;</a></h2>
+      <h2 class="sec-title" id="t-not">novidades
+        <a class="mais" href="participar.html#novidades">Ver todas &rarr;</a></h2>
       <div class="rule"></div>
       <div class="noticias" id="home-news"></div>
+    </div>
+  </section>
+
+  <!-- ═══ PRECISAS DE AJUDA? ═══
+       Fecho da página: quem não encontrou o que procurava tem aqui uma
+       pessoa, e não mais uma lista. -->
+  <section class="hsec" id="ajuda" aria-labelledby="t-ajuda">
+    <div class="wrap">
+      <div class="hajuda">
+        <h2 id="t-ajuda">Precisas de ajuda?</h2>
+        <p>Não sabes por onde começar a procurar? A equipa da Biblioteca ajuda-te a
+           encontrar o livro, a escolher as fontes e a organizar o trabalho.</p>
+        <p class="hajuda-bts">
+          <a class="btn primario" href="aprender.html#docentes">Pedir apoio</a>
+          <a class="btn claro" href="conhecer.html#contactos">Contactar a Biblioteca</a>
+        </p>
+      </div>
     </div>
   </section>
 
@@ -177,13 +284,43 @@
 window.renderPagina = function(){
   const i = CONTEUDO.info || {};
 
-  /* ── Quero… ──
-     Substitui o acesso rápido: seis missões, na linguagem do resto do site. */
+  /* ── as cinco portas ──
+     Os ícones desenham-se aqui para não repetir SVG na marcação. */
+  document.querySelectorAll('.hp-ico[data-ico]').forEach(el => {
+    el.innerHTML = icone(el.dataset.ico, 24);
+  });
+
+  /* ── atalhos («ou vai direto a») ──
+     Continuam a sair de missoes.json e a editar-se no painel; passaram a ser
+     uma tira discreta, por baixo das cinco portas. */
   const ml = document.getElementById('missoes-lista');
   if (ml) ml.innerHTML = (CONTEUDO.missoes||[]).map(x =>
-    `<a class="hmissao" href="${esc(x.url)}">
-       <span class="ic">${icone(x.icone||'alvo',22)}</span>
-       <span><b>${esc(x.rotulo)}</b><span>${esc(x.texto)}</span></span></a>`).join('');
+    `<a class="hatalho" href="${esc(x.url)}">
+       ${icone(x.icone||'alvo',17)}<span>${esc(x.rotulo)}</span></a>`).join('');
+
+  /* ── em destaque ──
+     Curadoria: os primeiros de cada faixa de destaques, no máximo quatro. */
+  const hd = document.getElementById('home-destaques');
+  if (hd) {
+    const itens = [];
+    for (const faixa of (CONTEUDO.destaquesDigitais || [])) {
+      for (const it of (faixa.itens || [])) {
+        if (itens.length < 4) itens.push({ ...it, faixa: faixa.faixa });
+      }
+    }
+    hd.innerHTML = itens.length
+      ? itens.map(x => `<a class="hdest" ${linkAttrs(x.url)}>
+          ${temTexto(x.imagem)
+            ? `<span class="hd-capa"><img src="${esc(x.imagem)}" alt="" loading="lazy"></span>`
+            : '<span class="hd-capa hd-vazia"></span>'}
+          <span class="hd-tx">
+            ${temTexto(x.faixa) ? `<span class="hd-tag">${esc(x.faixa)}</span>` : ''}
+            <b>${esc(x.titulo || '')}</b>
+            <span>${esc(x.autor || '')}</span>
+          </span></a>`).join('')
+      : `<p class="cvazio">A Biblioteca ainda não escolheu destaques. Aparecem aqui
+         assim que forem marcados no painel.</p>`;
+  }
 
   /* ── Hoje na Biblioteca ──
      Versão curta do painel da página Atividades: lê a mesma rotina semanal

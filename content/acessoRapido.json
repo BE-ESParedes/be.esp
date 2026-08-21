@@ -18,7 +18,7 @@
       "cor": "menta",
       "imagem": "imagens/cartoes/recursos-digitais.jpg",
       "alt": "Ilustração de recursos digitais ligados entre si",
-      "url": "catalogo.html#digital"
+      "url": "ler.html#digital"
     },
     {
       "icone": "lupa",
@@ -28,7 +28,7 @@
       "cor": "dourado",
       "imagem": "imagens/cartoes/apoio-pesquisa.jpg",
       "alt": "Ilustração de ícones de estudo e de investigação",
-      "url": "recursos.html"
+      "url": "aprender.html"
     },
     {
       "icone": "relogio",
@@ -38,7 +38,7 @@
       "cor": "menta",
       "imagem": "imagens/cartoes/horario.jpg",
       "alt": "Ilustração com ícones de tempo e de serviços",
-      "url": "biblioteca.html#horario"
+      "url": "conhecer.html#horario"
     },
     {
       "icone": "calendario",
@@ -48,7 +48,7 @@
       "cor": "dourado",
       "imagem": "imagens/cartoes/agenda.jpg",
       "alt": "Ilustração com ícones de calendário e de atividades",
-      "url": "atividades.html#proximos"
+      "url": "participar.html#proximos"
     },
     {
       "icone": "correio",
@@ -58,7 +58,7 @@
       "cor": "",
       "imagem": "imagens/cartoes/sugestoes.jpg",
       "alt": "Ilustração com ícones de conversa e de mensagens",
-      "url": "biblioteca.html#contactos"
+      "url": "conhecer.html#contactos"
     }
   ]
 }

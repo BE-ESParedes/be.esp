@@ -9,7 +9,7 @@
       "imagem": "imagens/noticias/abertura.jpg",
       "emoji": "",
       "cor": "#A8D8CC",
-      "url": "biblioteca.html#horario",
+      "url": "conhecer.html#horario",
       "exemplo": true,
       "alt": "Entrada da Biblioteca, com o letreiro BIBLIOTECA na porta de vidro"
     },
@@ -22,7 +22,7 @@
       "imagem": "imagens/noticias/IMG_4932.JPG",
       "emoji": "",
       "cor": "#D8AC47",
-      "url": "atividades.html#projetos",
+      "url": "participar.html#projetos",
       "exemplo": true,
       "alt": "Jovem a ler sentada num cadeirão junto a uma janela, numa biblioteca"
     },
@@ -48,7 +48,7 @@
       "imagem": "imagens/noticias/PHOTO-2026-03-24-13-52-28_1.jpg",
       "emoji": "📚",
       "cor": "#A8D8CC",
-      "url": "atividades.html#exposicoes",
+      "url": "participar.html#exposicoes",
       "exemplo": true,
       "alt": "Escritor a falar aos alunos entre as estantes da Biblioteca"
     },

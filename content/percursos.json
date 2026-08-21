@@ -18,7 +18,7 @@
             },
             {
               "titulo": "Pergunta à equipa da Biblioteca",
-              "url": "biblioteca.html#contactos"
+              "url": "conhecer.html#contactos"
             }
           ]
         },
@@ -40,11 +40,11 @@
           "recursos": [
             {
               "titulo": "Catálogo da Biblioteca",
-              "url": "catalogo.html"
+              "url": "encontrar.html"
             },
             {
               "titulo": "Biblioteca digital",
-              "url": "catalogo.html#digital"
+              "url": "ler.html#digital"
             },
             {
               "titulo": "RCAAP · repositórios científicos",
@@ -252,7 +252,7 @@
       "preparacao": true,
       "resumo": "Onde procurar consoante o que precisas: catálogo, bases de dados, bibliotecas digitais e arquivos.",
       "nota": "Entretanto, o Catálogo já responde a boa parte disto.",
-      "atalho": "catalogo.html",
+      "atalho": "encontrar.html",
       "atalhoRotulo": "Ir ao catálogo"
     },
     {
