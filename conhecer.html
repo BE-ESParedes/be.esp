@@ -246,6 +246,19 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
   .bpilar:hover,.bpessoa:hover{transform:none}
   .bpilar:hover .im img{transform:none}
 }
+/* ---- galeria do espaço ---- */
+.bgal:has(#galeria:empty){display:none}
+.bgal-tit{font-size:17px;font-weight:800;color:var(--tinta);margin:34px 0 14px;letter-spacing:-.015em}
+.bgaleria{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.bgaleria .media{position:relative;aspect-ratio:4/3;border-radius:var(--r-bloco-b,16px);
+  overflow:hidden;background:var(--areia);border:1px solid var(--linha)}
+.bgaleria .media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.bgaleria .media:hover img{transform:scale(1.04)}
+.bgaleria .media .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:8px;color:var(--cinza);font-size:13px;text-align:center;padding:14px}
+@media(max-width:900px){.bgaleria{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.bgaleria{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body id="p-conhecer">
@@ -297,6 +310,15 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
       <div class="bespaco">
         <div class="bzonas" role="tablist" aria-label="Zonas da Biblioteca" id="zonas-botoes"></div>
         <div class="bvista" id="zona-vista" role="tabpanel" aria-live="polite"></div>
+      </div>
+
+      <!-- Galeria de fotografias do espaço.
+           As fotos são carregadas no painel (A Biblioteca › Galeria) e até
+           agosto de 2026 não tinham onde aparecer: o contentor tinha-se
+           perdido numa remodelação anterior das páginas. -->
+      <div class="bgal">
+        <h3 class="bgal-tit">A Biblioteca por dentro</h3>
+        <div class="bgaleria" id="galeria"></div>
       </div>
     </div>
   </section>
