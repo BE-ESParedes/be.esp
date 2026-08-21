@@ -65,6 +65,22 @@ const caminho = u => {
 };
 window.caminho = caminho;
 
+/* ---------- texto legível sobre uma cor qualquer ----------
+   As cores das classes da CDU vão do lilás claro ao roxo escuro. Adivinhar
+   se a etiqueta leva texto branco ou tinta dá erros: o branco sobre o lilás
+   #B39DDB dá 2,4:1. Calcula-se o contraste e escolhe-se o que passa. */
+function textoSobre(fundo) {
+  const h = String(fundo || '').replace('#', '');
+  if (h.length !== 6) return 'var(--tinta)';
+  const canal = c => { c /= 255; return c <= .03928 ? c / 12.92 : Math.pow((c + .055) / 1.055, 2.4); };
+  const [r, g, b] = [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16));
+  const L = .2126 * canal(r) + .7152 * canal(g) + .0722 * canal(b);
+  const comBranco = 1.05 / (L + .05);
+  const comTinta  = (L + .05) / 0.0522;   /* luminância do #2B2B2B */
+  return comBranco >= comTinta ? '#fff' : 'var(--tinta)';
+}
+window.textoSobre = textoSobre;
+
 /* ---------- capa opcional (imagem a ocupar o cartão) ---------- */
 const capa = x => temTexto(x && x.imagem)
   ? `<span class="capa"><img src="${esc(caminho(x.imagem))}" alt="${esc(x.alt || '')}"></span><span class="veu"></span>`

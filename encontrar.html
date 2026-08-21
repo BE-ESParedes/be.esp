@@ -30,7 +30,6 @@
 
 /* ---- estrutura ---- */
 .csec{padding:var(--e-7) 0}
-.csec.alt{background:var(--areia)}
 .cwrap{max-width:1180px;margin:0 auto;padding:0 20px}
 .cfilete{width:44px;height:5px;background:var(--dourado);border-radius:2px;margin:0 0 14px}
 .ctit{font-size:var(--t-2);font-weight:800;letter-spacing:var(--tr-2);
@@ -258,7 +257,7 @@
   </header>
 
   <!-- ─── 1 · Queres encontrar um livro? ─── -->
-  <section class="csec alt" id="opac" aria-labelledby="t-opac">
+  <section class="csec de-areia para-areia" data-amb="sem-faixa" id="opac" data-assinatura aria-labelledby="t-opac">
     <div class="cwrap">
       <div class="cpergunta">
         <span class="cp-ico" data-ico="lupa"></span>
@@ -282,7 +281,7 @@
   </section>
 
   <!-- ─── 2 · Não sabes como pesquisar? ─── -->
-  <section class="csec" id="tutorial" aria-labelledby="t-tut">
+  <section class="csec de-areia para-branco" data-amb id="tutorial" aria-labelledby="t-tut">
     <div class="cwrap">
       <div class="cpergunta">
         <span class="cp-ico" data-ico="alvo"></span>
@@ -322,7 +321,7 @@
        O botão do mapa só aparece se existir mesmo um recurso: o endereço
        vem de info.json (campo mapaBiblioteca). Enquanto não existir, não
        se promete o que não há. -->
-  <section class="csec alt" id="estantes" aria-labelledby="t-est">
+  <section class="csec de-branco para-areia" data-amb id="estantes" aria-labelledby="t-est">
     <div class="cwrap">
       <div class="cpergunta">
         <span class="cp-ico" data-ico="local"></span>
@@ -343,7 +342,7 @@
   <!-- ─── 4 · Ainda não sabes o que ler? ───
        As recomendações vivem em LER, que é o seu lugar. Aqui fica o
        caminho, para não haver o mesmo conteúdo em dois sítios. -->
-  <section class="csec" id="sugestoes" aria-labelledby="t-sug">
+  <section class="csec de-areia para-papel" data-amb id="sugestoes" aria-labelledby="t-sug">
     <div class="cwrap">
       <div class="cpergunta">
         <span class="cp-ico" data-ico="estrela"></span>
@@ -369,7 +368,7 @@
   </section>
 
   <!-- ─── 5 · Precisas de ajuda? ─── -->
-  <section class="csec alt" id="ajuda" aria-labelledby="t-aju">
+  <section class="csec de-papel para-menta" data-amb id="ajuda" aria-labelledby="t-aju">
     <div class="cwrap">
       <div class="csempre">
         <h2 id="t-aju">Precisas de ajuda?</h2>
@@ -483,7 +482,7 @@ window.renderPagina = function(){
      castanho, lilás, vermelho, amarelo, verde, azul, rosa, amarelo
      acastanhado e roxo. Quem procura na estante procura a cor primeiro. */
   if (est) est.innerHTML = estantes.map(e =>
-    `<div class="cestante" style="--c:${esc(e.cor||'#707070')}">
+    `<div class="cestante" style="--c:${esc(e.cor||'#707070')};--ct:${textoSobre(e.cor)}">
        <span class="cor"></span>
        <span class="num">${esc(e.classe||'')}</span>
        <span class="tx">

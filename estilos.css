@@ -551,12 +551,17 @@ footer a:hover{color:var(--menta)}
 .cestante .quanto b{display:block;font-size:16px;font-weight:800;color:var(--tinta,#2B2B2B);
   letter-spacing:-.02em}
 .cestante .quanto span{font-size:11px;color:var(--cinza,#707070)}
-.cestante .etiq{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  color:#fff;background:var(--c,#707070);padding:5px 10px;border-radius:50px;white-space:nowrap}
-/* O amarelo #FDD835 não aguenta texto branco: nesses casos a etiqueta
-   escurece o texto em vez de o clarear. */
-.cestante[style*="FDD835"] .etiq,.cestante[style*="C9A227"] .etiq,
-.cestante[style*="E6C87E"] .etiq{color:var(--tinta,#2B2B2B)}
+/* A etiqueta mostra a cor REAL da classe num ponto, e escreve o nome em
+   tinta sobre o chão da secção. Encher a etiqueta com a cor obrigava a
+   escolher entre falsear a cor ou deixar o verde a 4,1:1 e o rosa a 3,8:1.
+   Assim a cor fica exata e o texto legível — as duas coisas. */
+.cestante .etiq{display:inline-flex;align-items:center;gap:7px;
+  font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--tinta,#2B2B2B);background:var(--branco,#fff);
+  border:1px solid var(--linha,#E8ECEB);padding:5px 11px 5px 8px;
+  border-radius:50px;white-space:nowrap}
+.cestante .etiq::before{content:"";width:11px;height:11px;border-radius:50%;
+  background:var(--c,#707070);flex:none;box-shadow:inset 0 0 0 1px rgba(43,43,43,.14)}
 @media(max-width:760px){
   .cestante{grid-template-columns:auto 38px 1fr;gap:12px;padding-right:14px}
   .cestante .quanto{grid-column:2/4;text-align:left;display:flex;gap:5px;align-items:baseline}
@@ -914,3 +919,161 @@ h1.pg-tit{font-size:var(--t-1);font-weight:800;line-height:1.02;
 /* Os cabeçalhos das páginas têm fundo escuro por fotografia: o título é
    branco e a entrada mantém-se legível por cima do véu. */
 .chero h1.pg-tit,.ahero h1.pg-tit,.vhero h1.pg-tit,.bhero h1.pg-tit{color:#fff}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TRANSIÇÕES DE AMBIENTE
+   ─────────────────────────────────────────────────────────────────────
+   O problema que isto resolve: uma página bem desenhada mas que se lê como
+   «bloco A, bloco B, bloco C». Entre secções de ambiente diferente passa a
+   haver uma faixa que desvanece de um chão para o outro — como passar de
+   uma sala para outra, em vez de bater numa porta.
+
+   Sem marcação nova: cada secção declara de onde vem (--de) e o seu próprio
+   chão (--para), e a faixa desenha-se no topo com um ::before.
+   ═══════════════════════════════════════════════════════════════════════ */
+[data-amb]{position:relative;background:var(--para,var(--papel))}
+[data-amb]::before{content:"";position:absolute;left:0;right:0;top:0;z-index:0;
+  height:var(--alt-trans,150px);pointer-events:none;
+  background:linear-gradient(180deg,var(--de,var(--papel)) 0%,var(--para,var(--papel)) 100%)}
+/* O conteúdo fica por cima da faixa. */
+[data-amb]>*{position:relative;z-index:1}
+/* A primeira secção depois de um cabeçalho com fotografia não precisa de
+   faixa: a fotografia já é a transição. */
+[data-amb="sem-faixa"]::before{display:none}
+
+/* Chãos disponíveis, todos da paleta v2.0. */
+.de-papel{--de:var(--amb-papel)}   .para-papel{--para:var(--amb-papel)}
+.de-areia{--de:var(--amb-areia)}   .para-areia{--para:var(--amb-areia)}
+.de-menta{--de:var(--amb-menta)}   .para-menta{--para:var(--amb-menta)}
+.de-tinta{--de:var(--amb-tinta)}   .para-tinta{--para:var(--amb-tinta)}
+.de-dourado{--de:var(--dourado-wash)} .para-dourado{--para:var(--dourado-wash)}
+.de-branco{--de:var(--branco)}     .para-branco{--para:var(--branco)}
+
+/* Sobre chão de tinta o texto inverte-se por inteiro. */
+.para-tinta{color:var(--claro)}
+.para-tinta .tit-1,.para-tinta .tit-2,.para-tinta .monum,
+.para-tinta h2,.para-tinta h3{color:#fff}
+.para-tinta .lead,.para-tinta p{color:rgba(255,255,255,.76)}
+/* A paleta não tem cores de acento para fundo escuro: sobre tinta usam-se
+   a menta e o dourado de marca, que aí dão 10:1 e 7,4:1. Está medido, e
+   fica registado para o manual poder ratificar. */
+.para-tinta .cota{border-color:rgba(255,255,255,.28);background:transparent;color:#fff}
+.para-tinta .cota .nome{color:rgba(255,255,255,.72)}
+
+@media(max-width:620px){[data-amb]::before{--alt-trans:90px}}
+
+/* ═══ ESCALA NO INTERIOR DAS PÁGINAS ═══
+   O monumental existia no cabeçalho e morria logo a seguir. A secção que
+   define cada página — a assinatura — passa a ter escala de página, não de
+   secção, e a entrada por baixo abre-se. É o que dá altura ao interior. */
+[data-assinatura] .ctit,[data-assinatura] .atit,
+[data-assinatura] .vtit,[data-assinatura] .btit{
+  font-size:var(--t-1);line-height:1.02;letter-spacing:var(--tr-1);max-width:16ch}
+[data-assinatura] .clead,[data-assinatura] .alead,
+[data-assinatura] .vlead,[data-assinatura] .blead{
+  font-size:var(--t-3);line-height:1.5;max-width:46ch}
+[data-assinatura] .cfilete,[data-assinatura] .afilete,
+[data-assinatura] .vfilete,[data-assinatura] .bfilete{width:64px;height:6px}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MICROINTERAÇÕES
+   ─────────────────────────────────────────────────────────────────────
+   Cada uma tem função: dizer que algo é clicável, para onde vai, ou que
+   está a receber o que se escreve. Nenhuma é permanente e todas param com
+   `prefers-reduced-motion`.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── botões: o preenchimento sobe de baixo ──
+   O `filter: brightness()` anterior clareava tudo por igual e não dizia
+   nada. Agora o botão «enche-se», que é o gesto de confirmar. */
+.btn,.cbt,.abt,.vbt,.bbt{position:relative;overflow:hidden;isolation:isolate;
+  transition:color var(--mov-rapido) var(--curva),
+             border-color var(--mov-rapido) var(--curva),
+             transform var(--mov-rapido) var(--curva)}
+.btn::after,.cbt::after,.abt::after,.vbt::after,.bbt::after{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--tinta);
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform var(--mov) var(--curva)}
+a.btn:hover::after,button.btn:hover::after,
+a.cbt:hover::after,button.cbt:hover::after,
+a.abt:hover::after,button.abt:hover::after,
+a.vbt:hover::after,a.bbt:hover::after{transform:scaleY(1)}
+a.btn:hover,button.btn:hover,a.cbt:hover,button.cbt:hover,
+a.abt:hover,button.abt:hover,a.vbt:hover,a.bbt:hover{color:#fff;filter:none}
+/* Os de contorno mantêm o contorno enquanto se enchem. */
+.btn.linha:hover,.cbt.linha:hover,.abt.linha:hover,.bbt.linha:hover{border-color:var(--tinta)}
+/* Sobre chão escuro o preenchimento é claro, senão desaparecia. */
+.para-tinta .btn::after,.para-tinta .cbt::after,.btn.claro::after,.cbt.claro::after{
+  background:#fff}
+.para-tinta a.btn:hover,.btn.claro:hover,.cbt.claro:hover{color:var(--tinta)}
+
+/* ── ligações: o sublinhado cresce da esquerda ── */
+main a:not(.btn):not(.cbt):not(.abt):not(.vbt):not(.bbt):not(.rec):not(.prat-l):not(.sem):not(.mpub-item):not(.cartaz-c):not(.hporta){
+  position:relative;text-decoration:none;
+  background-image:linear-gradient(var(--dourado),var(--dourado));
+  background-repeat:no-repeat;background-position:0 100%;background-size:0 2px;
+  transition:background-size var(--mov) var(--curva)}
+main a:not(.btn):not(.cbt):not(.abt):not(.vbt):not(.bbt):not(.rec):not(.prat-l):not(.sem):not(.mpub-item):not(.cartaz-c):not(.hporta):hover,
+main a:not(.btn):not(.cbt):not(.abt):not(.vbt):not(.bbt):not(.rec):not(.prat-l):not(.sem):not(.mpub-item):not(.cartaz-c):not(.hporta):focus-visible{
+  background-size:100% 2px}
+
+/* ── capas: elevam-se e inclinam-se, como um livro que se tira ── */
+.rec-capa img{transition:transform var(--mov) var(--curva)}
+a.rec:hover{transform:translateY(-6px)}
+a.rec:hover .rec-capa img{transform:scale(1.05) rotate(-.6deg)}
+
+/* ── a cota respira ao passar por cima ── */
+.cota{transition:opacity var(--mov) var(--curva),transform var(--mov) var(--curva)}
+.cota:hover{opacity:.86;transform:translateX(2px)}
+
+/* ── setas de navegação: folheiam ── */
+.cnav button,.vnav button,.anav button{transition:transform var(--mov) var(--curva),
+  border-color var(--mov-rapido),background var(--mov-rapido)}
+.cnav button:hover,.vnav button:hover,.anav button:hover{transform:rotate(-12deg) scale(1.06)}
+
+/* ── campo de pesquisa: brilho dourado ao receber o cursor ── */
+.fp-form:focus-within{box-shadow:0 0 0 4px var(--dourado-claro),0 18px 50px rgba(0,0,0,.28)}
+.fp-form input:focus{outline:none}
+.fp-form{transition:box-shadow var(--mov) var(--curva)}
+
+@media(prefers-reduced-motion:reduce){
+  .btn::after,.cbt::after,.abt::after,.vbt::after,.bbt::after{transition:none}
+  main a{transition:none}
+  a.rec:hover,a.rec:hover .rec-capa img,.cota:hover{transform:none}
+  .cnav button:hover,.vnav button:hover,.anav button:hover{transform:none}
+  .fp-form{transition:none}
+}
+/* Em toque não há «passar por cima»: o estado de hover não deve prender-se. */
+@media(hover:none){
+  a.rec:hover,a.rec:hover .rec-capa img{transform:none}
+  .cnav button:hover,.vnav button:hover{transform:none}
+}
+
+/* ═══ O CINZENTO SECUNDÁRIO E OS CHÃOS ═══
+   O `--cinza` do manual (#707070) passa 4,66:1 sobre o papel, mas cai para
+   4,38 sobre areia e 4,24 sobre dourado lavado — abaixo do mínimo de 4,5.
+   Não é regressão desta alteração: já era assim antes de haver ambientes;
+   o que muda é que agora se nota, porque há mais chãos que papel branco.
+
+   #6B6B6B é o cinzento mais claro que passa em TODOS os chãos (4,56 a
+   5,33:1). É uma derivada do cinza do manual, na mesma lógica com que o
+   dourado-txt #7F6022 deriva do dourado — fica registado para ratificar. */
+:root{--cinza-legivel:#6B6B6B}
+.para-areia p,.para-areia .lead,.para-areia .clead,.para-areia .alead,
+.para-areia .vlead,.para-areia .blead,.para-areia .rec-autor,.para-areia .sem-aut,
+.para-menta p,.para-menta .lead,.para-menta .clead,.para-menta .alead,
+.para-menta .vlead,.para-menta .blead,.para-menta .rec-autor,.para-menta .sem-aut,
+.para-dourado p,.para-dourado .lead,.para-dourado .clead,.para-dourado .alead,
+.para-dourado .vlead,.para-dourado .blead,.para-dourado .rec-autor{
+  color:var(--cinza-legivel)}
+/* Mais simples e mais seguro do que enumerar seletores: sobre qualquer chão
+   que não seja papel ou branco, TODO o texto que use o cinza secundário
+   passa ao cinzento legível. Apanha também os que não estão na lista acima
+   — foi assim que se encontraram três casos a 4,33 e 4,38:1. */
+.para-areia [style*="--cinza"],.para-menta [style*="--cinza"],
+.para-dourado [style*="--cinza"]{color:var(--cinza-legivel)}
+.para-areia,.para-menta,.para-dourado{--cinza:var(--cinza-legivel)}
+
+/* Componentes que pintam o seu próprio chão de areia herdam o cinzento
+   legível, senão ficam nos 4,38:1 do #707070 sobre areia. */
+.cvideo,.cvideo .espera,.vhoje,.vfaixa,.aficha{--cinza:var(--cinza-legivel)}

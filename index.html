@@ -24,8 +24,9 @@
    e sai o bloco de boas-vindas (as missões dizem-no melhor).
    ═══════════════════════════════════════════════════════════════ */
 #p-inicio{--menta-txt:#236B5C}
-.hsec{padding:40px 0}
-.hsec.alt{background:var(--areia)}
+/* O ritmo entre secções e a faixa de transição. O fundo já não se declara
+   aqui: cada secção diz de que chão vem e em que chão assenta (data-amb). */
+.hsec{padding:var(--e-7) 0}
 .hsec .sec-title{margin-top:0}
 
 /* ---- a pesquisa é o centro do site: cresce ---- */
@@ -301,7 +302,7 @@
        bloco é uma classe da CDU, com largura proporcional aos exemplares
        que existem mesmo. Os números vêm de content/colecao.json.
        ═══════════════════════════════════════════════════════════════ -->
-  <section class="hsec amb-tinta" id="colecao" data-seccao aria-labelledby="t-col">
+  <section class="hsec para-tinta de-tinta" data-amb="sem-faixa" id="colecao" data-seccao aria-labelledby="t-col">
     <div class="wrap">
       <div class="col-topo">
         <div data-revela>
@@ -333,7 +334,7 @@
        — oferecia uma segunda maneira de escolher o mesmo caminho. O conteúdo
        (missoes.json) ficou guardado e continua editável no painel, caso volte
        a ser preciso noutro sítio. -->
-  <section class="hsec" id="fazer" aria-labelledby="t-fazer">
+  <section class="hsec de-tinta para-papel" data-amb id="fazer" aria-labelledby="t-fazer">
     <div class="wrap">
       <h2 class="sec-title" id="t-fazer">o que queres fazer hoje?</h2><div class="rule"></div>
       <div class="hportas">
@@ -373,7 +374,7 @@
        alternar de lado. Um carrossel esconde três quartos do que tem;
        isto mostra tudo, e deixa a fotografia respirar.
        ═══════════════════════════════════════════════════════════════ -->
-  <section class="hsec amb-areia" id="cartaz" data-seccao aria-labelledby="t-cartaz">
+  <section class="hsec de-papel para-areia" data-amb id="cartaz" data-seccao aria-labelledby="t-cartaz">
     <div class="wrap">
       <span class="cota" data-revela><span class="banda"></span><span class="cod">06</span><span class="nome">em cartaz</span></span>
       <h2 class="tit-1 cartaz-tit" id="t-cartaz" data-revela>O que está a acontecer.</h2>
@@ -384,7 +385,7 @@
   <!-- ═══ O QUE ESTAMOS A DESCOBRIR ═══
        As mesmas quatro escolhas da página Ler. Não há conteúdo próprio:
        são referências às fichas que já existem. -->
-  <section class="hsec" id="semana" data-seccao aria-labelledby="t-sem">
+  <section class="hsec de-areia para-menta" data-amb id="semana" data-seccao aria-labelledby="t-sem">
     <div class="wrap">
       <h2 class="sec-title" id="t-sem">o que estamos a descobrir
         <a class="mais" href="ler.html#semana">Ver na página Ler &rarr;</a></h2><div class="rule"></div>
@@ -395,7 +396,7 @@
   <!-- ═══ EM DESTAQUE ═══
        Curadoria da Biblioteca, não um mural automático: mostram-se poucos,
        escolhidos, vindos dos destaques que já se editam no painel. -->
-  <section class="hsec alt" id="destaques" aria-labelledby="t-des">
+  <section class="hsec de-menta para-papel" data-amb id="destaques" aria-labelledby="t-des">
     <div class="wrap">
       <h2 class="sec-title" id="t-des">em destaque
         <a class="mais" href="ler.html#novidades">Ver tudo &rarr;</a></h2><div class="rule"></div>
@@ -406,7 +407,7 @@
   <!-- ═══ HOJE E A SEGUIR ═══
        Versão curta do painel que vive na página Atividades: o estado do dia
        calculado do relógio, e os próximos eventos datados ao lado. -->
-  <section class="hsec alt" id="hoje" aria-labelledby="t-hoje">
+  <section class="hsec de-papel para-areia" data-amb id="hoje" aria-labelledby="t-hoje">
     <div class="wrap">
       <h2 class="sec-title" id="t-hoje">hoje e a seguir</h2><div class="rule"></div>
       <div class="hdupla">
@@ -421,7 +422,7 @@
   </section>
 
   <!-- ═══ NOVIDADES ═══ Três, nunca mais. -->
-  <section class="hsec alt" id="noticias" aria-labelledby="t-not">
+  <section class="hsec de-areia para-papel" data-amb id="noticias" aria-labelledby="t-not">
     <div class="wrap">
       <h2 class="sec-title" id="t-not">novidades
         <a class="mais" href="participar.html#novidades">Ver todas &rarr;</a></h2>
@@ -433,7 +434,7 @@
   <!-- ═══ PRECISAS DE AJUDA? ═══
        Fecho da página: quem não encontrou o que procurava tem aqui uma
        pessoa, e não mais uma lista. -->
-  <section class="hsec" id="ajuda" aria-labelledby="t-ajuda">
+  <section class="hsec de-papel para-menta" data-amb id="ajuda" aria-labelledby="t-ajuda">
     <div class="wrap">
       <div class="hajuda">
         <h2 id="t-ajuda">Precisas de ajuda?</h2>

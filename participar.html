@@ -32,7 +32,6 @@
 
 /* ---- estrutura ---- */
 .vsec{padding:var(--e-7) 0}
-.vsec.alt{background:var(--areia)}
 .vwrap{max-width:1180px;margin:0 auto;padding:0 20px}
 .vfilete{width:44px;height:5px;background:var(--dourado);border-radius:2px;margin:0 0 14px}
 .vtit{font-size:var(--t-2);font-weight:800;letter-spacing:var(--tr-2);
@@ -103,7 +102,7 @@
 .vmes[aria-selected="true"] .ic{background:var(--menta);color:var(--tinta)}
 .vmes b{display:block;font-size:16px;font-weight:800;color:var(--tinta);letter-spacing:-.015em;
   margin-bottom:3px}
-.vmes .lema{display:block;font-size:12.5px;color:var(--cinza);line-height:1.4;flex:1}
+.vmes .lema{display:block;font-size:12.5px;color:var(--cinza-legivel);line-height:1.4;flex:1}
 .vmes .conta{display:inline-block;margin-top:10px;font-size:11px;font-weight:800;
   letter-spacing:.05em;text-transform:uppercase;background:var(--dourado-wash);
   border:1px solid var(--dourado-linha);color:var(--tinta);padding:3px 10px;
@@ -333,7 +332,7 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   </header>
 
   <!-- ═══ 1 · HOJE ═══ -->
-  <section class="vsec" id="hoje" aria-labelledby="t-hoje">
+  <section class="vsec de-papel para-papel" data-amb="sem-faixa" id="hoje" aria-labelledby="t-hoje">
     <div class="vwrap"><div class="vhoje" id="hoje-painel"></div></div>
   </section>
 
@@ -341,7 +340,7 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
        Quatro linhas que dizem o estado da Biblioteca num relance. Não há
        aqui conteúdo próprio nem cópias: cada cartão vai buscar o item mais
        relevante às secções que já existem nesta página e leva-te lá. -->
-  <section class="vsec" id="acao" data-seccao aria-labelledby="t-acao">
+  <section class="vsec de-papel para-menta" data-amb id="acao" data-assinatura data-seccao aria-labelledby="t-acao">
     <div class="vwrap">
       <div class="vfilete" data-revela></div>
       <h2 class="vtit" data-revela id="t-acao">A Biblioteca em ação</h2>
@@ -351,7 +350,7 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   </section>
 
   <!-- ═══ 3 · CALENDÁRIO DO ANO ═══ -->
-  <section class="vsec alt" id="calendario" aria-labelledby="t-cal">
+  <section class="vsec de-menta para-papel" data-amb id="calendario" aria-labelledby="t-cal">
     <div class="vwrap">
       <div class="vfilete" data-revela></div>
       <h2 class="vtit" data-revela id="t-cal">O ano letivo da Biblioteca</h2>
@@ -362,7 +361,7 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   </section>
 
   <!-- ═══ 4 · PRÓXIMOS ═══ -->
-  <section class="vsec" id="proximos" aria-labelledby="t-prox">
+  <section class="vsec de-papel para-areia" data-amb id="proximos" aria-labelledby="t-prox">
     <div class="vwrap">
       <div class="vfilete" data-revela></div>
       <h2 class="vtit" data-revela id="t-prox">Próximos eventos</h2>
@@ -372,7 +371,7 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   </section>
 
   <!-- ═══ 5 · PROJETOS ═══ -->
-  <section class="vsec alt" id="projetos" aria-labelledby="t-proj">
+  <section class="vsec de-areia para-papel" data-amb id="projetos" aria-labelledby="t-proj">
     <div class="vwrap">
       <div class="vfilete" data-revela></div>
       <h2 class="vtit" data-revela id="t-proj">Projetos da Biblioteca</h2>
@@ -382,7 +381,7 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   </section>
 
   <!-- ═══ 6 · EXPOSIÇÕES ═══ -->
-  <section class="vsec" id="exposicoes" aria-labelledby="t-exp">
+  <section class="vsec de-papel para-menta" data-amb id="exposicoes" aria-labelledby="t-exp">
     <div class="vwrap">
       <div class="vfilete" data-revela></div>
       <h2 class="vtit" data-revela id="t-exp">Exposições</h2>
@@ -392,7 +391,7 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   </section>
 
   <!-- ═══ 7 · CONCURSOS E INICIATIVAS ═══ -->
-  <section class="vsec alt" id="concursos" aria-labelledby="t-conc">
+  <section class="vsec de-menta para-papel" data-amb id="concursos" aria-labelledby="t-conc">
     <div class="vwrap">
       <div class="vfilete" data-revela></div>
       <h2 class="vtit" data-revela id="t-conc">Concursos e iniciativas</h2>
@@ -405,7 +404,7 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   </section>
 
   <!-- ═══ 8 · TRABALHOS DOS ALUNOS ═══ -->
-  <section class="vsec" id="alunos" aria-labelledby="t-alu">
+  <section class="vsec de-papel para-areia" data-amb id="alunos" aria-labelledby="t-alu">
     <div class="vwrap">
       <div class="vfilete" data-revela></div>
       <h2 class="vtit" data-revela id="t-alu">Os nossos alunos criaram</h2>
@@ -417,7 +416,7 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   <!-- ═══ ARQUIVO ═══ -->
   <!-- Novidades: veio da antiga página «Notícias», que deixou de ser separador
        principal. O conteúdo e a edição no painel mantêm-se exatamente iguais. -->
-  <section class="vsec alt" id="novidades" aria-labelledby="t-nov">
+  <section class="vsec de-areia para-papel" data-amb id="novidades" aria-labelledby="t-nov">
     <div class="vwrap">
       <div class="vfilete" data-revela></div>
       <h2 class="vtit" data-revela id="t-nov">Novidades</h2>
@@ -427,7 +426,7 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
     </div>
   </section>
 
-  <section class="vsec" id="arquivo" aria-labelledby="t-arq">
+  <section class="vsec de-papel para-menta" data-amb id="arquivo" aria-labelledby="t-arq">
     <div class="vwrap">
       <div class="vfilete" data-revela></div>
       <h2 class="vtit" data-revela id="t-arq">Arquivo</h2>
@@ -436,7 +435,7 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
     </div>
   </section>
 
-  <section class="vsec alt" id="redes" aria-labelledby="t-redes">
+  <section class="vsec de-menta para-papel" data-amb id="redes" aria-labelledby="t-redes">
     <div class="vwrap">
       <div class="vfilete" data-revela></div>
       <h2 class="vtit" data-revela id="t-redes">Segue a Biblioteca</h2>

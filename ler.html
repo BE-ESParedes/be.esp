@@ -30,7 +30,6 @@
 
 /* ---- estrutura ---- */
 .csec{padding:var(--e-7) 0}
-.csec.alt{background:var(--areia)}
 .cwrap{max-width:1180px;margin:0 auto;padding:0 20px}
 .cfilete{width:44px;height:5px;background:var(--dourado);border-radius:2px;margin:0 0 14px}
 .ctit{font-size:var(--t-2);font-weight:800;letter-spacing:var(--tr-2);
@@ -82,7 +81,7 @@
 .cverbo .clead{margin:0}
 
 /* ═══ MONTRA EDITORIAL ═══ */
-.cdestaque{background:linear-gradient(160deg,var(--branco) 0%,var(--menta-wash) 100%)}
+/* O fundo vem agora do ambiente (--para); a montra só acrescenta o calor. */
 /* A montra é deliberadamente pequena: quatro por linha, para se ler como
    uma escolha e não como uma lista. */
 /* A montra: o primeiro destaque ocupa duas colunas e duas linhas, com a
@@ -213,7 +212,7 @@
   </nav>
 
   <!-- ═══ DESTAQUES — a montra editorial da Biblioteca ═══ -->
-  <section class="csec cdestaque" id="novidades" aria-labelledby="t-des">
+  <section class="csec cdestaque de-areia para-dourado" data-amb id="novidades" data-assinatura aria-labelledby="t-des">
     <div class="cwrap">
       <div class="cfilete" data-revela></div>
       <h2 class="ctit" data-revela id="t-des">O que a Biblioteca está a destacar</h2>
@@ -228,7 +227,7 @@
   <!-- ═══ A DESCOBERTA DA SEMANA ═══
        Quatro lugares fixos, um por formato. Não guarda conteúdo próprio:
        aponta para fichas que já existem noutras secções. -->
-  <section class="csec" id="semana" data-seccao aria-labelledby="t-sem">
+  <section class="csec de-dourado para-dourado" data-amb="sem-faixa" id="semana" data-seccao aria-labelledby="t-sem">
     <div class="cwrap">
       <div class="cfilete" data-revela></div>
       <h2 class="ctit" data-revela id="t-sem">O que estamos a descobrir</h2>
@@ -240,7 +239,7 @@
   <!-- ═══ ESCOLHAS POR PÚBLICO ═══
        Três escolhas para cada público. A mesma obra dita a pessoas
        diferentes — por isso a nota muda, e a ficha não. -->
-  <section class="csec alt" id="escolhas" data-seccao aria-labelledby="t-esc">
+  <section class="csec de-dourado para-papel" data-amb id="escolhas" data-seccao aria-labelledby="t-esc">
     <div class="cwrap">
       <div class="cfilete" data-revela></div>
       <h2 class="ctit" data-revela id="t-esc">Escolhas da Biblioteca</h2>
@@ -251,7 +250,7 @@
   </section>
 
   <!-- ═══ 1 · LER ═══ -->
-  <section class="csec" id="livros" aria-labelledby="t-livros">
+  <section class="csec de-papel para-areia" data-amb id="livros" aria-labelledby="t-livros">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="livro"></span>
         <div><h2 class="ctit" data-revela id="t-livros">Ler</h2>
@@ -263,7 +262,7 @@
   </section>
 
   <!-- ═══ 2 · LER NO ECRÃ ═══ -->
-  <section class="csec" id="livros-digitais" aria-labelledby="t-ld">
+  <section class="csec de-areia para-papel" data-amb id="livros-digitais" aria-labelledby="t-ld">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="monitor"></span>
         <div><h2 class="ctit" data-revela id="t-ld">Ler no ecrã</h2>
@@ -277,7 +276,7 @@
   </section>
 
   <!-- ═══ 3 · OUVIR ═══ -->
-  <section class="csec alt" id="audiolivros" aria-labelledby="t-audio">
+  <section class="csec de-papel para-menta" data-amb id="audiolivros" aria-labelledby="t-audio">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="auscultador"></span>
         <div><h2 class="ctit" data-revela id="t-audio">Ouvir</h2>
@@ -289,7 +288,7 @@
   </section>
 
   <!-- ═══ 4 · ESCUTAR ═══ -->
-  <section class="csec" id="podcasts" aria-labelledby="t-pod">
+  <section class="csec de-menta para-papel" data-amb id="podcasts" aria-labelledby="t-pod">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="microfone"></span>
         <div><h2 class="ctit" data-revela id="t-pod">Escutar</h2>
@@ -301,7 +300,7 @@
   </section>
 
   <!-- ═══ 5 · VER ═══ -->
-  <section class="csec alt" id="videos-sec" aria-labelledby="t-vid">
+  <section class="csec de-papel para-areia" data-amb id="videos-sec" aria-labelledby="t-vid">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="camara"></span>
         <div><h2 class="ctit" data-revela id="t-vid">Ver</h2>
@@ -314,7 +313,7 @@
   </section>
 
   <!-- ═══ 6 · ACEDER ═══ -->
-  <section class="csec" id="acessivel" aria-labelledby="t-ace">
+  <section class="csec de-areia para-papel" data-amb id="acessivel" aria-labelledby="t-ace">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="maos"></span>
         <div><h2 class="ctit" data-revela id="t-ace">Aceder</h2>
@@ -326,7 +325,7 @@
   </section>
 
   <!-- ═══ PLATAFORMAS ═══ -->
-  <section class="csec alt" id="digital" aria-labelledby="t-dig">
+  <section class="csec de-papel para-areia" data-amb id="digital" aria-labelledby="t-dig">
     <div class="cwrap">
       <div class="cfilete" data-revela></div>
       <h2 class="ctit" data-revela id="t-dig">Onde procurar mais</h2>
