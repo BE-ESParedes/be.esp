@@ -12,7 +12,8 @@
       "cta": "Ler online",
       "url": "https://projectoadamastor.org/frei-luis-de-sousa-almeida-garrett/",
       "destaque": true,
-      "destaqueHome": true
+      "destaqueHome": true,
+      "selo": "Ligação ao currículo"
     },
     {
       "titulo": "Mensagem",
@@ -54,7 +55,8 @@
       "cta": "Ler online",
       "url": "https://projectoadamastor.org/o-mandarim-eca-de-queiros/",
       "destaque": true,
-      "destaqueHome": false
+      "destaqueHome": false,
+      "selo": "Excelente para começar"
     },
     {
       "titulo": "Singularidades de uma Rapariga Loura",
@@ -81,8 +83,9 @@
       "fonte": "Projecto Adamastor",
       "cta": "Ler online",
       "url": "https://projectoadamastor.org/dom-casmurro-machado-de-assis/",
-      "destaque": false,
-      "destaqueHome": false
+      "destaque": true,
+      "destaqueHome": false,
+      "selo": "Dá conversa na aula"
     },
     {
       "titulo": "O Alienista",
@@ -110,7 +113,8 @@
       "cta": "Ler online",
       "url": "https://projectoadamastor.org/charneca-em-flor-florbela-espanca/",
       "destaque": true,
-      "destaqueHome": true
+      "destaqueHome": false,
+      "selo": "Clássico fundamental"
     },
     {
       "titulo": "Vozes Femininas: Antologia de Escritoras Lusófonas",

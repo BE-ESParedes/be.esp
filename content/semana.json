@@ -1,0 +1,37 @@
+{
+  "semana": {
+    "periodo": "Agosto de 2026",
+    "nota": "Quatro escolhas da equipa, uma por formato. Mudam quando tivermos algo melhor para pôr aqui.",
+    "estado": "publicado",
+    "itens": [
+      {
+        "rotulo": "Livro digital da semana",
+        "icone": "monitor",
+        "colecao": "livrosDigitais",
+        "titulo": "O Alienista",
+        "nota": "Um médico decide separar os loucos dos sãos numa vila pequena — e a fronteira começa a mexer-se. Uma hora de leitura que dá conversa para uma aula inteira."
+      },
+      {
+        "rotulo": "Audiolivro da semana",
+        "icone": "auscultador",
+        "colecao": "audiolivros",
+        "titulo": "Clepsidra",
+        "nota": "Quarenta e cinco minutos de simbolismo dito por um ator. Cabe inteiro numa viagem de autocarro."
+      },
+      {
+        "rotulo": "Podcast da semana",
+        "icone": "microfone",
+        "colecao": "podcasts",
+        "titulo": "Conversas para Ler",
+        "nota": "Autores a falar dos próprios livros. Costuma dar mais vontade de ler do que qualquer resumo."
+      },
+      {
+        "rotulo": "Recurso da semana",
+        "icone": "maos",
+        "colecao": "leituraAcessivel",
+        "titulo": "Biblioteca Sonora Digital",
+        "nota": "Livros falados, de graça, para quem não pode ler em tinta. Poucos sabem que existe — e é por isso que está aqui."
+      }
+    ]
+  }
+}

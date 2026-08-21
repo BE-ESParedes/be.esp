@@ -101,6 +101,8 @@ const FICHEIROS = [
   'concursos', 'galeriaAlunos', 'arquivoAnos',
   /* área LER — formatos de leitura (podem estar vazios até haver curadoria) */
   'livrosDigitais', 'audiolivros', 'podcasts', 'leituraAcessivel',
+  /* camada editorial: montras por público, descoberta da semana e explicações */
+  'escolhas', 'semana', 'explica',
   /* área ENCONTRAR — organização física do fundo */
   'estantes',
   /* área APRENDER — ferramentas, separadas das fontes */
@@ -141,6 +143,7 @@ const FORMATOS = {
   videos:           { rotulo: 'Vídeo',            icone: 'camara' },
   leituraAcessivel: { rotulo: 'Leitura acessível', icone: 'maos' },
   bibliotecaDigital:{ rotulo: 'Plataforma',       icone: 'globo' },
+  galeriaAlunos:    { rotulo: 'Feito por alunos', icone: 'estrela' },
 };
 window.FORMATOS = FORMATOS;
 
@@ -148,6 +151,10 @@ function cartaoRecurso(x, opcoes = {}) {
   const fmt = FORMATOS[x.formato] || null;
   const meta = [x.publico, x.genero, x.duracao].filter(temTexto);
   const semCapa = !temTexto(x.imagem);
+  /* Coleções mais antigas usam «nome» e «descricao» onde as novas usam
+     «titulo» e «porque». Aceitam-se os dois, para nada partir. */
+  const titulo = x.titulo || x.nome || '';
+  const porque = x.porque || x.descricao || '';
   const dentro = `
     <span class="rec-capa${semCapa ? ' rec-vazia' : ''}">
       ${semCapa
@@ -157,12 +164,14 @@ function cartaoRecurso(x, opcoes = {}) {
         ? `<span class="rec-formato">${icone(fmt.icone, 13)}${esc(fmt.rotulo)}</span>` : ''}
     </span>
     <span class="rec-tx">
-      <b>${temTexto(x.titulo) ? esc(x.titulo) : '<i class="rec-porpreencher">Por preencher</i>'}</b>
+      ${temTexto(x.selo) ? `<span class="rec-selo">${esc(x.selo)}</span>` : ''}
+      <b>${temTexto(titulo) ? esc(titulo) : '<i class="rec-porpreencher">Por preencher</i>'}</b>
       ${temTexto(x.autor) ? `<span class="rec-autor">${esc(x.autor)}</span>` : ''}
       ${meta.length ? `<span class="rec-meta">${meta.map(esc).join(' · ')}</span>` : ''}
-      ${temTexto(x.porque || x.descricao)
-        ? `<span class="rec-porque">${esc(x.porque || x.descricao)}</span>` : ''}
+      ${temTexto(porque) ? `<span class="rec-porque">${esc(porque)}</span>` : ''}
       ${temTexto(x.voz) ? `<span class="rec-voz">Lido por ${esc(x.voz)}</span>` : ''}
+      ${temTexto(x.relacoes)
+        ? `<span class="rec-rel">Relaciona-se com ${esc(x.relacoes)}</span>` : ''}
       <span class="rec-pe">
         ${temTexto(x.fonte) ? `<span class="rec-fonte">${esc(x.fonte)}</span>` : '<span></span>'}
         ${temTexto(x.url) ? `<span class="rec-cta">${esc(x.cta || 'Abrir')} &rarr;</span>` : ''}
@@ -174,19 +183,125 @@ function cartaoRecurso(x, opcoes = {}) {
 }
 window.cartaoRecurso = cartaoRecurso;
 
+/* ── ordem e estado ───────────────────────────────────────────────────
+   Uma ficha com estado «rascunho» fica escrita mas não aparece no site —
+   permite preparar conteúdo sem o publicar. O campo «ordem» (número)
+   manda; quem não o tiver fica pela ordem em que está no ficheiro. */
+function publicados(chave) {
+  return (CONTEUDO[chave] || [])
+    .filter(x => x && x.estado !== 'rascunho')
+    .map((x, i) => ({ ...x, formato: x.formato || chave, _i: i }))
+    .sort((a, b) => {
+      const oa = Number.isFinite(+a.ordem) && a.ordem !== '' ? +a.ordem : 9999;
+      const ob = Number.isFinite(+b.ordem) && b.ordem !== '' ? +b.ordem : 9999;
+      return oa - ob || a._i - b._i;
+    });
+}
+window.publicados = publicados;
+
+/* ── referências ──────────────────────────────────────────────────────
+   O princípio «um conteúdo, várias apresentações»: as montras por público
+   e a descoberta da semana NÃO guardam cópias das fichas — guardam uma
+   referência (coleção + título) e vão buscar a ficha verdadeira aqui.
+   Se a ficha for editada num sítio, muda em todos. Se for apagada, a
+   referência deixa simplesmente de aparecer, em vez de mostrar restos. */
+function resolverRef(ref) {
+  if (!ref || !temTexto(ref.colecao) || !temTexto(ref.titulo)) return null;
+  const normal = s => String(s || '').trim().toLowerCase();
+  const alvo = normal(ref.titulo);
+  const achado = publicados(ref.colecao)
+    .find(x => normal(x.titulo || x.nome) === alvo);
+  if (!achado) return null;
+  /* A nota da montra, se existir, substitui a frase editorial da ficha:
+     é a mesma obra, dita ao público daquela montra. */
+  return temTexto(ref.nota) ? { ...achado, porque: ref.nota } : achado;
+}
+window.resolverRef = resolverRef;
+
 /* Recolhe o que a Biblioteca marcou como destaque, sem duplicar conteúdo:
    cada item continua a viver só no seu ficheiro; aqui apenas se olha para
    a marca. `onde` é 'destaque' (página Ler) ou 'destaqueHome' (início). */
 function destaques(onde = 'destaque', limite = 0) {
   const saida = [];
   for (const chave of Object.keys(FORMATOS)) {
-    for (const it of (CONTEUDO[chave] || [])) {
-      if (it && it[onde]) saida.push({ ...it, formato: chave });
-    }
+    for (const it of publicados(chave)) if (it[onde]) saida.push(it);
   }
+  saida.sort((a, b) => {
+    const oa = Number.isFinite(+a.ordem) && a.ordem !== '' ? +a.ordem : 9999;
+    const ob = Number.isFinite(+b.ordem) && b.ordem !== '' ? +b.ordem : 9999;
+    return oa - ob;
+  });
   return limite > 0 ? saida.slice(0, limite) : saida;
 }
 window.destaques = destaques;
+
+/* ── a descoberta da semana ───────────────────────────────────────────
+   Quatro lugares fixos, um por formato. Desenha-se a partir de
+   referências: se a ficha apontada desaparecer, o lugar desaparece com
+   ela, em vez de mostrar um cartão vazio. */
+function renderSemana(idAlvo) {
+  const el = document.getElementById(idAlvo); if (!el) return 0;
+  const s = CONTEUDO.semana || {};
+  if (s.estado === 'rascunho') { el.closest('[data-seccao]')?.setAttribute('hidden',''); return 0; }
+  const itens = (s.itens || []).map(it => {
+    const ficha = resolverRef(it);
+    return ficha ? { ...ficha, rotulo: it.rotulo, icone: it.icone, porque: it.nota || ficha.porque } : null;
+  }).filter(Boolean);
+  el.innerHTML = itens.map(x => {
+    const fmt = FORMATOS[x.formato] || {};
+    const dentro = `
+      <span class="sem-capa">${temTexto(x.imagem)
+        ? `<img src="${esc(caminho(x.imagem))}" alt="" loading="lazy">`
+        : icone(x.icone || fmt.icone || 'estrela', 22)}</span>
+      <span class="sem-tx">
+        <span class="sem-rot">${esc(x.rotulo || fmt.rotulo || '')}</span>
+        <b>${esc(x.titulo || x.nome || '')}</b>
+        ${temTexto(x.autor) ? `<span class="sem-aut">${esc(x.autor)}</span>` : ''}
+        ${temTexto(x.porque) ? `<span class="sem-nota">${esc(x.porque)}</span>` : ''}
+      </span>`;
+    return temTexto(x.url) ? `<a class="sem" ${linkAttrs(x.url)}>${dentro}</a>`
+                           : `<div class="sem">${dentro}</div>`;
+  }).join('');
+  return itens.length;
+}
+window.renderSemana = renderSemana;
+
+/* ── montras por público ──────────────────────────────────────────────
+   Três escolhas para cada público. Também são referências: a nota da
+   montra substitui a frase da ficha, porque é a mesma obra dita a
+   alguém diferente. */
+function renderEscolhas(idAlvo) {
+  const el = document.getElementById(idAlvo); if (!el) return 0;
+  const montras = publicados('escolhas').map(m => ({
+    ...m, fichas: (m.refs || []).map(resolverRef).filter(Boolean)
+  })).filter(m => m.fichas.length);
+  el.innerHTML = montras.map(m => `
+    <div class="mpub">
+      <div class="mpub-topo">
+        <span class="mpub-ico">${icone(m.icone || 'livro', 20)}</span>
+        <span class="mpub-pub">${esc(m.publico || '')}</span>
+      </div>
+      <h3>${esc(m.titulo || '')}</h3>
+      <p>${esc(m.nota || '')}</p>
+      <ol>${m.fichas.map(x => {
+        const fmt = FORMATOS[x.formato] || {};
+        const dentro = `
+          <span class="mpub-capa">${temTexto(x.imagem)
+            ? `<img src="${esc(caminho(x.imagem))}" alt="" loading="lazy">`
+            : icone(fmt.icone || 'livro', 18)}</span>
+          <span>
+            <b>${esc(x.titulo || x.nome || '')}</b>
+            ${temTexto(x.autor) ? `<span class="aut">${esc(x.autor)}</span>` : ''}
+            ${temTexto(x.porque) ? `<span class="pq">${esc(x.porque)}</span>` : ''}
+          </span>`;
+        return `<li>${temTexto(x.url)
+          ? `<a class="mpub-item" ${linkAttrs(x.url)}>${dentro}</a>`
+          : `<div class="mpub-item">${dentro}</div>`}</li>`;
+      }).join('')}</ol>
+    </div>`).join('');
+  return montras.length;
+}
+window.renderEscolhas = renderEscolhas;
 
 /* ---------- páginas e subsecções ---------- */
 /* A navegação segue o que o utilizador quer FAZER, e não o tipo de conteúdo
@@ -410,7 +525,7 @@ function idYoutube(u) {
 }
 function renderVideos() {
   const el = $('#videos'); if (!el) return;
-  const lista = (CONTEUDO.videos || []).filter(v => v && idYoutube(v.url));
+  const lista = publicados('videos').filter(v => v && idYoutube(v.url));
   const seccao = el.closest('[data-seccao]');
   if (!lista.length) { if (seccao) seccao.hidden = true; return; }
   if (seccao) seccao.hidden = false;

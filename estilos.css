@@ -593,3 +593,104 @@ a.rec:hover .rec-capa img{transform:scale(1.04)}
   a.rec:hover .rec-capa img{transform:none}
   .rec-carril{scroll-behavior:auto}
 }
+
+/* ---- selo editorial e relações, dentro do cartão .rec ---- */
+.rec-selo{display:inline-block;align-self:flex-start;font-size:10.5px;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase;color:#1C5346;background:var(--menta-wash,#E8F2EF);
+  border:1px solid var(--menta,#A8D8CC);padding:3px 9px;border-radius:50px;margin-bottom:2px}
+.rec-rel{font-size:11.5px;color:var(--cinza,#707070);font-style:italic}
+
+/* ═══════════════════════════════════════════════════════════════
+   A DESCOBERTA DA SEMANA (.sem)
+   Quatro lugares fixos, um por formato. Não guarda conteúdo próprio:
+   aponta para fichas que já existem. Partilhada por LER e pelo Início.
+   ═══════════════════════════════════════════════════════════════ */
+.sem-grelha{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sem{display:flex;gap:13px;background:var(--branco,#fff);border:1px solid var(--linha,#E8ECEB);
+  border-radius:16px;padding:16px;text-decoration:none;color:inherit;
+  transition:transform .18s,box-shadow .18s,border-color .18s}
+a.sem:hover{transform:translateY(-3px);border-color:var(--menta,#A8D8CC);
+  box-shadow:0 12px 32px rgba(43,43,43,.12);color:inherit}
+.sem-capa{flex:none;width:58px;height:78px;border-radius:9px;overflow:hidden;
+  background:var(--menta-wash,#E8F2EF);display:grid;place-items:center;color:#1C5346}
+.sem-capa img{width:100%;height:100%;object-fit:cover}
+.sem-tx{display:flex;flex-direction:column;gap:3px;min-width:0}
+.sem-rot{font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--dourado-txt,#7F6022)}
+.sem-tx b{font-size:14px;line-height:1.3;color:var(--tinta,#2B2B2B)}
+.sem-aut{font-size:12px;color:var(--cinza,#707070)}
+.sem-nota{font-size:12.5px;line-height:1.45;color:var(--tinta,#2B2B2B);margin-top:3px}
+@media(max-width:1000px){.sem-grelha{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.sem-grelha{grid-template-columns:1fr}}
+
+/* ═══════════════════════════════════════════════════════════════
+   MONTRAS POR PÚBLICO (.mpub)
+   Três escolhas para cada público. Também são referências: a ficha
+   verdadeira vive na sua coleção.
+   ═══════════════════════════════════════════════════════════════ */
+.mpub-grelha{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.mpub{background:var(--branco,#fff);border:1px solid var(--linha,#E8ECEB);
+  border-radius:20px;padding:22px;display:flex;flex-direction:column}
+.mpub-topo{display:flex;align-items:center;gap:11px;margin-bottom:4px}
+.mpub-ico{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:11px;
+  background:var(--menta-wash,#E8F2EF);color:#1C5346;border:1px solid var(--menta,#A8D8CC)}
+.mpub-pub{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--dourado-txt,#7F6022)}
+.mpub h3{font-size:16.5px;font-weight:800;margin:0;line-height:1.3;color:var(--tinta,#2B2B2B)}
+.mpub>p{margin:6px 0 16px;font-size:13.5px;color:var(--cinza,#707070);line-height:1.5}
+.mpub ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.mpub-item{display:flex;gap:12px;text-decoration:none;color:inherit;padding:10px;
+  border-radius:12px;transition:background .15s}
+a.mpub-item:hover{background:var(--menta-wash,#E8F2EF);color:inherit}
+.mpub-capa{flex:none;width:46px;height:62px;border-radius:7px;overflow:hidden;
+  background:var(--cinza-bloco,#E4E7E6);display:grid;place-items:center;color:#7FB8A8}
+.mpub-capa img{width:100%;height:100%;object-fit:cover}
+.mpub-item b{display:block;font-size:13.5px;line-height:1.3;color:var(--tinta,#2B2B2B)}
+.mpub-item .aut{display:block;font-size:12px;color:var(--cinza,#707070);margin-bottom:3px}
+.mpub-item .pq{display:block;font-size:12.5px;line-height:1.45;color:var(--tinta,#2B2B2B)}
+@media(max-width:980px){.mpub-grelha{grid-template-columns:1fr}}
+
+/* ═══════════════════════════════════════════════════════════════
+   A BIBLIOTECA EXPLICA (.exp)
+   Explicações curtas, em blocos que abrem no sítio. Cada uma acaba
+   nos recursos reais que já existem no site.
+   ═══════════════════════════════════════════════════════════════ */
+.exp-grelha{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;align-items:start}
+.exp{background:var(--branco,#fff);border:1px solid var(--linha,#E8ECEB);
+  border-radius:16px;overflow:hidden}
+.exp>summary{display:flex;align-items:flex-start;gap:13px;padding:18px 20px;cursor:pointer;
+  list-style:none;transition:background .15s}
+.exp>summary::-webkit-details-marker{display:none}
+.exp>summary:hover{background:var(--menta-wash,#E8F2EF)}
+.exp-ico{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:11px;
+  background:var(--menta-wash,#E8F2EF);color:#1C5346;border:1px solid var(--menta,#A8D8CC)}
+.exp-tx{flex:1 1 auto;min-width:0}
+.exp-cat{display:block;font-size:10.5px;font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--dourado-txt,#7F6022);margin-bottom:2px}
+.exp-tx b{display:block;font-size:15.5px;font-weight:700;line-height:1.32;color:var(--tinta,#2B2B2B)}
+.exp-tx .res{display:block;font-size:13px;color:var(--cinza,#707070);line-height:1.5;margin-top:3px}
+.exp-mais{flex:none;font-size:24px;line-height:1;color:var(--cinza,#707070);transition:transform .2s}
+.exp[open] .exp-mais{transform:rotate(90deg)}
+.exp-corpo{padding:2px 20px 20px 71px;border-top:1px solid var(--linha,#E8ECEB);margin-top:-1px}
+.exp-corpo p{margin:14px 0 0;font-size:14px;line-height:1.65;color:var(--tinta,#2B2B2B)}
+.exp-corpo strong{font-weight:700}
+.exp-corpo em{font-style:italic}
+.exp-liga{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.exp-liga a{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+  color:#1C5346;background:var(--menta-wash,#E8F2EF);border:1px solid var(--menta,#A8D8CC);
+  padding:7px 14px;border-radius:50px;text-decoration:none}
+.exp-liga a:hover{background:var(--branco,#fff);color:#1C5346}
+@media(max-width:860px){
+  .exp-grelha{grid-template-columns:1fr}
+  .exp-corpo{padding-left:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  a.sem:hover,a.rec:hover{transform:none}
+  .exp-mais{transition:none}
+}
+
+/* Cartão-modelo: mostra à equipa como fica um trabalho publicado, sem se
+   fazer passar por um trabalho verdadeiro. */
+.rec-modelo{opacity:.72;border-style:dashed}
+.rec-modelo .rec-selo{color:var(--cinza,#707070);background:var(--areia,#F1F1F1);
+  border-color:var(--linha,#E8ECEB)}

@@ -12,54 +12,14 @@
           "imagem": "",
           "alt": "",
           "url": "",
-          "exemplo": true
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
+          "exemplo": true,
+          "autor": "",
+          "porque": "",
+          "atividade": "",
+          "destaque": false
         }
-      ]
+      ],
+      "convite": "Ainda não há trabalhos publicados nesta faixa. Fala com a equipa da Biblioteca para publicarmos o que a tua turma fez."
     },
     {
       "faixa": "Podcasts",
@@ -73,54 +33,14 @@
           "imagem": "",
           "alt": "",
           "url": "",
-          "exemplo": true
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
+          "exemplo": true,
+          "autor": "",
+          "porque": "",
+          "atividade": "",
+          "destaque": false
         }
-      ]
+      ],
+      "convite": "Ainda não há trabalhos publicados nesta faixa. Fala com a equipa da Biblioteca para publicarmos o que a tua turma fez."
     },
     {
       "faixa": "Booktrailers",
@@ -134,54 +54,14 @@
           "imagem": "",
           "alt": "",
           "url": "",
-          "exemplo": true
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
+          "exemplo": true,
+          "autor": "",
+          "porque": "",
+          "atividade": "",
+          "destaque": false
         }
-      ]
+      ],
+      "convite": "Ainda não há trabalhos publicados nesta faixa. Fala com a equipa da Biblioteca para publicarmos o que a tua turma fez."
     },
     {
       "faixa": "Infografias e cartazes",
@@ -195,54 +75,14 @@
           "imagem": "",
           "alt": "",
           "url": "",
-          "exemplo": true
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
-        },
-        {
-          "titulo": "",
-          "turma": "",
-          "ano": "",
-          "imagem": "",
-          "alt": "",
-          "url": "",
-          "exemplo": false
+          "exemplo": true,
+          "autor": "",
+          "porque": "",
+          "atividade": "",
+          "destaque": false
         }
-      ]
+      ],
+      "convite": "Ainda não há trabalhos publicados nesta faixa. Fala com a equipa da Biblioteca para publicarmos o que a tua turma fez."
     }
   ]
 }

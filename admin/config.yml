@@ -143,6 +143,87 @@ collections:
                   - { name: alt, label: Descrição da capa, widget: string, required: false }
                   - { name: url, label: Ligação, widget: string, required: false }
 
+              - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
+      - name: escolhas
+        label: Escolhas da Biblioteca (por público)
+        file: content/escolhas.json
+        description: 'Três escolhas para cada público. Não se escrevem aqui livros novos: aponta-se para fichas que já existem.'
+        fields:
+          - name: escolhas
+            label: Montras
+            widget: list
+            label_singular: montra
+            summary: '{{fields.publico}} — {{fields.titulo}}'
+            fields:
+              - { name: publico, label: Público, widget: string, required: true, hint: 'Ex.: 3.º ciclo; Ensino secundário; Professores.' }
+              - { name: titulo, label: Título da montra, widget: string, required: true, hint: 'Ex.: Três escolhas para descobrir este mês.' }
+              - { name: nota, label: Frase de abertura, widget: text, required: false }
+              - { name: icone, label: Ícone, widget: string, required: false, hint: 'livro · monitor · auscultador · microfone · pessoas · maos' }
+              - name: refs
+                label: Escolhas
+                widget: list
+                label_singular: escolha
+                summary: '{{fields.titulo}}'
+                fields:
+                  - { name: colecao, label: Onde vive a ficha, widget: select, required: true, options: [livrosDigitais, audiolivros, podcasts, videos, leituraAcessivel, bibliotecaDigital, sugestoesLeitura] }
+                  - { name: titulo, label: Título da ficha, widget: string, required: true, hint: 'Escrito tal e qual como está na ficha. Se não bater certo, a escolha não aparece.' }
+                  - { name: nota, label: Frase para ESTE público, widget: text, required: false, hint: 'A mesma obra dita a alguém diferente. Em branco, usa-se a frase da ficha.' }
+              - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
+
+      - name: semana
+        label: O que estamos a descobrir
+        file: content/semana.json
+        description: 'Quatro escolhas da equipa, uma por formato. Aparecem na página Ler e no Início. São referências, não cópias.'
+        fields:
+          - name: semana
+            label: A descoberta da semana
+            widget: object
+            fields:
+              - { name: periodo, label: Período, widget: string, required: false, hint: 'Ex.: Setembro de 2026. Só para a equipa se orientar.' }
+              - { name: nota, label: Frase de abertura, widget: text, required: false }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho, a secção desaparece do site.' }
+              - name: itens
+                label: Escolhas
+                widget: list
+                label_singular: escolha
+                summary: '{{fields.rotulo}} — {{fields.titulo}}'
+                fields:
+                  - { name: rotulo, label: Rótulo, widget: string, required: true, hint: 'Ex.: Audiolivro da semana.' }
+                  - { name: icone, label: Ícone, widget: string, required: false }
+                  - { name: colecao, label: Onde vive a ficha, widget: select, required: true, options: [livrosDigitais, audiolivros, podcasts, videos, leituraAcessivel, bibliotecaDigital, sugestoesLeitura] }
+                  - { name: titulo, label: Título da ficha, widget: string, required: true, hint: 'Escrito tal e qual como está na ficha.' }
+                  - { name: nota, label: "Porque é esta a escolha da semana?", widget: text, required: false }
+
+      - name: explica
+        label: A Biblioteca explica
+        file: content/explica.json
+        description: 'Respostas curtas às dúvidas que chegam mais vezes ao balcão. Aparecem na página Aprender.'
+        fields:
+          - name: explica
+            label: Explicações
+            widget: list
+            label_singular: explicação
+            summary: '{{fields.titulo}}'
+            fields:
+              - { name: titulo, label: A pergunta, widget: string, required: true, hint: 'Escrever como a pergunta chega ao balcão. Ex.: Posso usar qualquer imagem que encontre?' }
+              - { name: categoria, label: Categoria, widget: string, required: false, hint: 'Ex.: Pesquisa · Escrita · Direitos · Biblioteca.' }
+              - { name: icone, label: Ícone, widget: string, required: false, hint: 'escudo · ficheiro · cadeado · cerebro · balao · local · info' }
+              - { name: resumo, label: Resposta em uma linha, widget: text, required: false, hint: 'O essencial, para quem não abre a explicação.' }
+              - { name: corpo, label: A explicação, widget: text, required: false, hint: 'Parágrafos separados por linha em branco. **entre asteriscos** fica a negrito.' }
+              - name: recursos
+                label: Onde saber mais
+                widget: list
+                label_singular: recurso
+                summary: '{{fields.titulo}}'
+                fields:
+                  - { name: titulo, label: Nome, widget: string, required: true }
+                  - { name: url, label: Endereço, widget: string, required: true, hint: 'Endereço real e verificado, ou uma âncora do site.' }
+              - { name: destaque, label: Destacar, widget: boolean, required: false, default: false }
+              - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
+
       - name: livrosDigitais
         label: Livros digitais
         file: content/livrosDigitais.json
@@ -167,6 +248,10 @@ collections:
               - { name: destaque, label: "Destacar em «O que a Biblioteca está a destacar»", widget: boolean, required: false, default: false, hint: 'Aparece na montra da página Ler. Poucos e escolhidos.' }
               - { name: destaqueHome, label: Destacar também na página inicial, widget: boolean, required: false, default: false, hint: 'A página inicial mostra no máximo quatro.' }
               - { name: direitos, label: Direitos ou licença, widget: string, required: false }
+              - { name: selo, label: "Motivo do destaque (2 a 4 palavras)", widget: string, required: false, hint: 'Ex.: Ligação ao currículo; Excelente para começar; Recurso pouco conhecido. Aparece no cartão.' }
+              - { name: relacoes, label: "Relaciona-se com", widget: string, required: false, hint: 'Disciplinas ou temas, separados por vírgula. Ex.: Português, História.' }
+              - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
       - name: audiolivros
         label: Audiolivros
         file: content/audiolivros.json
@@ -193,6 +278,10 @@ collections:
               - { name: destaque, label: "Destacar em «O que a Biblioteca está a destacar»", widget: boolean, required: false, default: false, hint: 'Aparece na montra da página Ler. Poucos e escolhidos.' }
               - { name: destaqueHome, label: Destacar também na página inicial, widget: boolean, required: false, default: false, hint: 'A página inicial mostra no máximo quatro.' }
               - { name: direitos, label: Direitos ou licença, widget: string, required: false }
+              - { name: selo, label: "Motivo do destaque (2 a 4 palavras)", widget: string, required: false, hint: 'Ex.: Ligação ao currículo; Excelente para começar; Recurso pouco conhecido. Aparece no cartão.' }
+              - { name: relacoes, label: "Relaciona-se com", widget: string, required: false, hint: 'Disciplinas ou temas, separados por vírgula. Ex.: Português, História.' }
+              - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
       - name: podcasts
         label: Podcasts
         file: content/podcasts.json
@@ -218,6 +307,10 @@ collections:
               - { name: destaque, label: "Destacar em «O que a Biblioteca está a destacar»", widget: boolean, required: false, default: false, hint: 'Aparece na montra da página Ler. Poucos e escolhidos.' }
               - { name: destaqueHome, label: Destacar também na página inicial, widget: boolean, required: false, default: false, hint: 'A página inicial mostra no máximo quatro.' }
               - { name: direitos, label: Direitos ou licença, widget: string, required: false }
+              - { name: selo, label: "Motivo do destaque (2 a 4 palavras)", widget: string, required: false, hint: 'Ex.: Ligação ao currículo; Excelente para começar; Recurso pouco conhecido. Aparece no cartão.' }
+              - { name: relacoes, label: "Relaciona-se com", widget: string, required: false, hint: 'Disciplinas ou temas, separados por vírgula. Ex.: Português, História.' }
+              - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
       - name: videos
         label: Vídeos
         file: content/videos.json
@@ -239,6 +332,8 @@ collections:
               - { name: imagem, label: Miniatura (opcional), widget: image, required: false, media_folder: /imagens/videos, public_folder: imagens/videos }
               - { name: porque, label: "Porque é que a Biblioteca recomenda isto?", widget: text, required: false }
               - { name: publico, label: Para quem, widget: string, required: false }
+              - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
   # ─────────────────────────────────────────────────────────────
 
       - name: leituraAcessivel
@@ -265,6 +360,10 @@ collections:
               - { name: destaque, label: "Destacar em «O que a Biblioteca está a destacar»", widget: boolean, required: false, default: false, hint: 'Aparece na montra da página Ler. Poucos e escolhidos.' }
               - { name: destaqueHome, label: Destacar também na página inicial, widget: boolean, required: false, default: false, hint: 'A página inicial mostra no máximo quatro.' }
               - { name: direitos, label: Direitos ou licença, widget: string, required: false }
+              - { name: selo, label: "Motivo do destaque (2 a 4 palavras)", widget: string, required: false, hint: 'Ex.: Ligação ao currículo; Excelente para começar; Recurso pouco conhecido. Aparece no cartão.' }
+              - { name: relacoes, label: "Relaciona-se com", widget: string, required: false, hint: 'Disciplinas ou temas, separados por vírgula. Ex.: Português, História.' }
+              - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
       - name: bibliotecaDigital
         label: Biblioteca Digital
         file: content/bibliotecaDigital.json
@@ -304,6 +403,8 @@ collections:
 
               - { name: destaque, label: "Destacar em «O que a Biblioteca está a destacar»", widget: boolean, required: false, default: false, hint: 'Aparece na montra da página Ler. Poucos e escolhidos.' }
               - { name: destaqueHome, label: Destacar também na página inicial, widget: boolean, required: false, default: false, hint: 'A página inicial mostra no máximo quatro.' }
+              - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
       - name: disciplinas
         label: Recursos por disciplina
         file: content/disciplinas.json
@@ -449,6 +550,8 @@ collections:
                       - { name: titulo, label: Nome, widget: string }
                       - { name: url, label: Ligação, widget: string, required: false }
 
+              - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
       - name: literaciaPercurso
         label: 'Apoio ao Estudo · Literacia digital'
         file: content/literaciaPercurso.json
@@ -592,6 +695,7 @@ collections:
                   - { label: 'Concluído', value: concluido }
                   - { label: 'Arquivo', value: arquivo }
               - { name: imagem, label: Imagem, widget: image, required: false, media_folder: /imagens/projetos, public_folder: imagens/projetos, hint: 'Opcional. Exportar até 300 KB.' }
+              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
               - name: icone
                 label: Ícone
                 widget: select
@@ -689,6 +793,7 @@ collections:
               - { name: faixa, label: Nome da faixa, widget: string }
               - { name: icone, label: Ícone, widget: string, required: false }
               - { name: nota, label: Subtítulo, widget: string, required: false }
+              - { name: convite, label: Texto quando a faixa está vazia, widget: text, required: false, hint: 'Aparece no lugar dos trabalhos enquanto não houver nenhum publicado.' }
               - name: itens
                 label: Trabalhos
                 widget: list
@@ -697,12 +802,18 @@ collections:
                 fields:
                   - { name: titulo, label: Título, widget: string, required: false }
                   - { name: turma, label: Turma, widget: string, required: false }
+                  - { name: autor, label: Quem fez, widget: string, required: false, hint: 'Primeiro nome e inicial do apelido, nunca o nome completo (RGPD).' }
+                  - { name: atividade, label: Nasceu em que atividade, widget: string, required: false, hint: 'Ex.: Semana da Leitura; Clube de Leitura.' }
+                  - { name: porque, label: "O que é este trabalho?", widget: text, required: false, hint: 'Uma ou duas frases sobre o trabalho. É o que o valoriza.' }
+                  - { name: destaque, label: Destacar este trabalho, widget: boolean, required: false, default: false }
                   - { name: ano, label: Ano letivo, widget: string, required: false }
                   - { name: imagem, label: Miniatura, widget: image, required: false, media_folder: /imagens/trabalhos, public_folder: imagens/trabalhos }
                   - { name: alt, label: Descrição da imagem, widget: string, required: false }
                   - { name: url, label: Ligação, widget: string, required: false }
                   - { name: exemplo, label: 'É o cartão-modelo', widget: boolean, required: false, default: false, hint: 'Deixe ligado só no exemplo. Desligue quando puser um trabalho a sério.' }
 
+              - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
+              - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
       - name: arquivoAnos
         label: Arquivo por ano letivo
         file: content/arquivoAnos.json
@@ -760,6 +871,7 @@ collections:
                 options: [Leitura, Concurso, Formação, Exposição, Projeto, Visita, Aviso]
               - { name: resumo, label: Resumo, widget: text }
               - { name: imagem, label: Fotografia, widget: image, required: false, media_folder: /imagens/noticias, public_folder: imagens/noticias, hint: 'Só com consentimento RGPD registado. Exportar até 300 KB.' }
+              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
               - { name: emoji, label: Emoji (se não houver fotografia), widget: string, required: false, default: '📖' }
               - name: cor
                 label: Cor (se não houver fotografia)
@@ -1029,3 +1141,4 @@ collections:
               - { name: texto, label: Texto, widget: text, required: false }
               - { name: link, label: Ligação, widget: string, required: false }
               - { name: imagem, label: Imagem, widget: image, required: false, media_folder: /imagens/projetos, public_folder: imagens/projetos, hint: 'Opcional. Exportar até 300 KB.' }
+              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }

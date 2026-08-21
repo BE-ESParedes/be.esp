@@ -292,6 +292,28 @@ a.vd:hover{transform:translateY(-4px);box-shadow:var(--sombra-b2);border-color:v
   .vmes:hover,a.vproj:hover,a.vexpo:hover,a.vconc:hover{transform:none}
   .vcarril{scroll-behavior:auto}
 }
+/* ═══ A BIBLIOTECA EM AÇÃO ═══
+   Componente editorial: não guarda conteúdo, resume o que já está na
+   página e leva à secção certa. */
+.vacao{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.vacao-c{display:flex;flex-direction:column;gap:6px;background:var(--branco);
+  border:1px solid var(--linha);border-radius:16px;padding:18px;
+  text-decoration:none;color:inherit;transition:transform .18s,box-shadow .18s,border-color .18s}
+a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
+  box-shadow:0 12px 32px rgba(43,43,43,.12);color:inherit}
+.vacao-c .est{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--dourado-txt)}
+.vacao-c .est .ponto{width:7px;height:7px;border-radius:50%;background:var(--menta-media);flex:none}
+.vacao-c.viva .est{color:#1C5346}
+.vacao-c.viva .est .ponto{background:#2E9E7B;
+  box-shadow:0 0 0 0 rgba(46,158,123,.7);animation:vpulsa 2.6s infinite}
+@keyframes vpulsa{0%{box-shadow:0 0 0 0 rgba(46,158,123,.6)}60%{box-shadow:0 0 0 8px rgba(46,158,123,0)}100%{box-shadow:0 0 0 0 rgba(46,158,123,0)}}
+.vacao-c b{font-size:15px;font-weight:700;line-height:1.32;color:var(--tinta)}
+.vacao-c span.det{font-size:13px;color:var(--cinza);line-height:1.45}
+.vacao-c .ir{margin-top:auto;padding-top:8px;font-size:12px;font-weight:700;color:#1C5346}
+@media(max-width:1000px){.vacao{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.vacao{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body id="p-participar">
@@ -312,6 +334,19 @@ a.vd:hover{transform:translateY(-4px);box-shadow:var(--sombra-b2);border-color:v
   <!-- ═══ 1 · HOJE ═══ -->
   <section class="vsec" id="hoje" aria-labelledby="t-hoje">
     <div class="vwrap"><div class="vhoje" id="hoje-painel"></div></div>
+  </section>
+
+  <!-- ═══ 2 · BIBLIOTECA EM AÇÃO ═══
+       Quatro linhas que dizem o estado da Biblioteca num relance. Não há
+       aqui conteúdo próprio nem cópias: cada cartão vai buscar o item mais
+       relevante às secções que já existem nesta página e leva-te lá. -->
+  <section class="vsec" id="acao" data-seccao aria-labelledby="t-acao">
+    <div class="vwrap">
+      <div class="vfilete"></div>
+      <h2 class="vtit" id="t-acao">A Biblioteca em ação</h2>
+      <p class="vlead">O que está a acontecer, o que acabou de acontecer e o que vem a seguir.</p>
+      <div class="vacao" id="acao-lista"></div>
+    </div>
   </section>
 
   <!-- ═══ 3 · CALENDÁRIO DO ANO ═══ -->
@@ -639,31 +674,103 @@ window.renderPagina = function(){
            ${x.entidade ? `<span>${esc(x.entidade)}</span>` : ''}</a>`
       : `<div class="vinic"><b>${esc(x.nome || x.titulo || '')}</b></div>`).join('');
 
-  /* ── 8 · Trabalhos dos alunos, em faixas ── */
+  /* ── 2 · A Biblioteca em ação ──
+     Resume o estado da Biblioteca em quatro cartões. Cada um vai buscar o
+     item mais relevante a uma secção que JÁ existe nesta página e leva-te
+     lá — não há conteúdo duplicado, só uma leitura rápida do conjunto. */
+  (function () {
+    const el = document.getElementById('acao-lista'); if (!el) return;
+    const MESES = {jan:0,fev:1,mar:2,abr:3,mai:4,jun:5,jul:6,ago:7,set:8,out:9,nov:10,dez:11};
+    const agora = new Date();
+
+    /* a decorrer: a rotina semanal de hoje */
+    const dia = agora.getDay(), mm = agora.getHours()*60 + agora.getMinutes();
+    const min = h => { const q = String(h||'').split(':'); return (+q[0])*60 + (+q[1]||0); };
+    const aDecorrer = (CONTEUDO.rotina||[])
+      .filter(r => (r.dias||[]).includes(dia) && mm >= min(r.inicio) && mm < min(r.fim))[0];
+
+    /* a seguir: o próximo evento da agenda */
+    const dataDe = e => {
+      const m = MESES[String(e.mes||'').slice(0,3).toLowerCase()];
+      return m === undefined ? null : new Date(+e.ano || agora.getFullYear(), m, +e.dia || 1);
+    };
+    const proximo = (CONTEUDO.agenda||[])
+      .map(e => ({...e, d: dataDe(e)})).filter(e => e.d)
+      .sort((a,b) => a.d - b.d).find(e => e.d >= new Date(agora.toDateString()));
+
+    /* acabou de acontecer: a notícia mais recente */
+    const noticia = [...(CONTEUDO.noticias||[])]
+      .sort((a,b) => String(b.dataOrdenacao||'').localeCompare(String(a.dataOrdenacao||'')))[0];
+
+    /* os alunos estão a produzir: trabalhos já publicados, sem contar modelos */
+    const trabalhos = publicados('galeriaAlunos')
+      .flatMap(f => (f.itens||[]).filter(x => !x.exemplo && temTexto(x.titulo)));
+
+    const cartoes = [
+      aDecorrer && {viva:true, estado:'A acontecer agora',
+        titulo:aDecorrer.titulo, det:`${aDecorrer.inicio}–${aDecorrer.fim}`,
+        ir:'Ver o dia de hoje', url:'#hoje'},
+      proximo && {estado:'A seguir', titulo:proximo.titulo,
+        det:[`${proximo.dia} ${proximo.mes}`, proximo.local].filter(Boolean).join(' · '),
+        ir:'Ver os próximos eventos', url:'#proximos'},
+      noticia && {estado:'Acabou de acontecer', titulo:noticia.titulo,
+        det:noticia.data || '', ir:'Ver as novidades', url:'#novidades'},
+      {estado:'Os alunos criaram',
+       titulo: trabalhos.length
+         ? `${trabalhos.length} trabalho${trabalhos.length > 1 ? 's' : ''} publicado${trabalhos.length > 1 ? 's' : ''}`
+         : 'À espera do primeiro trabalho',
+       det: trabalhos.length
+         ? 'Vídeos, podcasts, booktrailers e cartazes feitos pelas turmas.'
+         : 'Fizeste alguma coisa na Biblioteca? Fala connosco e publicamos.',
+       ir:'Ver o que os alunos criaram', url:'#alunos'},
+    ].filter(Boolean);
+
+    if (!cartoes.length) { document.getElementById('acao')?.setAttribute('hidden',''); return; }
+    el.innerHTML = cartoes.map(c => `
+      <a class="vacao-c${c.viva ? ' viva' : ''}" href="${esc(c.url)}">
+        <span class="est"><span class="ponto"></span>${esc(c.estado)}</span>
+        <b>${esc(c.titulo)}</b>
+        ${temTexto(c.det) ? `<span class="det">${esc(c.det)}</span>` : ''}
+        <span class="ir">${esc(c.ir)} &rarr;</span>
+      </a>`).join('');
+  })();
+
+  /* ── 8 · Trabalhos dos alunos ──
+     Usa o mesmo cartão do resto do site (.rec), acrescentando a turma, o
+     ano e a atividade em que o trabalho nasceu. Uma faixa sem trabalhos
+     publicados mostra um convite — nunca seis molduras «por preencher». */
   let conta = 0;
   const al = document.getElementById('alunos-faixas');
   if (al) {
-    al.innerHTML = (CONTEUDO.galeriaAlunos||[]).map(f => {
+    al.innerHTML = publicados('galeriaAlunos').map(f => {
       const id = 'carril-' + (++conta);
+      const itens = (f.itens||[]).filter(x => x.exemplo || temTexto(x.titulo));
+      const reais = itens.filter(x => !x.exemplo);
+      const corpo = itens.length
+        ? `<div class="vcarril rec-carril" id="${id}" tabindex="0" role="group"
+                aria-label="${esc(f.faixa)}">
+             ${itens.map(x => {
+               const cartao = cartaoRecurso({
+                 titulo: x.titulo, autor: x.autor, imagem: x.imagem, alt: x.alt,
+                 publico: [x.turma, x.ano].filter(Boolean).join(' · '),
+                 genero: x.atividade, porque: x.porque, url: x.url,
+                 cta: 'Ver', fonte: 'Trabalho de alunos', formato: 'galeriaAlunos'
+               });
+               return x.exemplo
+                 ? cartao.replace('class="rec"', 'class="rec rec-modelo"')
+                         .replace('<span class="rec-tx">',
+                                  '<span class="rec-tx"><span class="rec-selo">modelo</span>')
+                 : cartao;
+             }).join('')}
+           </div>
+           ${reais.length ? `<div class="vnav" data-alvo="${id}"></div>` : ''}`
+        : `<p class="cvazio">${esc(f.convite || 'Ainda não há trabalhos publicados nesta faixa.')}</p>`;
       return `<div class="vfaixa">
         <div class="vfaixa-topo">
           <div><h3><span class="ic">${icone(f.icone||'camara',18)}</span>${esc(f.faixa)}</h3>
             <p>${esc(f.nota||'')}</p></div>
-          <div class="vnav" data-alvo="${id}"></div>
         </div>
-        <div class="vcarril" id="${id}" tabindex="0" role="group" aria-label="${esc(f.faixa)}">
-          ${(f.itens||[]).map(x => {
-            const capa = temTexto(x.imagem)
-              ? `<img src="${esc(x.imagem)}" alt="${esc(x.alt||'')}" loading="lazy">`
-              : `<span class="vazio">${x.exemplo ? 'Miniatura do trabalho' : 'Por carregar'}</span>`;
-            const dentro = `<span class="capa">${capa}</span>
-              ${x.exemplo ? '<span class="vselo">modelo</span>' : ''}
-              <b>${temTexto(x.titulo) ? esc(x.titulo) : '<span class="porpreencher">Por preencher</span>'}</b>
-              <span>${[x.turma, x.ano].filter(Boolean).map(esc).join(' · ')}</span>`;
-            return temTexto(x.url) ? `<a class="vitem" ${linkAttrs(x.url)}>${dentro}</a>`
-                                   : `<div class="vitem${x.exemplo ? ' modelo' : ''}">${dentro}</div>`;
-          }).join('')}
-        </div></div>`;
+        ${corpo}</div>`;
     }).join('');
     al.querySelectorAll('.vnav').forEach(nav => {
       const c = document.getElementById(nav.dataset.alvo); if (!c) return;

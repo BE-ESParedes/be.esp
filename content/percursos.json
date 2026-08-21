@@ -4,12 +4,12 @@
       "id": "trabalho",
       "icone": "ficheiro",
       "rotulo": "Fazer um trabalho",
-      "resumo": "Sete passos, do tema em branco à entrega. Serve para um trabalho de grupo, um relatório ou uma apresentação.",
+      "resumo": "Oito passos, do tema em branco à entrega. Serve para um trabalho de grupo, um relatório ou uma apresentação.",
       "duracao": "O percurso todo dá para uma semana de trabalho",
       "passos": [
         {
           "n": "1",
-          "titulo": "Escolhe e delimita o tema",
+          "titulo": "Define o tema",
           "texto": "O erro mais comum é começar largo demais. «A Segunda Guerra Mundial» não é um tema, é uma prateleira. «O papel das mulheres nas fábricas portuguesas durante a guerra» já é um tema. Escreve o teu numa frase; se não couber numa frase, ainda é largo demais.",
           "recursos": [
             {
@@ -24,18 +24,22 @@
         },
         {
           "n": "2",
-          "titulo": "Vê o que já sabes",
-          "texto": "Antes de abrir o navegador, escreve tudo o que já sabes sobre o assunto e, a seguir, as perguntas a que não sabes responder. São essas perguntas que vais pesquisar. Poupas horas.",
+          "titulo": "Transforma o tema numa pergunta",
+          "texto": "Um tema não se investiga; uma pergunta sim. «As redes sociais» é tema. «Que efeito têm as redes sociais no sono dos adolescentes?» é pergunta — tem resposta, tem limites e diz-te o que procurar.\nAntes de abrir o navegador, escreve tudo o que já sabes sobre o assunto e, a seguir, as perguntas a que não sabes responder. São essas perguntas que vais pesquisar. Poupas horas.",
           "recursos": [
             {
               "titulo": "Guião de pesquisa BIG6",
               "url": "#guioes"
+            },
+            {
+              "titulo": "A Biblioteca explica: informação e opinião",
+              "url": "#explica"
             }
           ]
         },
         {
           "n": "3",
-          "titulo": "Pesquisa",
+          "titulo": "Procura informação",
           "texto": "Começa pelo catálogo: um livro dá-te contexto que dez páginas soltas não dão. Depois vai às bases de dados e às bibliotecas digitais. O Google fica para o fim, e com aspas à volta das expressões exatas.",
           "recursos": [
             {
@@ -58,9 +62,13 @@
         },
         {
           "n": "4",
-          "titulo": "Seleciona e avalia",
-          "texto": "Para cada fonte pergunta quatro coisas: quem escreveu, quando, com que intenção e o que é que confirma isto noutro sítio. Se não conseguires responder às quatro, não uses. Guarda desde já o endereço e a data em que consultaste — vais precisar na bibliografia.",
+          "titulo": "Avalia as fontes",
+          "texto": "Para cada fonte, quatro perguntas: quem escreveu, quando, com que intenção e o que é que confirma isto noutro sítio. Se não conseguires responder às quatro, não uses. Guarda desde já o endereço e a data em que consultaste — vais precisar na bibliografia, e procurá-los outra vez no fim custa o dobro.",
           "recursos": [
+            {
+              "titulo": "A Biblioteca explica: como sei se uma fonte é de confiança?",
+              "url": "#explica"
+            },
             {
               "titulo": "Guião para validar sítios web",
               "url": "#guioes"
@@ -73,19 +81,19 @@
         },
         {
           "n": "5",
-          "titulo": "Organiza",
-          "texto": "Faz o índice antes de escrever. Três a cinco secções, e debaixo de cada uma as ideias e as fontes que lhe correspondem. Um trabalho bem organizado escreve-se sozinho; um mal organizado reescreve-se três vezes.",
+          "titulo": "Seleciona o que interessa",
+          "texto": "Ter muita informação não é ter trabalho feito. Volta à pergunta do passo 2 e pergunta a cada parágrafo que recolheste: isto ajuda a responder? O que não ajudar, sai — mesmo que te tenha custado a encontrar. É aqui que a maior parte dos trabalhos ganha ou perde qualidade.",
           "recursos": [
             {
-              "titulo": "Guia para trabalhos escritos",
+              "titulo": "Guião de pesquisa BIG6",
               "url": "#guioes"
             }
           ]
         },
         {
           "n": "6",
-          "titulo": "Escreve",
-          "texto": "Escreve com as tuas palavras. Copiar e colar, mesmo com a fonte indicada, não é um trabalho — é uma colagem. A introdução e a conclusão escrevem-se no fim, quando já sabes o que descobriste.",
+          "titulo": "Organiza e escreve",
+          "texto": "Faz o índice antes de escrever. Três a cinco secções, e debaixo de cada uma as ideias e as fontes que lhe correspondem. Um trabalho bem organizado escreve-se sozinho; um mal organizado reescreve-se três vezes.\nEscreve com as tuas palavras. Copiar e colar, mesmo com a fonte indicada, não é um trabalho — é uma colagem. A introdução e a conclusão escrevem-se no fim, quando já sabes o que descobriste.",
           "recursos": [
             {
               "titulo": "Guia para trabalhos escritos",
@@ -95,9 +103,13 @@
         },
         {
           "n": "7",
-          "titulo": "Cita e entrega",
+          "titulo": "Cita as fontes",
           "texto": "Toda a ideia que não é tua leva referência. Revê a formatação, confirma que a bibliografia está completa e lê o trabalho em voz alta antes de entregar — as frases que não se conseguem ler são as que estão mal escritas.",
           "recursos": [
+            {
+              "titulo": "A Biblioteca explica: como cito uma fonte sem me perder?",
+              "url": "#explica"
+            },
             {
               "titulo": "Percurso «Aprender a citar»",
               "url": "#percurso-citar"
@@ -105,6 +117,21 @@
             {
               "titulo": "Normas de citação APA",
               "url": "#guioes"
+            }
+          ]
+        },
+        {
+          "n": "8",
+          "titulo": "Pede ajuda",
+          "texto": "Não é preciso estar encravado para vir falar connosco, e não há pergunta demasiado básica. Ajudamos a estreitar o tema, a encontrar fontes que não apareceram, a perceber se uma página é de confiança e a acertar a bibliografia. Vem ao balcão, escreve-nos ou aparece na hora de atendimento.",
+          "recursos": [
+            {
+              "titulo": "Pergunta à equipa da Biblioteca",
+              "url": "conhecer.html#contactos"
+            },
+            {
+              "titulo": "Horário e contactos",
+              "url": "conhecer.html#contactos"
             }
           ]
         }
@@ -249,11 +276,96 @@
       "id": "informacao",
       "icone": "lupa",
       "rotulo": "Encontrar informação",
-      "preparacao": true,
-      "resumo": "Onde procurar consoante o que precisas: catálogo, bases de dados, bibliotecas digitais e arquivos.",
+      "preparacao": false,
+      "resumo": "Onde procurar quando o Google não chega — e como perceber se o que encontraste presta.",
       "nota": "Entretanto, o Catálogo já responde a boa parte disto.",
       "atalho": "encontrar.html",
-      "atalhoRotulo": "Ir ao catálogo"
+      "atalhoRotulo": "Ir ao catálogo",
+      "duracao": "Meia hora para aprender; poupa tardes inteiras depois",
+      "passos": [
+        {
+          "n": "1",
+          "titulo": "Escolhe as palavras antes de escrever",
+          "texto": "Uma pesquisa má quase nunca é culpa do motor de busca: é das palavras. Usa os termos que apareceriam num livro sobre o assunto, não os que usarias a falar. «Mortalidade infantil século XIX Portugal» encontra o que «porque é que morriam tantos bebés antigamente» não encontra.",
+          "recursos": [
+            {
+              "titulo": "Guião de pesquisa BIG6",
+              "url": "#guioes"
+            }
+          ]
+        },
+        {
+          "n": "2",
+          "titulo": "Começa pelo catálogo, não pelo Google",
+          "texto": "Um livro dá-te contexto, ordem e um autor responsável por aquilo. Dez páginas soltas dão-te fragmentos que tens de arrumar sozinho. Começa pelo catálogo da Biblioteca e só depois vai para o ecrã.",
+          "recursos": [
+            {
+              "titulo": "Pesquisar no catálogo",
+              "url": "encontrar.html#opac"
+            },
+            {
+              "titulo": "Do título ao livro, em 5 passos",
+              "url": "encontrar.html#tutorial"
+            }
+          ]
+        },
+        {
+          "n": "3",
+          "titulo": "Sabe onde vive cada tipo de informação",
+          "texto": "Investigação académica está no RCAAP. Património, imagem e documento histórico estão na Europeana, na Biblioteca Nacional Digital e no Arquivo Torre do Tombo. Estatística portuguesa está na PORDATA. Literatura de acesso livre está na Biblioteca Digital Camões e no Project Gutenberg. Ir ao sítio certo poupa mais tempo do que qualquer truque de pesquisa.",
+          "recursos": [
+            {
+              "titulo": "Onde ir buscar",
+              "url": "#ligacoes"
+            },
+            {
+              "titulo": "Biblioteca digital",
+              "url": "ler.html#digital"
+            }
+          ]
+        },
+        {
+          "n": "4",
+          "titulo": "Aperta a pesquisa",
+          "texto": "Aspas prendem a expressão exata: \"revolução industrial\". O sinal menos exclui uma palavra. «site:» limita a um domínio — site:gov.pt só devolve páginas do Estado. E quase todos os motores têm pesquisa avançada, com filtro por data e por tipo de ficheiro. Cinco minutos a aprender isto valem por horas.",
+          "recursos": [
+            {
+              "titulo": "Portal MILD da RBE",
+              "url": "https://mild.rbe.mec.pt"
+            }
+          ]
+        },
+        {
+          "n": "5",
+          "titulo": "Verifica antes de usar",
+          "texto": "Quem escreveu, quando, para quê, e quem mais diz o mesmo. Se a resposta a qualquer uma delas for «não sei», procura outra fonte. Uma informação que só existe num sítio é um sinal de aviso, não uma exclusividade.",
+          "recursos": [
+            {
+              "titulo": "A Biblioteca explica: como sei se uma fonte é de confiança?",
+              "url": "#explica"
+            },
+            {
+              "titulo": "Portal MILD da RBE",
+              "url": "https://mild.rbe.mec.pt"
+            }
+          ]
+        },
+        {
+          "n": "6",
+          "titulo": "Guarda enquanto procuras",
+          "texto": "Anota o endereço e a data de consulta no momento em que encontras, não no fim. Reencontrar uma página que já viste é o desperdício de tempo mais comum — e o mais evitável — de um trabalho de pesquisa.",
+          "recursos": [
+            {
+              "titulo": "A Biblioteca explica: como cito uma fonte sem me perder?",
+              "url": "#explica"
+            },
+            {
+              "titulo": "Normas de citação APA",
+              "url": "#guioes"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "apresentacao",

@@ -15,7 +15,7 @@ O painel escreve os ficheiros e publica sozinho.
 | Ficheiro | Papel |
 |---|---|
 | `admin/index.html` | A página do painel |
-| `admin/config.yml` | Os formulários dos **42 ficheiros** de `content/` |
+| `admin/config.yml` | Os formulários dos **45 ficheiros** de `content/` |
 | `robots.txt` | Já impede que o painel apareça no Google |
 
 Nada mais é preciso criar. Basta publicar o site como habitualmente.
@@ -129,7 +129,7 @@ site. O site público responde a «o que queres fazer?»; quem edita pergunta
 | Secção | Contém |
 |---|---|
 | 1 · Página inicial | Banners do topo, Atalhos, Destaques |
-| 2 · Conteúdos para ler e usar | Livros, Livros digitais, Audiolivros, Podcasts, Vídeos, Leitura acessível, Biblioteca digital, Disciplinas, Ligações úteis, Ferramentas, Guiões, Percursos, Literacia digital, Trabalhar com a Biblioteca |
+| 2 · Conteúdos para ler e usar | **Escolhas da Biblioteca**, **O que estamos a descobrir**, **A Biblioteca explica**, Livros, Livros digitais, Audiolivros, Podcasts, Vídeos, Leitura acessível, Biblioteca digital, Disciplinas, Ligações úteis, Ferramentas, Guiões, Percursos, Literacia digital, Trabalhar com a Biblioteca |
 | 3 · Programação | Agenda, Calendário do ano, Rotina semanal, Temas, Projetos, Iniciativas nacionais, Concursos, Exposições, Trabalhos dos alunos, Arquivo |
 | 4 · Comunicação | Notícias |
 | 5 · A Biblioteca | Informação e contactos, O que fazemos, Zonas, Galeria, Como funciona, FAQ, Equipa, Documentos, Projetos da escola |
@@ -166,6 +166,44 @@ passa a aparecer também na montra. Desmarcar retira-a da montra sem mexer na fi
 
 > Poucos e escolhidos. Oito na página Ler e quatro no Início é uma boa medida;
 > vinte destaques deixam de ser destaques.
+
+### As três montras — e porque não se copia nada para elas
+
+Há três sítios onde a Biblioteca mostra escolhas. **Nenhum deles guarda livros.**
+Todos apontam para fichas que já existem, para não haver a mesma obra escrita em
+dois sítios (e um deles desatualizado).
+
+| Formulário | O que é | Como se enche |
+|---|---|---|
+| *(marcas na própria ficha)* | **O que a Biblioteca está a destacar** e o **Início** | Caixas no fim de cada ficha |
+| **O que estamos a descobrir** | Quatro escolhas da semana, uma por formato | Escolhe-se a coleção e escreve-se o título |
+| **Escolhas da Biblioteca** | Três montras por público | Escolhe-se a coleção e escreve-se o título |
+
+> ⚠️ Nas duas últimas, o **título tem de estar escrito tal e qual como está na
+> ficha**. Se não bater certo, a escolha simplesmente não aparece — não dá erro.
+> A maneira segura é copiar o título do próprio formulário da ficha.
+
+Se apagares a ficha, a escolha desaparece com ela. Se a editares, muda nos dois sítios.
+
+### Posição e estado
+
+Dois campos novos no fim de quase todos os formulários:
+
+- **Posição** — um número. Menor aparece primeiro; em branco vai para o fim.
+- **Estado** — *publicado* ou *rascunho*. Em **rascunho** a ficha fica escrita mas
+  **não aparece no site**. Serve para preparar conteúdo com calma, ou para retirar
+  alguma coisa sem a apagar.
+
+### O motivo do destaque
+
+Quando marcas uma ficha como destaque, preenche também **«Motivo do destaque»** —
+duas a quatro palavras que aparecem no cartão. Não é decoração: é a razão pela
+qual a Biblioteca o escolheu.
+
+> *Ligação ao currículo* · *Excelente para começar* · *Clássico fundamental* ·
+> *Recurso pouco conhecido* · *Descoberta da Biblioteca* · *Cabe numa viagem*
+
+Um destaque sem motivo é só um item posto à frente dos outros.
 
 ### A frase editorial
 

@@ -13,7 +13,8 @@
       "cta": "Ouvir",
       "url": "https://antena2.rtp.pt/podcast/volta-ao-mundo-em-cem-livros/",
       "destaque": true,
-      "destaqueHome": true
+      "destaqueHome": true,
+      "selo": "Para alargar horizontes"
     },
     {
       "titulo": "Conversas para Ler",
@@ -27,8 +28,9 @@
       "fonte": "RTP Antena 1",
       "cta": "Ouvir",
       "url": "https://antena1.rtp.pt/podcast/conversas-para-ler/",
-      "destaque": false,
-      "destaqueHome": false
+      "destaque": true,
+      "destaqueHome": false,
+      "selo": "Dá vontade de ler"
     },
     {
       "titulo": "Última Edição",

@@ -177,6 +177,7 @@
   <nav class="cformatos" aria-label="Formatos de leitura">
     <div class="cwrap">
       <ul>
+        <li><a href="#novidades"><span data-ico="estrela"></span>Destaques</a></li>
         <li><a href="#livros"><span data-ico="livro"></span>Ler</a></li>
         <li><a href="#livros-digitais"><span data-ico="monitor"></span>Ler no ecrã</a></li>
         <li><a href="#audiolivros"><span data-ico="auscultador"></span>Ouvir</a></li>
@@ -192,16 +193,41 @@
     <div class="cwrap">
       <div class="cfilete"></div>
       <h2 class="ctit" id="t-des">O que a Biblioteca está a destacar</h2>
-      <p class="clead">Poucos, escolhidos a dedo, de todos os formatos. Cada um com a razão
-        pela qual vale a pena — que é, afinal, o trabalho de uma biblioteca.</p>
+      <p class="clead">Escolhas da Biblioteca em cada formato digital. Poucas, e cada uma
+        com a razão pela qual vale a pena — que é, afinal, o trabalho de uma biblioteca.</p>
       <div class="rec-grelha" id="destaques-grelha"></div>
       <p class="cvazio" id="destaques-vazio" hidden>A Biblioteca ainda não marcou destaques.
         Aparecem aqui assim que forem escolhidos no painel.</p>
     </div>
   </section>
 
+  <!-- ═══ A DESCOBERTA DA SEMANA ═══
+       Quatro lugares fixos, um por formato. Não guarda conteúdo próprio:
+       aponta para fichas que já existem noutras secções. -->
+  <section class="csec" id="semana" data-seccao aria-labelledby="t-sem">
+    <div class="cwrap">
+      <div class="cfilete"></div>
+      <h2 class="ctit" id="t-sem">O que estamos a descobrir</h2>
+      <p class="clead" id="semana-nota"></p>
+      <div class="sem-grelha" id="semana-grelha"></div>
+    </div>
+  </section>
+
+  <!-- ═══ ESCOLHAS POR PÚBLICO ═══
+       Três escolhas para cada público. A mesma obra dita a pessoas
+       diferentes — por isso a nota muda, e a ficha não. -->
+  <section class="csec alt" id="escolhas" data-seccao aria-labelledby="t-esc">
+    <div class="cwrap">
+      <div class="cfilete"></div>
+      <h2 class="ctit" id="t-esc">Escolhas da Biblioteca</h2>
+      <p class="clead">Três de cada vez, para quem não quer percorrer listas.
+        Se és professor, a terceira coluna é para ti.</p>
+      <div class="mpub-grelha" id="escolhas-grelha"></div>
+    </div>
+  </section>
+
   <!-- ═══ 1 · LER ═══ -->
-  <section class="csec alt" id="livros" aria-labelledby="t-livros">
+  <section class="csec" id="livros" aria-labelledby="t-livros">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="livro"></span>
         <div><h2 class="ctit" id="t-livros">Ler</h2>
@@ -310,7 +336,7 @@ window.renderPagina = function(){
   function faixa(idAlvo, chave, vazio){
     const el = document.getElementById(idAlvo);
     if (!el) return;
-    const itens = (CONTEUDO[chave] || []).map(x => ({ ...x, formato: chave }));
+    const itens = publicados(chave);   // respeita ordem e estado (rascunho não aparece)
     el.innerHTML = itens.length
       ? `<div class="rec-carril" id="carril-${chave}" tabindex="0" role="group">
            ${itens.map(x => cartaoRecurso(x)).join('')}
@@ -331,7 +357,7 @@ window.renderPagina = function(){
      Continuam agrupados por ciclo, como a equipa os escreve no painel,
      mas desenhados com o mesmo cartão de todos os outros formatos. */
   const sf = document.getElementById('sugestoes-faixas');
-  if (sf) sf.innerHTML = (CONTEUDO.sugestoesLeitura||[]).map((f,n) => `
+  if (sf) sf.innerHTML = publicados('sugestoesLeitura').map((f,n) => `
     <div class="cfaixa">
       <div class="cfaixa-topo">
         <div><h3>${esc(f.faixa||'')}</h3><p>${esc(f.nota||'')}</p></div>
@@ -342,6 +368,14 @@ window.renderPagina = function(){
         ${(f.livros||[]).map(l => cartaoRecurso({ ...l, formato:'sugestoesLeitura' })).join('')}
       </div>
     </div>`).join('');
+
+  /* ── a descoberta da semana e as escolhas por público ──
+     Ambas são referências a fichas que vivem noutro sítio. Se ficarem sem
+     nada que mostrar, a secção esconde-se em vez de ficar vazia. */
+  const sn = document.getElementById('semana-nota');
+  if (sn) sn.textContent = (CONTEUDO.semana || {}).nota || '';
+  if (!renderSemana('semana-grelha')) document.getElementById('semana')?.setAttribute('hidden','');
+  if (!renderEscolhas('escolhas-grelha')) document.getElementById('escolhas')?.setAttribute('hidden','');
 
   /* ── destaques ──
      Não há aqui conteúdo próprio: recolhem-se os itens que a equipa marcou
@@ -357,11 +391,11 @@ window.renderPagina = function(){
 
   /* Os vídeos são desenhados pelo motor; se não houver, mostra-se o aviso. */
   const vv = document.getElementById('videos-vazio');
-  if (vv && !(CONTEUDO.videos || []).length) vv.hidden = false;
+  if (vv && !publicados('videos').length) vv.hidden = false;
 
   /* ── plataformas digitais ── */
   const cd = document.getElementById('carril-digital');
-  if (cd) cd.innerHTML = (CONTEUDO.bibliotecaDigital||[]).map(x =>
+  if (cd) cd.innerHTML = publicados('bibliotecaDigital').map(x =>
     `<a class="cplat" ${linkAttrs(x.url)}>
        <span class="ic">${icone(x.icone||'globo',20)}</span>
        <h4>${esc(x.nome)}</h4><p>${esc(x.descricao||'')}</p>

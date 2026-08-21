@@ -22,7 +22,7 @@
           "itens": [
             {
               "titulo": "Biblioteca Digital Camões",
-              "url": "https://cvc.instituto-camoes.pt"
+              "url": "https://www.instituto-camoes.pt/"
             },
             {
               "titulo": "Project Gutenberg · domínio público",
@@ -76,7 +76,7 @@
         {
           "titulo": "Biblioteca Digital Camões",
           "area": "Obras do programa",
-          "url": "https://cvc.instituto-camoes.pt",
+          "url": "https://www.instituto-camoes.pt/",
           "imagem": "",
           "alt": ""
         },

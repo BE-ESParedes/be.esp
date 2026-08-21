@@ -12,7 +12,8 @@
       "cta": "Abrir a BiblioLED",
       "url": "https://www.biblioled.gov.pt/",
       "destaque": true,
-      "destaqueHome": false
+      "destaqueHome": true,
+      "selo": "Útil e pouco conhecido"
     },
     {
       "titulo": "Biblioteca Sonora Digital",
@@ -25,8 +26,9 @@
       "fonte": "Câmara Municipal do Porto",
       "cta": "Conhecer o serviço",
       "url": "https://bmp.cm-porto.pt/bibliotecasonoradigital",
-      "destaque": false,
-      "destaqueHome": false
+      "destaque": true,
+      "destaqueHome": false,
+      "selo": "Recurso pouco conhecido"
     },
     {
       "titulo": "Audiolivros e leitura acessível",

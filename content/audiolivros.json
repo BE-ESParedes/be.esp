@@ -14,7 +14,8 @@
       "cta": "Ouvir",
       "url": "https://anchor.fm/s/83c3e924/podcast/play/47639741/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2022-1-14%2F1a21ae4d-d13a-508c-dbe4-68682c973b9d.mp3",
       "destaque": true,
-      "destaqueHome": false
+      "destaqueHome": false,
+      "selo": "Cabe numa viagem"
     },
     {
       "titulo": "Amor de Perdição",
@@ -62,7 +63,8 @@
       "cta": "Ouvir",
       "url": "https://librivox.org/os-lusiadas-by-luis-vaz-de-camoes/",
       "destaque": true,
-      "destaqueHome": true
+      "destaqueHome": true,
+      "selo": "Ligação ao currículo"
     },
     {
       "titulo": "Cânticos do Realismo: O Livro de Cesário Verde",
@@ -77,8 +79,9 @@
       "fonte": "Imprensa Nacional",
       "cta": "Ouvir",
       "url": "https://files.incm.pt/imprensanacional/audiolivros/canticos_do_realismo.mp3",
-      "destaque": false,
-      "destaqueHome": false
+      "destaque": true,
+      "destaqueHome": false,
+      "selo": "Excelente para ouvir"
     },
     {
       "titulo": "As Pupilas do Senhor Reitor",
@@ -190,7 +193,8 @@
       "cta": "Ouvir",
       "url": "https://imprensanacional.pt/wp-content/uploads/2024/09/Mensaige_Final1.mp3",
       "destaque": true,
-      "destaqueHome": false
+      "destaqueHome": false,
+      "selo": "Descoberta da Biblioteca"
     }
   ]
 }

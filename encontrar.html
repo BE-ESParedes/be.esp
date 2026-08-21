@@ -97,6 +97,23 @@
 .cconvite h3{font-size:19px;font-weight:800;margin:0 0 8px;color:var(--tinta);letter-spacing:-.015em}
 .cconvite p{margin:0 0 20px;color:var(--tinta);font-size:14.5px;line-height:1.6}
 
+/* ═══ CABEÇALHO DE PERGUNTA ═══
+   Cada bloco abre com a pergunta do utilizador («Já encontraste o livro?»)
+   e só depois com o nome da coisa. É o que torna o percurso legível de
+   cima a baixo, sem ler o corpo do texto. */
+.cpergunta{display:flex;align-items:flex-start;gap:16px;margin:0 0 18px}
+.cpergunta .cp-ico{display:grid;place-items:center;width:52px;height:52px;flex:none;
+  border-radius:15px;background:var(--menta-wash);color:#1C5346;border:1px solid var(--menta)}
+.cpergunta .ctit{margin:2px 0 2px}
+.csub{margin:0;font-size:17px;font-weight:700;color:var(--menta-txt);letter-spacing:-.01em}
+.clista{margin:0 auto 22px;padding:0;list-style:none;max-width:52ch;text-align:left;
+  display:grid;gap:8px}
+.clista li{position:relative;padding-left:24px;font-size:14.5px;color:var(--tinta);line-height:1.5}
+.clista li::before{content:"";position:absolute;left:4px;top:8px;width:7px;height:7px;
+  border-radius:50%;background:var(--menta-media)}
+.cetiqs-esq{justify-content:flex-start;margin-bottom:22px}
+.csec .bts{display:flex;gap:10px;flex-wrap:wrap}
+
 /* ═══ APOIO À PESQUISA ═══
    O tutorial vive dentro de um <details>: quem já sabe pesquisar passa ao
    lado, quem não sabe abre-o. Deixou de ser uma secção que toda a gente
@@ -219,43 +236,68 @@
 <div id="cabecalho"></div>
 <main id="conteudo">
 
-  <!-- ═══ 1 · CABEÇALHO ═══ -->
+  <!-- ═══════════════════════════════════════════════════════════════
+       ENCONTRAR — um percurso, cinco perguntas.
+       A página segue a ordem em que as dúvidas aparecem a quem procura
+       um livro: primeiro se existe, depois como se procura, depois onde
+       está, depois o que ler, e por fim quem ajuda. Cada bloco abre com
+       a pergunta do utilizador, não com o nome do serviço.
+       ═══════════════════════════════════════════════════════════════ -->
+
   <header class="chero">
     <img src="imagens/catalogo/hero.jpg" alt="">
     <div class="cwrap">
-      <h1>Procura no catálogo. Encontra na estante.</h1>
-      <p>Primeiro descobres se o livro existe e onde está. Depois segues a cota até
-         à prateleira. Se ainda não sabes o que queres, a Biblioteca sugere.</p>
+      <h1>Procura. Descobre. Escolhe.</h1>
+      <p>O livro que procuras pode estar na Biblioteca. Descobre se temos o que procuras
+         e aprende a encontrá-lo.</p>
       <a class="cbt" href="#opac">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         Pesquisar no catálogo</a>
     </div>
   </header>
 
-  <!-- ═══ 3 · CATÁLOGO ONLINE ═══ -->
+  <!-- ─── 1 · Queres encontrar um livro? ─── -->
   <section class="csec alt" id="opac" aria-labelledby="t-opac">
     <div class="cwrap">
+      <div class="cpergunta">
+        <span class="cp-ico" data-ico="lupa"></span>
+        <div>
+          <h2 class="ctit" id="t-opac">Queres encontrar um livro?</h2>
+          <p class="csub">Pesquisa no catálogo da Biblioteca</p>
+        </div>
+      </div>
       <div class="copac">
-        <h2 class="ctit" id="t-opac" style="text-align:center">O catálogo online</h2>
         <p id="opac-texto"></p>
+        <ul class="clista">
+          <li>se o livro faz parte do acervo</li>
+          <li>onde está</li>
+          <li>se está disponível</li>
+          <li>como o encontrar na estante</li>
+        </ul>
         <div class="cetiqs" id="opac-etiquetas"></div>
         <div class="bts" id="opac-botoes"></div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ 2 · APOIO À PESQUISA ═══
-       O tutorial dos cinco passos deixou de ser uma secção à parte: é agora
-       o apoio de quem acabou de ver o catálogo e não sabe como começar.
-       Fica recolhido, para não empurrar o resto da página para baixo. -->
+  <!-- ─── 2 · Não sabes como pesquisar? ─── -->
   <section class="csec" id="tutorial" aria-labelledby="t-tut">
     <div class="cwrap">
+      <div class="cpergunta">
+        <span class="cp-ico" data-ico="alvo"></span>
+        <div>
+          <h2 class="ctit" id="t-tut">Não sabes como pesquisar?</h2>
+          <p class="csub">Do título ao livro, em cinco passos</p>
+        </div>
+      </div>
+      <p class="clead">Não precisas de saber tudo sobre o livro para começar. Aprende, passo a
+        passo, a pesquisar no catálogo, interpretar os resultados e chegar ao livro que procuras.</p>
       <details class="cajuda" id="ajuda-pesquisa">
         <summary>
           <span class="ca-ico" data-ico="info"></span>
           <span class="ca-tx">
-            <b id="t-tut">Nunca pesquisaste no catálogo?</b>
-            <span>Do título ao livro na mão, em cinco passos.</span>
+            <b>Aprender a pesquisar</b>
+            <span>Os cinco passos, com um exemplo que podes experimentar.</span>
           </span>
           <span class="ca-seta" aria-hidden="true">&rsaquo;</span>
         </summary>
@@ -275,46 +317,64 @@
     </div>
   </section>
 
-  <!-- ═══ 5 · SUGESTÕES DE LEITURA ═══ -->
-  <!-- ═══ ESTANTES ═══
-       Depois de descobrir o livro no catálogo, é preciso encontrá-lo na
-       estante. A cota e as cores das classes vêm do anexo CDU da Biblioteca. -->
+  <!-- ─── 3 · Já encontraste o livro? ───
+       O botão do mapa só aparece se existir mesmo um recurso: o endereço
+       vem de info.json (campo mapaBiblioteca). Enquanto não existir, não
+       se promete o que não há. -->
   <section class="csec alt" id="estantes" aria-labelledby="t-est">
     <div class="cwrap">
-      <div class="cfilete"></div>
-      <h2 class="ctit" id="t-est">Estantes</h2>
-      <p class="clead">Encontraste o livro no catálogo? Agora encontra-o na estante.
-        Cada área tem uma cor e um número — é por aí que os livros estão arrumados.</p>
+      <div class="cpergunta">
+        <span class="cp-ico" data-ico="local"></span>
+        <div>
+          <h2 class="ctit" id="t-est">Já encontraste o livro?</h2>
+          <p class="csub">Agora falta encontrá-lo na Biblioteca</p>
+        </div>
+      </div>
+      <p class="clead">O catálogo diz-te <b>o que temos</b>. As estantes ajudam-te a descobrir
+        <b>onde está</b>. Cada área tem uma cor e um número — é por aí que os livros estão arrumados.</p>
       <div class="cestantes" id="estantes-lista"></div>
       <p class="cvazio" id="estantes-vazio" hidden>O mapa das estantes está a ser preparado.
         Entretanto, pede ajuda no balcão: encontramos o livro contigo.</p>
+      <div class="bts" id="estantes-botoes" style="margin-top:22px"></div>
     </div>
   </section>
 
-  <!-- ═══ SUGESTÕES ═══
-       As recomendações vivem em LER › Livros, que é o seu local principal.
-       Aqui fica só o caminho, para não haver o mesmo conteúdo em dois sítios. -->
+  <!-- ─── 4 · Ainda não sabes o que ler? ───
+       As recomendações vivem em LER, que é o seu lugar. Aqui fica o
+       caminho, para não haver o mesmo conteúdo em dois sítios. -->
   <section class="csec" id="sugestoes" aria-labelledby="t-sug">
     <div class="cwrap">
-      <div class="csempre">
-        <h2 id="t-sug">Não sabes o que ler?</h2>
-        <p>A Biblioteca escolhe e recomenda livros por ciclo, por tema e por género —
-           em papel, em digital e em áudio.</p>
-        <p style="margin:0"><a class="cbt" href="ler.html#livros">Ver as sugestões de leitura</a></p>
+      <div class="cpergunta">
+        <span class="cp-ico" data-ico="estrela"></span>
+        <div>
+          <h2 class="ctit" id="t-sug">Ainda não sabes o que ler?</h2>
+          <p class="csub">Deixa-nos sugerir</p>
+        </div>
+      </div>
+      <p class="clead">Nem sempre sabemos o título que procuramos. Às vezes sabemos apenas que
+        queremos <b>uma boa história</b>.</p>
+      <div class="cetiqs cetiqs-esq">
+        <span class="cetiq">3.º ciclo</span>
+        <span class="cetiq">Ensino secundário</span>
+        <span class="cetiq">Géneros</span>
+        <span class="cetiq">Temas</span>
+        <span class="cetiq">Leitura por prazer</span>
+      </div>
+      <div class="bts">
+        <a class="cbt" href="ler.html#escolhas">Ver as escolhas da Biblioteca</a>
+        <a class="cbt linha" href="ler.html#livros">Todas as sugestões de leitura</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══ 6 · BIBLIOTECA DIGITAL ═══ -->
-    <!-- ═══ 7 · DESTAQUES ═══ -->
-    <!-- ═══ 8 · SEMPRE ABERTA ═══ -->
-  <section class="csec">
+  <!-- ─── 5 · Precisas de ajuda? ─── -->
+  <section class="csec alt" id="ajuda" aria-labelledby="t-aju">
     <div class="cwrap">
       <div class="csempre">
-        <h2>A Biblioteca está sempre aberta</h2>
-        <p>As portas do bloco E fecham às 18h30. O catálogo e a biblioteca digital não fecham:
-           estão à distância de um ecrã, a qualquer hora, de qualquer sítio.</p>
-        <p style="margin:0"><a class="cbt" id="bt-sempre" href="#opac">Ir para o catálogo online</a></p>
+        <h2 id="t-aju">Precisas de ajuda?</h2>
+        <p>Não encontras o que procuras? Pergunta-nos. Podemos ajudar-te a procurar no
+           catálogo, encontrar uma alternativa ou escolher outra leitura.</p>
+        <p style="margin:0"><a class="cbt" href="conhecer.html#contactos">Pedir ajuda à Biblioteca</a></p>
       </div>
     </div>
   </section>
@@ -425,6 +485,14 @@ window.renderPagina = function(){
        <span><b>${esc(e.designacao||'')}</b><span>${esc(e.onde||'')}</span></span>
      </div>`).join('');
   if (estVazio && !estantes.length) estVazio.hidden = false;
+
+  /* O botão do mapa só existe se houver mesmo um mapa. Prometer um recurso
+     que não existe é pior do que não o oferecer. */
+  const eb = document.getElementById('estantes-botoes');
+  if (eb) eb.innerHTML = [
+    `<a class="cbt linha" href="conhecer.html#espaco">Ver as zonas da Biblioteca</a>`,
+    temTexto(i.mapaBiblioteca) ? `<a class="cbt" ${linkAttrs(i.mapaBiblioteca)}>Ver o mapa da Biblioteca</a>` : ''
+  ].filter(Boolean).join('');
 
   /* ── 6 · plataformas digitais ── */
   const TIPOS = {ebooks:'E-books', audiolivros:'Audiolivros',
