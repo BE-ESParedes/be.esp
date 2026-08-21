@@ -59,23 +59,6 @@
 .cbt.claro:hover{background:#fff;color:var(--tinta)}
 .cbt.peq{font-size:13.5px;padding:11px 20px;min-height:44px}
 
-/* ═══ 2 · COMO QUERES PROCURAR ═══ */
-.cmodos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.cmodo{position:relative;overflow:hidden;isolation:isolate;border-radius:var(--r-cartao-b);
-  min-height:250px;display:flex;align-items:flex-end;text-decoration:none;
-  transition:transform .18s,box-shadow .18s}
-.cmodo:hover{transform:translateY(-5px);box-shadow:var(--sombra-b2)}
-.cmodo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.cmodo .veu{position:absolute;inset:0;z-index:-1}
-.cmodo.menta   .veu{background:linear-gradient(160deg,rgba(23,72,61,.62) 0%,rgba(23,72,61,.88) 100%)}
-.cmodo.dourado .veu{background:linear-gradient(160deg,rgba(96,72,20,.62) 0%,rgba(96,72,20,.90) 100%)}
-.cmodo.grafite .veu{background:linear-gradient(160deg,rgba(31,31,31,.60) 0%,rgba(31,31,31,.90) 100%)}
-.cmodo .tx{padding:26px 26px 28px;color:#fff}
-.cmodo h3{font-size:21px;font-weight:800;margin:0 0 8px;letter-spacing:-.015em;
-  text-shadow:0 1px 3px rgba(0,0,0,.3)}
-.cmodo p{margin:0;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.94)}
-.cmodo .seta{display:inline-block;margin-top:14px;font-weight:800;font-size:14px}
-
 /* ═══ 3 · CATÁLOGO ONLINE ═══ */
 /* Ocupa toda a largura da grelha, sem margem lateral; a altura mantém-se
    pelo mesmo enchimento interior (27/07/2026). */
@@ -92,8 +75,6 @@
 .copac .bts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 
 /* ═══ 4 · TUTORIAL ═══ */
-.cguia{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao-b);
-  box-shadow:var(--sombra-b);padding:clamp(24px,3vw,34px)}
 .cpassos{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:8px;
   scroll-behavior:smooth;scrollbar-width:thin}
 .cpasso{flex:1 0 200px;background:var(--papel);border:1px solid var(--linha);
@@ -115,6 +96,27 @@
   padding:26px 24px;display:flex;flex-direction:column;justify-content:center}
 .cconvite h3{font-size:19px;font-weight:800;margin:0 0 8px;color:var(--tinta);letter-spacing:-.015em}
 .cconvite p{margin:0 0 20px;color:var(--tinta);font-size:14.5px;line-height:1.6}
+
+/* ═══ APOIO À PESQUISA ═══
+   O tutorial vive dentro de um <details>: quem já sabe pesquisar passa ao
+   lado, quem não sabe abre-o. Deixou de ser uma secção que toda a gente
+   tem de percorrer para chegar ao resto da página. */
+.cajuda{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao-b);
+  box-shadow:var(--sombra-b);overflow:hidden}
+.cajuda>summary{display:flex;align-items:center;gap:14px;padding:20px 22px;cursor:pointer;
+  list-style:none;transition:background .15s}
+.cajuda>summary::-webkit-details-marker{display:none}
+.cajuda>summary:hover{background:var(--menta-wash)}
+.cajuda .ca-ico{display:grid;place-items:center;width:42px;height:42px;flex:none;
+  border-radius:12px;background:var(--menta-wash);color:#1C5346;border:1px solid var(--menta)}
+.cajuda .ca-tx{flex:1 1 auto;min-width:0}
+.cajuda .ca-tx b{display:block;font-size:16.5px;font-weight:700;color:var(--tinta);line-height:1.3}
+.cajuda .ca-tx span{display:block;font-size:14px;color:var(--cinza);margin-top:2px}
+.cajuda .ca-seta{flex:none;font-size:26px;line-height:1;color:var(--cinza);
+  transition:transform .2s}
+.cajuda[open] .ca-seta{transform:rotate(90deg)}
+.cajuda .ca-corpo{padding:0 22px 24px;border-top:1px solid var(--linha);margin-top:-1px}
+.cajuda .cpassos{padding-top:22px}
 
 /* ═══ 5·6·7 · FAIXAS HORIZONTAIS ═══ */
 .cfaixa{margin-bottom:34px}
@@ -192,8 +194,6 @@
 .cfechar:hover{background:var(--papel)}
 
 @media(max-width:980px){
-  .cmodos{grid-template-columns:1fr}
-  .cmodo{min-height:200px}
   .cinter{grid-template-columns:1fr}
   .cseta{display:none}
   .cpassos{gap:12px}
@@ -202,14 +202,15 @@
 @media(max-width:620px){
   .csec{padding:32px 0}
   .chero{min-height:400px}
-  .clivro{flex:0 0 132px}
   .cplat{flex:0 0 210px}
   .cnav{display:none}
+  .cajuda>summary{padding:16px 16px}
+  .cajuda .ca-corpo{padding:0 16px 20px}
 }
 @media(prefers-reduced-motion:reduce){
-  .cmodo:hover,.cplat:hover{transform:none}
-  .clivro:hover .capa{transform:none}
+  .cplat:hover{transform:none}
   .ccarril,.cpassos{scroll-behavior:auto}
+  .cajuda .ca-seta{transition:none}
 }
 </style>
 </head>
@@ -222,24 +223,14 @@
   <header class="chero">
     <img src="imagens/catalogo/hero.jpg" alt="">
     <div class="cwrap">
-      <h1>Descobre. Pesquisa. Lê.</h1>
-      <p>Acede ao catálogo da Biblioteca Escolar ou explora a nossa biblioteca digital
-         a partir de qualquer ecrã.</p>
+      <h1>Procura no catálogo. Encontra na estante.</h1>
+      <p>Primeiro descobres se o livro existe e onde está. Depois segues a cota até
+         à prateleira. Se ainda não sabes o que queres, a Biblioteca sugere.</p>
       <a class="cbt" href="#opac">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         Pesquisar no catálogo</a>
     </div>
   </header>
-
-  <!-- ═══ 2 · COMO QUERES PROCURAR ═══ -->
-  <section class="csec" id="modos" aria-labelledby="t-modos">
-    <div class="cwrap">
-      <div class="cfilete"></div>
-      <h2 class="ctit" id="t-modos">Como queres procurar?</h2>
-      <p class="clead">Três caminhos para o mesmo sítio. Escolhe o que te dá menos trabalho hoje.</p>
-      <div class="cmodos" id="modos-lista"></div>
-    </div>
-  </section>
 
   <!-- ═══ 3 · CATÁLOGO ONLINE ═══ -->
   <section class="csec alt" id="opac" aria-labelledby="t-opac">
@@ -253,24 +244,34 @@
     </div>
   </section>
 
-  <!-- ═══ 4 · TUTORIAL ═══ -->
+  <!-- ═══ 2 · APOIO À PESQUISA ═══
+       O tutorial dos cinco passos deixou de ser uma secção à parte: é agora
+       o apoio de quem acabou de ver o catálogo e não sabe como começar.
+       Fica recolhido, para não empurrar o resto da página para baixo. -->
   <section class="csec" id="tutorial" aria-labelledby="t-tut">
     <div class="cwrap">
-      <div class="cfilete"></div>
-      <h2 class="ctit" id="t-tut">Experimenta o nosso catálogo online</h2>
-      <p class="clead">Do título ao livro na mão, em cinco passos.</p>
-      <div class="cguia">
-        <div class="cpassos" id="passos-lista"></div>
-        <div class="cinter">
-          <div class="cvideo" id="video-caixa"></div>
-          <div class="cconvite">
-            <h3>Ainda tens dúvidas?</h3>
-            <p>Faz uma pesquisa de exemplo e vê exatamente o que o catálogo te devolve
-               e como chegar ao livro na estante.</p>
-            <p style="margin:0"><button class="cbt peq" type="button" id="bt-exemplo">Testar uma pesquisa</button></p>
+      <details class="cajuda" id="ajuda-pesquisa">
+        <summary>
+          <span class="ca-ico" data-ico="info"></span>
+          <span class="ca-tx">
+            <b id="t-tut">Nunca pesquisaste no catálogo?</b>
+            <span>Do título ao livro na mão, em cinco passos.</span>
+          </span>
+          <span class="ca-seta" aria-hidden="true">&rsaquo;</span>
+        </summary>
+        <div class="ca-corpo">
+          <div class="cpassos" id="passos-lista"></div>
+          <div class="cinter">
+            <div class="cvideo" id="video-caixa"></div>
+            <div class="cconvite">
+              <h3>Ainda tens dúvidas?</h3>
+              <p>Faz uma pesquisa de exemplo e vê exatamente o que o catálogo te devolve
+                 e como chegar ao livro na estante.</p>
+              <p style="margin:0"><button class="cbt peq" type="button" id="bt-exemplo">Testar uma pesquisa</button></p>
+            </div>
           </div>
         </div>
-      </div>
+      </details>
     </div>
   </section>
 
@@ -337,15 +338,9 @@
 window.renderPagina = function(){
   const i = CONTEUDO.info || {};
 
-  /* ── 2 · como queres procurar ── */
-  const ml = document.getElementById('modos-lista');
-  if (ml) ml.innerHTML = (CONTEUDO.modosProcura||[]).map(m =>
-    `<a class="cmodo ${esc(m.tom||'menta')}" href="${esc(m.url||'#opac')}">
-       <img src="${esc(m.imagem)}" alt="${esc(m.alt||'')}" loading="lazy">
-       <span class="veu"></span>
-       <div class="tx"><h3>${esc(m.titulo)}</h3><p>${esc(m.texto)}</p>
-         <span class="seta" aria-hidden="true">&rarr;</span></div>
-     </a>`).join('');
+  document.querySelectorAll('[data-ico]').forEach(el => {
+    el.innerHTML = icone(el.dataset.ico, 20);
+  });
 
   /* ── 3 · catálogo online ── */
   const ot = document.getElementById('opac-texto');

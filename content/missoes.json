@@ -1,10 +1,16 @@
 {
   "missoes": [
     {
-      "rotulo": "Encontrar um livro",
-      "texto": "Pesquisa no catálogo e vê onde está o exemplar.",
-      "icone": "livro",
-      "url": "encontrar.html"
+      "rotulo": "Pesquisar no catálogo",
+      "texto": "Ver se o livro existe e onde está o exemplar.",
+      "icone": "lupa",
+      "url": "encontrar.html#opac"
+    },
+    {
+      "rotulo": "Encontrar na estante",
+      "texto": "As cores e os números por que os livros estão arrumados.",
+      "icone": "local",
+      "url": "encontrar.html#estantes"
     },
     {
       "rotulo": "Fazer um trabalho",
@@ -13,22 +19,16 @@
       "url": "aprender.html#objetivos"
     },
     {
-      "rotulo": "Participar numa atividade",
-      "texto": "O que acontece hoje, esta semana e ao longo do ano.",
-      "icone": "calendario",
-      "url": "participar.html"
+      "rotulo": "Ouvir um livro",
+      "texto": "Audiolivros gratuitos para o caminho para a escola.",
+      "icone": "auscultador",
+      "url": "ler.html#audiolivros"
     },
     {
       "rotulo": "Ver o que aconteceu",
       "texto": "Notícias e registo do que se fez na Biblioteca.",
       "icone": "camara",
       "url": "participar.html#novidades"
-    },
-    {
-      "rotulo": "Explorar a biblioteca digital",
-      "texto": "Livros, repositórios e imprensa em acesso livre.",
-      "icone": "monitor",
-      "url": "ler.html#digital"
     },
     {
       "rotulo": "Pedir ajuda",

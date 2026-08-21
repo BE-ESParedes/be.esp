@@ -51,12 +51,26 @@ const icone = (nome, t = 22) =>
   `<svg class="ico" width="${t}" height="${t}" viewBox="0 0 24 24" ${P} aria-hidden="true">${ICONES[nome] || ICONES.ligacao}</svg>`;
 window.icone = icone;
 
+/* ---------- caminho de ficheiro dentro do site ----------
+   O site é publicado numa subpasta (…/be.esp/), por isso um caminho que
+   comece por barra sai da pasta e devolve 404. O painel já grava sem barra,
+   mas houve conteúdo antigo gravado com ela — e um caminho errado não dá
+   erro nenhum, só uma imagem que não aparece. Normaliza-se aqui, uma vez,
+   para nenhuma página ter de se preocupar com isso.
+   Endereços externos (http, //, data:) passam intactos. */
+const caminho = u => {
+  const s = String(u || '').trim();
+  if (!s || /^([a-z]+:|\/\/)/i.test(s)) return s;
+  return s.replace(/^\/+/, '');
+};
+window.caminho = caminho;
+
 /* ---------- capa opcional (imagem a ocupar o cartão) ---------- */
 const capa = x => temTexto(x && x.imagem)
-  ? `<span class="capa"><img src="${esc(x.imagem)}" alt="${esc(x.alt || '')}"></span><span class="veu"></span>`
+  ? `<span class="capa"><img src="${esc(caminho(x.imagem))}" alt="${esc(x.alt || '')}"></span><span class="veu"></span>`
   : `<span class="veu"></span>`;
 const capaCartao = x => temTexto(x && x.imagem)
-  ? { cls: ' card--img', bg: `<span class="capa"><img src="${esc(x.imagem)}" alt="${esc(x.alt || '')}"></span>` }
+  ? { cls: ' card--img', bg: `<span class="capa"><img src="${esc(caminho(x.imagem))}" alt="${esc(x.alt || '')}"></span>` }
   : { cls: '', bg: '' };
 window.capa = capa; window.capaCartao = capaCartao;
 
@@ -71,7 +85,15 @@ const FICHEIROS = [
   /* página A Biblioteca */
   'equipa', 'pilares', 'zonas', 'passos',
   /* página Catálogo */
-  'modosProcura', 'passosCatalogo', 'sugestoesLeitura', 'destaquesDigitais', 'etiquetasOpac',
+  'passosCatalogo', 'sugestoesLeitura', 'etiquetasOpac',
+  /* Retirados a 21/08/2026, com o conteúdo transferido e não perdido:
+     · modosProcura      — os «três caminhos» de Encontrar; a página passou a
+                           conduzir catálogo › estante › sugestões, sem escolha
+                           prévia. As três fotografias ficam em imagens/catalogo/.
+     · destaquesDigitais — deixou de haver uma lista à parte de destaques: cada
+                           item é marcado no seu próprio ficheiro (destaque /
+                           destaqueHome) e recolhido por destaques(). Os seis
+                           livros que lá estavam foram para livrosDigitais. */
   /* página Apoio ao Estudo */
   'percursos', 'literaciaPercurso', 'docentes',
   /* página Acontece na Biblioteca */
@@ -94,6 +116,77 @@ async function carregarConteudo() {
     } catch (e) { /* ficheiro ausente: a secção degrada com elegância */ }
   }));
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   O CARTÃO DE RECURSO — um só modelo para tudo o que a Biblioteca
+   recomenda: livros, livros digitais, audiolivros, podcasts, vídeos
+   e recursos de leitura acessível.
+
+   Existe um único componente, e não um por formato, para que o
+   utilizador reconheça de imediato que tudo pertence ao mesmo sítio.
+   Os campos são todos opcionais: um livro em papel sem endereço
+   desenha-se com o mesmo cartão de um podcast com frase editorial,
+   apenas sem as partes que não tem.
+
+   Campos que o painel escreve:
+     titulo · autor · imagem · alt · publico · genero · duracao
+     porque (a frase editorial) · fonte · cta · url
+     destaque · destaqueHome
+   ═══════════════════════════════════════════════════════════════ */
+const FORMATOS = {
+  sugestoesLeitura: { rotulo: 'Livro',            icone: 'livro' },
+  livrosDigitais:   { rotulo: 'Livro digital',    icone: 'monitor' },
+  audiolivros:      { rotulo: 'Audiolivro',       icone: 'auscultador' },
+  podcasts:         { rotulo: 'Podcast',          icone: 'microfone' },
+  videos:           { rotulo: 'Vídeo',            icone: 'camara' },
+  leituraAcessivel: { rotulo: 'Leitura acessível', icone: 'maos' },
+  bibliotecaDigital:{ rotulo: 'Plataforma',       icone: 'globo' },
+};
+window.FORMATOS = FORMATOS;
+
+function cartaoRecurso(x, opcoes = {}) {
+  const fmt = FORMATOS[x.formato] || null;
+  const meta = [x.publico, x.genero, x.duracao].filter(temTexto);
+  const semCapa = !temTexto(x.imagem);
+  const dentro = `
+    <span class="rec-capa${semCapa ? ' rec-vazia' : ''}">
+      ${semCapa
+        ? `<span class="rec-marca">${icone(fmt ? fmt.icone : 'livro', 26)}</span>`
+        : `<img src="${esc(caminho(x.imagem))}" alt="${esc(x.alt || '')}" loading="lazy">`}
+      ${opcoes.mostrarFormato !== false && fmt
+        ? `<span class="rec-formato">${icone(fmt.icone, 13)}${esc(fmt.rotulo)}</span>` : ''}
+    </span>
+    <span class="rec-tx">
+      <b>${temTexto(x.titulo) ? esc(x.titulo) : '<i class="rec-porpreencher">Por preencher</i>'}</b>
+      ${temTexto(x.autor) ? `<span class="rec-autor">${esc(x.autor)}</span>` : ''}
+      ${meta.length ? `<span class="rec-meta">${meta.map(esc).join(' · ')}</span>` : ''}
+      ${temTexto(x.porque || x.descricao)
+        ? `<span class="rec-porque">${esc(x.porque || x.descricao)}</span>` : ''}
+      ${temTexto(x.voz) ? `<span class="rec-voz">Lido por ${esc(x.voz)}</span>` : ''}
+      <span class="rec-pe">
+        ${temTexto(x.fonte) ? `<span class="rec-fonte">${esc(x.fonte)}</span>` : '<span></span>'}
+        ${temTexto(x.url) ? `<span class="rec-cta">${esc(x.cta || 'Abrir')} &rarr;</span>` : ''}
+      </span>
+    </span>`;
+  return temTexto(x.url)
+    ? `<a class="rec" ${linkAttrs(x.url)}>${dentro}</a>`
+    : `<div class="rec">${dentro}</div>`;
+}
+window.cartaoRecurso = cartaoRecurso;
+
+/* Recolhe o que a Biblioteca marcou como destaque, sem duplicar conteúdo:
+   cada item continua a viver só no seu ficheiro; aqui apenas se olha para
+   a marca. `onde` é 'destaque' (página Ler) ou 'destaqueHome' (início). */
+function destaques(onde = 'destaque', limite = 0) {
+  const saida = [];
+  for (const chave of Object.keys(FORMATOS)) {
+    for (const it of (CONTEUDO[chave] || [])) {
+      if (it && it[onde]) saida.push({ ...it, formato: chave });
+    }
+  }
+  return limite > 0 ? saida.slice(0, limite) : saida;
+}
+window.destaques = destaques;
 
 /* ---------- páginas e subsecções ---------- */
 /* A navegação segue o que o utilizador quer FAZER, e não o tipo de conteúdo
@@ -203,7 +296,7 @@ function renderCarrossel() {
     const btns = (b.botoes || []).filter(x => temTexto(x.rotulo)).map((x, n) =>
       `<a class="btn ${n === 0 ? 'primario' : 'sobre-escuro'}" ${linkAttrs(x.url)}>${esc(x.rotulo)}</a>`).join('');
     return `<div class="slide" role="group" aria-roledescription="destaque" aria-label="Destaque ${k + 1} de ${B.length}">
-      ${temTexto(b.imagem) ? `<span class="capa"><img src="${esc(b.imagem)}" alt=""></span>` : ''}
+      ${temTexto(b.imagem) ? `<span class="capa"><img src="${esc(caminho(b.imagem))}" alt=""></span>` : ''}
       <span class="veu"></span>
       <div class="txt">
         ${temTexto(b.tag) ? `<div class="eyebrow">${esc(b.tag)}</div>` : ''}
@@ -253,7 +346,7 @@ function cardNoticia(n) {
   const dest = temTexto(n.url) ? n.url : 'participar.html';
   return `<a class="noticia" ${linkAttrs(dest)}>
     <span class="capa">${temTexto(n.imagem)
-      ? `<img src="${esc(n.imagem)}" alt="${esc(n.alt || n.titulo || '')}">`
+      ? `<img src="${esc(caminho(n.imagem))}" alt="${esc(n.alt || n.titulo || '')}">`
       : `<span class="vazio">${icone('camara', 22)}</span>`}</span>
     <span class="corpo">
       <span class="chip ${CHIP[n.cor] || ''}">${esc(n.categoria)}</span>
@@ -302,7 +395,7 @@ function renderGaleria() {
   el.innerHTML = (CONTEUDO.galeria || []).map(g => {
     const leg = esc(g.legenda || 'foto');
     return `<div class="media tile" title="${leg}">${temTexto(g.imagem)
-      ? `<img src="${esc(g.imagem)}" alt="${esc(g.alt || g.legenda || '')}">`
+      ? `<img src="${esc(caminho(g.imagem))}" alt="${esc(g.alt || g.legenda || '')}">`
       : `<span class="ph">${icone('camara', 24)}${leg}</span>`}</div>`;
   }).join('');
 }
@@ -362,7 +455,7 @@ function aplicarCartoes() {
     if (temTexto(c.imagem) && !$('.capa', el)) {
       el.classList.add('card--img');
       const s = document.createElement('span'); s.className = 'capa';
-      s.innerHTML = `<img src="${esc(c.imagem)}" alt="">`;
+      s.innerHTML = `<img src="${esc(caminho(c.imagem))}" alt="">`;
       el.insertBefore(s, el.firstChild);
     }
   });

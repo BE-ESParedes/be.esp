@@ -111,33 +111,6 @@ collections:
               - { name: alt, label: Descrição da imagem, widget: string, required: false }
               - { name: url, label: Ligação, widget: string, required: false }
 
-      - name: destaquesDigitais
-        label: 'Catálogo · Destaques digitais'
-        file: content/destaquesDigitais.json
-        icon: monitor
-        fields:
-          - name: destaquesDigitais
-            label: Faixas
-            widget: list
-            label_singular: Faixa
-            summary: '{{fields.faixa}}'
-            fields:
-              - { name: faixa, label: Nome da faixa, widget: string }
-              - { name: icone, label: Ícone, widget: string, required: false }
-              - { name: nota, label: Subtítulo, widget: string, required: false }
-              - name: itens
-                label: Itens
-                widget: list
-                label_singular: Item
-                summary: '{{fields.titulo}}'
-                fields:
-                  - { name: titulo, label: Título, widget: string, required: false }
-                  - { name: autor, label: Autor ou fonte, widget: string, required: false }
-                  - { name: imagem, label: Imagem, widget: image, required: false, media_folder: /imagens/capas, public_folder: imagens/capas }
-                  - { name: alt, label: Descrição da imagem, widget: string, required: false }
-                  - { name: url, label: Ligação, widget: string, required: false }
-
-  # ─────────────────────────────────────────────────────────────
   - name: conteudos
     label: 2 · Conteúdos para ler e usar
     icon: book
@@ -182,19 +155,18 @@ collections:
             summary: '{{fields.titulo}}'
             fields:
               - { name: titulo, label: Título, widget: string, required: true }
-              - { name: autor, label: Autor ou criador, widget: string, required: false }
-              - { name: imagem, label: Imagem, widget: image, required: false, media_folder: /imagens/capas, public_folder: imagens/capas }
-              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false }
-              - { name: descricao, label: Descrição curta, widget: text, required: false }
-              - { name: publico, label: Para quem, widget: string, required: false }
-              - { name: fonte, label: Fonte ou plataforma, widget: string, required: false }
-              - { name: url, label: Endereço (URL), widget: string, required: false, hint: 'O endereço real da obra. Nunca inventar.' }
-              - { name: cta, label: Texto do botão, widget: string, required: false, hint: 'Por omissão: Abrir.' }
-              - { name: destaque, label: Mostrar nos destaques, widget: boolean, required: false }
-              - { name: genero, label: Género, widget: string, required: false }
-              - { name: formato, label: Formato, widget: string, required: false }
+              - { name: autor, label: Autor, widget: string, required: false }
+              - { name: imagem, label: Capa, widget: image, required: false, media_folder: /imagens/digitais, public_folder: imagens/digitais, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê. Não é a recomendação.' }
+              - { name: porque, label: "Porque é que a Biblioteca recomenda isto?", widget: text, required: false, hint: 'Uma ou duas frases nossas, para alunos. Não copiar do site de origem.' }
+              - { name: publico, label: Para quem, widget: string, required: false, hint: 'Ex.: 10.º ao 12.º ano; todos os anos.' }
+              - { name: genero, label: Género ou tema, widget: string, required: false }
+              - { name: fonte, label: Fonte ou plataforma, widget: string, required: false, hint: 'Quem disponibiliza. Ex.: Imprensa Nacional, RTP Antena 2.' }
+              - { name: url, label: Endereço (URL), widget: string, required: false, hint: 'O endereço real e verificado. Uma ligação inventada é pior do que uma ficha por preencher.' }
+              - { name: cta, label: Texto do botão, widget: string, required: false, hint: 'Ex.: Ler online, Ouvir. Por omissão: Abrir.' }
+              - { name: destaque, label: "Destacar em «O que a Biblioteca está a destacar»", widget: boolean, required: false, default: false, hint: 'Aparece na montra da página Ler. Poucos e escolhidos.' }
+              - { name: destaqueHome, label: Destacar também na página inicial, widget: boolean, required: false, default: false, hint: 'A página inicial mostra no máximo quatro.' }
               - { name: direitos, label: Direitos ou licença, widget: string, required: false }
-
       - name: audiolivros
         label: Audiolivros
         file: content/audiolivros.json
@@ -207,18 +179,20 @@ collections:
             summary: '{{fields.titulo}}'
             fields:
               - { name: titulo, label: Título, widget: string, required: true }
-              - { name: autor, label: Autor ou criador, widget: string, required: false }
-              - { name: imagem, label: Imagem, widget: image, required: false, media_folder: /imagens/audiolivros, public_folder: imagens/audiolivros }
-              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false }
-              - { name: descricao, label: Descrição curta, widget: text, required: false }
-              - { name: publico, label: Para quem, widget: string, required: false }
-              - { name: fonte, label: Fonte ou plataforma, widget: string, required: false }
-              - { name: url, label: Endereço (URL), widget: string, required: false, hint: 'O endereço real da obra. Nunca inventar.' }
-              - { name: cta, label: Texto do botão, widget: string, required: false, hint: 'Por omissão: Abrir.' }
-              - { name: destaque, label: Mostrar nos destaques, widget: boolean, required: false }
-              - { name: duracao, label: Duração, widget: string, required: false }
-              - { name: acesso, label: Tipo de acesso, widget: string, required: false }
-
+              - { name: autor, label: Autor, widget: string, required: false }
+              - { name: imagem, label: Capa, widget: image, required: false, media_folder: /imagens/audio, public_folder: imagens/audio, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê. Não é a recomendação.' }
+              - { name: porque, label: "Porque é que a Biblioteca recomenda isto?", widget: text, required: false, hint: 'Uma ou duas frases nossas, para alunos. Não copiar do site de origem.' }
+              - { name: publico, label: Para quem, widget: string, required: false, hint: 'Ex.: 10.º ao 12.º ano; todos os anos.' }
+              - { name: genero, label: Género ou tema, widget: string, required: false }
+              - { name: voz, label: Lido por, widget: string, required: false }
+              - { name: duracao, label: Duração, widget: string, required: false, hint: 'Ex.: 4 h 24 min; 33 min.' }
+              - { name: fonte, label: Fonte ou plataforma, widget: string, required: false, hint: 'Quem disponibiliza. Ex.: Imprensa Nacional, RTP Antena 2.' }
+              - { name: url, label: Endereço (URL), widget: string, required: false, hint: 'O endereço real e verificado. Uma ligação inventada é pior do que uma ficha por preencher.' }
+              - { name: cta, label: Texto do botão, widget: string, required: false, hint: 'Ex.: Ler online, Ouvir. Por omissão: Abrir.' }
+              - { name: destaque, label: "Destacar em «O que a Biblioteca está a destacar»", widget: boolean, required: false, default: false, hint: 'Aparece na montra da página Ler. Poucos e escolhidos.' }
+              - { name: destaqueHome, label: Destacar também na página inicial, widget: boolean, required: false, default: false, hint: 'A página inicial mostra no máximo quatro.' }
+              - { name: direitos, label: Direitos ou licença, widget: string, required: false }
       - name: podcasts
         label: Podcasts
         file: content/podcasts.json
@@ -231,17 +205,19 @@ collections:
             summary: '{{fields.titulo}}'
             fields:
               - { name: titulo, label: Título, widget: string, required: true }
-              - { name: autor, label: Autor ou criador, widget: string, required: false }
-              - { name: imagem, label: Imagem, widget: image, required: false, media_folder: /imagens/podcasts, public_folder: imagens/podcasts }
-              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false }
-              - { name: descricao, label: Descrição curta, widget: text, required: false }
-              - { name: publico, label: Para quem, widget: string, required: false }
-              - { name: fonte, label: Fonte ou plataforma, widget: string, required: false }
-              - { name: url, label: Endereço (URL), widget: string, required: false, hint: 'O endereço real da obra. Nunca inventar.' }
-              - { name: cta, label: Texto do botão, widget: string, required: false, hint: 'Por omissão: Abrir.' }
-              - { name: destaque, label: Mostrar nos destaques, widget: boolean, required: false }
-              - { name: tema, label: Tema, widget: string, required: false }
-
+              - { name: autor, label: Autor ou emissora, widget: string, required: false }
+              - { name: imagem, label: Imagem, widget: image, required: false, media_folder: /imagens/podcasts, public_folder: imagens/podcasts, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê. Não é a recomendação.' }
+              - { name: porque, label: "Porque é que a Biblioteca recomenda isto?", widget: text, required: false, hint: 'Uma ou duas frases nossas, para alunos. Não copiar do site de origem.' }
+              - { name: publico, label: Para quem, widget: string, required: false, hint: 'Ex.: 10.º ao 12.º ano; todos os anos.' }
+              - { name: genero, label: Género ou tema, widget: string, required: false }
+              - { name: duracao, label: Duração ou periodicidade, widget: string, required: false }
+              - { name: fonte, label: Fonte ou plataforma, widget: string, required: false, hint: 'Quem disponibiliza. Ex.: Imprensa Nacional, RTP Antena 2.' }
+              - { name: url, label: Endereço (URL), widget: string, required: false, hint: 'O endereço real e verificado. Uma ligação inventada é pior do que uma ficha por preencher.' }
+              - { name: cta, label: Texto do botão, widget: string, required: false, hint: 'Ex.: Ler online, Ouvir. Por omissão: Abrir.' }
+              - { name: destaque, label: "Destacar em «O que a Biblioteca está a destacar»", widget: boolean, required: false, default: false, hint: 'Aparece na montra da página Ler. Poucos e escolhidos.' }
+              - { name: destaqueHome, label: Destacar também na página inicial, widget: boolean, required: false, default: false, hint: 'A página inicial mostra no máximo quatro.' }
+              - { name: direitos, label: Direitos ou licença, widget: string, required: false }
       - name: videos
         label: Vídeos
         file: content/videos.json
@@ -258,6 +234,11 @@ collections:
               - { name: url, label: Endereço do vídeo, widget: string, hint: 'Colar o endereço do YouTube tal como aparece na barra do browser.' }
               - { name: data, label: Data, widget: string, required: false, hint: 'Ex.: out 2026' }
 
+              - { name: destaque, label: "Destacar em «O que a Biblioteca está a destacar»", widget: boolean, required: false, default: false, hint: 'Aparece na montra da página Ler. Poucos e escolhidos.' }
+              - { name: destaqueHome, label: Destacar também na página inicial, widget: boolean, required: false, default: false, hint: 'A página inicial mostra no máximo quatro.' }
+              - { name: imagem, label: Miniatura (opcional), widget: image, required: false, media_folder: /imagens/videos, public_folder: imagens/videos }
+              - { name: porque, label: "Porque é que a Biblioteca recomenda isto?", widget: text, required: false }
+              - { name: publico, label: Para quem, widget: string, required: false }
   # ─────────────────────────────────────────────────────────────
 
       - name: leituraAcessivel
@@ -272,18 +253,18 @@ collections:
             summary: '{{fields.titulo}}'
             fields:
               - { name: titulo, label: Título, widget: string, required: true }
-              - { name: autor, label: Autor ou criador, widget: string, required: false }
-              - { name: imagem, label: Imagem, widget: image, required: false, media_folder: /imagens/acessivel, public_folder: imagens/acessivel }
-              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false }
-              - { name: descricao, label: Descrição curta, widget: text, required: false }
-              - { name: publico, label: Para quem, widget: string, required: false }
-              - { name: fonte, label: Fonte ou plataforma, widget: string, required: false }
-              - { name: url, label: Endereço (URL), widget: string, required: false, hint: 'O endereço real da obra. Nunca inventar.' }
-              - { name: cta, label: Texto do botão, widget: string, required: false, hint: 'Por omissão: Abrir.' }
-              - { name: destaque, label: Mostrar nos destaques, widget: boolean, required: false }
-              - { name: tipo, label: Tipo de recurso, widget: string, required: false }
-              - { name: formato, label: Formato, widget: string, required: false }
-
+              - { name: autor, label: Autor ou entidade, widget: string, required: false }
+              - { name: imagem, label: Imagem, widget: image, required: false, media_folder: /imagens/acessivel, public_folder: imagens/acessivel, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê. Não é a recomendação.' }
+              - { name: porque, label: "Porque é que a Biblioteca recomenda isto?", widget: text, required: false, hint: 'Uma ou duas frases nossas, para alunos. Não copiar do site de origem.' }
+              - { name: publico, label: Para quem, widget: string, required: false, hint: 'Ex.: 10.º ao 12.º ano; todos os anos.' }
+              - { name: genero, label: Género ou tema, widget: string, required: false }
+              - { name: fonte, label: Fonte ou plataforma, widget: string, required: false, hint: 'Quem disponibiliza. Ex.: Imprensa Nacional, RTP Antena 2.' }
+              - { name: url, label: Endereço (URL), widget: string, required: false, hint: 'O endereço real e verificado. Uma ligação inventada é pior do que uma ficha por preencher.' }
+              - { name: cta, label: Texto do botão, widget: string, required: false, hint: 'Ex.: Ler online, Ouvir. Por omissão: Abrir.' }
+              - { name: destaque, label: "Destacar em «O que a Biblioteca está a destacar»", widget: boolean, required: false, default: false, hint: 'Aparece na montra da página Ler. Poucos e escolhidos.' }
+              - { name: destaqueHome, label: Destacar também na página inicial, widget: boolean, required: false, default: false, hint: 'A página inicial mostra no máximo quatro.' }
+              - { name: direitos, label: Direitos ou licença, widget: string, required: false }
       - name: bibliotecaDigital
         label: Biblioteca Digital
         file: content/bibliotecaDigital.json
@@ -321,6 +302,8 @@ collections:
                 required: false
                 options: [globo, livro, monitor, ficheiro, lupa, estrela, camara, microfone]
 
+              - { name: destaque, label: "Destacar em «O que a Biblioteca está a destacar»", widget: boolean, required: false, default: false, hint: 'Aparece na montra da página Ler. Poucos e escolhidos.' }
+              - { name: destaqueHome, label: Destacar também na página inicial, widget: boolean, required: false, default: false, hint: 'A página inicial mostra no máximo quatro.' }
       - name: disciplinas
         label: Recursos por disciplina
         file: content/disciplinas.json
@@ -973,24 +956,6 @@ collections:
     description: 'Peças estruturais do site: catálogo, estantes e área de trabalho. Mexe-se poucas vezes.'
     format: json
     files:
-
-      - name: modosProcura
-        label: 'Catálogo · Como queres procurar'
-        file: content/modosProcura.json
-        icon: search
-        fields:
-          - name: modosProcura
-            label: Modos de procura
-            widget: list
-            label_singular: Modo
-            summary: '{{fields.titulo}}'
-            fields:
-              - { name: titulo, label: Título, widget: string }
-              - { name: texto, label: Explicação, widget: text }
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/catalogo, public_folder: imagens/catalogo }
-              - { name: alt, label: Descrição da imagem, widget: string, required: false }
-              - { name: tom, label: Cor do véu, widget: select, options: [menta, dourado, grafite] }
-              - { name: url, label: Ligação, widget: string, required: false }
 
       - name: passosCatalogo
         label: 'Catálogo · Cinco passos do tutorial'

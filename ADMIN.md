@@ -15,7 +15,7 @@ O painel escreve os ficheiros e publica sozinho.
 | Ficheiro | Papel |
 |---|---|
 | `admin/index.html` | A página do painel |
-| `admin/config.yml` | Os formulários dos **44 ficheiros** de `content/` |
+| `admin/config.yml` | Os formulários dos **42 ficheiros** de `content/` |
 | `robots.txt` | Já impede que o painel apareça no Google |
 
 Nada mais é preciso criar. Basta publicar o site como habitualmente.
@@ -101,6 +101,9 @@ O painel carrega a imagem sozinho e guarda o caminho — **nunca é preciso escr
 | Banners | `imagens/banners/` |
 | Notícias | `imagens/noticias/` |
 | Galeria | `imagens/galeria/` |
+| Livros digitais | `imagens/digitais/` |
+| Audiolivros | `imagens/audio/` |
+| Podcasts | `imagens/podcasts/` |
 | Exposições | `imagens/exposicoes/` |
 | Trabalhos de alunos | `imagens/trabalhos/` |
 
@@ -145,16 +148,50 @@ site. O site público responde a «o que queres fazer?»; quem edita pergunta
 Nenhum formulário desapareceu e nenhum campo mudou: só se agruparam de
 outra maneira.
 
+### Destaques — como se escolhe o que aparece na montra
+
+**Não há um formulário de «destaques».** Isso seria ter o mesmo livro escrito em
+dois sítios, e um deles ficaria desatualizado mais cedo ou mais tarde.
+
+Em vez disso, cada ficha — de um livro digital, audiolivro, podcast, vídeo ou
+recurso acessível — tem duas caixas no fim do formulário:
+
+| Caixa | O que faz |
+|---|---|
+| **Destacar em «O que a Biblioteca está a destacar»** | Põe a ficha na montra da página **Ler** |
+| **Destacar também na página inicial** | Põe-na também no **Início** (mostra no máximo 4) |
+
+Marcar uma caixa **não copia nada**: a ficha continua a viver só no seu sítio e
+passa a aparecer também na montra. Desmarcar retira-a da montra sem mexer na ficha.
+
+> Poucos e escolhidos. Oito na página Ler e quatro no Início é uma boa medida;
+> vinte destaques deixam de ser destaques.
+
+### A frase editorial
+
+O campo **«Porque é que a Biblioteca recomenda isto?»** é o que distingue uma
+biblioteca de uma lista de links. Uma ou duas frases, escritas por nós, para
+alunos — **não copiadas** da página de origem.
+
+> *O Mandarim* — Eça de Queirós
+> «Tocas uma campainha e um velho morre do outro lado do mundo; em troca ficas
+> rico. Eça transforma esse pacto num teste divertido e incómodo à tua consciência.»
+
+Não confundir com a **descrição da imagem**, que é outra coisa: descreve o que
+se vê na capa, para quem não a vê.
+
 ### Formulários novos (agosto de 2026)
 
-Estão vazios à espera de curadoria. Enquanto não tiverem conteúdo, a
-secção correspondente do site mostra um aviso discreto em vez de um
-espaço vazio.
+Já com curadoria feita a 21/08/2026:
 
-- **Livros digitais** — obras completas de acesso livre (ex.: Projeto Adamastor)
-- **Audiolivros** — histórias para ouvir
-- **Podcasts** — conversas sobre livros e ideias
-- **Leitura acessível** — formatos para diferentes formas de ler
+- **Livros digitais** — 15 obras completas do Projecto Adamastor
+- **Audiolivros** — 12, da Imprensa Nacional e de domínio público
+- **Podcasts** — 4, da RTP Antena 1 e 2
+- **Leitura acessível** — 4 serviços institucionais
+
+Ainda vazios, à espera de curadoria:
+
+- **Vídeos** — basta colar endereços do YouTube
 - **Ferramentas** — cada uma explicada: o que é, para que serve, quando usar
 - **Estantes** — as classes da CDU, com a cor e onde ficam
 
