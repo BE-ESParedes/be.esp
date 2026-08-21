@@ -26,8 +26,8 @@
       "acao": "Abrir",
       "icone": "lupa",
       "cor": "dourado",
-      "imagem": "imagens/cartoes/apoio-pesquisa.jpg",
-      "alt": "Ilustração de ícones de estudo e de investigação",
+      "imagem": "",
+      "alt": "",
       "url": "aprender.html"
     },
     {
@@ -36,9 +36,9 @@
       "acao": "Consultar",
       "icone": "relogio",
       "cor": "menta",
-      "imagem": "imagens/cartoes/horario.jpg",
-      "alt": "Ilustração com ícones de tempo e de serviços",
-      "url": "conhecer.html#horario"
+      "imagem": "",
+      "alt": "",
+      "url": "index.html#06 em cartaz"
     },
     {
       "rotulo": "Agenda",
@@ -46,7 +46,7 @@
       "acao": "Ver agenda",
       "icone": "calendario",
       "cor": "dourado",
-      "imagem": "imagens/cartoes/agenda.jpg",
+      "imagem": "",
       "alt": "Ilustração com ícones de calendário e de atividades",
       "url": "participar.html#proximos"
     },
@@ -56,7 +56,7 @@
       "acao": "Contactar",
       "icone": "correio",
       "cor": "",
-      "imagem": "imagens/cartoes/sugestoes.jpg",
+      "imagem": "",
       "alt": "Ilustração com ícones de conversa e de mensagens",
       "url": "conhecer.html#contactos"
     }
