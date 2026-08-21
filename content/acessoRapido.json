@@ -1,60 +1,60 @@
 {
   "acessoRapido": [
     {
-      "icone": "livro",
       "rotulo": "Catálogo",
       "sub": "Pesquisar no BiblioNet",
       "acao": "Pesquisar",
+      "icone": "livro",
       "cor": "",
-      "imagem": "imagens/cartoes/catalogo.jpg",
-      "alt": "Ilustração de pesquisa num ecrã, com ícones de livros e dados",
+      "imagem": "",
+      "alt": "",
       "url": "https://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
     },
     {
-      "icone": "monitor",
       "rotulo": "Recursos digitais",
       "sub": "Biblioteca Digital verificada",
       "acao": "Explorar",
+      "icone": "monitor",
       "cor": "menta",
       "imagem": "imagens/cartoes/recursos-digitais.jpg",
       "alt": "Ilustração de recursos digitais ligados entre si",
       "url": "ler.html#digital"
     },
     {
-      "icone": "lupa",
       "rotulo": "Apoio à pesquisa",
       "sub": "Guiões e métodos de estudo",
       "acao": "Abrir",
+      "icone": "lupa",
       "cor": "dourado",
       "imagem": "imagens/cartoes/apoio-pesquisa.jpg",
       "alt": "Ilustração de ícones de estudo e de investigação",
       "url": "aprender.html"
     },
     {
-      "icone": "relogio",
       "rotulo": "Horário",
       "sub": "Seg–Sex · 8h00–18h30",
       "acao": "Consultar",
+      "icone": "relogio",
       "cor": "menta",
       "imagem": "imagens/cartoes/horario.jpg",
       "alt": "Ilustração com ícones de tempo e de serviços",
       "url": "conhecer.html#horario"
     },
     {
-      "icone": "calendario",
       "rotulo": "Agenda",
       "sub": "Próximas atividades",
       "acao": "Ver agenda",
+      "icone": "calendario",
       "cor": "dourado",
       "imagem": "imagens/cartoes/agenda.jpg",
       "alt": "Ilustração com ícones de calendário e de atividades",
       "url": "participar.html#proximos"
     },
     {
-      "icone": "correio",
       "rotulo": "Sugestões",
       "sub": "Fala com a equipa",
       "acao": "Contactar",
+      "icone": "correio",
       "cor": "",
       "imagem": "imagens/cartoes/sugestoes.jpg",
       "alt": "Ilustração com ícones de conversa e de mensagens",
