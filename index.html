@@ -36,6 +36,109 @@
 #p-inicio .fp-res{max-width:680px}
 #p-inicio .fp-nota{margin-top:12px}
 
+/* ═══ PRIMEIRO ECRÃ ═══
+   Fotografia real da sala, escurecida o suficiente para o texto passar
+   AA com folga, e por cima uma composição em três linhas. O ecrã tem
+   altura mínima mas não fixa: se o texto crescer, a caixa acompanha. */
+.portico{position:relative;isolation:isolate;display:flex;flex-direction:column;
+  justify-content:flex-end;min-height:clamp(560px,88vh,940px);overflow:hidden;
+  padding:calc(var(--topo) + var(--e-6)) 0 var(--e-7)}
+.portico-foto{position:absolute;inset:0;z-index:-2}
+.portico-foto img{width:100%;height:100%;object-fit:cover;display:block;
+  transform:scale(1.04)}
+/* Um só véu, com peso à esquerda, onde está o texto, e a abrir para a
+   direita para as lombadas continuarem a ler-se. É a fotografia que diz o
+   conceito — se a apagarmos, fica só um fundo cinzento.
+   O contraste do texto foi medido sobre a própria imagem, não estimado. */
+.portico::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(96deg,rgba(18,20,19,.88) 0%,rgba(18,20,19,.74) 34%,
+                          rgba(18,20,19,.34) 68%,rgba(18,20,19,.16) 100%),
+    linear-gradient(180deg,rgba(18,20,19,0) 45%,rgba(18,20,19,.55) 100%)}
+.portico-tx{width:100%}
+.portico-cota{margin:0 0 var(--e-4)}
+.portico .monum{color:#fff;max-width:15ch}
+.portico .monum span{display:block}
+.portico .monum em{color:var(--menta)}
+.portico .monum .fina{color:rgba(255,255,255,.62);font-size:.42em;letter-spacing:-.02em;
+  line-height:1.2;margin-top:var(--e-3);font-weight:400}
+.portico-sub{margin:var(--e-4) 0 var(--e-4);color:rgba(255,255,255,.86);font-size:var(--t-peq)}
+.portico-sub .estado,.portico-sub #ab-estado{display:inline-flex;align-items:center;gap:9px}
+.portico .fp-form{max-width:660px;background:rgba(255,255,255,.97);
+  box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.portico .fp-atalhos{margin-top:var(--e-3)}
+.portico .fp-atalhos a{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff}
+.portico .fp-atalhos a:hover{background:#fff;color:var(--tinta)}
+/* Seta de continuidade: diz que há mais por baixo, sem gritar. */
+.portico-descer{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.4);
+  display:grid;place-items:center;text-decoration:none;z-index:1;
+  transition:background var(--mov-rapido) var(--curva)}
+.portico-descer span{width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;
+  transform:translateY(-2px) rotate(45deg);animation:descer 2.6s var(--curva) infinite}
+.portico-descer:hover{background:rgba(255,255,255,.18)}
+@keyframes descer{0%,100%{transform:translateY(-3px) rotate(45deg);opacity:.55}
+  50%{transform:translateY(2px) rotate(45deg);opacity:1}}
+
+/* ═══ A ESTANTE ═══ */
+#colecao{padding:var(--e-7) 0}
+.col-topo{display:grid;grid-template-columns:1fr 1fr;gap:var(--e-4) var(--e-5);
+  align-items:end;margin-bottom:var(--e-4)}
+.col-topo .cota{margin-bottom:var(--e-3)}
+.col-topo .lead{color:rgba(255,255,255,.74);max-width:52ch}
+#colecao .estante{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.05)}
+#colecao .estante-c{background:rgba(255,255,255,.055);border-right-color:rgba(255,255,255,.12)}
+#colecao .estante-c:hover,#colecao .estante-c:focus-visible{background:rgba(255,255,255,.14)}
+#colecao .estante-c .n{color:#fff}
+#colecao .estante-c .d{color:rgba(255,255,255,.72)}
+#colecao .estante-c .q{color:var(--menta)}
+#colecao .estante-c::before{background:var(--menta-media)}
+#colecao .estante-pe{color:rgba(255,255,255,.62)}
+#colecao .estante-pe b{color:#fff}
+.col-bts{display:flex;gap:10px;flex-wrap:wrap;margin:var(--e-4) 0 0}
+.btn.linha.claro{background:transparent;border:1.5px solid rgba(255,255,255,.45);color:#fff}
+.btn.linha.claro:hover{background:#fff;color:var(--tinta);border-color:#fff}
+
+/* ═══ EM CARTAZ ═══
+   Ritmo editorial: fotografia grande de um lado, texto do outro, a
+   alternar. Sem cartões — a fotografia é o cartão. */
+#cartaz{padding:var(--e-7) 0 var(--e-6)}
+.cartaz-tit{margin:var(--e-2) 0 var(--e-6);max-width:16ch}
+.cartazes{display:flex;flex-direction:column;gap:var(--e-6)}
+.cartaz{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,60px);
+  align-items:center;max-width:1180px;margin:0 auto;padding:0 18px;width:100%}
+.cartaz.invertido{direction:rtl}
+.cartaz.invertido>*{direction:ltr}
+.cartaz-foto{border-radius:var(--r-cartao);overflow:hidden;background:var(--cinza-bloco);
+  aspect-ratio:4/3}
+.cartaz-foto img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform var(--mov-lento) var(--curva)}
+.cartaz:hover .cartaz-foto img{transform:scale(1.03)}
+.cartaz-tag{display:inline-block;font-size:var(--t-micro);font-weight:800;
+  letter-spacing:var(--tr-micro);text-transform:uppercase;color:var(--dourado-txt);
+  margin-bottom:var(--e-2)}
+.cartaz-tx h3{margin:0 0 var(--e-2);max-width:16ch}
+.cartaz-tx h3 em{font-style:normal;color:var(--menta-txt)}
+.cartaz-tx p{margin:0;color:var(--cinza);font-size:var(--t-corpo);line-height:var(--lh-corpo);max-width:44ch}
+.cartaz-bts{display:flex;gap:10px;flex-wrap:wrap;margin:var(--e-3) 0 0!important}
+
+@media(max-width:900px){
+  .col-topo{grid-template-columns:1fr}
+  .cartaz{grid-template-columns:1fr;gap:var(--e-3)}
+  .cartaz.invertido{direction:ltr}
+  .cartaz-foto{aspect-ratio:16/10}
+}
+@media(max-width:620px){
+  .portico{min-height:auto;padding:calc(var(--topo) + var(--e-5)) 0 var(--e-6)}
+  .portico .monum{max-width:100%}
+  .portico-descer{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .portico-descer span{animation:none}
+  .cartaz:hover .cartaz-foto img{transform:none}
+  .portico-foto img{transform:none}
+}
+
 /* ---- as cinco portas ---- */
 .hportas{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 .hporta{display:flex;flex-direction:column;gap:9px;background:var(--branco);
@@ -150,33 +253,73 @@
        chega, em vez de começar por uma mensagem institucional.
        Desde 27/07/2026 ocupa toda a largura da janela; o conteúdo continua
        alinhado pela grelha através do .wrap interior. -->
-  <section class="abertura" aria-labelledby="fp-t">
-    <div class="wrap">
-      <h2 class="sr-only" id="fp-t">Pesquisar no catálogo</h2>
-      <p class="estado" id="ab-estado"></p>
-      <p class="saudacao">O que <em>procuras</em> hoje?</p>
+  <!-- ═══════════════════════════════════════════════════════════════
+       PRIMEIRO ECRÃ — «Cada livro tem um lugar»
+       Fotografia real da sala, escurecida, e por cima uma composição
+       tipográfica em três linhas que se revelam por ordem. Abaixo, a
+       pesquisa: a primeira tarefa continua a ser possível sem descer.
+       ═══════════════════════════════════════════════════════════════ -->
+  <header class="portico" aria-labelledby="fp-t">
+    <div class="portico-foto" aria-hidden="true">
+      <!-- No telemóvel carrega-se a versão de 800 px (96 KB) em vez da de
+           1400 px (266 KB): é a mesma fotografia, um terço do peso. -->
+      <img src="imagens/galeria/estantes.jpg"
+           srcset="imagens/galeria/estantes-800.jpg 800w, imagens/galeria/estantes.jpg 1400w"
+           sizes="100vw" alt="" fetchpriority="high" decoding="async" width="1400" height="1050">
+    </div>
+    <div class="wrap portico-tx">
+      <p class="portico-cota" id="portico-cota" data-revela></p>
+      <h2 class="monum" id="fp-t" data-revela data-atraso="1">
+        <span class="l1">Cada livro</span>
+        <span class="l2">tem um <em>lugar</em>.</span>
+        <span class="l3 fina">Vamos encontrar o teu.</span>
+      </h2>
+      <p class="portico-sub" data-revela data-atraso="2">
+        <span id="ab-estado"></span>
+      </p>
+
       <form class="fp-form" role="search" id="fp-form" aria-label="Pesquisar no site e no catálogo"
-            aria-owns="fp-res" aria-haspopup="listbox">
+            aria-owns="fp-res" aria-haspopup="listbox" data-revela data-atraso="3">
         <label class="sr-only" for="fp-q">Pesquisar</label>
         <svg class="fp-icone" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <input id="fp-q" name="q" type="search" placeholder="Livros, recursos, atividades, notícias…"
+        <input id="fp-q" name="q" type="search" placeholder="Um título, um autor, um assunto…"
                autocomplete="off" role="combobox" aria-expanded="false" aria-controls="fp-res" aria-autocomplete="list">
-        <button class="btn primario" type="submit">Pesquisar</button>
+        <button class="btn primario" type="submit">Procurar</button>
       </form>
-      <!-- Resultados de dentro do site. O catálogo fica sempre como último resultado. -->
       <div class="fp-res" id="fp-res" role="listbox" aria-label="Resultados" hidden></div>
       <p class="fp-sr sr-only" id="fp-sr" role="status" aria-live="polite"></p>
-      <p class="fp-nota">Procura em tudo o que o site tem: recursos, atividades, guiões, concursos e formulários.</p>
-      <div class="fp-atalhos" id="fp-atalhos"></div>
+      <div class="fp-atalhos" id="fp-atalhos" data-revela data-atraso="4"></div>
+    </div>
+    <a class="portico-descer" href="#colecao" aria-label="Continuar para a coleção">
+      <span></span>
+    </a>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       A ESTANTE — o momento memorável.
+       Não é um gráfico decorativo: é esta Biblioteca vista de cima. Cada
+       bloco é uma classe da CDU, com largura proporcional aos exemplares
+       que existem mesmo. Os números vêm de content/colecao.json.
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="hsec amb-tinta" id="colecao" data-seccao aria-labelledby="t-col">
+    <div class="wrap">
+      <div class="col-topo">
+        <div data-revela>
+          <span class="cota cota--escuro"><span class="banda"></span><span class="cod">0—9</span><span class="nome">a coleção</span></span>
+          <h2 class="tit-1" id="t-col">Isto é o que temos.</h2>
+        </div>
+        <p class="lead" data-revela data-atraso="1">Cada bloco é uma classe da Classificação
+          Decimal Universal, com a largura que ocupa mesmo nas estantes. Passa por cima
+          para ver o que lá está.</p>
+      </div>
+      <div class="estante" id="estante" data-revela data-atraso="2"></div>
+      <div class="estante-pe" id="estante-pe" data-revela data-atraso="3"></div>
+      <p class="col-bts" data-revela data-atraso="3">
+        <a class="btn primario" href="encontrar.html#opac">Procurar no catálogo</a>
+        <a class="btn linha claro" href="encontrar.html#estantes">Como estão organizadas as estantes</a>
+      </p>
     </div>
   </section>
-
-  <div class="hero" id="carousel" role="region" aria-roledescription="carrossel" aria-label="Destaques da Biblioteca" tabindex="0">
-    <div class="slides" id="slides"></div>
-    <button class="car-btn prev" id="car-prev" aria-label="Destaque anterior">&lsaquo;</button>
-    <button class="car-btn next" id="car-next" aria-label="Destaque seguinte">&rsaquo;</button>
-    <div class="dots" id="car-dots"></div>
-  </div>
 
   <!-- ═══ QUERO… ═══
        Substitui o acesso rápido a 28/07/2026: seis missões, na mesma
@@ -221,6 +364,21 @@
         </a>
       </div>
     </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       EM CARTAZ — onde vivia o carrossel.
+       O mesmo conteúdo (banners.json, editado no painel), mas em ritmo
+       editorial: fotografia grande, título monumental, e a composição a
+       alternar de lado. Um carrossel esconde três quartos do que tem;
+       isto mostra tudo, e deixa a fotografia respirar.
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="hsec amb-areia" id="cartaz" data-seccao aria-labelledby="t-cartaz">
+    <div class="wrap">
+      <span class="cota" data-revela><span class="banda"></span><span class="cod">06</span><span class="nome">em cartaz</span></span>
+      <h2 class="tit-1 cartaz-tit" id="t-cartaz" data-revela>O que está a acontecer.</h2>
+    </div>
+    <div class="cartazes" id="cartazes"></div>
   </section>
 
   <!-- ═══ O QUE ESTAMOS A DESCOBRIR ═══
@@ -295,11 +453,42 @@
 window.renderPagina = function(){
   const i = CONTEUDO.info || {};
 
+  /* ── a cota do primeiro ecrã ── */
+  const pc = document.getElementById('portico-cota');
+  if (pc) pc.innerHTML = cota('BE·ESP', 'Escola Secundária de Paredes', 'escuro');
+
   /* ── as cinco portas ──
      Os ícones desenham-se aqui para não repetir SVG na marcação. */
   document.querySelectorAll('.hp-ico[data-ico]').forEach(el => {
     el.innerHTML = icone(el.dataset.ico, 24);
   });
+
+  /* ── a estante: o retrato da coleção ── */
+  if (!renderEstante('estante')) document.getElementById('colecao')?.setAttribute('hidden','');
+
+  /* ── em cartaz ──
+     Os mesmos banners que o carrossel mostrava, agora todos visíveis e em
+     ritmo editorial. A composição alterna de lado a cada entrada. */
+  const cz = document.getElementById('cartazes');
+  if (cz) {
+    const lista = publicados('banners');
+    cz.innerHTML = lista.map((b, n) => `
+      <article class="cartaz${n % 2 ? ' invertido' : ''}" data-revela>
+        <div class="cartaz-foto">
+          ${temTexto(b.imagem)
+            ? `<img src="${esc(caminho(b.imagem))}" alt="${esc(b.alt || '')}" loading="lazy" decoding="async">`
+            : ''}
+        </div>
+        <div class="cartaz-tx">
+          ${temTexto(b.tag) ? `<span class="cartaz-tag">${esc(b.tag)}</span>` : ''}
+          <h3 class="tit-2">${b.titulo || ''}</h3>
+          <p>${esc(b.texto || '')}</p>
+          <p class="cartaz-bts">${(b.botoes || []).map((x, i) =>
+            `<a class="btn ${i ? 'linha' : 'primario'}" ${linkAttrs(x.url)}>${esc(x.rotulo)}</a>`).join('')}</p>
+        </div>
+      </article>`).join('');
+    if (!lista.length) document.getElementById('cartaz')?.setAttribute('hidden', '');
+  }
 
   /* ── o que estamos a descobrir ──
      Referências às fichas que vivem na página Ler. Se ficar sem nada que

@@ -268,11 +268,15 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
 
   <!-- ═══ HERO ═══ -->
   <header class="bhero">
-    <span class="foto"><img src="imagens/biblioteca/hero.jpg" alt=""></span>
+    <!-- A fotografia do cabeçalho passou a ser a sala de leitura, e não a
+           entrada envidraçada: esta página tem de dar vontade de lá estar,
+           e isso vê-se nas mesas e nas estantes, não numa porta. -->
+      <span class="foto"><img src="imagens/galeria/sala-de-leitura.jpg" alt="" fetchpriority="high"></span>
     <div class="bwrap">
       <p class="bestado"><span class="bponto" aria-hidden="true"></span> Aberta das 8h00 às 18h30 · atendimento das 8h30 às 16h00</p>
-      <h1>Biblioteca Escolar da ES de Paredes</h1>
-      <p class="sub">Identidade, organização e gestão transparente ao serviço da comunidade
+      <p class="pg-cota" data-revela><span class="cota cota--escuro"><span class="banda"></span><span class="cod">027.8</span><span class="nome">conhecer</span></span></p>
+      <h1 class="pg-tit" data-revela data-atraso="1">Biblioteca Escolar da ES de Paredes</h1>
+      <p data-revela data-atraso="2" class="sub">Identidade, organização e gestão transparente ao serviço da comunidade
          educativa da Escola Secundária de Paredes.</p>
       <p><span class="bdivisa">Aprender · Descobrir · Criar · Partilhar</span></p>
     </div>
@@ -281,8 +285,8 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
   <!-- ═══ QUEM SOMOS ═══ -->
   <section class="bsec" id="quem-somos" aria-labelledby="t-quem">
     <div class="bwrap">
-      <div class="bfilete"></div>
-      <h2 class="btit" id="t-quem">Quem somos</h2>
+      <div class="bfilete" data-revela></div>
+      <h2 class="btit" data-revela id="t-quem">Quem somos</h2>
       <p class="bcitacao">Somos uma equipa que acredita que uma biblioteca escolar não é apenas
         um local onde existem livros. É um espaço onde se investigam ideias, se desenvolvem
         competências, se promovem projetos e se criam oportunidades para toda a comunidade educativa.</p>
@@ -293,8 +297,8 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
   <!-- ═══ O QUE FAZEMOS ═══ -->
   <section class="bsec alt" id="o-que-fazemos" aria-labelledby="t-faz">
     <div class="bwrap">
-      <div class="bfilete"></div>
-      <h2 class="btit" id="t-faz">O que fazemos</h2>
+      <div class="bfilete" data-revela></div>
+      <h2 class="btit" data-revela id="t-faz">O que fazemos</h2>
       <p class="blead">Seis áreas de trabalho que atravessam o ano letivo e se cruzam com o currículo.</p>
       <div class="bgrelha" id="pilares-lista"></div>
     </div>
@@ -303,8 +307,8 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
   <!-- ═══ CONHECE O ESPAÇO ═══ -->
   <section class="bsec" id="espaco" aria-labelledby="t-esp">
     <div class="bwrap">
-      <div class="bfilete"></div>
-      <h2 class="btit" id="t-esp">Conhece o espaço</h2>
+      <div class="bfilete" data-revela></div>
+      <h2 class="btit" data-revela id="t-esp">Conhece o espaço</h2>
       <p class="blead">Trezentos metros quadrados no bloco E, primeiro andar, com cerca de sessenta
         lugares. Escolhe uma zona para a ver.</p>
       <div class="bespaco">
@@ -326,8 +330,8 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
   <!-- ═══ ORGANIZAÇÃO ═══ -->
   <section class="bsec alt" id="documentos" aria-labelledby="t-org">
     <div class="bwrap">
-      <div class="bfilete"></div>
-      <h2 class="btit" id="t-org">Organização e transparência</h2>
+      <div class="bfilete" data-revela></div>
+      <h2 class="btit" data-revela id="t-org">Organização e transparência</h2>
       <p class="blead">Os documentos que orientam o trabalho da Biblioteca. Por opção, a documentação
         completa não está publicada: podes consultá-la no espaço ou pedi-la à equipa.</p>
       <div class="bdocs" id="docs-lista"></div>
@@ -337,8 +341,8 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
   <!-- ═══ COMO FUNCIONA ═══ -->
   <section class="bsec" id="horario" aria-labelledby="t-fun">
     <div class="bwrap">
-      <div class="bfilete"></div>
-      <h2 class="btit" id="t-fun">Como funciona a Biblioteca</h2>
+      <div class="bfilete" data-revela></div>
+      <h2 class="btit" data-revela id="t-fun">Como funciona a Biblioteca</h2>
       <p class="blead">Quatro passos, e nenhum deles complicado.</p>
       <div class="bfluxo" id="passos-lista"></div>
     </div>
@@ -349,15 +353,15 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
     <div class="bwrap">
       <div class="bduas">
         <div>
-          <div class="bfilete"></div>
-          <h2 class="btit" id="t-mov" style="font-size:24px">A Biblioteca em movimento</h2>
+          <div class="bfilete" data-revela></div>
+          <h2 class="btit" data-revela id="t-mov" style="font-size:24px">A Biblioteca em movimento</h2>
           <p class="blead" style="margin-bottom:22px">Próximas atividades.</p>
           <div id="agenda-lista"></div>
           <p style="margin-top:16px"><a class="bbt linha" href="participar.html#proximos">Ver a agenda completa</a></p>
         </div>
         <div>
-          <div class="bfilete"></div>
-          <h2 class="btit" style="font-size:24px">Perguntas frequentes</h2>
+          <div class="bfilete" data-revela></div>
+          <h2 class="btit" data-revela style="font-size:24px">Perguntas frequentes</h2>
           <p class="blead" style="margin-bottom:22px">As dúvidas que nos chegam mais vezes ao balcão.</p>
           <div class="bfaq" id="faq-lista"></div>
         </div>
@@ -368,8 +372,8 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
   <!-- ═══ SECÇÕES MANTIDAS ═══ -->
   <section class="bsec" id="projetos-escola" aria-labelledby="t-proj">
     <div class="bwrap">
-      <div class="bfilete"></div>
-      <h2 class="btit" id="t-proj">Conhece os projetos da nossa escola</h2>
+      <div class="bfilete" data-revela></div>
+      <h2 class="btit" data-revela id="t-proj">Conhece os projetos da nossa escola</h2>
       <p class="blead">A Biblioteca não trabalha sozinha. Estes são os projetos e clubes da Escola
         Secundária de Paredes com que nos cruzamos ao longo do ano — na pesquisa, na leitura,
         na produção de conteúdos ou simplesmente cedendo o espaço. A lista completa e atualizada
@@ -382,8 +386,8 @@ a.bproj:hover{transform:translateY(-3px);box-shadow:var(--sombra-b2);border-colo
 
   <section class="bsec alt" id="contactos" aria-labelledby="t-fala">
     <div class="bwrap">
-      <div class="bfilete"></div>
-      <h2 class="btit" id="t-fala">Fala connosco</h2>
+      <div class="bfilete" data-revela></div>
+      <h2 class="btit" data-revela id="t-fala">Fala connosco</h2>
       <p class="blead">Uma dúvida, uma sugestão de compra, um pedido de apoio num trabalho.
         Estamos no bloco E ou a um correio de distância.</p>
       <div class="grid3" id="contactos-lista"></div>

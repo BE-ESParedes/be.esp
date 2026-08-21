@@ -325,8 +325,9 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   <header class="vhero">
     <img src="imagens/atividades/hero.jpg" alt="">
     <div class="vwrap">
-      <h1>A Biblioteca acontece todos os dias.</h1>
-      <p>Projetos, concursos, exposições e desafios que podes viver ao longo do ano.</p>
+      <p class="pg-cota" data-revela><span class="cota cota--escuro"><span class="banda"></span><span class="cod">374</span><span class="nome">participar</span></span></p>
+      <h1 class="pg-tit" data-revela data-atraso="1">A Biblioteca acontece todos os dias.</h1>
+      <p data-revela data-atraso="2">Projetos, concursos, exposições e desafios que podes viver ao longo do ano.</p>
       <a class="vbt" href="#calendario">Ver o ano inteiro</a>
     </div>
   </header>
@@ -342,8 +343,8 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
        relevante às secções que já existem nesta página e leva-te lá. -->
   <section class="vsec" id="acao" data-seccao aria-labelledby="t-acao">
     <div class="vwrap">
-      <div class="vfilete"></div>
-      <h2 class="vtit" id="t-acao">A Biblioteca em ação</h2>
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-acao">A Biblioteca em ação</h2>
       <p class="vlead">O que está a acontecer, o que acabou de acontecer e o que vem a seguir.</p>
       <div class="vacao" id="acao-lista"></div>
     </div>
@@ -352,8 +353,8 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   <!-- ═══ 3 · CALENDÁRIO DO ANO ═══ -->
   <section class="vsec alt" id="calendario" aria-labelledby="t-cal">
     <div class="vwrap">
-      <div class="vfilete"></div>
-      <h2 class="vtit" id="t-cal">O ano letivo da Biblioteca</h2>
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-cal">O ano letivo da Biblioteca</h2>
       <div class="vtemas" id="temas-lista" role="group" aria-label="Filtrar por tema"></div>
       <div class="vmeses" id="meses-lista" role="tablist" aria-label="Meses do ano letivo"></div>
       <div class="vpainel" id="mes-painel" role="tabpanel"></div>
@@ -363,8 +364,8 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   <!-- ═══ 4 · PRÓXIMOS ═══ -->
   <section class="vsec" id="proximos" aria-labelledby="t-prox">
     <div class="vwrap">
-      <div class="vfilete"></div>
-      <h2 class="vtit" id="t-prox">Próximos eventos</h2>
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-prox">Próximos eventos</h2>
       <p class="vlead">O que vem a seguir, por ordem de data.</p>
       <div class="vlinhat" id="proximos-lista"></div>
     </div>
@@ -373,8 +374,8 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   <!-- ═══ 5 · PROJETOS ═══ -->
   <section class="vsec alt" id="projetos" aria-labelledby="t-proj">
     <div class="vwrap">
-      <div class="vfilete"></div>
-      <h2 class="vtit" id="t-proj">Projetos da Biblioteca</h2>
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-proj">Projetos da Biblioteca</h2>
       <p class="vlead">O trabalho que atravessa o ano inteiro, e quem participa em cada um.</p>
       <div class="vprojs" id="projetos-lista"></div>
     </div>
@@ -383,8 +384,8 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   <!-- ═══ 6 · EXPOSIÇÕES ═══ -->
   <section class="vsec" id="exposicoes" aria-labelledby="t-exp">
     <div class="vwrap">
-      <div class="vfilete"></div>
-      <h2 class="vtit" id="t-exp">Exposições</h2>
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-exp">Exposições</h2>
       <p class="vlead">O que esteve e o que vai estar exposto na Biblioteca.</p>
       <div class="vexpos" id="exposicoes-lista"></div>
     </div>
@@ -393,8 +394,8 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   <!-- ═══ 7 · CONCURSOS E INICIATIVAS ═══ -->
   <section class="vsec alt" id="concursos" aria-labelledby="t-conc">
     <div class="vwrap">
-      <div class="vfilete"></div>
-      <h2 class="vtit" id="t-conc">Concursos e iniciativas</h2>
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-conc">Concursos e iniciativas</h2>
       <p class="vlead">O que está aberto, o que vem aí e o que já fechou.</p>
       <div id="concursos-lista"></div>
       <h3 style="font-size:18px;font-weight:800;margin:34px 0 14px;letter-spacing:-.015em">
@@ -406,8 +407,8 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
   <!-- ═══ 8 · TRABALHOS DOS ALUNOS ═══ -->
   <section class="vsec" id="alunos" aria-labelledby="t-alu">
     <div class="vwrap">
-      <div class="vfilete"></div>
-      <h2 class="vtit" id="t-alu">Os nossos alunos criaram</h2>
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-alu">Os nossos alunos criaram</h2>
       <p class="vlead">Vídeos, podcasts, booktrailers e trabalhos feitos na Biblioteca.</p>
       <div id="alunos-faixas"></div>
     </div>
@@ -418,8 +419,8 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
        principal. O conteúdo e a edição no painel mantêm-se exatamente iguais. -->
   <section class="vsec alt" id="novidades" aria-labelledby="t-nov">
     <div class="vwrap">
-      <div class="vfilete"></div>
-      <h2 class="vtit" id="t-nov">Novidades</h2>
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-nov">Novidades</h2>
       <p class="vlead">O que já aconteceu: notícias, resultados e recapitulações das atividades.</p>
       <div class="filtros" id="filtro-noticias" role="group" aria-label="Filtrar por categoria"></div>
       <div class="noticias grelha" id="all-news"></div>
@@ -428,8 +429,8 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
 
   <section class="vsec" id="arquivo" aria-labelledby="t-arq">
     <div class="vwrap">
-      <div class="vfilete"></div>
-      <h2 class="vtit" id="t-arq">Arquivo</h2>
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-arq">Arquivo</h2>
       <p class="vlead">O que ficou de cada ano letivo.</p>
       <div id="arquivo-lista"></div>
     </div>
@@ -437,8 +438,8 @@ a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
 
   <section class="vsec alt" id="redes" aria-labelledby="t-redes">
     <div class="vwrap">
-      <div class="vfilete"></div>
-      <h2 class="vtit" id="t-redes">Segue a Biblioteca</h2>
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-redes">Segue a Biblioteca</h2>
       <p class="vlead">Acompanha o dia a dia e recebe as novidades.</p>
       <div class="grid2">
         <div class="card" id="redes-card"></div>

@@ -694,3 +694,197 @@ a.mpub-item:hover{background:var(--menta-wash,#E8F2EF);color:inherit}
 .rec-modelo{opacity:.72;border-style:dashed}
 .rec-modelo .rec-selo{color:var(--cinza,#707070);background:var(--areia,#F1F1F1);
   border-color:var(--linha,#E8ECEB)}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SISTEMA DE DESIGN — FASE 3 · «Cada livro tem um lugar»
+   ─────────────────────────────────────────────────────────────────────
+   CONCEITO. Uma biblioteca não é um monte de livros: é um sítio onde cada
+   livro tem um lugar, e é essa ordem que torna a descoberta possível. A
+   COTA é o alfabeto próprio desta casa — 821.134.1 QUE mai diz o assunto,
+   o autor e o título. O site passa a falar essa língua.
+
+   O QUE ESTE BLOCO ACRESCENTA (é aditivo: nada do que existia foi tocado)
+     · escala tipográfica fluida, para os títulos poderem ser monumentais
+     · ritmo vertical em passos, para alternar densidade e vazio
+     · «ambientes»: cada secção assenta num chão tonal, como salas diferentes
+     · linguagem de movimento: as coisas ASSENTAM no lugar, não saltam
+     · cinco assinaturas visuais (ver mais abaixo)
+
+   TIPOGRAFIA. Continua a ser a letra do sistema — decisão D9 de 17/08/2026,
+   que existe para o site não descarregar nada nem ligar a terceiros. A
+   identidade tipográfica faz-se com ESCALA, PESO, ENTRELINHA e COMPOSIÇÃO,
+   não com uma fonte comprada. Não há um único pedido a servidores externos.
+
+   PALETA. Sem cores novas. A paleta v2.0 mantém-se inteira; o que muda é o
+   uso — campos cromáticos grandes em vez de acentos pequenos.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root{
+  /* ── escala tipográfica ───────────────────────────────────────────────
+     Sete degraus, do monumental ao micro. Fluida por clamp: no telemóvel
+     encolhe, no ecrã grande cresce, sem saltos entre pontos de rutura. */
+  --t-mega:clamp(46px,11.5vw,152px);   /* a palavra isolada */
+  --t-1:clamp(32px,5.6vw,68px);        /* título de página */
+  --t-2:clamp(25px,3.2vw,40px);        /* título de secção */
+  --t-3:clamp(19px,1.9vw,25px);        /* subtítulo */
+  --t-4:17px;                          /* título de cartão */
+  --t-corpo:16px;
+  --t-peq:13.5px;
+  --t-micro:11.5px;                    /* etiquetas, cotas */
+  /* Quanto maior a letra, mais apertada; quanto menor, mais aberta. */
+  --tr-mega:-.045em; --tr-1:-.035em; --tr-2:-.022em; --tr-micro:.09em;
+  --lh-tit:.94; --lh-sub:1.18; --lh-corpo:1.62;
+
+  /* ── ritmo vertical ── */
+  --e-1:6px; --e-2:12px; --e-3:20px; --e-4:32px;
+  --e-5:52px; --e-6:84px; --e-7:clamp(76px,10vw,136px); --e-8:clamp(110px,15vw,200px);
+
+  /* ── movimento ──
+     Uma só curva, desaceleradora: tudo assenta no lugar, nada ressalta.
+     É o gesto de arrumar um livro na prateleira. */
+  --curva:cubic-bezier(.22,.68,.28,1);
+  --mov-rapido:.18s; --mov:.42s; --mov-lento:.8s;
+
+  /* ── ambientes ──
+     Quatro «chãos». Uma página muda de ambiente como se mudasse de sala. */
+  --amb-papel:#F8F8F8; --amb-areia:#F1F1F1;
+  --amb-menta:#E8F2EF; --amb-tinta:#232323;
+}
+
+/* ═══ ASSINATURA 1 · A COTA ═══
+   A etiqueta da lombada, tal como está nos livros desta Biblioteca. Marca
+   cada secção do site com uma banda de cor e um código. Não é decoração:
+   é o alfabeto da casa, e ensina-o de passagem. */
+.cota{display:inline-flex;align-items:stretch;gap:0;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  font-size:var(--t-micro);font-weight:700;letter-spacing:var(--tr-micro);
+  text-transform:uppercase;line-height:1;border-radius:4px;overflow:hidden;
+  border:1px solid var(--linha);background:var(--branco);color:var(--tinta)}
+.cota .banda{width:7px;flex:none;background:var(--menta)}
+.cota .cod{padding:7px 10px 6px;white-space:nowrap}
+.cota .nome{padding:7px 12px 6px 0;color:var(--cinza);letter-spacing:.04em;white-space:nowrap}
+.cota--dourado .banda{background:var(--dourado)}
+.cota--tinta   .banda{background:var(--tinta)}
+.cota--escuro{background:transparent;border-color:rgba(255,255,255,.28);color:#fff}
+.cota--escuro .nome{color:rgba(255,255,255,.72)}
+
+/* ═══ ASSINATURA 2 · TÍTULO MONUMENTAL ═══
+   Palavras grandes que funcionam como imagem. A entrelinha desce abaixo
+   de 1 para as linhas se aproximarem e formarem um bloco. */
+.monum{font-size:var(--t-mega);font-weight:800;line-height:var(--lh-tit);
+  letter-spacing:var(--tr-mega);margin:0;color:var(--tinta);
+  text-wrap:balance;hyphens:none}
+.monum em{font-style:normal;color:var(--menta-txt)}
+.monum .fina{font-weight:300}
+.tit-1{font-size:var(--t-1);font-weight:800;line-height:1.04;letter-spacing:var(--tr-1);margin:0}
+.tit-2{font-size:var(--t-2);font-weight:800;line-height:1.1;letter-spacing:var(--tr-2);margin:0}
+.lead{font-size:var(--t-3);line-height:1.5;color:var(--cinza);max-width:46ch;margin:0;
+  font-weight:400;letter-spacing:-.005em}
+
+/* ═══ ASSINATURA 3 · A ESTANTE ═══
+   Retrato da coleção real: cada bloco é uma classe da CDU, com largura
+   proporcional ao número de exemplares que a Biblioteca tem mesmo. Não é
+   um gráfico decorativo — é esta Biblioteca, vista de cima. */
+.estante{display:flex;width:100%;height:clamp(148px,20vw,232px);border-radius:var(--r-bloco);
+  overflow:hidden;border:1px solid var(--linha);background:var(--areia)}
+.estante-c{position:relative;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:14px 12px;min-width:34px;background:var(--branco);cursor:default;
+  border-right:1px solid var(--linha);overflow:hidden;
+  transition:flex-grow var(--mov) var(--curva),background var(--mov-rapido)}
+.estante-c:last-child{border-right:0}
+.estante-c::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;
+  background:var(--menta-media);transition:height var(--mov) var(--curva)}
+.estante-c:hover,.estante-c:focus-visible{background:var(--menta-wash);outline:none}
+.estante-c:hover::before,.estante-c:focus-visible::before{height:9px}
+.estante-c .n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:clamp(20px,2.4vw,34px);
+  font-weight:700;color:var(--tinta);line-height:1;letter-spacing:-.02em}
+.estante-c .d{font-size:12px;color:var(--cinza);line-height:1.32;margin-top:6px;
+  max-height:0;opacity:0;overflow:hidden;transition:max-height var(--mov) var(--curva),opacity var(--mov)}
+.estante-c:hover .d,.estante-c:focus-visible .d{max-height:64px;opacity:1}
+/* Blocos com largura suficiente dizem o nome sem ser preciso apontar. */
+.estante-c.larga .d{max-height:64px;opacity:.82}
+.estante-c.larga:hover .d,.estante-c.larga:focus-visible .d{opacity:1}
+.estante-c .q{font-size:11.5px;font-weight:700;color:var(--menta-txt);margin-top:4px}
+.estante-pe{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  flex-wrap:wrap;margin-top:14px;font-size:var(--t-peq);color:var(--cinza)}
+.estante-pe b{font-size:var(--t-3);color:var(--tinta);font-weight:800;letter-spacing:-.02em}
+
+/* ═══ ASSINATURA 4 · A PRATELEIRA DE CAPAS ═══
+   As capas deixam de ser miniaturas numa grelha: encostam-se umas às
+   outras como numa prateleira, e a que se aponta sai para a frente. */
+.prateleira{display:flex;align-items:flex-end;padding:0 0 6px;overflow-x:auto;
+  scrollbar-width:none;scroll-behavior:smooth}
+.prateleira::-webkit-scrollbar{display:none}
+.prat-l{flex:none;width:clamp(96px,12vw,150px);aspect-ratio:2/3;position:relative;
+  margin-right:-22px;border-radius:3px 8px 8px 3px;overflow:hidden;
+  background:var(--cinza-bloco);border:1px solid rgba(43,43,43,.10);
+  box-shadow:-6px 6px 18px rgba(43,43,43,.14);
+  transition:transform var(--mov) var(--curva),box-shadow var(--mov) var(--curva);
+  transform-origin:bottom center;text-decoration:none}
+.prat-l:last-child{margin-right:0}
+.prat-l img{width:100%;height:100%;object-fit:cover;display:block}
+.prat-l::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(43,43,43,.22) 0 5px,rgba(43,43,43,0) 14px)}
+.prateleira:hover .prat-l{transform:translateY(4px)}
+.prat-l:hover,.prat-l:focus-visible{transform:translateY(-14px) rotate(-1.2deg);z-index:2;
+  box-shadow:-10px 16px 34px rgba(43,43,43,.26);outline:none}
+.prat-l:focus-visible{box-shadow:-10px 16px 34px rgba(43,43,43,.26),0 0 0 3px var(--menta-txt)}
+.prat-tab{display:flex;gap:10px;flex-wrap:wrap;margin-top:var(--e-3);font-size:var(--t-peq);color:var(--cinza)}
+
+/* ═══ ASSINATURA 5 · O MARCADOR ═══
+   A fita que assinala onde estamos, na navegação. */
+nav.main a[aria-current="page"]{position:relative}
+nav.main a[aria-current="page"]::after{content:"";position:absolute;left:50%;transform:translateX(-50%);
+  bottom:-11px;width:20px;height:9px;background:var(--dourado);
+  clip-path:polygon(0 0,100% 0,100% 100%,50% 68%,0 100%)}
+
+/* ═══ AMBIENTES ═══ */
+.amb-papel{background:var(--amb-papel)}
+.amb-areia{background:var(--amb-areia)}
+.amb-menta{background:var(--amb-menta)}
+.amb-tinta{background:var(--amb-tinta);color:var(--claro)}
+.amb-tinta .tit-1,.amb-tinta .tit-2,.amb-tinta .monum{color:#fff}
+.amb-tinta .lead,.amb-tinta p{color:rgba(255,255,255,.76)}
+.amb-tinta a{color:#fff;text-decoration-color:var(--dourado)}
+
+/* ═══ REVELAÇÃO NO SCROLL ═══
+   Sem biblioteca nenhuma: um IntersectionObserver de vinte linhas no
+   motor.js. Os elementos entram uma vez, de baixo, e ficam. Quem pediu
+   movimento reduzido vê-os já no sítio. */
+/* À PROVA DE FALHA: por omissão o conteúdo está VISÍVEL. Só depois de o
+   motor confirmar que consegue observar o scroll é que a classe .js-revela
+   entra no <html> e ativa o esconder-para-revelar. Sem JavaScript, com um
+   erro, ou dentro de um contentor que o observador não vê, o texto aparece
+   à mesma — esconder conteúdo à espera de uma animação é indefensável. */
+html.js-revela [data-revela]{opacity:0;transform:translateY(18px);
+  transition:opacity var(--mov-lento) var(--curva),transform var(--mov-lento) var(--curva)}
+html.js-revela [data-revela].dentro{opacity:1;transform:none}
+html.js-revela [data-revela][data-atraso="1"]{transition-delay:.08s}
+html.js-revela [data-revela][data-atraso="2"]{transition-delay:.16s}
+html.js-revela [data-revela][data-atraso="3"]{transition-delay:.24s}
+html.js-revela [data-revela][data-atraso="4"]{transition-delay:.32s}
+
+@media(prefers-reduced-motion:reduce){
+  html.js-revela [data-revela]{opacity:1;transform:none;transition:none}
+  .prateleira:hover .prat-l,.prat-l:hover{transform:none}
+  .estante-c .d{max-height:64px;opacity:1;transition:none}
+  html{scroll-behavior:auto}
+}
+@media(max-width:620px){
+  .estante{height:auto;flex-direction:column}
+  .estante-c{flex:none!important;min-height:56px;border-right:0;border-bottom:1px solid var(--linha);
+    flex-direction:row;align-items:center;gap:12px;padding:12px 14px}
+  .estante-c::before{left:0;top:0;bottom:0;right:auto;width:5px;height:auto}
+  .estante-c .n{font-size:20px;flex:none;width:26px}
+  .estante-c .d{max-height:none;opacity:1;margin:0;flex:1}
+  .estante-c .q{margin:0}
+}
+
+/* ═══ CABEÇALHO DE PÁGINA — o mesmo gesto nas cinco ═══
+   Cota, título monumental, entrada. Cada página mantém a folha própria;
+   isto assenta por cima e unifica a abertura. */
+.pg-cota{margin:0 0 var(--e-3)}
+h1.pg-tit{font-size:var(--t-1);font-weight:800;line-height:1.02;
+  letter-spacing:var(--tr-1);text-wrap:balance}
+/* Os cabeçalhos das páginas têm fundo escuro por fotografia: o título é
+   branco e a entrada mantém-se legível por cima do véu. */
+.chero h1.pg-tit,.ahero h1.pg-tit,.vhero h1.pg-tit,.bhero h1.pg-tit{color:#fff}

@@ -102,7 +102,7 @@ const FICHEIROS = [
   /* área LER — formatos de leitura (podem estar vazios até haver curadoria) */
   'livrosDigitais', 'audiolivros', 'podcasts', 'leituraAcessivel',
   /* camada editorial: montras por público, descoberta da semana e explicações */
-  'escolhas', 'semana', 'explica',
+  'escolhas', 'semana', 'explica', 'colecao',
   /* área ENCONTRAR — organização física do fundo */
   'estantes',
   /* área APRENDER — ferramentas, separadas das fontes */
@@ -303,6 +303,98 @@ function renderEscolhas(idAlvo) {
 }
 window.renderEscolhas = renderEscolhas;
 
+/* ═══════════════════════════════════════════════════════════════
+   FASE 3 — LINGUAGEM DE MOVIMENTO E ASSINATURAS VISUAIS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── revelação no scroll ──────────────────────────────────────────────
+   Vinte linhas em vez de uma biblioteca de animação. Cada elemento com
+   [data-revela] entra uma vez e fica. Quem tem «movimento reduzido»
+   ligado no sistema vê tudo já no lugar, sem transição nenhuma. */
+function ligarRevelacao() {
+  const alvos = $$('[data-revela]');
+  if (!alvos.length) return;
+  const reduzido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduzido || !('IntersectionObserver' in window)) return;   /* fica tudo visível */
+
+  /* Só a partir daqui é que o conteúdo pode ser escondido: a partir do
+     momento em que há mesmo quem o volte a mostrar. */
+  document.documentElement.classList.add('js-revela');
+
+  /* Rede de segurança: se por alguma razão um elemento nunca for observado
+     (dentro de um contentor invisível, por exemplo), aparece à mesma
+     passados três segundos. Nada fica escondido à espera de um evento. */
+  setTimeout(() => alvos.forEach(el => el.classList.add('dentro')), 3000);
+
+  const obs = new IntersectionObserver((entradas, o) => {
+    for (const e of entradas) {
+      if (!e.isIntersecting) continue;
+      e.target.classList.add('dentro');
+      o.unobserve(e.target);          /* entra uma vez; não repete ao subir */
+    }
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+  alvos.forEach(el => obs.observe(el));
+}
+window.ligarRevelacao = ligarRevelacao;
+
+/* ── a cota ───────────────────────────────────────────────────────────
+   A etiqueta da lombada, usada como marcador de secção. */
+function cota(codigo, nome, tom) {
+  return `<span class="cota${tom ? ' cota--' + esc(tom) : ''}">
+    <span class="banda"></span><span class="cod">${esc(codigo)}</span>
+    ${temTexto(nome) ? `<span class="nome">${esc(nome)}</span>` : ''}</span>`;
+}
+window.cota = cota;
+
+/* ── a estante ────────────────────────────────────────────────────────
+   Retrato da coleção: cada bloco é uma classe da CDU, com largura
+   proporcional aos exemplares que a Biblioteca tem mesmo. Os números
+   vêm de content/colecao.json e editam-se no painel — se ficarem
+   desatualizados, corrige-se lá, não aqui. */
+function renderEstante(idAlvo) {
+  const el = document.getElementById(idAlvo); if (!el) return 0;
+  const c = CONTEUDO.colecao || {};
+  const classes = (c.classes || []).filter(x => x && +x.exemplares > 0);
+  if (!classes.length) return 0;
+  const total = classes.reduce((s, x) => s + (+x.exemplares || 0), 0);
+  el.innerHTML = classes.map(x => {
+    const parte = (+x.exemplares || 0) / total;
+    /* Um bloco com espaço mostra o nome da classe sempre; um estreito só o
+       revela ao aproximar. Em repouso, os números sozinhos não diziam nada. */
+    const larga = parte > 0.07 ? ' larga' : '';
+    return `<div class="estante-c${larga}" style="flex:${parte.toFixed(4)} 1 0"
+                 tabindex="0" role="group"
+                 aria-label="${esc(x.classe)} ${esc(x.designacao)}: ${esc(x.exemplares)} exemplares">
+      <span class="n">${esc(x.classe)}</span>
+      <span class="d">${esc(x.designacao)}</span>
+      <span class="q">${Number(x.exemplares).toLocaleString('pt-PT')}</span>
+    </div>`;
+  }).join('');
+  const pe = document.getElementById(idAlvo + '-pe');
+  if (pe) pe.innerHTML =
+    `<span><b>${total.toLocaleString('pt-PT')}</b> exemplares, arrumados por assunto</span>
+     <span>${esc(c.nota || '')}</span>`;
+  return classes.length;
+}
+window.renderEstante = renderEstante;
+
+/* ── a prateleira de capas ────────────────────────────────────────────
+   As capas encostam-se umas às outras; a que se aponta sai para a
+   frente. Aceita qualquer coleção que tenha imagem, título e url. */
+function renderPrateleira(idAlvo, itens, limite) {
+  const el = document.getElementById(idAlvo); if (!el) return 0;
+  const lista = (itens || []).filter(x => temTexto(x.imagem)).slice(0, limite || 14);
+  el.innerHTML = lista.map(x => {
+    const t = esc(x.titulo || x.nome || '');
+    const dentro = `<img src="${esc(caminho(x.imagem))}" alt="${esc(x.alt || t)}" loading="lazy">`;
+    return temTexto(x.url)
+      ? `<a class="prat-l" ${linkAttrs(x.url)} title="${t}">${dentro}</a>`
+      : `<span class="prat-l" title="${t}">${dentro}</span>`;
+  }).join('');
+  return lista.length;
+}
+window.renderPrateleira = renderPrateleira;
+
 /* ---------- páginas e subsecções ---------- */
 /* A navegação segue o que o utilizador quer FAZER, e não o tipo de conteúdo
    que a Biblioteca tem. Um aluno e um professor podem ambos querer encontrar
@@ -400,48 +492,10 @@ function renderRodape() {
 }
 
 /* ---------- hero / carrossel ---------- */
-function renderCarrossel() {
-  const car = $('#carousel'); if (!car) return;
-  /* Limite de 4 destaques. Acima disso os últimos raramente chegam a ser vistos;
-     se acrescentar mais em content/banners.json, só os 4 primeiros são usados. */
-  const B = (CONTEUDO.banners || []).slice(0, 4);
-  if (!B.length) { car.remove(); return; }
-  const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  $('#slides').innerHTML = B.map((b, k) => {
-    const btns = (b.botoes || []).filter(x => temTexto(x.rotulo)).map((x, n) =>
-      `<a class="btn ${n === 0 ? 'primario' : 'sobre-escuro'}" ${linkAttrs(x.url)}>${esc(x.rotulo)}</a>`).join('');
-    return `<div class="slide" role="group" aria-roledescription="destaque" aria-label="Destaque ${k + 1} de ${B.length}">
-      ${temTexto(b.imagem) ? `<span class="capa"><img src="${esc(caminho(b.imagem))}" alt=""></span>` : ''}
-      <span class="veu"></span>
-      <div class="txt">
-        ${temTexto(b.tag) ? `<div class="eyebrow">${esc(b.tag)}</div>` : ''}
-        <h2>${b.titulo || ''}</h2>
-        ${temTexto(b.texto) ? `<p>${esc(b.texto)}</p>` : ''}
-        <div class="btns">${btns}</div>
-      </div></div>`;
-  }).join('');
-  $('#car-dots').innerHTML = B.map((_, k) => `<button aria-label="Ir para o destaque ${k + 1}" data-i="${k}"></button>`).join('');
-  const slides = $('#slides'), pontos = $$('#car-dots button');
-  let i = 0, t = null;
-  const ir = n => { i = (n + B.length) % B.length; slides.style.transform = `translateX(-${i * 100}%)`;
-    pontos.forEach((d, k) => d.classList.toggle('active', k === i)); };
-  const seg = () => ir(i + 1), ant = () => ir(i - 1);
-  const parar = () => { if (t) clearInterval(t); t = null; };
-  const andar = () => { if (reduz) return; parar(); t = setInterval(seg, 5500); };
-  $('#car-next').addEventListener('click', () => { seg(); andar(); });
-  $('#car-prev').addEventListener('click', () => { ant(); andar(); });
-  pontos.forEach(d => d.addEventListener('click', () => { ir(+d.dataset.i); andar(); }));
-  car.addEventListener('mouseenter', parar); car.addEventListener('mouseleave', andar);
-  car.addEventListener('focusin', parar);    car.addEventListener('focusout', andar);
-  car.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight') { seg(); andar(); }
-    if (e.key === 'ArrowLeft')  { ant(); andar(); }
-  });
-  ir(0); andar();
-}
-
-/* ---------- cartão de ação (usado no acesso rápido) ---------- */
-const CORES = ['', 'menta', 'dourado'];
+/* O carrossel foi retirado a 21/08/2026 (Fase 3). Os mesmos banners passaram
+   a desenhar-se na faixa editorial «Em cartaz» da página inicial, onde se veem
+   todos ao mesmo tempo em vez de um de cada vez. O conteúdo (banners.json) e a
+   sua edição no painel mantêm-se exatamente iguais. */
 function cartaoAcao(x, n) {
   const cor = temTexto(x.cor) ? x.cor : CORES[n % 3];
   return `<a class="acao ${cor}" ${linkAttrs(x.url)}>
@@ -658,9 +712,10 @@ window.esc = esc; window.temTexto = temTexto; window.linkAttrs = linkAttrs; wind
 (async function iniciar() {
   await carregarConteudo();
   renderCabecalho(); renderRodape();
-  renderCarrossel(); renderNoticias(); renderAgenda(); renderGaleria(); renderDocumentos();
+  renderNoticias(); renderAgenda(); renderGaleria(); renderDocumentos();
   renderVideos();
   if (window.renderPagina) window.renderPagina();
   aplicarCartoes();
   ligarFormulario();
+  ligarRevelacao();
 })();

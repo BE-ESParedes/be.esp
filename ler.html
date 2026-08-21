@@ -85,9 +85,32 @@
 .cdestaque{background:linear-gradient(160deg,var(--branco) 0%,var(--menta-wash) 100%)}
 /* A montra é deliberadamente pequena: quatro por linha, para se ler como
    uma escolha e não como uma lista. */
-.cdestaque .rec-grelha{grid-template-columns:repeat(4,1fr)}
-@media(max-width:1000px){.cdestaque .rec-grelha{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:760px){.cdestaque .rec-grelha{grid-template-columns:repeat(2,1fr)}}
+/* A montra: o primeiro destaque ocupa duas colunas e duas linhas, com a
+   capa deitada e a frase editorial inteira. Os restantes seguem-no. Um
+   inventário trata tudo por igual; uma montra escolhe. */
+.montra{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+/* Duas colunas, uma linha: o líder fica com o dobro da largura e a mesma
+   altura dos vizinhos. Esticá-lo por duas linhas deixava-o com 1251 px. */
+.montra .rec-lider{grid-column:span 2;flex-direction:row}
+.montra .rec-lider .rec-capa{aspect-ratio:auto;width:44%;flex:none;height:100%;
+  background:var(--areia);padding:18px}
+/* A capa do líder mostra-se inteira: cortá-la ao meio corta o título do
+   próprio livro, que é precisamente o que se quer que se leia. */
+.montra .rec-lider .rec-capa img{object-fit:contain;filter:drop-shadow(0 8px 20px rgba(43,43,43,.22))}
+.montra .rec-lider .rec-tx{padding:26px 26px 24px;justify-content:center}
+.montra .rec-lider .rec-tx b{font-size:var(--t-3);line-height:1.2;letter-spacing:-.02em}
+.montra .rec-lider .rec-porque{font-size:14.5px;line-height:1.55}
+.montra .rec-lider .rec-formato{top:14px;left:14px}
+@media(max-width:1100px){
+  .montra{grid-template-columns:repeat(3,1fr)}
+  .montra .rec-lider{grid-column:span 3;grid-row:span 1}
+}
+@media(max-width:760px){
+  .montra{grid-template-columns:repeat(2,1fr)}
+  .montra .rec-lider{grid-column:span 2;flex-direction:column}
+  .montra .rec-lider .rec-capa{width:100%;aspect-ratio:16/9}
+  .montra .rec-lider .rec-tx{padding:16px}
+}
 .cnota{margin:18px 0 0}
 .cnav-fim{margin-top:2px;justify-content:flex-end}
 
@@ -149,8 +172,9 @@
   <header class="chero">
     <img src="imagens/catalogo/hero.jpg" alt="">
     <div class="cwrap">
-      <h1>Livros para ler. Histórias para ouvir.</h1>
-      <p>Tudo o que a Biblioteca escolheu para leres e ouvires — em papel, no ecrã ou nos auscultadores.</p>
+      <p class="pg-cota" data-revela><span class="cota cota--escuro"><span class="banda"></span><span class="cod">028</span><span class="nome">ler</span></span></p>
+      <h1 class="pg-tit" data-revela data-atraso="1">Livros para ler. Histórias para ouvir.</h1>
+      <p data-revela data-atraso="2">Tudo o que a Biblioteca escolheu para leres e ouvires — em papel, no ecrã ou nos auscultadores.</p>
       <a class="cbt" href="#livros">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         Ver o que há para ler</a>
@@ -191,11 +215,11 @@
   <!-- ═══ DESTAQUES — a montra editorial da Biblioteca ═══ -->
   <section class="csec cdestaque" id="novidades" aria-labelledby="t-des">
     <div class="cwrap">
-      <div class="cfilete"></div>
-      <h2 class="ctit" id="t-des">O que a Biblioteca está a destacar</h2>
+      <div class="cfilete" data-revela></div>
+      <h2 class="ctit" data-revela id="t-des">O que a Biblioteca está a destacar</h2>
       <p class="clead">Escolhas da Biblioteca em cada formato digital. Poucas, e cada uma
         com a razão pela qual vale a pena — que é, afinal, o trabalho de uma biblioteca.</p>
-      <div class="rec-grelha" id="destaques-grelha"></div>
+      <div class="montra" id="destaques-grelha"></div>
       <p class="cvazio" id="destaques-vazio" hidden>A Biblioteca ainda não marcou destaques.
         Aparecem aqui assim que forem escolhidos no painel.</p>
     </div>
@@ -206,8 +230,8 @@
        aponta para fichas que já existem noutras secções. -->
   <section class="csec" id="semana" data-seccao aria-labelledby="t-sem">
     <div class="cwrap">
-      <div class="cfilete"></div>
-      <h2 class="ctit" id="t-sem">O que estamos a descobrir</h2>
+      <div class="cfilete" data-revela></div>
+      <h2 class="ctit" data-revela id="t-sem">O que estamos a descobrir</h2>
       <p class="clead" id="semana-nota"></p>
       <div class="sem-grelha" id="semana-grelha"></div>
     </div>
@@ -218,8 +242,8 @@
        diferentes — por isso a nota muda, e a ficha não. -->
   <section class="csec alt" id="escolhas" data-seccao aria-labelledby="t-esc">
     <div class="cwrap">
-      <div class="cfilete"></div>
-      <h2 class="ctit" id="t-esc">Escolhas da Biblioteca</h2>
+      <div class="cfilete" data-revela></div>
+      <h2 class="ctit" data-revela id="t-esc">Escolhas da Biblioteca</h2>
       <p class="clead">Três de cada vez, para quem não quer percorrer listas.
         Se és professor, a terceira coluna é para ti.</p>
       <div class="mpub-grelha" id="escolhas-grelha"></div>
@@ -230,7 +254,7 @@
   <section class="csec" id="livros" aria-labelledby="t-livros">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="livro"></span>
-        <div><h2 class="ctit" id="t-livros">Ler</h2>
+        <div><h2 class="ctit" data-revela id="t-livros">Ler</h2>
           <p class="clead">Livros em papel, na estante. Escolhas da equipa e dos professores, por ciclo.</p></div>
       </div>
       <div id="sugestoes-faixas"></div>
@@ -242,10 +266,12 @@
   <section class="csec" id="livros-digitais" aria-labelledby="t-ld">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="monitor"></span>
-        <div><h2 class="ctit" id="t-ld">Ler no ecrã</h2>
+        <div><h2 class="ctit" data-revela id="t-ld">Ler no ecrã</h2>
           <p class="clead">Obras completas, de acesso livre e legal. Abrem no telemóvel, no
             computador ou no leitor de e-books — sem registo e sem pagar nada.</p></div>
       </div>
+      <div class="prateleira" id="prat-digitais" aria-label="Capas dos livros digitais"></div>
+      <p class="prat-tab" id="prat-digitais-tab"></p>
       <div id="livros-digitais-faixa"></div>
     </div>
   </section>
@@ -254,7 +280,7 @@
   <section class="csec alt" id="audiolivros" aria-labelledby="t-audio">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="auscultador"></span>
-        <div><h2 class="ctit" id="t-audio">Ouvir</h2>
+        <div><h2 class="ctit" data-revela id="t-audio">Ouvir</h2>
           <p class="clead">Para ouvir no caminho para a escola. Livros inteiros lidos em voz alta
             por atores, de fontes públicas e gratuitas.</p></div>
       </div>
@@ -266,7 +292,7 @@
   <section class="csec" id="podcasts" aria-labelledby="t-pod">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="microfone"></span>
-        <div><h2 class="ctit" id="t-pod">Escutar</h2>
+        <div><h2 class="ctit" data-revela id="t-pod">Escutar</h2>
           <p class="clead">Conversas sobre livros, autores e ideias. Não são os livros:
             são as pessoas a falar deles.</p></div>
       </div>
@@ -278,7 +304,7 @@
   <section class="csec alt" id="videos-sec" aria-labelledby="t-vid">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="camara"></span>
-        <div><h2 class="ctit" id="t-vid">Ver</h2>
+        <div><h2 class="ctit" data-revela id="t-vid">Ver</h2>
           <p class="clead">Autores, leituras e conhecimento em vídeo.</p></div>
       </div>
       <div class="videos" id="videos"></div>
@@ -291,7 +317,7 @@
   <section class="csec" id="acessivel" aria-labelledby="t-ace">
     <div class="cwrap">
       <div class="cverbo"><span class="cv-ico" data-ico="maos"></span>
-        <div><h2 class="ctit" id="t-ace">Aceder</h2>
+        <div><h2 class="ctit" data-revela id="t-ace">Aceder</h2>
           <p class="clead">Nem toda a gente lê da mesma maneira. Serviços públicos e formatos
             para quem lê com os ouvidos, com os dedos ou noutra língua.</p></div>
       </div>
@@ -302,8 +328,8 @@
   <!-- ═══ PLATAFORMAS ═══ -->
   <section class="csec alt" id="digital" aria-labelledby="t-dig">
     <div class="cwrap">
-      <div class="cfilete"></div>
-      <h2 class="ctit" id="t-dig">Onde procurar mais</h2>
+      <div class="cfilete" data-revela></div>
+      <h2 class="ctit" data-revela id="t-dig">Onde procurar mais</h2>
       <p class="clead">Plataformas de acesso livre e legal, verificadas pela Biblioteca.
         Abrem em separador novo.</p>
       <div class="cfaixa">
@@ -385,9 +411,26 @@ window.renderPagina = function(){
   const dv = document.getElementById('destaques-vazio');
   if (dg) {
     const itens = destaques('destaque');
-    dg.innerHTML = itens.map(x => cartaoRecurso(x)).join('');
+    /* Composição editorial em vez de grelha: o primeiro destaque ocupa o
+       dobro e traz a frase inteira; os outros seguem-no em escala menor.
+       É a diferença entre uma montra e um inventário. */
+    dg.innerHTML = itens.map((x, n) => {
+      const cartao = cartaoRecurso(x);
+      return n === 0 ? cartao.replace('class="rec"', 'class="rec rec-lider"') : cartao;
+    }).join('');
     if (dv && !itens.length) { dv.hidden = false; dg.hidden = true; }
   }
+
+  /* A prateleira: as capas dos livros digitais encostadas umas às outras,
+     antes das fichas. Quem passa por ali vê logo o que há. */
+  (function () {
+    const n = renderPrateleira('prat-digitais', publicados('livrosDigitais'), 15);
+    const tab = document.getElementById('prat-digitais-tab');
+    if (tab) tab.textContent = n
+      ? `${n} obras completas, de acesso livre. Passa por cima para ver o título.`
+      : '';
+    if (!n) document.getElementById('prat-digitais')?.setAttribute('hidden','');
+  })();
 
   /* Os vídeos são desenhados pelo motor; se não houver, mostra-se o aviso. */
   const vv = document.getElementById('videos-vazio');
