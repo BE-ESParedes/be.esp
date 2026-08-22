@@ -97,7 +97,15 @@ nav.main a:hover,.foot-grid a:hover,.docs a:hover,
 /* ═══ CABEÇALHO ═══ */
 /* Sem filete dourado por baixo: o sublinhado só aparece no separador ativo
    e ao passar o rato, que é quanto basta (26/07/2026). */
-header{background:var(--branco);border-bottom:1px solid var(--linha);
+/* A BARRA DO SITE — e só ela.
+   Isto era `header{…}`, um seletor de elemento, e por isso aplicava-se a
+   TODOS os <header> da página: o pórtico da entrada e os cabeçalhos de
+   Encontrar, Aprender, Ler, Participar e Conhecer ficavam todos `sticky`
+   com `z-index:40`. Sendo posteriores no DOM e com o mesmo z-index, tapavam
+   o menu de telemóvel quando este abria — o menu abria mesmo, mas por baixo
+   da fotografia. Agora a regra aponta apenas ao cabeçalho que o motor
+   desenha dentro de #cabecalho. */
+#cabecalho > header{background:var(--branco);border-bottom:1px solid var(--linha);
   position:sticky;top:0;z-index:40}
 .topbar{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:0 18px;height:var(--topo)}
 .brand{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
