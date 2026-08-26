@@ -4,37 +4,49 @@
       "rotulo": "Pesquisar no catálogo",
       "texto": "Ver se o livro existe e onde está o exemplar.",
       "icone": "lupa",
-      "url": "encontrar.html#opac"
+      "url": "encontrar.html#opac",
+      "imagem": "",
+      "alt": ""
     },
     {
       "rotulo": "Encontrar na estante",
       "texto": "As cores e os números por que os livros estão arrumados.",
       "icone": "local",
-      "url": "encontrar.html#estantes"
+      "url": "encontrar.html#estantes",
+      "imagem": "",
+      "alt": ""
     },
     {
-      "rotulo": "Fazer um trabalho",
+      "rotulo": "Fazer um trabalho.",
       "texto": "Sete passos, do tema em branco à entrega.",
       "icone": "ficheiro",
-      "url": "aprender.html#objetivos"
+      "url": "aprender.html#objetivos",
+      "imagem": "",
+      "alt": ""
     },
     {
       "rotulo": "Ouvir um livro",
       "texto": "Audiolivros gratuitos para o caminho para a escola.",
       "icone": "auscultador",
-      "url": "ler.html#digital=ouvir"
+      "url": "ler.html#digital=ouvir",
+      "imagem": "",
+      "alt": ""
     },
     {
       "rotulo": "Ver o que aconteceu",
       "texto": "Notícias e registo do que se fez na Biblioteca.",
       "icone": "camara",
-      "url": "participar.html#novidades"
+      "url": "participar.html#novidades",
+      "imagem": "",
+      "alt": ""
     },
     {
       "rotulo": "Pedir ajuda",
       "texto": "A equipa ajuda-te a procurar, avaliar fontes e citar.",
       "icone": "maos",
-      "url": "conhecer.html#contactos"
+      "url": "conhecer.html#contactos",
+      "imagem": "",
+      "alt": ""
     }
   ]
 }
