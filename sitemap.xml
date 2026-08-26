@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Só as páginas em vigor. Os endereços antigos (catalogo, recursos,
+     atividades, biblioteca, noticias) continuam a funcionar por
+     reencaminhamento, mas não se indexam para não duplicar conteúdo. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://be-esparedes.github.io/be.esp/index.html</loc></url>
+  <url><loc>https://be-esparedes.github.io/be.esp/encontrar.html</loc></url>
+  <url><loc>https://be-esparedes.github.io/be.esp/aprender.html</loc></url>
+  <url><loc>https://be-esparedes.github.io/be.esp/ler.html</loc></url>
+  <url><loc>https://be-esparedes.github.io/be.esp/participar.html</loc></url>
+  <url><loc>https://be-esparedes.github.io/be.esp/conhecer.html</loc></url>
+  <url><loc>https://be-esparedes.github.io/be.esp/acessibilidade.html</loc></url>
+  <url><loc>https://be-esparedes.github.io/be.esp/privacidade.html</loc></url>
+</urlset>

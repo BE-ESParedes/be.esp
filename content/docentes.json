@@ -1,0 +1,75 @@
+{
+  "docentes": [
+    {
+      "titulo": "Planear uma sessão em conjunto",
+      "icone": "maos",
+      "texto": "Uma unidade lecionada a dois, com a Biblioteca a tratar a parte da pesquisa, das fontes e da leitura. Planeia-se em conjunto: turma, tema, competências, número de sessões e critérios de avaliação.",
+      "requisito": "Preenche-se o formulário F07 em conjunto. Marque com a antecedência que der para preparar a seleção documental.",
+      "norma": "POP-ART-01 · F07",
+      "acao": "Propor uma sessão",
+      "campoLink": "linkArticulacao",
+      "assunto": "Sessão de articulação curricular (F07)",
+      "ordem": 1,
+      "estado": "publicado"
+    },
+    {
+      "titulo": "Levar livros para a sala de aula",
+      "icone": "livro",
+      "texto": "Um conjunto de documentos requisitado para trabalhar na aula e devolvido no fim. A Biblioteca separa, regista o levantamento e confere a devolução.",
+      "requisito": "Formulário F08, com pelo menos 24 horas de antecedência. Até 30 exemplares; acima disso depende de autorização e da disponibilidade do fundo.",
+      "norma": "POP-ESA-01 · F08",
+      "acao": "Requisitar um conjunto",
+      "campoLink": "linkSalaAula",
+      "assunto": "Requisição de empréstimo para sala de aula (F08)",
+      "ordem": 2,
+      "estado": "publicado"
+    },
+    {
+      "titulo": "Reservar a Biblioteca para a turma",
+      "icone": "calendario",
+      "texto": "O espaço, ou uma zona dele, reservado para uma aula ou uma atividade. Indica-se data, hora, turma, número de alunos, finalidade e recursos precisos.",
+      "requisito": "Pedido com 48 horas de antecedência. Havendo sobreposição, decide o critério pedagógico e a ordem de chegada, e procura-se alternativa.",
+      "norma": "POP-RES-01",
+      "acao": "Pedir o espaço",
+      "campoLink": "linkMarcacao",
+      "assunto": "Reserva de espaço para turma ou atividade",
+      "ordem": 3,
+      "estado": "publicado"
+    },
+    {
+      "titulo": "Formação de utilizadores",
+      "icone": "alvo",
+      "texto": "Sessões de acolhimento de turmas, utilização do catálogo e pesquisa. Têm sempre componente prática e articulam-se com o que a turma está a trabalhar.",
+      "requisito": "Combina-se a data e o conteúdo com a Biblioteca. Os materiais de apoio e o tutorial do catálogo ficam disponíveis no site.",
+      "norma": "POP-FOR-01",
+      "acao": "Marcar uma formação",
+      "campoLink": "linkArticulacao",
+      "assunto": "Formação de utilizadores da Biblioteca",
+      "ordem": 4,
+      "estado": "publicado"
+    },
+    {
+      "titulo": "Sugerir uma aquisição",
+      "icone": "estrela",
+      "texto": "Propor títulos para o fundo documental. As propostas são apreciadas segundo os critérios da Política de Desenvolvimento da Coleção, e a decisão é fundamentada.",
+      "requisito": "Formulário F03. Indique o título, o autor e para que turma ou disciplina faz falta.",
+      "norma": "POP-ACQ-01 · F03",
+      "acao": "Propor um título",
+      "campoLink": "linkSugestao",
+      "assunto": "Sugestão de aquisição (F03)",
+      "ordem": 5,
+      "estado": "publicado"
+    },
+    {
+      "titulo": "Apoio à pesquisa para os alunos",
+      "icone": "lupa",
+      "texto": "A equipa acompanha o aluno na pesquisa, na avaliação crítica das fontes e nas referências bibliográficas segundo a NP 405. Pode ser individual ou em pequeno grupo.",
+      "requisito": "Não precisa de marcação. Em dias de muita procura, a utilização dos computadores pode ser limitada a 50 minutos por utilizador.",
+      "norma": "POP-REF-01",
+      "acao": "Ver os guiões de pesquisa",
+      "url": "#guioes",
+      "ordem": 6,
+      "estado": "publicado"
+    }
+  ]
+}

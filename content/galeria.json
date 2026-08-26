@@ -1,0 +1,44 @@
+{
+  "galeria": [
+    {
+      "imagem": "imagens/galeria/sala-de-leitura.jpg",
+      "alt": "Espaço de leitura com mesas compridas e estantes de livros de ambos os lados",
+      "legenda": "Espaço de leitura"
+    },
+    {
+      "imagem": "imagens/galeria/zona-de-sessoes.jpg",
+      "alt": "Zona de sessões com cadeirões vermelhos, cadeiras e ecrã de projeção",
+      "legenda": "Zona de sessões"
+    },
+    {
+      "imagem": "imagens/galeria/estantes.jpg",
+      "alt": "Corredor entre estantes, com um globo terrestre em primeiro plano",
+      "legenda": "Fundo documental"
+    },
+    {
+      "imagem": "imagens/galeria/expositor-novidades.jpg",
+      "alt": "Expositor com livros de capa voltada para a frente",
+      "legenda": "Novidades"
+    },
+    {
+      "imagem": "imagens/galeria/atendimento.jpg",
+      "alt": "Zona de atendimento e trabalho, junto às janelas",
+      "legenda": "Atendimento"
+    },
+    {
+      "imagem": "imagens/galeria/sala-de-estudo.jpg",
+      "alt": "Alunos a estudar nas mesas da Biblioteca",
+      "legenda": "Estudo e trabalho"
+    },
+    {
+      "imagem": "imagens/galeria/sala-estantes.jpg",
+      "legenda": "Entre as estantes",
+      "alt": "Corredor entre estantes da Biblioteca, com uma planta e uma mesa de leitura"
+    },
+    {
+      "imagem": "imagens/galeria/sala-mesas.jpg",
+      "legenda": "Espaço de estudo",
+      "alt": "Mesas compridas do espaço de leitura, com estantes ao fundo"
+    }
+  ]
+}

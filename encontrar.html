@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encontrar · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Catálogo, estantes e sugestões: encontra o livro que procuras na Biblioteca Escolar da Escola Secundária de Paredes">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Encontrar · Biblioteca Escolar da ESP"><meta property="og:description" content="Descobre. Pesquisa. Lê. O catálogo da Biblioteca Escolar e a nossa biblioteca digital.">
+<meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
+<link rel="icon" href="imagens/logo/favicon.ico"><link rel="icon" type="image/svg+xml" href="imagens/logo/icone-app.svg">
+<link rel="apple-touch-icon" href="imagens/logo/apple-touch-icon.png">
+<meta name="theme-color" content="#F8F8F8">
+<link rel="stylesheet" href="estilos.css?v=69e1cd79">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Página CATÁLOGO — folha própria, na linguagem de A Biblioteca.
+   Cabeçalho a toda a largura, cartões de 24 px, blocos de 16 px,
+   botões em pílula. Cores da Paleta v2.0 (BrandKit, 27/07/2026).
+   As faixas horizontais seguem o padrão de deslize contínuo, com
+   navegação por teclado e por botões, nunca só por arrasto.
+   ═══════════════════════════════════════════════════════════════ */
+/* Os seis tokens que #p-encontrar redeclarava saíram a 26/08/2026 para :root,
+   em estilos.css: quatro eram apelidos de tokens globais e dois estavam
+   escritos de forma idêntica em seis páginas. */
+#p-encontrar main{background:var(--papel)}
+
+/* ---- estrutura ---- */
+.csec{padding:var(--e-sec) 0}
+/* .amb-longa deixou de mandar na margem: a faixa saiu. */
+.cwrap{max-width:var(--coluna);margin:0 auto;padding:0 var(--margem)}
+.cfilete{width:44px;height:5px;background:var(--dourado);border-radius:2px;margin:0 0 var(--e-3)}
+/* .ctit passou para o sistema, em estilos.css: era uma das cinco
+   famílias de título de secção, uma por página. */
+.clead{color:var(--cinza);font-size:var(--t-corpo);margin:0 0 var(--e-4);max-width:52ch;line-height:var(--lh-corpo)}
+
+/* ═══ 1 · CABEÇALHO A TODA A LARGURA ═══ */
+.chero{position:relative;min-height:clamp(400px,50vh,480px);display:flex;align-items:center;
+  overflow:hidden;isolation:isolate}
+.chero .cwrap{width:100%;text-align:left}
+.chero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.chero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(31,31,31,.55) 0%,rgba(31,31,31,.68) 45%,rgba(31,31,31,.86) 100%)}
+.chero .cwrap{padding-top:56px;padding-bottom:56px}
+.chero h1{color:#fff;font-size:var(--t-mega);font-weight:800;line-height:var(--lh-tit);
+  letter-spacing:-.035em;margin:0 0 var(--e-3);max-width:16ch}
+.chero p{color:rgba(255,255,255,.93);font-size:var(--t-3);line-height:var(--lh-corpo);
+  max-width:56ch;margin:0 0 32px}
+/* Os botões .cbt passaram para o sistema, em estilos.css: eram uma
+   das cinco famílias quase iguais que davam sete alturas diferentes. */
+
+/* O bloco do catálogo: o texto à esquerda e o logótipo da Rede à direita,
+   sem caixa nem fundo. Estavam ao contrário até 26/08/2026, e a pergunta
+   que dá o título à secção só aparecia depois de uma imagem. Lê-se primeiro
+   o que se pergunta. */
+.opac-dupla{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--e-f3);
+  align-items:center}
+.opac-tx{order:1}
+.opac-marca{order:2;display:grid;place-items:center}
+.opac-marca img{width:100%;height:auto;max-height:210px;object-fit:contain;display:block}
+@media(max-width:860px){
+  .opac-dupla{grid-template-columns:1fr}
+  .opac-marca{order:2}
+  .opac-marca img{max-height:130px}
+}
+
+/* ═══ 3 · CATÁLOGO ONLINE ═══ */
+/* Ocupa toda a largura da grelha, sem margem lateral; a altura mantém-se
+   pelo mesmo enchimento interior (27/07/2026). */
+.copac{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao);
+  box-shadow:var(--sombra);padding:var(--e-f2);width:100%;margin:0;text-align:center}
+.copac h2{font-size:var(--t-2);font-weight:800;margin:0 0 12px;color:var(--tinta);
+  letter-spacing:-.02em}
+.copac p{color:var(--cinza);font-size:var(--t-corpo);line-height:var(--lh-corpo);margin:0 auto var(--e-4);max-width:60ch}
+.cetiqs{display:flex;flex-wrap:wrap;gap:var(--e-2);justify-content:center;margin:0 0 28px}
+.cetiq{display:inline-flex;align-items:center;gap:var(--e-2);background:var(--menta-wash);
+  border:1px solid var(--menta);color:var(--tinta);font-size:var(--t-peq);font-weight:700;
+  padding:var(--e-2) var(--e-3);border-radius:var(--r-pilula)}
+.cetiq::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--menta-txt);flex:none}
+.copac .bts{display:flex;gap:var(--e-2);flex-wrap:wrap;justify-content:center}
+
+/* ═══ 4 · TUTORIAL ═══ */
+.cpassos{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:var(--e-2);
+  scroll-behavior:smooth;scrollbar-width:thin}
+.cpasso{flex:1 0 200px;background:var(--papel);border:1px solid var(--linha);
+  border-top:4px solid var(--dourado);border-radius:var(--r-cartao);padding:20px var(--e-3)}
+.cpasso .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;
+  background:var(--dourado);color:var(--tinta);font-weight:800;font-size:var(--t-peq);margin-bottom:12px}
+.cpasso h3{font-size:var(--t-corpo);font-weight:700;margin:0 0 var(--e-1);color:var(--tinta)}
+.cpasso p{margin:0;color:var(--cinza);font-size:var(--t-peq);line-height:var(--lh-corpo)}
+.cseta{display:grid;place-items:center;padding:0 var(--e-2);color:var(--menta-txt);flex:none}
+.cinter{display:grid;grid-template-columns:1.25fr 1fr;gap:var(--e-4);margin-top:var(--e-4);align-items:stretch}
+.cvideo{position:relative;border-radius:var(--r-cartao);overflow:hidden;background:var(--areia);
+  border:1px solid var(--linha);aspect-ratio:var(--ar-foto)}
+.cvideo iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.cvideo .espera{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:var(--e-2);text-align:center;padding:var(--e-4);color:var(--cinza)}
+.cvideo .espera b{color:var(--tinta);font-size:var(--t-corpo);font-weight:700}
+.cvideo .espera span{font-size:var(--t-peq);max-width:36ch;line-height:var(--lh-corpo)}
+.cconvite{background:var(--menta-wash);border:1px solid var(--menta);border-radius:var(--r-cartao);
+  padding:var(--e-4) var(--e-4);display:flex;flex-direction:column;justify-content:center}
+.cconvite h3{font-size:var(--t-3);font-weight:800;margin:0 0 var(--e-2);color:var(--tinta);letter-spacing:-.015em}
+.cconvite p{margin:0 0 20px;color:var(--tinta);font-size:var(--t-peq);line-height:var(--lh-corpo)}
+
+/* ═══ CABEÇALHO DE PERGUNTA ═══
+   Cada bloco abre com a pergunta do utilizador («Já encontraste o livro?»)
+   e só depois com o nome da coisa. É o que torna o percurso legível de
+   cima a baixo, sem ler o corpo do texto. */
+.cpergunta{display:flex;align-items:flex-start;gap:var(--e-3);margin:0 0 var(--e-3)}
+.cpergunta .cp-ico{display:grid;place-items:center;width:52px;height:52px;flex:none;
+  border-radius:var(--r-cartao);background:var(--menta-wash);color:var(--menta-escura);border:1px solid var(--menta)}
+.cpergunta .ctit{margin:2px 0 2px}
+.csub{margin:0;font-size:var(--t-corpo);font-weight:700;color:var(--menta-txt);letter-spacing:-.01em}
+.clista{margin:0 auto var(--e-4);padding:0;list-style:none;max-width:52ch;text-align:left;
+  display:grid;gap:var(--e-2)}
+.clista li{position:relative;padding-left:var(--e-4);font-size:var(--t-peq);color:var(--tinta);line-height:var(--lh-cartao)}
+.clista li::before{content:"";position:absolute;left:4px;top:8px;width:7px;height:7px;
+  border-radius:50%;background:var(--menta-media)}
+.cetiqs-esq{justify-content:flex-start;margin-bottom:var(--e-4)}
+.csec .bts{display:flex;gap:var(--e-2);flex-wrap:wrap}
+
+/* ═══ PRIMEIRO ECRÃ ═══
+   Fotografia real da sala, escurecida o suficiente para o texto passar
+   AA com folga, e por cima uma composição em três linhas. O ecrã tem
+   altura mínima mas não fixa: se o texto crescer, a caixa acompanha. */
+/* O esqueleto do pórtico (.portico, .portico-foto, o véu, a coluna de
+   texto e o @media do telemóvel) passou para estilos.css a 26/08/2026:
+   estava escrito aqui e na entrada, e já tinha divergido. Aqui ficam só
+   as diferenças reais desta página. */
+.portico-foto img{width:100%;height:100%;object-fit:cover;display:block;
+  transform:scale(1.04)}
+.portico .monum{color:#fff;max-width:15ch}
+.portico .monum em{color:var(--menta)}
+.portico .monum .fina{color:rgba(255,255,255,.62);font-size:.42em;letter-spacing:-.02em;
+  line-height:var(--lh-sub);margin-top:var(--e-3);font-weight:400}
+/* Saíram a 26/08/2026, por não terem marcação nenhuma: .portico-sub e
+   .portico-descer com a sua animação. */
+
+/* ═══ A ESTANTE ═══ */
+#colecao{padding:var(--e-7) 0}
+/* ═══ A ENTRADA ═══ (25/08/2026: pórtico e coleção num bloco só) */
+.portico-longo{min-height:auto;padding:clamp(72px,11vh,124px) 0 clamp(44px,7vh,84px)}
+.portico-longo .portico-tx{padding-bottom:0}
+.monum-med{font-size:var(--t-mega)}
+.portico-lead{margin:var(--e-3) 0 var(--e-4);max-width:62ch;font-size:var(--t-peq);
+  line-height:var(--lh-corpo);color:rgba(255,255,255,.80)}
+.portico-longo .estante-pe,.portico-longo .col-divisa,.portico-longo .col-bts{margin-top:var(--e-3)}
+
+.col-topo{display:grid;grid-template-columns:1fr 1fr;gap:var(--e-4) var(--e-5);
+  align-items:end;margin-bottom:var(--e-4)}
+.col-topo .cota{margin-bottom:var(--e-3)}
+.col-topo .lead{color:rgba(255,255,255,.74);max-width:52ch}
+/* O gráfico da CDU assentava num véu CLARO, rgba(255,255,255,.05), por cima
+   da fotografia: as contagens dependiam de onde a fotografia calhava ser
+   escura. A da classe 9 fica a 82% da largura, já fora do escudo, e estava
+   a 2,21:1. Passa a ter chão próprio, escuro, e deixa de depender da
+   fotografia: o pior caso da barra inteira passa a 5,35:1. */
+#colecao .estante{border-color:rgba(255,255,255,.14);background:rgba(18,20,19,.45)}
+#colecao .estante-c{background:rgba(255,255,255,.055);border-right-color:rgba(255,255,255,.12)}
+#colecao .estante-c:hover,#colecao .estante-c:focus-visible{background:rgba(255,255,255,.14)}
+#colecao .estante-c .n{color:#fff}
+#colecao .estante-c .d{color:rgba(255,255,255,.86)}
+#colecao .estante-c .dd{color:rgba(255,255,255,.72)}
+#colecao .estante-c:hover,#colecao .estante-c:focus{background:rgba(255,255,255,.16)}
+#colecao .estante-c .q{color:var(--menta)}
+#colecao .estante-c::before{background:var(--c,var(--menta-media))}
+#colecao .estante-pe{color:rgba(255,255,255,.62)}
+#colecao .estante-pe b{color:#fff}
+.col-bts{display:flex;gap:var(--e-2);flex-wrap:wrap;margin:var(--e-4) 0 0}
+.btn.linha.claro{background:transparent;border:1.5px solid rgba(255,255,255,.45);color:#fff}
+.btn.linha.claro:hover{background:#fff;color:var(--tinta);border-color:#fff}
+
+/* ═══ APOIO À PESQUISA ═══
+   O tutorial vive dentro de um <details>: quem já sabe pesquisar passa ao
+   lado, quem não sabe abre-o. Deixou de ser uma secção que toda a gente
+   tem de percorrer para chegar ao resto da página. */
+.cajuda{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao);
+  box-shadow:var(--sombra);overflow:hidden}
+.cajuda>summary{display:flex;align-items:center;gap:var(--e-3);padding:20px var(--e-4);cursor:pointer;
+  list-style:none;transition:background .15s}
+.cajuda>summary::-webkit-details-marker{display:none}
+.cajuda>summary:hover{background:var(--menta-wash)}
+.cajuda .ca-ico{display:grid;place-items:center;width:42px;height:42px;flex:none;
+  border-radius:var(--r-cartao);background:var(--menta-wash);color:var(--menta-escura);border:1px solid var(--menta)}
+.cajuda .ca-tx{flex:1 1 auto;min-width:0}
+.cajuda .ca-tx b{display:block;font-size:var(--t-corpo);font-weight:700;color:var(--tinta);line-height:var(--lh-sub)}
+.cajuda .ca-tx span{display:block;font-size:var(--t-peq);color:var(--cinza);margin-top:2px}
+.cajuda .ca-seta{flex:none;font-size:var(--t-2);line-height:var(--lh-tit);color:var(--cinza);
+  transition:transform .2s}
+.cajuda[open] .ca-seta{transform:rotate(90deg)}
+.cajuda .ca-corpo{padding:0 var(--e-4) var(--e-4);border-top:1px solid var(--linha);margin-top:-1px}
+.cajuda .cpassos{padding-top:var(--e-4)}
+
+/* ═══ 5·6·7 · FAIXAS HORIZONTAIS ═══ */
+.cfaixa{margin-bottom:32px}
+.cfaixa:last-child{margin-bottom:0}
+.cfaixa-topo{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--e-3);margin:0 0 var(--e-3)}
+.cfaixa-topo h3{font-size:var(--t-3);font-weight:800;margin:0 0 2px;color:var(--tinta);letter-spacing:-.015em;
+  display:flex;align-items:center;gap:var(--e-2)}
+.cfaixa-topo .ic{display:grid;place-items:center;width:32px;height:32px;border-radius:var(--r-cartao);
+  background:var(--menta-wash);color:var(--menta-escura);flex:none}
+.cfaixa-topo p{margin:0;color:var(--cinza);font-size:var(--t-peq)}
+.cnav{display:flex;gap:var(--e-2);flex:none}
+.cnav button{width:38px;height:38px;border-radius:50%;border:1px solid var(--linha);
+  background:var(--branco);color:var(--tinta);cursor:pointer;font-size:var(--t-corpo);line-height:var(--lh-tit);
+  display:grid;place-items:center;transition:.15s}
+.cnav button:hover{border-color:var(--menta);background:var(--menta-wash)}
+.cnav button[disabled]{opacity:.35;cursor:default}
+.ccarril{display:flex;gap:var(--e-3);overflow-x:auto;scroll-behavior:smooth;padding:var(--e-1) 2px var(--e-3);
+  scrollbar-width:thin;scrollbar-color:var(--menta-media) transparent}
+.ccarril::-webkit-scrollbar{height:7px}
+.ccarril::-webkit-scrollbar-track{background:transparent}
+.ccarril::-webkit-scrollbar-thumb{background:var(--menta-media);border-radius:var(--r-peq)}
+.clivro{flex:0 0 160px;text-decoration:none;color:inherit}
+.clivro .capa{position:relative;aspect-ratio:var(--ar-capa);border-radius:var(--r-cartao);overflow:hidden;
+  background:var(--cinza-bloco);border:1px solid var(--linha);margin-bottom:var(--e-2);
+  display:grid;place-items:center;transition:transform .25s,box-shadow .25s}
+.clivro:hover .capa{transform:scale(1.05);box-shadow:var(--sombra-lg)}
+.clivro .capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* Moldura por preencher: marcador discreto até a capa ser carregada pelo painel. */
+.clivro .capa .vazio{display:flex;flex-direction:column;align-items:center;gap:var(--e-2);
+  color:var(--menta-txt);font-size:var(--t-micro);text-align:center;padding:12px;line-height:var(--lh-cartao)}
+.clivro b{display:block;font-size:var(--t-peq);font-weight:700;color:var(--tinta);line-height:var(--lh-sub);
+  margin-bottom:var(--e-1)}
+.clivro span{display:block;font-size:var(--t-micro);color:var(--cinza);line-height:var(--lh-cartao)}
+.clivro .porpreencher{color:#6B6B6B;font-style:italic}
+/* Plataformas: cartões largos em vez de capas verticais. */
+.cplat{flex:0 0 240px;background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao);padding:20px;text-decoration:none;color:inherit;
+  transition:transform .18s,box-shadow .18s,border-color .18s;display:block}
+.cplat:hover{transform:translateY(-4px);box-shadow:var(--sombra-lg);border-color:var(--menta)}
+.cplat .ic{display:grid;place-items:center;width:38px;height:38px;border-radius:var(--r-cartao);
+  background:var(--menta-wash);color:var(--menta-escura);margin-bottom:12px}
+.cplat h4{font-size:var(--t-corpo);font-weight:700;margin:0 0 var(--e-1);color:var(--tinta);line-height:var(--lh-sub)}
+.cplat p{margin:0;font-size:var(--t-peq);color:var(--cinza);line-height:var(--lh-cartao)}
+.cplat .selo{display:inline-block;margin-top:var(--e-2);font-size:var(--t-nano);font-weight:700;
+  background:var(--dourado-wash);border:1px solid var(--dourado-linha);color:var(--tinta);
+  padding:var(--e-1) var(--e-2);border-radius:var(--r-pilula)}
+
+/* ═══ 8 · SEMPRE ABERTA ═══ */
+.csempre{background:linear-gradient(140deg,var(--branco) 0%,var(--areia) 55%,var(--menta-wash) 100%);
+  border:1px solid var(--linha);border-radius:var(--r-cartao);
+  padding:var(--e-f3) var(--e-f3);text-align:left}
+.csempre h2{font-size:var(--t-2);font-weight:800;margin:0 0 var(--e-2);color:var(--tinta);
+  letter-spacing:var(--tr-2)}
+.csempre p{margin:0 0 var(--e-4);max-width:56ch;color:var(--cinza);font-size:var(--t-corpo);line-height:var(--lh-corpo)}
+
+/* ═══ 9 · JANELA ═══ */
+.ccota{background:var(--menta-wash);border:1px solid var(--menta);border-radius:var(--r-cartao);
+  padding:var(--e-3) 20px;margin:0 0 var(--e-3)}
+.ccota .rot{font-size:var(--t-nano);font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--menta-txt);margin:0 0 var(--e-2)}
+.ccota .val{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:var(--t-3);
+  font-weight:700;color:var(--tinta);margin:0;letter-spacing:.02em}
+.cfechar{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--linha);background:var(--branco);cursor:pointer;font-size:var(--t-3);
+  color:var(--tinta);display:grid;place-items:center}
+.cfechar:hover{background:var(--papel)}
+
+@media(max-width:980px){
+  .cinter{grid-template-columns:1fr}
+  .cseta{display:none}
+  .cpassos{gap:12px}
+  .cpasso{flex:0 0 210px}
+}
+@media(max-width:620px){
+  .csec{padding:var(--e-3) 0}
+  .chero{min-height:400px}
+  .cplat{flex:0 0 210px}
+  .cnav{display:none}
+  .cajuda>summary{padding:var(--e-3) var(--e-3)}
+  .cajuda .ca-corpo{padding:0 var(--e-3) 20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .cplat:hover{transform:none}
+  .ccarril,.cpassos{scroll-behavior:auto}
+  .cajuda .ca-seta{transition:none}
+}
+</style>
+</head>
+<body id="p-encontrar">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       ENCONTRAR — um percurso, cinco perguntas.
+       A abertura e a estante vieram da página inicial a 22/08/2026: é aqui
+       que fazem sentido, porque é aqui que se procura. A entrada ficou com
+       abertura própria.
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       A ENTRADA — o pórtico e a coleção, num bloco só (25/08/2026).
+       A estante não é um gráfico decorativo: é esta Biblioteca vista de
+       cima. Cada bloco é uma classe da CDU, com largura proporcional aos
+       exemplares que existem mesmo, e a cor da sinalética do espaço. Estava
+       um ecrã abaixo do título, e agora vem logo com ele.
+       ═══════════════════════════════════════════════════════════════ -->
+  <header class="portico portico-longo para-tinta" data-amb="sem-faixa" id="colecao"
+          data-seccao aria-labelledby="fp-t">
+    <div class="portico-foto" aria-hidden="true">
+      <!-- No telemóvel carrega-se a versão de 800 px (96 KB) em vez da de
+           1400 px (266 KB): é a mesma fotografia, um terço do peso. -->
+      <img src="imagens/galeria/estantes.jpg"
+           srcset="imagens/galeria/estantes-800.jpg 800w, imagens/galeria/estantes.jpg 1400w"
+           sizes="100vw" alt="" fetchpriority="high" decoding="async" width="1400" height="1050">
+    </div>
+    <div class="wrap portico-tx">
+      <p class="portico-cota" id="portico-cota" data-revela></p>
+      <h1 class="monum monum-med" id="fp-t" data-revela data-atraso="1">
+        <span class="l1">Cada livro</span>
+        <span class="l2">tem um <em>lugar</em>.</span>
+        <span class="l3 fina">Vamos encontrar o teu.</span>
+      </h1>
+      <p class="portico-lead" data-revela data-atraso="2">Cada bloco é uma classe da
+        Classificação Decimal Universal, com a largura que ocupa mesmo nas estantes e a cor
+        que tem mesmo na sinalética. Aponta ou toca num bloco para ver o que lá está.</p>
+      <div class="estante" id="estante" data-revela data-atraso="3"></div>
+      <div class="estante-pe" id="estante-pe" data-revela data-atraso="3"></div>
+      <p class="col-divisa" data-revela data-atraso="3">Cada livro tem um lugar.</p>
+      <p class="col-bts" data-revela data-atraso="3">
+        <a class="btn primario" href="encontrar.html#opac">Procurar no catálogo</a>
+        <a class="btn sobre-escuro" href="encontrar.html#estantes">Como estão organizadas as estantes</a>
+      </p>
+    </div>
+  </header>
+
+  <!-- ═══ QUERO… ═══
+       Substitui o acesso rápido a 28/07/2026: seis missões, na mesma
+       linguagem do Catálogo, do Apoio ao Estudo e de A Biblioteca.
+       Cada uma responde a «o que posso fazer aqui». -->
+  <!-- ═══ O QUE QUERES FAZER HOJE? ═══
+       As cinco portas da Biblioteca. São a própria arquitetura do site, por
+       isso vivem aqui e não no painel: mudam quando a arquitetura mudar.
+       A página inicial tem uma decisão grande e só uma: o que queres fazer
+       hoje. A tira de atalhos que existia por baixo foi retirada a 21/08/2026
+       — oferecia uma segunda maneira de escolher o mesmo caminho. O conteúdo
+       (missoes.json) ficou guardado e continua editável no painel, caso volte
+       a ser preciso noutro sítio. -->
+  <!-- ─── 1 · Queres encontrar um livro? ─── -->
+  <section class="csec de-tinta para-areia amb-longa" data-amb id="opac" data-assinatura aria-labelledby="t-opac">
+    <div class="cwrap">
+      <!-- O logótipo da Rede Concelhia, à esquerda, sem caixa nem fundo: é
+           o mesmo desenho que a faixa da entrada usa, aqui em coluna. -->
+      <div class="opac-dupla">
+        <div class="opac-marca" aria-hidden="true">
+          <img src="imagens/logo/rede-paredes-faixa.png"
+               srcset="imagens/logo/rede-paredes-faixa-1000.png 1000w,
+                       imagens/logo/rede-paredes-faixa.png 2000w"
+               sizes="(max-width:860px) 90vw, 40vw" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="opac-tx">
+          <div class="cpergunta">
+            <span class="cp-ico" data-ico="lupa"></span>
+            <div>
+              <h2 class="ctit" data-revela id="t-opac">Queres encontrar um livro?</h2>
+            </div>
+          </div>
+          <!-- O texto do BiblioNet passou para a faixa «Em cartaz» da página
+               inicial a 22/08/2026, para não estar escrito em dois sítios. A
+               lista dos quatro pontos saiu a 24/08/2026: dizia por outras
+               palavras o que os dois botões já fazem. -->
+          <!-- As etiquetas dos campos de pesquisa (título, autor, assunto,
+               palavra, coleção, cota, ISBN) saíram a 26/08/2026: eram sete
+               pastilhas a listar o que o catálogo aceita, quando quem chega
+               aqui só quer entrar nele. O conteúdo fica em etiquetasOpac. -->
+          <div class="bts" id="opac-botoes"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O bloco «Aprender a pesquisar» saiu a 25/08/2026, por pedido. Os
+       cinco passos e a janela de exemplo continuam em passosCatalogo.json,
+       editáveis no painel, caso voltem a ser precisos. -->
+
+  <section class="csec de-branco para-areia" data-amb id="estantes" aria-labelledby="t-est">
+    <div class="cwrap">
+      <div class="cpergunta">
+        <span class="cp-ico" data-ico="local"></span>
+        <div>
+          <h2 class="ctit" data-revela id="t-est">Já encontraste o livro?</h2>
+          <p class="csub">Agora falta encontrá-lo na Biblioteca</p>
+        </div>
+      </div>
+      <p class="clead">O catálogo diz-te o que temos. A cota diz-te onde está, e cada
+        pedaço dela é uma indicação.</p>
+
+      <!-- ═══ DA COTA À ESTANTE ═══
+           O percurso desmontado: o que o catálogo devolve, o que cada pedaço
+           da cota quer dizer, e onde isso te põe no espaço. Substitui a lista
+           seca das nove classes, que passou a ser o passo final e ficou
+           dobrada no botão do fim, dentro do próprio infográfico. -->
+      <div class="cota-mapa" data-revela>
+        <ol class="cm-passos">
+          <li class="cm-passo">
+            <span class="cm-n">1</span>
+            <div>
+              <b>A cota</b>
+              <p class="cm-cota" id="cm-cota"></p>
+              <span class="cm-nota">É o que o catálogo devolve, e está na lombada do livro,
+                numa etiqueta.<span id="cm-vol" hidden></span></span>
+            </div>
+          </li>
+          <li class="cm-passo">
+            <span class="cm-n">2</span>
+            <div>
+              <b>O assunto</b>
+              <div class="cm-peca"><code id="cm-notacao"></code>
+                <span id="cm-assunto"></span></div>
+              <span class="cm-nota">O primeiro pedaço diz o assunto. Procura este número
+                na sinalética. Cada classe tem a sua cor.</span>
+            </div>
+          </li>
+          <li class="cm-passo">
+            <span class="cm-n">3</span>
+            <div>
+              <b>O autor e o título</b>
+              <div class="cm-letras">
+                <span><code id="cm-apelido"></code> apelido do autor</span>
+                <span class="cm-barra">/</span>
+                <span><code id="cm-titulo"></code> primeira palavra do título</span>
+              </div>
+              <span class="cm-nota">Dentro da mesma classe, ordena-se por estas letras.</span>
+            </div>
+          </li>
+          <li class="cm-passo">
+            <span class="cm-n">4</span>
+            <div>
+              <b>Na estante</b>
+              <p class="cm-legenda" id="cm-legenda"></p>
+              <span class="cm-nota">Números por ordem crescente e, dentro do mesmo número,
+                as letras por ordem alfabética. É aí que o livro está.</span>
+
+              <!-- A tabela das nove classes não é o conteúdo desta secção: quem
+                   chega aqui quer o percurso até ao livro, não a CDU inteira.
+                   Fica dobrada, e dentro do próprio passo em que faz falta. -->
+              <details class="cm-mais">
+                <summary>Ver as nove classes e as suas cores</summary>
+                <div class="cestantes" id="estantes-lista"></div>
+              </details>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <p class="cvazio" id="estantes-vazio" hidden>O mapa das estantes está a ser preparado.
+        Entretanto, pede ajuda no balcão: encontramos o livro contigo.</p>
+    </div>
+  </section>
+
+  <!-- ─── 4 · Ainda não sabes o que ler? ───
+       As recomendações vivem em LER, que é o seu lugar. Aqui fica o
+       caminho, para não haver o mesmo conteúdo em dois sítios. -->
+  <section class="csec de-areia para-papel" data-amb id="sugestoes" aria-labelledby="t-sug">
+    <div class="cwrap">
+      <div class="cpergunta">
+        <span class="cp-ico" data-ico="estrela"></span>
+        <div>
+          <h2 class="ctit" data-revela id="t-sug">Ainda não sabes o que ler?</h2>
+          <p class="csub">Deixa-nos sugerir</p>
+        </div>
+      </div>
+      <p class="clead">Nem sempre sabemos o título que procuramos. Às vezes sabemos apenas que
+        queremos uma boa história.</p>
+      <!-- As oito capas em prateleira, como em «Ler no ecrã»: quatro dos
+           destaques da semana, da entrada, e quatro dos livros em destaque da
+           página Ler. Os dois botões que aqui estavam mandavam ler listas;
+           isto mostra os livros. -->
+      <div class="prateleira prateleira-alta" id="prat-sugestoes"
+           aria-label="Capas dos livros sugeridos"></div>
+      <p class="prat-tab" id="prat-sugestoes-tab"></p>
+    </div>
+  </section>
+
+  <!-- ─── 5 · Precisas de ajuda? ─── -->
+  <section class="csec de-papel para-menta" data-amb id="ajuda" aria-labelledby="t-aju">
+    <div class="cwrap">
+      <div class="csempre">
+        <h2 id="t-aju">Precisas de ajuda?</h2>
+        <p>Não encontras o que procuras? Pergunta-nos. Podemos ajudar-te a procurar no
+           catálogo, encontrar uma alternativa ou escolher outra leitura.</p>
+        <!-- O formulário abre aqui dentro quando a Biblioteca colar o endereço
+             no painel, em Informação geral. Até lá fica o correio, que funciona. -->
+        <div class="aju-caixa" id="ajuda-pedido"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<div id="rodape"></div>
+
+<script>
+window.renderPagina = function(){
+  /* O estado da Biblioteca é desenhado pelo motor, em ligarEstado(), que
+     serve esta página e a entrada. O cálculo que aqui estava partia a hora
+     por dois pontos, mas o horário está escrito 8h00: dava NaN, a comparação
+     era sempre falsa e a página dizia "Fechada agora" a qualquer hora. */
+
+  /* Os atalhos e a barra de pesquisa saíram desta página a 25/08/2026: a
+     pesquisa passou para o ícone da barra de topo, e os atalhos ofereciam
+     um segundo caminho para o que os botões da entrada já dão. */
+
+  const pc = document.getElementById('portico-cota');
+  if (pc) pc.innerHTML = cota('BE·ESP', 'Escola Secundária de Paredes', 'escuro');
+
+  /* ── a estante: o retrato da coleção ── */
+  if (!renderEstante('estante')) document.getElementById('colecao')?.setAttribute('hidden','');
+
+  const i = CONTEUDO.info || {};
+
+  document.querySelectorAll('[data-ico]').forEach(el => {
+    el.innerHTML = icone(el.dataset.ico, 20);
+  });
+
+  /* ── 3 · catálogo online ── */
+  const ot = document.getElementById('opac-texto');
+  if (ot) ot.textContent = 'O nosso acervo está no BiblioNet, o catálogo coletivo partilhado com a '
+    + 'Biblioteca Municipal de Paredes. Pesquisas por qualquer um destes campos e vês logo se o '
+    + 'documento existe, em que biblioteca está e se está disponível.';
+  /* As etiquetas do catálogo saíram da marcação a 26/08/2026; o conteúdo
+     continua em etiquetasOpac.json, editável no painel. */
+  const ob = document.getElementById('opac-botoes');
+  if (ob) ob.innerHTML = [
+    i.opacSimples  && `<a class="cbt" ${linkAttrs(i.opacSimples)}>Pesquisa simples</a>`,
+    i.opacAvancada && `<a class="cbt dourado" ${linkAttrs(i.opacAvancada)}>Pesquisa avançada</a>`
+  ].filter(Boolean).join('');
+
+  /* O tutorial e a janela de exemplo saíram a 25/08/2026 com o bloco
+     «Aprender a pesquisar». O conteúdo continua em passosCatalogo.json. */
+
+  /* ── da cota à estante ──
+     Desmonta a cota que o catálogo devolve (info.json → cotaExemplo) e
+     desenha a prateleira onde ela cai. A prateleira não é inventada: são
+     onze cotas verdadeiras e seguidas do fundo (prateleiraExemplo.json,
+     tiradas do inventário), com a procurada ao meio. */
+  (function () {
+    const mapa = document.querySelector('.cota-mapa'); if (!mapa) return;
+    const ex = (CONTEUDO.info || {}).cotaExemplo || '821-3 SAR/ENS';
+    const m = ex.match(/^(\S+)\s+([A-Za-zÀ-ÿ]+)\s*\/\s*([A-Za-zÀ-ÿ]+)(?:\s*\((.+)\))?/);
+    if (!m) { mapa.hidden = true; return; }
+    const [, notacao, apelido, titulo, volume] = m;
+    const põe = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
+    põe('cm-cota', ex);
+    põe('cm-notacao', notacao);
+    põe('cm-apelido', apelido);
+    põe('cm-titulo', titulo);
+    /* O volume só existe em obras de mais do que um. */
+    const vol = document.getElementById('cm-vol');
+    if (vol && volume) {
+      vol.innerHTML = ` O <b>(${esc(volume)})</b> no fim é o número do volume, e só aparece
+        quando a obra tem mais do que um.`;
+      vol.hidden = false;
+    }
+
+    /* A classe é o primeiro algarismo da notação: 821-3 → classe 8. */
+    const classe = (notacao.match(/\d/) || [''])[0];
+    const info = publicados('estantes').find(x => String(x.classe) === classe);
+    põe('cm-assunto', info ? info.designacao : '');
+    const cor = info ? info.cor : 'var(--menta-media)';
+
+    /* O desenho das lombadas saiu a 25/08/2026, por pedido. Fica a linha que
+       diz qual é o livro procurado, que é o que o passo tem de dizer. A
+       prateleira continua em prateleiraExemplo.json, editável no painel. */
+    const pe = CONTEUDO.prateleiraExemplo || {};
+    const livros = (pe.livros || []).filter(x => x && x.cota);
+    const oAlvo = livros.find(l => l.alvo)
+      || livros.find(l => String(l.cota).trim() === ex.trim());
+    const leg = document.getElementById('cm-legenda');
+    if (leg && oAlvo) leg.innerHTML =
+      `<b>${esc(oAlvo.cota)}</b> ${esc(oAlvo.titulo || '')}` +
+      ` <span class="cm-eesta">é este que procuras</span>`;
+  })();
+
+  /* ── estantes ──
+     Cada classe da CDU com a sua cor, como está no anexo ANX-CDU-01 e na
+     sinalética física. Enquanto não houver conteúdo, mostra-se o convite. */
+  const est = document.getElementById('estantes-lista');
+  const estVazio = document.getElementById('estantes-vazio');
+  const estantes = publicados('estantes');
+  /* As cores são as da sinalética física, tal como estão no ANX-CDU-01:
+     castanho, lilás, vermelho, amarelo, verde, azul, rosa, amarelo
+     acastanhado e roxo. Quem procura na estante procura a cor primeiro. */
+  if (est) est.innerHTML = estantes.map(e =>
+    `<div class="cestante" style="--c:${esc(e.cor||'#6B6B6B')};--ct:${textoSobre(e.cor)}">
+       <span class="cor"></span>
+       <span class="num">${esc(e.classe||'')}</span>
+       <span class="tx">
+         <b>${esc(e.designacao||'')}</b>
+         <span class="oque">${esc(e.oque || e.onde || '')}</span>
+       </span>
+       <span class="quanto"><b>${Number(e.exemplares||0).toLocaleString('pt-PT')}</b>
+         <span>${(+e.exemplares===1?'exemplar':'exemplares')}</span></span>
+       <span class="etiq">${esc(e.nomeCor||'')}</span>
+     </div>`).join('');
+  if (estVazio && !estantes.length) estVazio.hidden = false;
+
+  /* O botão do mapa só existe se houver mesmo um mapa. Prometer um recurso
+     que não existe é pior do que não o oferecer. */
+  /* ── as oito sugestões, em prateleira de capas ── */
+  (function () {
+    const livros = [
+      ...publicados('livrosSemana').slice(0, 4),
+      ...publicados('destaquesLer').slice(0, 4),
+    ];
+    const n = renderPrateleira('prat-sugestoes', livros, 8, { comVazios: true });
+    const tab = document.getElementById('prat-sugestoes-tab');
+    if (tab) tab.textContent = n
+      ? `${n} sugestões da Biblioteca. Aponta ou toca numa capa para ver o título.`
+      : 'As capas estão a ser carregadas. Entretanto, pergunta no balcão.';
+  })();
+
+  /* «Ver as zonas da Biblioteca» saiu a 25/08/2026 com a barra de botões:
+     levava para outra página a meio de um percurso que ainda não acabou. */
+
+  /* ── 6 · plataformas digitais ── */
+  const TIPOS = {ebooks:'E-books', audiolivros:'Audiolivros',
+                 imprensa:'Jornais e revistas', repositorios:'Repositórios'};
+  const cd = document.getElementById('carril-digital');
+  if (cd) cd.innerHTML = (CONTEUDO.bibliotecaDigital||[]).map(x =>
+    `<a class="cplat" ${linkAttrs(x.url)}>
+       <span class="ic">${icone(x.icone||'globo',20)}</span>
+       <h4>${esc(x.nome)}</h4><p>${esc(x.descricao||'')}</p>
+       ${x.verificado ? '<span class="selo">✓ verificado</span>' : ''}
+     </a>`).join('');
+
+  /* ── navegação das faixas: botões + teclado ──
+     O deslize com o rato continua a funcionar; os botões existem para quem
+     usa teclado ou não tem rato com roda horizontal. */
+  document.querySelectorAll('.cnav').forEach(nav => {
+    const carril = document.getElementById(nav.dataset.alvo);
+    if (!carril) return;
+    nav.innerHTML = `<button type="button" data-d="-1" aria-label="Recuar">&lsaquo;</button>
+                     <button type="button" data-d="1" aria-label="Avançar">&rsaquo;</button>`;
+    const passo = () => Math.max(200, carril.clientWidth * 0.8);
+    const estado = () => {
+      const [a,b] = nav.children;
+      a.disabled = carril.scrollLeft <= 2;
+      b.disabled = carril.scrollLeft + carril.clientWidth >= carril.scrollWidth - 2;
+    };
+    nav.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      carril.scrollBy({left: passo() * (+b.dataset.d), behavior: 'smooth'});
+    });
+    carril.addEventListener('scroll', estado, {passive:true});
+    carril.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      carril.scrollBy({left: passo() * (e.key === 'ArrowRight' ? 1 : -1), behavior:'smooth'});
+    });
+    estado();
+  });
+
+  /* O pedido de ajuda: formulário da escola, se houver; correio, se não. */
+  renderPedidoAjuda('ajuda-pedido', { assunto: 'Ajuda a encontrar um livro' });
+
+  /* O botão de fecho da página vai ao catálogo verdadeiro, se houver endereço. */
+  const bs = document.getElementById('bt-sempre');
+  if (bs && i.opacSimples) { bs.href = i.opacSimples; bs.target = '_blank'; bs.rel = 'noopener'; }
+};
+
+/* Aceita um endereço completo, um youtu.be ou só o identificador. */
+function extrairYouTube(u){
+  if (!u) return '';
+  const m = String(u).match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{11})/);
+  return m ? m[1] : (/^[A-Za-z0-9_-]{11}$/.test(u) ? u : '');
+}
+</script>
+<script src="motor.js?v=f75e79d5"></script>
+</body>
+</html>

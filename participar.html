@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Participar · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Eventos, projetos, concursos, exposições, produções dos alunos e novidades da Biblioteca Escolar">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Participar · Biblioteca Escolar da ESP"><meta property="og:description" content="A Biblioteca acontece todos os dias. Descobre o que podes viver aqui ao longo do ano.">
+<meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
+<link rel="icon" href="imagens/logo/favicon.ico"><link rel="icon" type="image/svg+xml" href="imagens/logo/icone-app.svg">
+<link rel="apple-touch-icon" href="imagens/logo/apple-touch-icon.png">
+<meta name="theme-color" content="#F8F8F8">
+<link rel="stylesheet" href="estilos.css?v=69e1cd79">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Página ACONTECE NA BIBLIOTECA (Atividades no menu).
+   Decisão de 28/07/2026: deixa de ser uma agenda cronológica e passa
+   a ser o roteiro do ano letivo. O centro da página é o calendário
+   dos dez meses, montado a partir do PAA 2026/2027.
+   O painel «hoje» calcula-se do relógio a partir de uma rotina semanal
+   escrita uma vez por período — não exige edição diária, e por isso
+   não mente nos dias em que ninguém lhe mexe.
+   ═══════════════════════════════════════════════════════════════ */
+/* Os seis tokens que #p-participar redeclarava saíram a 26/08/2026 para :root,
+   em estilos.css: quatro eram apelidos de tokens globais e dois estavam
+   escritos de forma idêntica em seis páginas. */
+#p-participar main{background:var(--papel)}
+
+/* ---- estrutura ---- */
+.vsec{padding:var(--e-sec) 0}
+.vwrap{max-width:var(--coluna);margin:0 auto;padding:0 var(--margem)}
+.vfilete{width:44px;height:5px;background:var(--dourado);border-radius:2px;margin:0 0 var(--e-3)}
+/* Subtítulo dentro de uma secção. Estava escrito em style= no HTML, com um
+   tamanho fora da escala. */
+.vsub{font-size:var(--t-3);font-weight:800;margin:32px 0 var(--e-3);
+  letter-spacing:var(--tr-3,-.015em);color:var(--tinta)}
+/* .vtit passou para o sistema, em estilos.css: era uma das cinco
+   famílias de título de secção, uma por página. */
+.vlead{color:var(--cinza);font-size:var(--t-corpo);margin:0 0 var(--e-4);max-width:52ch;line-height:var(--lh-corpo)}
+/* Os botões .vbt passaram para o sistema, em estilos.css: eram uma
+   das cinco famílias quase iguais que davam sete alturas diferentes. */
+
+/* ═══ HERO ═══ */
+/* A abertura desta página passou para o contrato partilhado, em
+   estilos.css: as quatro interiores abriam cada uma à sua maneira. */
+.vhero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+
+/* ═══ HOJE ═══ */
+.vhoje{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao);
+  box-shadow:var(--sombra);padding:var(--e-f2)}
+.vhoje-topo{display:flex;align-items:center;justify-content:space-between;gap:var(--e-3);
+  padding-bottom:var(--e-3);margin-bottom:var(--e-2);border-bottom:1px solid var(--linha);flex-wrap:wrap}
+.vhoje-topo h2{font-size:var(--t-3);font-weight:800;margin:0;color:var(--tinta);letter-spacing:-.02em}
+.vdata{display:inline-flex;align-items:center;gap:var(--e-2);background:var(--menta-wash);
+  border:1px solid var(--menta);color:var(--tinta);font-size:var(--t-peq);font-weight:700;
+  padding:var(--e-2) var(--e-3);border-radius:var(--r-pilula)}
+.vponto{width:9px;height:9px;border-radius:50%;background:#2E8B6F;flex:none}
+.vlinha{display:flex;align-items:center;gap:var(--e-3);padding:var(--e-3) 0;border-bottom:1px solid var(--linha)}
+.vlinha:last-child{border-bottom:0;padding-bottom:0}
+.vhora{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:var(--t-corpo);font-weight:700;
+  color:var(--tinta);flex:none;width:108px;letter-spacing:.01em}
+.vlinha .tx{flex:1;min-width:0}
+.vlinha h3{font-size:var(--t-corpo);font-weight:700;margin:0 0 var(--e-1);color:var(--tinta)}
+.vlinha p{margin:0;font-size:var(--t-peq);color:var(--cinza);line-height:var(--lh-cartao)}
+.vestado{font-size:var(--t-nano);font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:var(--e-1) 12px;border-radius:var(--r-pilula);flex:none;white-space:nowrap}
+.vestado.agora{background:var(--menta);color:var(--tinta)}
+.vestado.breve{background:var(--dourado-wash);border:1px solid var(--dourado-linha);color:var(--tinta)}
+.vestado.depois{background:var(--areia);border:1px solid var(--linha);color:#6B6B6B}
+.vfechada{display:flex;align-items:center;gap:var(--e-3);padding:var(--e-2) 0 0;flex-wrap:wrap}
+.vfechada p{margin:0;color:var(--cinza);font-size:var(--t-peq);line-height:var(--lh-corpo);flex:1;min-width:260px}
+
+/* ═══ CALENDÁRIO DO ANO ═══ */
+.vtemas{display:flex;flex-wrap:wrap;gap:var(--e-2);margin:0 0 var(--e-4)}
+.vtema{display:inline-flex;align-items:center;gap:var(--e-2);background:var(--branco);
+  border:1.5px solid var(--linha);border-radius:var(--r-pilula);padding:var(--e-2) var(--e-3);cursor:pointer;
+  font-family:inherit;font-size:var(--t-peq);font-weight:700;color:var(--tinta);transition:.15s;
+  min-height:44px}
+.vtema:hover{border-color:var(--menta);background:var(--menta-wash)}
+.vtema[aria-pressed="true"]{background:var(--menta);border-color:var(--menta)}
+.vmeses{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--e-3)}
+.vmes{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao);
+  padding:20px var(--e-3);cursor:pointer;font-family:inherit;text-align:left;width:100%;
+  transition:.16s;display:flex;flex-direction:column;min-height:174px}
+.vmes:hover{border-color:var(--menta);transform:translateY(-3px);box-shadow:var(--sombra-lg)}
+.vmes[aria-selected="true"]{background:var(--menta-wash);border-color:var(--menta);
+  box-shadow:var(--sombra-lg)}
+.vmes .ic{display:grid;place-items:center;width:36px;height:36px;border-radius:var(--r-cartao);
+  background:var(--menta-wash);color:var(--menta-escura);margin-bottom:12px}
+.vmes[aria-selected="true"] .ic{background:var(--menta);color:var(--tinta)}
+.vmes b{display:block;font-size:var(--t-corpo);font-weight:800;color:var(--tinta);letter-spacing:-.015em;
+  margin-bottom:var(--e-1)}
+.vmes .lema{display:block;font-size:var(--t-micro);color:var(--cinza-legivel);line-height:var(--lh-cartao);flex:1}
+.vmes .conta{display:inline-block;margin-top:var(--e-2);font-size:var(--t-nano);font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase;background:var(--dourado-wash);
+  border:1px solid var(--dourado-linha);color:var(--tinta);padding:var(--e-1) var(--e-2);
+  border-radius:var(--r-pilula);align-self:flex-start}
+/* Mês sem nada com o tema escolhido: fica assinalado a tracejado, mas
+   legível — a 45% de opacidade o nome descia a 2,6:1 (28/07/2026). */
+.vmes.apagado{border-style:dashed;background:var(--areia)}
+.vmes.apagado .ic{background:var(--cinza-bloco);color:#4A4A4A}
+.vmes.apagado .conta{background:var(--branco);border-color:var(--linha);color:#6B6B6B}
+.vpainel{margin-top:var(--e-4);background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao);box-shadow:var(--sombra);padding:var(--e-f2)}
+.vpainel-topo{padding-bottom:var(--e-3);margin-bottom:20px;border-bottom:1px solid var(--linha)}
+.vpainel-topo .lema{font-size:var(--t-micro);font-weight:800;color:var(--menta-txt);margin:0 0 var(--e-2);
+  text-transform:uppercase;letter-spacing:.07em}
+.vpainel-topo h3{font-size:var(--t-3);font-weight:800;margin:0 0 var(--e-2);color:var(--tinta);letter-spacing:-.02em}
+.vpainel-topo p{margin:0;color:var(--cinza);font-size:var(--t-peq);line-height:var(--lh-corpo);max-width:66ch}
+.vativs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.vativ{background:var(--papel);border:1px solid var(--linha);border-left:4px solid var(--dourado);
+  border-radius:var(--r-cartao);padding:var(--e-3) var(--e-3)}
+.vativ h4{font-size:var(--t-corpo);font-weight:700;margin:0 0 var(--e-1);color:var(--tinta);line-height:var(--lh-cartao)}
+.vativ p{margin:0;font-size:var(--t-peq);color:var(--cinza)}
+.vativ .marcas{display:flex;gap:var(--e-2);flex-wrap:wrap;margin-top:var(--e-2)}
+.vmarca{font-size:var(--t-nano);font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  background:var(--menta-wash);border:1px solid var(--menta);color:var(--tinta);
+  padding:var(--e-1) var(--e-2);border-radius:var(--r-pilula)}
+.vvazio{color:var(--cinza);font-size:var(--t-peq);margin:0}
+
+/* ═══ PRÓXIMOS · LINHA TEMPORAL ═══ */
+.vlinhat{position:relative;padding-left:var(--e-5)}
+.vlinhat::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;
+  background:var(--linha)}
+.vev{position:relative;padding:0 0 var(--e-4)}
+.vev:last-child{padding-bottom:0}
+.vev .bolha{position:absolute;left:-42px;top:2px;width:24px;height:24px;border-radius:50%;
+  background:var(--menta);border:4px solid var(--papel)}
+.vev .quando{display:inline-block;font-size:var(--t-micro);font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--menta-txt);margin-bottom:var(--e-1)}
+.vev h3{font-size:var(--t-corpo);font-weight:700;margin:0 0 var(--e-1);color:var(--tinta)}
+.vev p{margin:0;font-size:var(--t-peq);color:var(--cinza)}
+
+/* ═══ PROJETOS ═══ */
+.vprojs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.vproj{position:relative;overflow:hidden;background:var(--branco);
+  border:1px solid var(--linha);border-radius:var(--r-cartao);display:flex;
+  flex-direction:column;text-decoration:none;color:inherit;transition:.18s}
+a.vproj:hover{transform:translateY(-4px);box-shadow:var(--sombra-lg);border-color:var(--menta)}
+.vproj .capa{position:relative;aspect-ratio:var(--ar-foto);background:var(--cinza-bloco);
+  border-bottom:1px solid var(--linha);display:grid;place-items:center;overflow:hidden}
+.vproj .capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vproj .capa .vazio{color:var(--menta-txt);font-size:var(--t-micro);padding:var(--e-3);text-align:center}
+.vproj .tx{padding:20px;display:flex;flex-direction:column;flex:1}
+.vproj h3{font-size:var(--t-corpo);font-weight:800;margin:0 0 var(--e-2);color:var(--tinta);letter-spacing:-.015em;
+  line-height:var(--lh-sub)}
+.vproj p{margin:0 0 var(--e-3);font-size:var(--t-peq);color:var(--cinza);line-height:var(--lh-corpo);flex:1}
+.vfactos{display:flex;flex-wrap:wrap;gap:var(--e-2)}
+.vfacto{font-size:var(--t-micro);font-weight:700;background:var(--areia);border:1px solid var(--linha);
+  color:var(--tinta);padding:var(--e-1) 12px;border-radius:var(--r-pilula)}
+.vfacto.ativo{background:var(--menta-wash);border-color:var(--menta)}
+
+/* ═══ EXPOSIÇÕES ═══ */
+.vexpos{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.vexpo{position:relative;overflow:hidden;isolation:isolate;border-radius:var(--r-cartao);
+  min-height:174px;display:flex;align-items:flex-end;text-decoration:none;
+  background:#3A3A3A;transition:.18s}
+a.vexpo:hover{transform:translateY(-4px);box-shadow:var(--sombra-lg)}
+.vexpo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.vexpo .veu{position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(31,31,31,.24) 30%,rgba(31,31,31,.70) 62%,rgba(31,31,31,.90))}
+.vexpo .tx{position:relative;padding:var(--e-4) var(--e-4) var(--e-4);color:#fff;width:100%}
+.vexpo h3{font-size:var(--t-3);font-weight:800;margin:0 0 var(--e-2);letter-spacing:-.015em;
+  text-shadow:0 1px 3px rgba(0,0,0,.35)}
+.vexpo p{margin:0;font-size:var(--t-peq);color:rgba(255,255,255,.92);line-height:var(--lh-cartao)}
+
+/* ═══ CONCURSOS ═══ */
+.vgrupo-est{margin-bottom:var(--e-4)}
+.vgrupo-est:last-child{margin-bottom:0}
+.vrot{display:inline-flex;align-items:center;gap:var(--e-2);font-size:var(--t-micro);font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;padding:var(--e-2) var(--e-3);border-radius:var(--r-pilula);
+  margin:0 0 var(--e-3)}
+.vrot.aberto{background:var(--menta);color:var(--tinta)}
+.vrot.breve{background:var(--dourado-wash);border:1px solid var(--dourado-linha);color:var(--tinta)}
+.vrot.fim{background:var(--areia);border:1px solid var(--linha);color:#6B6B6B}
+.vconcs{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--e-3)}
+.vconc{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao);
+  padding:var(--e-4);display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:.16s}
+a.vconc:hover{transform:translateY(-3px);box-shadow:var(--sombra-lg);border-color:var(--menta)}
+.vconc h3{font-size:var(--t-corpo);font-weight:700;margin:0 0 var(--e-2);color:var(--tinta);line-height:var(--lh-sub)}
+.vconc .quando{font-size:var(--t-micro);font-weight:700;color:var(--menta-txt);margin:0 0 var(--e-2)}
+.vconc p{margin:0 0 12px;font-size:var(--t-peq);color:var(--cinza);line-height:var(--lh-corpo);flex:1}
+
+/* ═══ INICIATIVAS ═══ */
+.vinics{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--e-3)}
+.vinic{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao);
+  padding:var(--e-3) var(--e-3);text-decoration:none;color:inherit;display:block;transition:.15s}
+.vinic:hover{border-color:var(--menta);background:var(--menta-wash)}
+.vinic b{display:block;font-size:var(--t-peq);font-weight:700;color:var(--tinta);line-height:var(--lh-cartao)}
+.vinic span{display:block;margin-top:var(--e-1);font-size:var(--t-micro);color:var(--cinza)}
+
+/* ═══ GALERIA DOS ALUNOS ═══ */
+.vfaixa{margin-bottom:32px}
+.vfaixa:last-child{margin-bottom:0}
+.vfaixa-topo{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--e-3);margin:0 0 12px}
+.vfaixa-topo h3{display:flex;align-items:center;gap:var(--e-2);font-size:var(--t-corpo);font-weight:800;
+  margin:0 0 2px;color:var(--tinta);letter-spacing:-.015em}
+.vfaixa-topo h3 .ic{display:grid;place-items:center;width:32px;height:32px;border-radius:var(--r-cartao);
+  background:var(--menta-wash);color:var(--menta-escura);flex:none}
+.vfaixa-topo p{margin:0;font-size:var(--t-peq);color:var(--cinza)}
+.vnav{display:flex;gap:var(--e-2);flex:none}
+.vnav button{width:36px;height:36px;border-radius:50%;border:1px solid var(--linha);
+  background:var(--branco);color:var(--tinta);cursor:pointer;font-size:var(--t-corpo);line-height:var(--lh-tit);
+  display:grid;place-items:center;transition:.15s}
+.vnav button:hover{border-color:var(--menta);background:var(--menta-wash)}
+.vnav button[disabled]{opacity:.35;cursor:default}
+.vcarril{display:flex;gap:var(--e-3);overflow-x:auto;scroll-behavior:smooth;padding:var(--e-1) 2px var(--e-3);
+  scrollbar-width:thin;scrollbar-color:var(--menta-media) transparent}
+.vcarril::-webkit-scrollbar{height:7px}
+.vcarril::-webkit-scrollbar-track{background:transparent}
+.vcarril::-webkit-scrollbar-thumb{background:var(--menta-media);border-radius:var(--r-peq)}
+.vitem{flex:0 0 208px;text-decoration:none;color:inherit}
+.vitem .capa{position:relative;aspect-ratio:var(--ar-foto);border-radius:var(--r-cartao);overflow:hidden;
+  background:var(--cinza-bloco);border:1px solid var(--linha);margin-bottom:var(--e-2);
+  display:grid;place-items:center;transition:transform .25s}
+a.vitem:hover .capa{transform:scale(1.04)}
+.vitem .capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vitem .capa .vazio{color:var(--menta-txt);font-size:var(--t-nano);text-align:center;padding:var(--e-2);line-height:var(--lh-cartao)}
+.vitem b{display:block;font-size:var(--t-peq);font-weight:700;color:var(--tinta);line-height:var(--lh-sub)}
+.vitem span{display:block;font-size:var(--t-micro);color:var(--cinza);margin-top:2px}
+.vitem .porpreencher{color:#6B6B6B;font-style:italic}
+/* O primeiro cartão de cada faixa é um modelo: mostra o que se preenche
+   em cada campo. Fica assinalado para não se confundir com trabalho real. */
+.vitem.modelo .capa{border-style:dashed;border-color:var(--menta-media);background:var(--menta-wash)}
+.vitem.modelo .capa .vazio{color:var(--menta-escura)}
+.vitem.modelo b,.vitem.modelo span{color:#4A4A4A}
+.vselo{display:inline-block;margin-bottom:var(--e-1);font-size:var(--t-nano);font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;background:var(--dourado);color:var(--tinta);padding:var(--e-1) var(--e-2);
+  border-radius:var(--r-pilula)}
+
+/* ═══ ARQUIVO ═══ */
+.vano-bloco{margin-bottom:32px}
+.vano-bloco:last-child{margin-bottom:0}
+.vano-topo{display:flex;align-items:baseline;gap:var(--e-3);margin:0 0 var(--e-1);flex-wrap:wrap}
+.vano-topo h3{font-size:var(--t-3);font-weight:800;margin:0;color:var(--tinta);letter-spacing:-.025em}
+.vano-topo .est{font-size:var(--t-nano);font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:var(--e-1) 12px;border-radius:var(--r-pilula);background:var(--branco);
+  border:1px solid var(--linha);color:#6B6B6B}
+.vano-bloco > p{margin:0 0 var(--e-3);font-size:var(--t-peq);color:var(--cinza);line-height:var(--lh-corpo)}
+.vdest{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--e-3)}
+.vd{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao);
+  overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;
+  transition:transform .18s,box-shadow .18s,border-color .18s}
+a.vd:hover{transform:translateY(-4px);box-shadow:var(--sombra-lg);border-color:var(--menta)}
+.vd .capa{position:relative;aspect-ratio:var(--ar-foto);background:var(--cinza-bloco);
+  border-bottom:1px solid var(--linha);display:grid;place-items:center;overflow:hidden}
+.vd .capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vd .capa .vazio{color:var(--menta-txt);font-size:var(--t-nano);padding:var(--e-2);text-align:center;line-height:var(--lh-cartao)}
+.vd .tx{padding:var(--e-3) var(--e-3) var(--e-3);display:flex;flex-direction:column;flex:1}
+.vd .quando{font-size:var(--t-nano);font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--menta-txt);margin:0 0 var(--e-1)}
+.vd h4{font-size:var(--t-peq);font-weight:700;margin:0 0 var(--e-1);color:var(--tinta);line-height:var(--lh-sub)}
+.vd p{margin:0;font-size:var(--t-micro);color:var(--cinza);line-height:var(--lh-cartao)}
+.vsem{margin:0;font-size:var(--t-peq);color:var(--cinza);font-style:italic}
+
+@media(max-width:1080px){
+  .vmeses{grid-template-columns:repeat(4,1fr)}
+  .vinics{grid-template-columns:repeat(3,1fr)}
+  .vdest{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:980px){
+  .vprojs,.vconcs{grid-template-columns:repeat(2,1fr)}
+  .vexpos,.vativs{grid-template-columns:1fr}
+  .vmeses{grid-template-columns:repeat(3,1fr)}
+  .vinics{grid-template-columns:repeat(2,1fr)}
+  .vdest{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:620px){
+  .vsec{padding:var(--e-3) 0}
+  .vprojs,.vconcs,.vinics{grid-template-columns:1fr}
+  .vmeses{grid-template-columns:repeat(2,1fr)}
+  .vlinha{flex-wrap:wrap;gap:var(--e-2)}
+  .vhora{width:auto}
+  .vitem{flex:0 0 170px}
+  .vdest{grid-template-columns:repeat(2,1fr)}
+  .vnav{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .vmes:hover,a.vproj:hover,a.vexpo:hover,a.vconc:hover{transform:none}
+  .vcarril{scroll-behavior:auto}
+}
+/* ═══ A BIBLIOTECA EM AÇÃO ═══
+   Componente editorial: não guarda conteúdo, resume o que já está na
+   página e leva à secção certa. */
+.vacao{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--e-3)}
+.vacao-c{display:flex;flex-direction:column;gap:var(--e-1);background:var(--branco);
+  border:1px solid var(--linha);border-radius:var(--r-cartao);padding:12px;
+  text-decoration:none;color:inherit;transition:transform .18s,box-shadow .18s,border-color .18s}
+a.vacao-c:hover{transform:translateY(-3px);border-color:var(--menta);
+  box-shadow:var(--sombra-lg);color:inherit}
+.vacao-c .est{display:inline-flex;align-items:center;gap:var(--e-2);font-size:var(--t-nano);font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--dourado-txt)}
+.vacao-c .est .ponto{width:7px;height:7px;border-radius:50%;background:var(--menta-media);flex:none}
+.vacao-c.viva .est{color:var(--menta-escura)}
+.vacao-c.viva .est .ponto{background:#2E9E7B;
+  box-shadow:0 0 0 0 rgba(46,158,123,.7);animation:vpulsa 2.6s infinite}
+@keyframes vpulsa{0%{box-shadow:0 0 0 0 rgba(46,158,123,.6)}60%{box-shadow:0 0 0 8px rgba(46,158,123,0)}100%{box-shadow:0 0 0 0 rgba(46,158,123,0)}}
+.vacao-c b{font-size:var(--t-corpo);font-weight:700;line-height:var(--lh-sub);color:var(--tinta)}
+.vacao-c span.det{font-size:var(--t-peq);color:var(--cinza);line-height:var(--lh-cartao)}
+.vacao-c .ir{margin-top:auto;padding-top:var(--e-2);font-size:var(--t-micro);font-weight:700;color:var(--menta-escura)}
+@media(max-width:1000px){.vacao{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.vacao{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body id="p-participar">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <!-- ═══ HERO ═══ -->
+  <header class="vhero">
+    <img src="imagens/atividades/hero.jpg" alt="">
+    <div class="vwrap">
+      <p class="pg-cota" data-revela><span class="cota cota--escuro"><span class="banda"></span><span class="cod">374</span><span class="nome">participar</span></span></p>
+      <h1 class="pg-tit" data-revela data-atraso="1">A Biblioteca acontece todos os dias.</h1>
+      <!-- O botão «Ver o ano inteiro» saiu a 26/08/2026: o cartão «A seguir»,
+           logo abaixo, leva ao mesmo sítio. -->
+      <p class="pg-lead" data-revela data-atraso="2">Projetos, concursos, exposições e desafios
+        que podes viver ao longo do ano letivo, dentro e fora da Biblioteca.</p>
+    </div>
+  </header>
+
+  <!-- O bloco «Hoje na Biblioteca» saiu a 25/08/2026: passou a abrir «O que
+       está a acontecer» na página inicial, e aqui repetia-o. O cartão «A
+       acontecer agora», já a seguir, continua a dizer o que está a decorrer. -->
+
+  <!-- ═══ 2 · BIBLIOTECA EM AÇÃO ═══
+       Quatro linhas que dizem o estado da Biblioteca num relance. Não há
+       aqui conteúdo próprio nem cópias: cada cartão vai buscar o item mais
+       relevante às secções que já existem nesta página e leva-te lá. -->
+  <section class="vsec de-papel para-menta" data-amb id="acao" data-assinatura data-seccao aria-labelledby="t-acao">
+    <div class="vwrap">
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-acao">A Biblioteca em ação</h2>
+      <p class="vlead">O que está a acontecer, o que acabou de acontecer e o que vem a seguir.</p>
+      <div class="vacao" id="acao-lista"></div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · CALENDÁRIO DO ANO ═══ -->
+  <section class="vsec de-menta para-papel" data-amb id="calendario" aria-labelledby="t-cal">
+    <div class="vwrap">
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-cal">O ano letivo da Biblioteca</h2>
+      <div class="vtemas" id="temas-lista" role="group" aria-label="Filtrar por tema"></div>
+      <div class="vmeses" id="meses-lista" role="tablist" aria-label="Meses do ano letivo"></div>
+      <div class="vpainel" id="mes-painel" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <!-- O bloco «Próximos eventos» saiu a 24/08/2026. Dizia pela terceira vez o
+       que o cartão «A seguir» e o calendário do ano já diziam, e a página
+       ganhava altura sem ganhar informação. O cartão passou a levar ao
+       calendário, que é onde o ano inteiro está. -->
+
+  <!-- ═══ 5 · PROJETOS ═══ -->
+  <section class="vsec de-areia para-papel" data-amb id="projetos" aria-labelledby="t-proj">
+    <div class="vwrap">
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-proj">Projetos da Biblioteca</h2>
+      <p class="vlead">O trabalho que atravessa o ano inteiro, e quem participa em cada um.</p>
+      <div class="vprojs" id="projetos-lista"></div>
+
+      <!-- O botão «Conhecer o projeto», na página inicial, aterra aqui. É o
+           espaço da apresentação: enquanto não houver diapositivos carregados
+           no painel, diz que está em preparação em vez de mostrar vazio. -->
+      <div class="proj-caixa" id="projeto-palavras" data-revela>
+        <p class="proj-tag">Projeto financiado pela RBE · 2026 a 2028</p>
+        <h3 class="proj-tit">Palavras em Ação · Ler com a Biblioteca</h3>
+        <p class="proj-tx">A Biblioteca foi escolhida entre dezasseis projetos a nível
+          nacional. Sequências de leitura, roteiros literários e leituras em família,
+          com vinte turmas envolvidas até 2028.</p>
+        <div class="projetor" id="projeto-slides"
+             data-espera="A apresentação do projeto está a ser preparada. Assim que estiver pronta aparece aqui."></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6 · EXPOSIÇÕES ═══ -->
+  <section class="vsec de-papel para-menta" data-amb id="exposicoes" aria-labelledby="t-exp">
+    <div class="vwrap">
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-exp">Exposições</h2>
+      <p class="vlead">O que esteve e o que vai estar exposto na Biblioteca.</p>
+      <!-- Os dois cartões saíram a 24/08/2026: duas exposições em cartão não
+           mostram o que lá esteve. Passa a ser um espaço de imagens, carregado
+           no painel em «Exposições · fotografias». -->
+      <div class="projetor" id="exposicoes-slides"
+           data-espera="As fotografias das exposições estão a ser reunidas. Aparecem aqui assim que estiverem prontas."></div>
+    </div>
+  </section>
+
+  <!-- ═══ 7 · CONCURSOS E INICIATIVAS ═══ -->
+  <section class="vsec de-menta para-papel" data-amb id="concursos" aria-labelledby="t-conc">
+    <div class="vwrap">
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-conc">Concursos e iniciativas</h2>
+      <p class="vlead">O que está aberto, o que vem aí e o que já fechou.</p>
+      <div id="concursos-lista"></div>
+      <h3 class="vsub">Iniciativas nacionais</h3>
+      <div class="vinics" id="iniciativas-lista"></div>
+    </div>
+  </section>
+
+  <!-- ═══ 8 · TRABALHOS DOS ALUNOS ═══ -->
+  <section class="vsec de-papel para-areia" data-amb id="alunos" aria-labelledby="t-alu">
+    <div class="vwrap">
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-alu">Os nossos alunos criaram</h2>
+      <p class="vlead">Vídeos, podcasts, booktrailers e trabalhos feitos na Biblioteca.</p>
+      <div id="alunos-faixas"></div>
+    </div>
+  </section>
+
+  <!-- ═══ ARQUIVO ═══ -->
+  <!-- Novidades: veio da antiga página «Notícias», que deixou de ser separador
+       principal. O conteúdo e a edição no painel mantêm-se exatamente iguais. -->
+  <section class="vsec de-areia para-papel" data-amb id="novidades" aria-labelledby="t-nov">
+    <div class="vwrap">
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-nov">Novidades</h2>
+      <p class="vlead">O que já aconteceu: notícias, resultados e recapitulações das atividades.</p>
+      <div class="filtros" id="filtro-noticias" role="group" aria-label="Filtrar por categoria"></div>
+      <div class="noticias grelha" id="all-news"></div>
+    </div>
+  </section>
+
+  <section class="vsec de-papel para-menta" data-amb id="arquivo" aria-labelledby="t-arq">
+    <div class="vwrap">
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-arq">Arquivo</h2>
+      <p class="vlead">O que ficou de cada ano letivo.</p>
+      <div id="arquivo-lista"></div>
+    </div>
+  </section>
+
+  <section class="vsec de-menta para-papel" data-amb id="redes" aria-labelledby="t-redes">
+    <div class="vwrap">
+      <div class="vfilete" data-revela></div>
+      <h2 class="vtit" data-revela id="t-redes">Segue a Biblioteca</h2>
+      <p class="vlead">Acompanha o dia a dia e recebe as novidades.</p>
+      <div class="grid2">
+        <div class="card" id="redes-card"></div>
+        <div class="card">
+          <span class="ico" id="ico-news"></span>
+          <h3>Novidades por email</h3>
+          <p>Recebe as novidades da Biblioteca no teu correio eletrónico.</p>
+          <p style="margin-top:14px"><a class="btn primario" id="btn-news">Subscrever novidades</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<div id="rodape"></div>
+
+<script>
+window.renderPagina = function(){
+  /* ── redes e newsletter (vieram da antiga página «Notícias») ── */
+  const inf = CONTEUDO.info || {};
+  const icoNews = document.getElementById('ico-news');
+  if (icoNews) icoNews.innerHTML = icone('correio', 22);
+  const redes = document.getElementById('redes-card');
+  if (redes) redes.innerHTML = icone('balao', 22)
+    + `<h3>Redes sociais</h3><p>Acompanha o dia a dia da Biblioteca.</p>
+       <p style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">` + [
+      inf.instagram && `<a class="btn claro" ${linkAttrs(inf.instagram)}>Instagram</a>`,
+      inf.facebook  && `<a class="btn claro" ${linkAttrs(inf.facebook)}>Facebook</a>`,
+      inf.youtube   && `<a class="btn claro" ${linkAttrs(inf.youtube)}>YouTube</a>`,
+    ].filter(Boolean).join('') + `</p>`;
+  const btnNews = document.getElementById('btn-news');
+  if (btnNews) btnNews.href = `mailto:${inf.email}?subject=`
+    + encodeURIComponent('Subscrever novidades da BE');
+
+  const MESES = {Jan:0,Fev:1,Mar:2,Abr:3,Mai:4,Jun:5,Jul:6,Ago:7,Set:8,Out:9,Nov:10,Dez:11};
+  const DIAS  = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+  const NOMES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto',
+                 'setembro','outubro','novembro','dezembro'];
+  const agora = new Date();
+
+  /* O painel «Hoje na Biblioteca» saiu com a sua secção a 25/08/2026:
+     vive agora na página inicial, no topo de «O que está a acontecer». */
+
+  /* ── 2 · A Biblioteca em ação ──
+     Resume o estado da Biblioteca em quatro cartões. Cada um vai buscar o
+     item mais relevante a uma secção que JÁ existe nesta página e leva-te
+     lá — não há conteúdo duplicado, só uma leitura rápida do conjunto. */
+  (function () {
+    const el = document.getElementById('acao-lista'); if (!el) return;
+    const MESES = {jan:0,fev:1,mar:2,abr:3,mai:4,jun:5,jul:6,ago:7,set:8,out:9,nov:10,dez:11};
+    const agora = new Date();
+
+    /* a decorrer: a rotina semanal de hoje */
+    const dia = agora.getDay(), mm = agora.getHours()*60 + agora.getMinutes();
+    const min = minutos;   /* do motor: aceita 08:00 e 8h00 */
+    const aDecorrer = (CONTEUDO.rotina||[])
+      .filter(r => (r.dias||[]).includes(dia) && mm >= min(r.inicio) && mm < min(r.fim))[0];
+
+    /* a seguir: o próximo evento da agenda */
+    const dataDe = e => {
+      const m = MESES[String(e.mes||'').slice(0,3).toLowerCase()];
+      return m === undefined ? null : new Date(+e.ano || agora.getFullYear(), m, +e.dia || 1);
+    };
+    const proximo = (CONTEUDO.agenda||[])
+      .map(e => ({...e, d: dataDe(e)})).filter(e => e.d)
+      .sort((a,b) => a.d - b.d).find(e => e.d >= new Date(agora.toDateString()));
+
+    /* acabou de acontecer: a notícia mais recente */
+    const noticia = [...(CONTEUDO.noticias||[])]
+      .sort((a,b) => String(b.dataOrdenacao||'').localeCompare(String(a.dataOrdenacao||'')))[0];
+
+    /* os alunos estão a produzir: trabalhos já publicados, sem contar modelos */
+    const trabalhos = publicados('galeriaAlunos')
+      .flatMap(f => (f.itens||[]).filter(x => !x.exemplo && temTexto(x.titulo)));
+
+    const cartoes = [
+      aDecorrer && {viva:true, estado:'A acontecer agora',
+        titulo:aDecorrer.titulo, det:`${aDecorrer.inicio}–${aDecorrer.fim}`,
+        ir:'Ver o ano letivo da Biblioteca', url:'#calendario'},
+      proximo && {estado:'A seguir', titulo:proximo.titulo,
+        det:[`${proximo.dia} ${proximo.mes}`, proximo.local].filter(Boolean).join(' · '),
+        ir:'Ver o ano letivo da Biblioteca', url:'#calendario'},
+      noticia && {estado:'Acabou de acontecer', titulo:noticia.titulo,
+        det:noticia.data || '', ir:'Ver as novidades', url:'#novidades'},
+      {estado:'Os alunos criaram',
+       titulo: trabalhos.length
+         ? `${trabalhos.length} trabalho${trabalhos.length > 1 ? 's' : ''} publicado${trabalhos.length > 1 ? 's' : ''}`
+         : 'À espera do primeiro trabalho',
+       det: trabalhos.length
+         ? 'Vídeos, podcasts, booktrailers e cartazes feitos pelas turmas.'
+         : 'Fizeste alguma coisa na Biblioteca? Fala connosco e publicamos.',
+       ir:'Ver o que os alunos criaram', url:'#alunos'},
+    ].filter(Boolean);
+
+    if (!cartoes.length) { document.getElementById('acao')?.setAttribute('hidden',''); return; }
+    el.innerHTML = cartoes.map(c => `
+      <a class="vacao-c${c.viva ? ' viva' : ''}" href="${esc(c.url)}">
+        <span class="est"><span class="ponto"></span>${esc(c.estado)}</span>
+        <b>${esc(c.titulo)}</b>
+        ${temTexto(c.det) ? `<span class="det">${esc(c.det)}</span>` : ''}
+        <span class="ir">${esc(c.ir)} &rarr;</span>
+      </a>`).join('');
+  })();
+
+  /* ── 8 · Trabalhos dos alunos ──
+     Usa o mesmo cartão do resto do site (.rec), acrescentando a turma, o
+     ano e a atividade em que o trabalho nasceu. Uma faixa sem trabalhos
+     publicados mostra um convite — nunca seis molduras «por preencher». */
+  let conta = 0;
+  const al = document.getElementById('alunos-faixas');
+  if (al) {
+    al.innerHTML = publicados('galeriaAlunos').map(f => {
+      const id = 'carril-' + (++conta);
+      const itens = (f.itens||[]).filter(x => x.exemplo || temTexto(x.titulo));
+      const reais = itens.filter(x => !x.exemplo);
+      const corpo = itens.length
+        ? `<div class="vcarril rec-carril" id="${id}" tabindex="0" role="group"
+                aria-label="${esc(f.faixa)}">
+             ${itens.map(x => {
+               const cartao = cartaoRecurso({
+                 titulo: x.titulo, autor: x.autor, imagem: x.imagem, alt: x.alt,
+                 publico: [x.turma, x.ano].filter(Boolean).join(' · '),
+                 genero: x.atividade, porque: x.porque, url: x.url,
+                 cta: 'Ver', fonte: 'Trabalho de alunos', formato: 'galeriaAlunos'
+               });
+               return x.exemplo
+                 ? cartao.replace('class="rec"', 'class="rec rec-modelo"')
+                         .replace('<span class="rec-tx">',
+                                  '<span class="rec-tx"><span class="rec-selo">modelo</span>')
+                 : cartao;
+             }).join('')}
+           </div>
+           ${reais.length ? `<div class="vnav" data-alvo="${id}"></div>` : ''}`
+        : `<p class="cvazio">${esc(f.convite || 'Ainda não há trabalhos publicados nesta faixa.')}</p>`;
+      return `<div class="vfaixa">
+        <div class="vfaixa-topo">
+          <div><h3><span class="ic">${icone(f.icone||'camara',18)}</span>${esc(f.faixa)}</h3>
+            <p>${esc(f.nota||'')}</p></div>
+        </div>
+        ${corpo}</div>`;
+    }).join('');
+    al.querySelectorAll('.vnav').forEach(nav => {
+      const c = document.getElementById(nav.dataset.alvo); if (!c) return;
+      nav.innerHTML = `<button type="button" data-d="-1" aria-label="Recuar">&lsaquo;</button>
+                       <button type="button" data-d="1" aria-label="Avançar">&rsaquo;</button>`;
+      const passo = () => Math.max(220, c.clientWidth * 0.8);
+      const estado = () => {
+        const [a,b] = nav.children;
+        a.disabled = c.scrollLeft <= 2;
+        b.disabled = c.scrollLeft + c.clientWidth >= c.scrollWidth - 2;
+      };
+      nav.addEventListener('click', e => {
+        const b = e.target.closest('button'); if (!b) return;
+        c.scrollBy({left: passo() * (+b.dataset.d), behavior:'smooth'});
+      });
+      c.addEventListener('scroll', estado, {passive:true});
+      c.addEventListener('keydown', e => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        c.scrollBy({left: passo() * (e.key === 'ArrowRight' ? 1 : -1), behavior:'smooth'});
+      });
+      estado();
+    });
+  }
+
+  /* ── 5b · a apresentação do projeto, e 6 · as exposições ──
+     Os dois projetores. As chamadas perderam-se a 25/08/2026, quando saiu
+     daqui o painel «Hoje na Biblioteca»: iam no mesmo bloco de código, e a
+     secção das exposições ficou com uma caixa branca e vazia. */
+  renderDiapositivos('projeto-slides', 'apresentacaoProjeto');
+  renderDiapositivos('exposicoes-slides', 'exposicaoFotos');
+
+  /* ── Arquivo: destaques por ano letivo ──
+     Só entram fotografias já validadas. As atividades sem fotografia
+     aparecem na mesma, com a moldura por preencher. */
+  const arl = document.getElementById('arquivo-lista');
+  if (arl) arl.innerHTML = (CONTEUDO.arquivoAnos||[]).map(a => {
+    const cartoes = (a.destaques||[]).map(d => {
+      const capa = temTexto(d.imagem)
+        ? `<img src="${esc(d.imagem)}" alt="${esc(d.alt||'')}" loading="lazy">`
+        : `<span class="vazio">Fotografia por carregar</span>`;
+      const dentro = `<span class="capa">${capa}</span>
+        <span class="tx"><span class="quando">${esc(d.quando)}</span>
+          <h4>${esc(d.nome)}</h4><p>${esc(d.texto)}</p></span>`;
+      return temTexto(d.url) ? `<a class="vd" ${linkAttrs(d.url)}>${dentro}</a>`
+                             : `<div class="vd">${dentro}</div>`;
+    }).join('');
+    return `<div class="vano-bloco">
+      <div class="vano-topo"><h3>${esc(a.ano)}</h3>
+        <span class="est">${esc(a.estado)}</span></div>
+      <p>${esc(a.texto)}</p>
+      ${cartoes ? `<div class="vdest">${cartoes}</div>`
+                : `<p class="vsem">Sem registo fotográfico organizado. A documentação está no arquivo interno.</p>`}
+    </div>`;
+  }).join('');
+};
+</script>
+<script src="motor.js?v=f75e79d5"></script>
+</body>
+</html>

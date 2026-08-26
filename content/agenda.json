@@ -1,0 +1,36 @@
+{
+  "agenda": [
+    {
+      "dia": "15",
+      "mes": "Set",
+      "ano": "2026",
+      "titulo": "Abertura da Biblioteca",
+      "local": "Bloco E, 1.º andar · 8h00",
+      "url": "conhecer.html#horario"
+    },
+    {
+      "dia": "01",
+      "mes": "Out",
+      "ano": "2026",
+      "titulo": "Mês Internacional da Biblioteca Escolar",
+      "local": "Programa ao longo do mês",
+      "url": "participar.html#concursos"
+    },
+    {
+      "dia": "12",
+      "mes": "Out",
+      "ano": "2026",
+      "titulo": "Formação de utilizadores, turmas do 7.º ano",
+      "local": "Biblioteca · a marcar com os diretores de turma",
+      "url": ""
+    },
+    {
+      "dia": "05",
+      "mes": "Nov",
+      "ano": "2026",
+      "titulo": "Exposição temática de outono",
+      "local": "Átrio da Biblioteca",
+      "url": "participar.html#exposicoes"
+    }
+  ]
+}

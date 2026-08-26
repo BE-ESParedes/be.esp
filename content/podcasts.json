@@ -1,0 +1,62 @@
+{
+  "podcasts": [
+    {
+      "titulo": "Volta ao Mundo em Cem Livros",
+      "autor": "RTP Antena 2",
+      "duracao": "episódios semanais",
+      "imagem": "imagens/podcasts/volta-ao-mundo-cem-livros.jpg",
+      "alt": "Imagem do podcast Volta ao Mundo em Cem Livros",
+      "publico": "10.º ao 12.º ano",
+      "genero": "Literatura mundial",
+      "porque": "Cem livros de todos os continentes, um por semana, com igual número de autoras e autores. É a maneira mais rápida de perceber que a literatura não acaba na Europa.",
+      "fonte": "RTP Antena 2",
+      "cta": "Ouvir",
+      "url": "https://antena2.rtp.pt/podcast/volta-ao-mundo-em-cem-livros/",
+      "destaque": true,
+      "selo": "Para alargar horizontes"
+    },
+    {
+      "titulo": "Conversas para Ler",
+      "autor": "RTP Antena 1",
+      "duracao": "episódios de cerca de 30 min",
+      "imagem": "imagens/podcasts/conversas-para-ler.jpg",
+      "alt": "Imagem do podcast Conversas para Ler",
+      "publico": "10.º ao 12.º ano",
+      "genero": "Entrevistas com autores",
+      "porque": "Entrevistas com quem escreve. Ouvir um autor falar do próprio livro costuma dar mais vontade de o ler do que qualquer resumo.",
+      "fonte": "RTP Antena 1",
+      "cta": "Ouvir",
+      "url": "https://antena1.rtp.pt/podcast/conversas-para-ler/",
+      "destaque": true,
+      "selo": "Dá vontade de ler"
+    },
+    {
+      "titulo": "Última Edição",
+      "autor": "RTP Antena 2",
+      "duracao": "episódios diários curtos",
+      "imagem": "imagens/podcasts/ultima-edicao.jpg",
+      "alt": "Imagem do podcast Última Edição",
+      "publico": "todos os anos",
+      "genero": "Novidades editoriais",
+      "porque": "Um espaço diário sobre o que está a sair. Serve para saber o que existe agora, e não só o que já entrou nos manuais.",
+      "fonte": "RTP Antena 2",
+      "cta": "Ouvir",
+      "url": "https://antena2.rtp.pt/podcast/ultima-edicao/",
+      "destaque": false
+    },
+    {
+      "titulo": "À Volta dos Livros",
+      "autor": "RTP",
+      "duracao": "programa de arquivo",
+      "imagem": "imagens/podcasts/a-volta-dos-livros.jpg",
+      "alt": "Imagem do programa À Volta dos Livros",
+      "publico": "todos os anos",
+      "genero": "Divulgação literária",
+      "porque": "Conversas sobre livros no arquivo da RTP. Bom sítio para procurar um autor específico quando estás a preparar um trabalho.",
+      "fonte": "RTP Play",
+      "cta": "Ouvir",
+      "url": "https://www.rtp.pt/play/p312/a-volta-dos-livros",
+      "destaque": false
+    }
+  ]
+}

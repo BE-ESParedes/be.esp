@@ -1,0 +1,120 @@
+{
+  "explica": [
+    {
+      "titulo": "Como sei se uma fonte é de confiança?",
+      "categoria": "Pesquisa",
+      "icone": "escudo",
+      "resumo": "Quatro perguntas, por esta ordem: quem escreveu, quando, para quê e o que diz mais alguém.",
+      "corpo": "**Quem escreveu?** Procura um nome e uma instituição. Uma página sem autor não é necessariamente falsa, mas obriga-te a desconfiar mais.\n\n**Quando?** Uma página sem data é um problema em quase tudo o que muda: ciência, leis, estatística. Em literatura, nem por isso.\n\n**Para quê?** Informar, vender ou convencer? Um site que quer vender-te alguma coisa não está a mentir por isso, mas escolhe o que te conta.\n\n**Mais alguém diz o mesmo?** Se só encontras aquilo num sítio, ou é muito recente ou é falso. Procura uma segunda fonte independente antes de usar.",
+      "recursos": [
+        {
+          "titulo": "Portal MILD · Media, Informação e Literacia Digital",
+          "url": "https://mild.rbe.mec.pt"
+        },
+        {
+          "titulo": "Percurso «Fazer um trabalho»",
+          "url": "#objetivos"
+        }
+      ],
+      "estado": "publicado",
+      "ordem": 1,
+      "destaque": true
+    },
+    {
+      "titulo": "Como cito uma fonte sem me perder?",
+      "categoria": "Escrita",
+      "icone": "ficheiro",
+      "resumo": "Citar é dizer de onde veio. Duas partes: uma marca no texto e a lista no fim.",
+      "corpo": "**No texto**, logo a seguir à ideia que não é tua: (Apelido, ano). Exemplo: (Saramago, 1982).\n\n**No fim**, a lista completa, por ordem alfabética de apelido. Um livro escreve-se assim:\n\nApelido, Inicial. (ano). *Título em itálico*. Editora.\n\nUma página web leva também a data em que a consultaste e o endereço.\n\n**Se usaste inteligência artificial**, diz qual e para quê. Não é proibido. É obrigatório dizer.\n\nO plágio não é só copiar frases: é apresentar uma ideia de outra pessoa como se fosse tua. Citar resolve os dois casos.",
+      "recursos": [
+        {
+          "titulo": "APA Style",
+          "url": "https://apastyle.apa.org/"
+        },
+        {
+          "titulo": "Percurso «Aprender a citar»",
+          "url": "#objetivos"
+        }
+      ],
+      "estado": "publicado",
+      "ordem": 2,
+      "destaque": true
+    },
+    {
+      "titulo": "Posso usar qualquer imagem que encontre?",
+      "categoria": "Direitos",
+      "icone": "cadeado",
+      "resumo": "Não. Mas há muita imagem que podes usar de graça, e basta dizer de onde veio.",
+      "corpo": "Uma imagem encontrada no Google tem dono, mesmo que não diga. Usá-la num trabalho de aula costuma ser tolerado; publicá-la já não.\n\nProcura imagens com licença **Creative Commons**: o autor autoriza a utilização à partida, e só te pede que digas quem é. As letras dizem o que podes fazer. **BY** obriga a dar crédito, **NC** proíbe uso comercial, **SA** obriga a partilhar nas mesmas condições.\n\nO domínio público é ainda mais simples: obras suficientemente antigas já não têm restrições. É o caso de quase tudo o que está na Europeana ou na Biblioteca Nacional Digital.\n\nEm qualquer caso, escreve sempre a legenda: autor, título, fonte e licença.",
+      "recursos": [
+        {
+          "titulo": "Europeana",
+          "url": "https://www.europeana.eu"
+        },
+        {
+          "titulo": "Biblioteca Nacional Digital",
+          "url": "https://bndigital.bnportugal.gov.pt"
+        }
+      ],
+      "estado": "publicado",
+      "ordem": 3,
+      "destaque": false
+    },
+    {
+      "titulo": "Como uso inteligência artificial sem deixar de pensar?",
+      "categoria": "Pesquisa",
+      "icone": "cerebro",
+      "resumo": "Serve para começar e para rever. Não serve para saber, nem para entregar.",
+      "corpo": "Um assistente de IA inventa com confiança. Escreve nomes de livros que não existem, autores trocados e datas erradas, sempre no mesmo tom seguro. Por isso:\n\n**Bom para:** arrumar ideias, sugerir por onde começar, explicar outra vez o que não percebeste, encontrar as palavras certas para pesquisar.\n\n**Mau para:** factos, datas, citações e bibliografia. Confirma tudo isso numa fonte a sério.\n\n**Regra prática:** se não consegues explicar por palavras tuas o que entregaste, não estás em condições de o entregar.\n\nE diz que usaste. Um trabalho que declara a ferramenta vale mais do que um que a esconde.",
+      "recursos": [
+        {
+          "titulo": "Percurso «Fazer um trabalho»",
+          "url": "#objetivos"
+        },
+        {
+          "titulo": "Pergunta à equipa da Biblioteca",
+          "url": "conhecer.html#contactos"
+        }
+      ],
+      "estado": "publicado",
+      "ordem": 4,
+      "destaque": true
+    },
+    {
+      "titulo": "Qual é a diferença entre informação e opinião?",
+      "categoria": "Pesquisa",
+      "icone": "balao",
+      "resumo": "Uma pode ser verificada por outra pessoa. A outra pode ser discutida.",
+      "corpo": "«A Biblioteca abre às 8h00» é informação: qualquer pessoa pode ir lá confirmar.\n\n«A Biblioteca devia abrir mais cedo» é opinião: pode ser bem ou mal fundamentada, mas não se verifica.\n\nO problema aparece quando as duas se misturam na mesma frase, sobretudo em títulos de notícia. Repara nos verbos e nos adjetivos: «afirmou» é informação, «desabafou» já é interpretação.\n\nNum trabalho escolar precisas das duas, mas separadas: a informação sustenta, a opinião conclui. Nunca apresentes a segunda como se fosse a primeira.",
+      "recursos": [
+        {
+          "titulo": "Portal MILD · RBE",
+          "url": "https://mild.rbe.mec.pt"
+        }
+      ],
+      "estado": "publicado",
+      "ordem": 5,
+      "destaque": false
+    },
+    {
+      "titulo": "Como leio uma cota e encontro o livro na estante?",
+      "categoria": "Biblioteca",
+      "icone": "local",
+      "resumo": "Notação, apelido, título. Três pedaços e uma barra, e sabes onde procurar.",
+      "corpo": "Uma cota como **821-3 SAR/ENS** diz-te onde o livro está arrumado. Tem três pedaços, sempre por esta ordem.\n\n**A notação** diz o assunto. 821-3 é ficção e narrativa portuguesa. É a Classificação Decimal Universal, na tabela simplificada da Biblioteca, com 102 notações agrupadas em nove classes, e cada classe tem a sua cor na sinalética do espaço.\n\n**Três letras em maiúsculas**, a seguir a um espaço: o apelido do autor. SAR de Saramago.\n\n**Barra e mais três letras:** a primeira palavra significativa do título, ignorando o artigo. ENS de *Ensaio sobre a Cegueira*.\n\nQuando a obra tem mais do que um volume, o número aparece no fim, entre parênteses, assim: (v.2).\n\nNa estante segue os números por ordem crescente e, dentro do mesmo número, as letras por ordem alfabética. Duas obras podem partilhar a mesma cota quando as letras coincidem: 821-3 SAR/ENS serve o *Ensaio sobre a Cegueira* e o *Ensaio sobre a Lucidez*. Se não encontrares, pergunta no balcão, que encontramos contigo.",
+      "recursos": [
+        {
+          "titulo": "Ver as nove classes e as suas cores",
+          "url": "encontrar.html#estantes"
+        },
+        {
+          "titulo": "Pesquisar no catálogo",
+          "url": "encontrar.html#opac"
+        }
+      ],
+      "estado": "publicado",
+      "ordem": 6,
+      "destaque": false
+    }
+  ]
+}

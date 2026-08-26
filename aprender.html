@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aprender · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Pesquisar, avaliar fontes, estudar e usar ferramentas digitais, com a Biblioteca Escolar da Escola Secundária de Paredes">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Aprender · Biblioteca Escolar da ESP"><meta property="og:description" content="Em que te podemos ajudar hoje? Percursos passo a passo para o teu trabalho, o teu teste e as tuas citações.">
+<meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
+<link rel="icon" href="imagens/logo/favicon.ico"><link rel="icon" type="image/svg+xml" href="imagens/logo/icone-app.svg">
+<link rel="apple-touch-icon" href="imagens/logo/apple-touch-icon.png">
+<meta name="theme-color" content="#F8F8F8">
+<link rel="stylesheet" href="estilos.css?v=69e1cd79">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Página APOIO AO ESTUDO (Recursos no menu).
+   Decisão de 28/07/2026: a página deixa de estar organizada por tipo
+   de documento e passa a estar organizada por objetivo do aluno.
+   Entra-se por «hoje quero…» e o percurso abre no lugar.
+   Três percursos completos; os outros três anunciam-se em preparação
+   em vez de abrirem para o vazio.
+   ═══════════════════════════════════════════════════════════════ */
+/* Os seis tokens que #p-aprender redeclarava saíram a 26/08/2026 para :root,
+   em estilos.css: quatro eram apelidos de tokens globais e dois estavam
+   escritos de forma idêntica em seis páginas. */
+#p-aprender main{background:var(--papel)}
+
+/* ---- estrutura ---- */
+.asec{padding:var(--e-sec) 0}
+.awrap{max-width:var(--coluna);margin:0 auto;padding:0 var(--margem)}
+.afilete{width:44px;height:5px;background:var(--dourado);border-radius:2px;margin:0 0 var(--e-3)}
+/* .atit passou para o sistema, em estilos.css: era uma das cinco
+   famílias de título de secção, uma por página. */
+.alead{color:var(--cinza);font-size:var(--t-corpo);margin:0 0 var(--e-4);max-width:52ch;line-height:var(--lh-corpo)}
+/* Os botões .abt passaram para o sistema, em estilos.css: eram uma
+   das cinco famílias quase iguais que davam sete alturas diferentes. */
+
+/* ═══ HERO ═══ */
+/* A abertura desta página passou para o contrato partilhado, em
+   estilos.css: as quatro interiores abriam cada uma à sua maneira. */
+.ahero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.ahero .rotulo{display:inline-block;background:var(--dourado);color:var(--tinta);font-weight:700;
+  font-size:var(--t-micro);letter-spacing:.07em;text-transform:uppercase;padding:var(--e-2) var(--e-3);
+  border-radius:var(--r-pilula);margin:0 0 20px}
+
+/* ═══ HOJE QUERO ═══ */
+.aobjs{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--e-3)}
+.aobj{display:flex;align-items:flex-start;gap:var(--e-3);text-align:left;background:var(--branco);
+  border:2px solid var(--linha);border-radius:var(--r-cartao);padding:var(--e-4);cursor:pointer;
+  font-family:inherit;width:100%;transition:.16s;min-height:118px}
+.aobj:hover{border-color:var(--menta);transform:translateY(-3px);box-shadow:var(--sombra-lg)}
+.aobj[aria-selected="true"]{border-color:var(--menta);background:var(--menta-wash);
+  box-shadow:var(--sombra-lg)}
+.aobj .ic{display:grid;place-items:center;width:44px;height:44px;border-radius:var(--r-cartao);flex:none;
+  background:var(--menta-wash);color:var(--menta-escura)}
+.aobj[aria-selected="true"] .ic{background:var(--menta);color:var(--tinta)}
+.aobj b{display:block;font-size:var(--t-corpo);font-weight:800;color:var(--tinta);letter-spacing:-.015em;
+  line-height:var(--lh-sub);margin-bottom:var(--e-1)}
+.aobj span{display:block;font-size:var(--t-peq);color:var(--cinza);line-height:var(--lh-cartao)}
+.aobj.espera{cursor:default;background:var(--areia);border-style:dashed}
+.aobj.espera:hover{transform:none;box-shadow:none;border-color:var(--claro-2)}
+.aobj.espera .ic{background:var(--cinza-bloco);color:#6B6B6B}
+.aobj .breve{display:inline-block;margin-top:var(--e-2);font-size:var(--t-nano);font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;background:var(--dourado-wash);border:1px solid var(--dourado-linha);
+  color:var(--tinta);padding:var(--e-1) var(--e-2);border-radius:var(--r-pilula)}
+
+/* ═══ PERCURSO ═══ */
+.apercurso{margin-top:var(--e-4);background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao);box-shadow:var(--sombra);padding:var(--e-f2)}
+.apercurso[hidden]{display:none}
+.apc-topo{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;
+  padding-bottom:20px;margin-bottom:var(--e-4);border-bottom:1px solid var(--linha);flex-wrap:wrap}
+.apc-topo h3{font-size:var(--t-3);font-weight:800;margin:0 0 var(--e-2);color:var(--tinta);letter-spacing:-.02em}
+.apc-topo p{margin:0;color:var(--cinza);font-size:var(--t-peq);line-height:var(--lh-corpo);max-width:62ch}
+/* A pílula da duração tem «flex:none» para não ser espremida ao lado do
+   título. Em ecrãs estreitos isso fazia-a transbordar 20 px para fora da
+   página: o texto é longo e não parte. Passa a poder partir e a ceder. */
+.apc-dur{display:inline-flex;align-items:center;gap:var(--e-2);background:var(--dourado-wash);
+  border:1px solid var(--dourado-linha);color:var(--tinta);font-size:var(--t-micro);font-weight:700;
+  padding:var(--e-2) var(--e-3);border-radius:var(--r-pilula);flex:0 1 auto;min-width:0;
+  line-height:var(--lh-cartao);text-align:left}
+.apc-dur .ico{flex:none}
+/* Cada passo é uma linha com o número à esquerda e uma guia vertical a ligá-los. */
+.apasso{position:relative;padding:0 0 var(--e-4) 56px}
+.apasso:last-child{padding-bottom:0}
+.apasso::before{content:"";position:absolute;left:17px;top:38px;bottom:0;width:2px;
+  background:var(--linha)}
+.apasso:last-child::before{display:none}
+.apasso .n{position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;
+  background:var(--menta);color:var(--tinta);display:grid;place-items:center;
+  font-weight:800;font-size:var(--t-corpo)}
+.apasso h4{font-size:var(--t-corpo);font-weight:700;margin:var(--e-2) 0 var(--e-2);color:var(--tinta);letter-spacing:-.01em}
+.apasso p{margin:0;color:var(--tinta);font-size:var(--t-peq);line-height:var(--lh-corpo);max-width:74ch}
+.apasso p em{font-style:italic}
+.arec{display:flex;flex-wrap:wrap;gap:var(--e-2);margin-top:var(--e-3)}
+.arec a{display:inline-flex;align-items:center;gap:var(--e-2);background:var(--papel);
+  border:1px solid var(--linha);border-radius:var(--r-pilula);padding:var(--e-2) var(--e-3);
+  font-size:var(--t-peq);font-weight:700;color:var(--tinta);text-decoration:none;transition:.15s}
+.arec a:hover{border-color:var(--menta);background:var(--menta-wash)}
+.arec a::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--menta-txt);flex:none}
+.apc-fim{margin-top:var(--e-4);padding-top:var(--e-4);border-top:1px solid var(--linha);
+  display:flex;align-items:center;gap:var(--e-3);flex-wrap:wrap}
+.apc-fim p{margin:0;color:var(--cinza);font-size:var(--t-peq)}
+
+/* ═══ CARRIL PARTILHADO ═══
+   Guias, disciplinas e «onde ir buscar» usam todos o mesmo cartão: uma
+   moldura 16:10 com a imagem do sítio de destino, título e uma linha a
+   dizer para que serve. Enquanto a imagem não for carregada, a moldura
+   mostra o endereço em vez de ficar em branco (28/07/2026). */
+.afaixa{margin-bottom:32px}
+.afaixa:last-child{margin-bottom:0}
+.afaixa-topo{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--e-3);margin:0 0 12px}
+.afaixa-topo h3{display:flex;align-items:center;gap:var(--e-2);font-size:var(--t-corpo);font-weight:800;
+  margin:0;color:var(--tinta);letter-spacing:-.015em}
+.afaixa-topo h3 .ic{display:grid;place-items:center;width:32px;height:32px;border-radius:var(--r-cartao);
+  background:var(--menta-wash);color:var(--menta-escura);flex:none}
+.anav{display:flex;gap:var(--e-2);flex:none}
+.anav button{width:36px;height:36px;border-radius:50%;border:1px solid var(--linha);
+  background:var(--branco);color:var(--tinta);cursor:pointer;font-size:var(--t-corpo);line-height:var(--lh-tit);
+  display:grid;place-items:center;transition:.15s}
+.anav button:hover{border-color:var(--menta);background:var(--menta-wash)}
+.anav button[disabled]{opacity:.35;cursor:default}
+.acarril{display:flex;gap:var(--e-3);overflow-x:auto;scroll-behavior:smooth;padding:var(--e-1) 2px var(--e-3);
+  scrollbar-width:thin;scrollbar-color:var(--menta-media) transparent}
+.acarril::-webkit-scrollbar{height:7px}
+.acarril::-webkit-scrollbar-track{background:transparent}
+.acarril::-webkit-scrollbar-thumb{background:var(--menta-media);border-radius:var(--r-peq)}
+.asite{flex:0 0 230px;background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao);overflow:hidden;text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s,border-color .18s}
+a.asite:hover{transform:translateY(-4px);box-shadow:var(--sombra-lg);border-color:var(--menta)}
+.asite .capa{position:relative;aspect-ratio:var(--ar-foto);background:var(--cinza-bloco);
+  border-bottom:1px solid var(--linha);display:grid;place-items:center;overflow:hidden}
+.asite .capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:top center;transition:transform .3s}
+a.asite:hover .capa img{transform:scale(1.04)}
+.asite .capa .vazio{display:flex;flex-direction:column;align-items:center;gap:var(--e-2);padding:var(--e-3);
+  color:var(--menta-txt);font-size:var(--t-nano);text-align:center;line-height:var(--lh-cartao);word-break:break-all}
+.asite .tx{padding:var(--e-3) var(--e-3) var(--e-3);display:flex;flex-direction:column;flex:1}
+.asite .etiq{display:inline-block;align-self:flex-start;font-size:var(--t-nano);font-weight:800;
+  letter-spacing:.06em;text-transform:uppercase;background:var(--dourado-wash);
+  border:1px solid var(--dourado-linha);color:var(--tinta);padding:var(--e-1) var(--e-2);
+  border-radius:var(--r-pilula);margin-bottom:var(--e-2)}
+.asite h4{font-size:var(--t-peq);font-weight:700;margin:0 0 var(--e-1);color:var(--tinta);line-height:var(--lh-sub)}
+.asite .fonte{font-size:var(--t-micro);font-weight:700;color:var(--menta-txt);margin:0 0 var(--e-2)}
+.asite p{margin:0;font-size:var(--t-micro);color:var(--cinza);line-height:var(--lh-cartao);flex:1}
+.asite .ir{margin-top:12px;font-size:var(--t-micro);font-weight:800;color:var(--menta-txt)}
+
+/* ═══ GUIAS E REFERENCIAIS ═══ */
+.aguioes{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--e-3)}
+.aguioes .asite{flex:auto}
+
+/* ═══ DISCIPLINAS ═══ */
+.adiscs{display:flex;flex-wrap:wrap;gap:var(--e-2);margin-bottom:var(--e-4)}
+.adisc-bt{display:inline-flex;align-items:center;gap:var(--e-2);background:var(--branco);
+  border:2px solid var(--linha);border-radius:var(--r-pilula);padding:var(--e-2) 20px var(--e-2) 12px;
+  cursor:pointer;font-family:inherit;font-size:var(--t-peq);font-weight:700;color:var(--tinta);
+  transition:.15s;min-height:48px}
+.adisc-bt:hover{border-color:var(--menta);background:var(--menta-wash)}
+.adisc-bt[aria-selected="true"]{background:var(--menta);border-color:var(--menta)}
+.adisc-bt .ic{display:grid;place-items:center;width:28px;height:28px;border-radius:var(--r-peq);
+  background:var(--menta-wash);color:var(--menta-escura);flex:none}
+.adisc-bt[aria-selected="true"] .ic{background:var(--branco)}
+.adisc-painel{background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao);padding:var(--e-4)}
+
+/* ═══ LITERACIA ═══ */
+.alit{display:flex;align-items:stretch;overflow-x:auto;padding-bottom:var(--e-2);scrollbar-width:thin}
+.aetapa{flex:1 0 176px;background:var(--branco);border:1px solid var(--linha);
+  border-top:4px solid var(--dourado);border-radius:var(--r-cartao);padding:20px var(--e-3)}
+.aetapa .ic{display:grid;place-items:center;width:36px;height:36px;border-radius:var(--r-cartao);
+  background:var(--menta-wash);color:var(--menta-escura);margin-bottom:12px}
+.aetapa .n{font-size:var(--t-micro);font-weight:800;color:var(--menta-txt);letter-spacing:.08em}
+.aetapa h3{font-size:var(--t-corpo);font-weight:700;margin:var(--e-1) 0 var(--e-2);color:var(--tinta)}
+.aetapa p{margin:0;color:var(--cinza);font-size:var(--t-peq);line-height:var(--lh-corpo)}
+.aseta{display:grid;place-items:center;padding:0 var(--e-2);color:var(--menta-txt);flex:none}
+
+/* ═══ DOCENTES ═══ */
+.adoc-bloco{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao);
+  box-shadow:var(--sombra);padding:var(--e-f2)}
+.adocs{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--e-3)}
+/* O cartão deixou de ser uma ligação inteira: agora tem duas informações de
+   níveis diferentes (o que é, e o que é preciso) e uma só ação no fim. */
+.adoc{background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-cartao);
+  padding:20px;color:inherit;display:flex;flex-direction:column;
+  transition:border-color .16s,background .16s}
+.adoc:hover{border-color:var(--menta);background:var(--menta-wash)}
+.adoc .ic{display:grid;place-items:center;width:36px;height:36px;border-radius:var(--r-cartao);
+  background:var(--branco);color:var(--menta-escura);margin-bottom:12px}
+.adoc h4{font-size:var(--t-corpo);font-weight:700;margin:0 0 var(--e-2);color:var(--tinta);line-height:var(--lh-sub)}
+.adoc p{margin:0;font-size:var(--t-peq);color:var(--cinza-legivel);line-height:var(--lh-corpo)}
+.adoc-req{margin-top:var(--e-2)!important;padding-top:var(--e-2);border-top:1px solid var(--linha);
+  font-size:var(--t-micro)!important;color:var(--tinta)!important}
+.adoc-pe{margin-top:auto!important;padding-top:var(--e-3);display:flex;align-items:baseline;
+  justify-content:space-between;gap:12px;flex-wrap:wrap}
+.adoc-norma{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:var(--t-nano);font-weight:700;
+  letter-spacing:.02em;color:var(--cinza-legivel);background:var(--branco);
+  border:1px solid var(--linha);border-radius:var(--r-pilula);padding:var(--e-1) var(--e-2)}
+.adoc-bt{font-size:var(--t-peq);font-weight:700;color:var(--menta-txt);text-decoration:none;
+  white-space:nowrap}
+.adoc-bt:hover{text-decoration:underline}
+.adoc-bt:focus-visible{outline:3px solid var(--dourado);outline-offset:2px;border-radius:var(--r-peq)}
+
+/* ═══ ONDE IR BUSCAR ═══ (usa o carril partilhado) */
+
+/* ═══ FECHO ═══ */
+.afecho{background:linear-gradient(140deg,var(--branco) 0%,var(--areia) 55%,var(--menta-wash) 100%);
+  border:1px solid var(--linha);border-radius:var(--r-cartao);
+  padding:var(--e-f3) var(--e-f3)}
+.afecho h2{font-size:var(--t-2);font-weight:800;margin:0 0 var(--e-2);color:var(--tinta);
+  letter-spacing:var(--tr-2);max-width:22ch}
+.afecho p{margin:0 0 var(--e-4);max-width:56ch;color:var(--cinza);font-size:var(--t-corpo);line-height:var(--lh-corpo)}
+
+@media(max-width:980px){
+  .aobjs,.aguioes,.adocs{grid-template-columns:repeat(2,1fr)}
+  .aseta{display:none}
+  .alit{gap:12px}
+  .aetapa{flex:0 0 200px}
+}
+@media(max-width:620px){
+  .asec{padding:var(--e-3) 0}
+  .aobjs,.aguioes,.adocs{grid-template-columns:1fr}
+  .asite{flex:0 0 210px}
+  .anav{display:none}
+  .apasso{padding-left:48px}
+  .apercurso{padding:var(--e-4) var(--e-3)}
+}
+@media(prefers-reduced-motion:reduce){
+  .aobj:hover,.adoc:hover,a.asite:hover{transform:none}
+  .acarril{scroll-behavior:auto}
+}
+</style>
+</head>
+<body id="p-aprender">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <!-- ═══ HERO ═══ -->
+  <header class="ahero">
+    <img src="imagens/apoio/hero.jpg" alt="">
+    <div class="awrap">
+      <p class="rotulo">Apoio ao estudo</p>
+      <p class="pg-cota" data-revela><span class="cota cota--escuro"><span class="banda"></span><span class="cod">001.8</span><span class="nome">aprender</span></span></p>
+      <h1 class="pg-tit" data-revela data-atraso="1">Em que te podemos ajudar hoje?</h1>
+      <p class="pg-lead" data-revela data-atraso="2">Diz-nos o objetivo e mostramos-te o caminho
+        todo, passo a passo, com os recursos de cada etapa.</p>
+    </div>
+  </header>
+
+  <!-- ═══ HOJE QUERO ═══ -->
+  <section class="asec de-menta para-menta" data-amb="sem-faixa" id="objetivos" data-assinatura aria-labelledby="t-obj">
+    <div class="awrap">
+      <div class="afilete" data-revela></div>
+      <h2 class="atit" data-revela id="t-obj">Hoje quero…</h2>
+      <p class="alead">Escolhe um objetivo. O percurso abre aqui, com os recursos certos
+        em cada passo.</p>
+      <div class="aobjs" id="objetivos-lista" role="tablist" aria-label="Objetivos"></div>
+      <div class="apercurso" id="percurso" role="tabpanel" hidden></div>
+    </div>
+  </section>
+
+  <!-- ═══ A BIBLIOTECA EXPLICA ═══
+       Respostas curtas às dúvidas que chegam mais vezes ao balcão. Cada
+       uma acaba nos recursos reais que já existem no site — não são
+       ligações novas, são as que a Biblioteca já validou. -->
+  <section class="asec de-menta para-papel" data-amb id="explica" data-seccao aria-labelledby="t-exp">
+    <div class="awrap">
+      <div class="afilete" data-revela></div>
+      <h2 class="atit" data-revela id="t-exp">A Biblioteca explica</h2>
+      <p class="alead">As dúvidas que nos chegam mais vezes, respondidas em poucas linhas.
+        Abre a que te interessa.</p>
+      <div class="exp-grelha" id="explica-lista"></div>
+    </div>
+  </section>
+
+  <!-- ═══ GUIÕES ═══ -->
+  <section class="asec de-papel para-menta" data-amb id="guioes" aria-labelledby="t-gui">
+    <div class="awrap">
+      <div class="afilete" data-revela></div>
+      <h2 class="atit" data-revela id="t-gui">Guias e referenciais</h2>
+      <p class="alead">Os guias oficiais em que a Biblioteca se apoia.</p>
+      <div class="aguioes" id="guioes-lista"></div>
+    </div>
+  </section>
+
+  <!-- ═══ DISCIPLINAS ═══ -->
+  <section class="asec de-menta para-papel" data-amb id="disciplinas" aria-labelledby="t-dis">
+    <div class="awrap">
+      <div class="afilete" data-revela></div>
+      <h2 class="atit" data-revela id="t-dis">Aprender por disciplina</h2>
+      <p class="alead">Recursos escolhidos com os professores. Escolhe a disciplina.</p>
+      <div class="adiscs" id="disciplinas-botoes" role="tablist" aria-label="Disciplinas"></div>
+      <div class="adisc-painel" id="disciplinas-painel" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <!-- ═══ LITERACIA ═══ -->
+  <section class="asec de-papel para-menta" data-amb id="literacia" aria-labelledby="t-lit">
+    <div class="awrap">
+      <div class="afilete" data-revela></div>
+      <h2 class="atit" data-revela id="t-lit">Literacia digital</h2>
+      <p class="alead">Seis competências, por esta ordem, segundo o referencial da RBE.</p>
+      <div class="alit" id="literacia-lista"></div>
+      <p style="margin-top:20px"><a class="abt linha peq" href="https://mild.rbe.mec.pt"
+         target="_blank" rel="noopener">Portal MILD da RBE &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ DOCENTES ═══ -->
+  <section class="asec de-menta para-papel" data-amb id="docentes" aria-labelledby="t-doc">
+    <div class="awrap">
+      <div class="afilete" data-revela></div>
+      <h2 class="atit" data-revela id="t-doc">Trabalhar com a Biblioteca</h2>
+      <p class="alead">Para docentes. Seis pedidos que a Biblioteca aceita, cada um com o
+        que é preciso e com que antecedência. Os procedimentos são os do Manual da Biblioteca,
+        e o código que aparece em cada um é onde estão escritos por inteiro.</p>
+      <div class="adoc-bloco"><div class="adocs" id="docentes-lista"></div></div>
+    </div>
+  </section>
+
+  <!-- ═══ LIGAÇÕES ═══ -->
+  <section class="asec de-papel para-menta" data-amb id="ligacoes" aria-labelledby="t-lig">
+    <div class="awrap">
+      <div class="afilete" data-revela></div>
+      <h2 class="atit" data-revela id="t-lig">Onde ir buscar</h2>
+      <p class="alead">Sítios validados pela Biblioteca, de acesso livre. Abrem em
+        separador novo.</p>
+      <div id="ligacoes-lista"></div>
+    </div>
+  </section>
+
+  <!-- ═══ FECHO ═══ -->
+  <section class="asec de-menta para-menta" data-amb>
+    <div class="awrap">
+      <div class="afecho">
+        <h2>Não encontraste o que precisavas?</h2>
+        <p>A equipa ajuda-te a definir o tema, a encontrar as fontes e a citar como deve ser.</p>
+        <p style="margin:0"><a class="abt" href="conhecer.html#contactos">Pedir apoio à Biblioteca</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+<div id="rodape"></div>
+
+<script>
+window.renderPagina = function(){
+  const P = CONTEUDO.percursos || [];
+
+  /* ── A Biblioteca explica ──
+     Cada explicação abre no sítio, sem mudar de página. O corpo aceita
+     **negrito** e parágrafos separados por linha em branco — é tudo o que
+     um texto destes precisa, e evita que a equipa tenha de escrever HTML. */
+  (function () {
+    const el = document.getElementById('explica-lista');
+    if (!el) return;
+    const itens = publicados('explica');
+    if (!itens.length) { document.getElementById('explica')?.setAttribute('hidden',''); return; }
+    const marcado = s => esc(s)
+      .split(/\n\s*\n|\n/)
+      .filter(l => l.trim())
+      .map(l => `<p>${l.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')}</p>`)
+      .join('');
+    el.innerHTML = itens.map(x => `
+      <details class="exp">
+        <summary>
+          <span class="exp-ico">${icone(x.icone || 'info', 20)}</span>
+          <span class="exp-tx">
+            ${temTexto(x.categoria) ? `<span class="exp-cat">${esc(x.categoria)}</span>` : ''}
+            <b>${esc(x.titulo || '')}</b>
+            ${temTexto(x.resumo) ? `<span class="res">${esc(x.resumo)}</span>` : ''}
+          </span>
+          <span class="exp-mais" aria-hidden="true">&rsaquo;</span>
+        </summary>
+        <div class="exp-corpo">
+          ${marcado(x.corpo || '')}
+          ${(x.recursos || []).length ? `<div class="exp-liga">${(x.recursos || [])
+            .map(r => `<a ${linkAttrs(r.url)}>${esc(r.titulo)}</a>`).join('')}</div>` : ''}
+        </div>
+      </details>`).join('');
+  })();
+
+
+  /* ── Hoje quero… ──
+     Os objetivos funcionam como separadores: o percurso escolhido abre no
+     painel logo abaixo, sem mudar de página nem perder o contexto.
+     Os que ainda não têm conteúdo não são clicáveis: dizem-no e ficam-se
+     por aí, em vez de abrirem para o vazio. */
+  const ol = document.getElementById('objetivos-lista');
+  const pn = document.getElementById('percurso');
+
+  function mostrar(n){
+    const p = P[n]; if (!p || p.preparacao) return;
+    pn.innerHTML = `
+      <div class="apc-topo">
+        <div><h3>${esc(p.rotulo)}</h3><p>${esc(p.resumo)}</p></div>
+        ${p.duracao ? `<span class="apc-dur">${icone('relogio',15)} ${esc(p.duracao)}</span>` : ''}
+      </div>
+      ${(p.passos||[]).map(s => `
+        <div class="apasso">
+          <span class="n">${esc(s.n)}</span>
+          <h4>${esc(s.titulo)}</h4>
+          <p>${s.texto}</p>
+          ${(s.recursos||[]).length ? `<div class="arec">${s.recursos.map(r =>
+             `<a ${linkAttrs(r.url)}>${esc(r.titulo)}</a>`).join('')}</div>` : ''}
+        </div>`).join('')}
+      <div class="apc-fim">
+        <p>Precisas de ajuda nalgum passo?</p>
+        <a class="abt peq" href="conhecer.html#contactos">Falar com a Biblioteca</a>
+      </div>`;
+    pn.hidden = false;
+    pn.id = 'percurso';
+    [...ol.children].forEach((b,k) => {
+      if (b.classList.contains('espera')) return;
+      b.setAttribute('aria-selected', String(k === n));
+    });
+    /* Âncoras estáveis para se poder ligar diretamente a um percurso. */
+    pn.setAttribute('data-percurso', p.id);
+  }
+
+  if (ol) {
+    ol.innerHTML = P.map((p,n) => {
+      const dentro = `<span class="ic">${icone(p.icone||'alvo',22)}</span>
+        <span><b>${esc(p.rotulo)}</b><span>${esc(p.resumo)}</span>
+        ${p.preparacao ? `<span class="breve">${esc(p.nota ? 'Em preparação' : 'Em preparação')}</span>` : ''}</span>`;
+      return p.preparacao
+        ? `<div class="aobj espera" title="${esc(p.nota||'')}">${dentro}</div>`
+        : `<button class="aobj" type="button" role="tab" aria-selected="false"
+             aria-controls="percurso" data-n="${n}">${dentro}</button>`;
+    }).join('');
+    ol.addEventListener('click', e => {
+      const b = e.target.closest('.aobj[data-n]'); if (!b) return;
+      mostrar(+b.dataset.n);
+      pn.scrollIntoView({behavior:'smooth', block:'nearest'});
+    });
+    /* Abre o primeiro percurso por omissão, ou o que vier na ligação
+       (#percurso-citar, #percurso-teste, #percurso-trabalho). */
+    const alvo = (location.hash||'').replace('#percurso-','');
+    const n = Math.max(0, P.findIndex(p => p.id === alvo && !p.preparacao));
+    mostrar(n);
+  }
+  /* As ligações internas #percurso-xxx trocam o painel sem recarregar. */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#percurso-"]'); if (!a) return;
+    const id = a.getAttribute('href').replace('#percurso-','');
+    const n = P.findIndex(p => p.id === id && !p.preparacao);
+    if (n < 0) return;
+    e.preventDefault();
+    mostrar(n);
+    document.getElementById('objetivos').scrollIntoView({behavior:'smooth'});
+  });
+
+  /* ── Guiões ── */
+  /* ── Cartão de sítio, partilhado por guias, disciplinas e «onde ir buscar» ──
+     A moldura mostra a imagem da página de destino. Enquanto essa imagem não
+     for carregada pelo painel, mostra o endereço — nunca fica em branco. */
+  function dominio(u){
+    try { return new URL(u).hostname.replace(/^www\./,''); } catch(e){ return u || ''; }
+  }
+  function cartaoSite(x){
+    const nome = x.titulo || x.nome || '';
+    const capa = temTexto(x.imagem)
+      ? `<img src="${esc(x.imagem)}" alt="${esc(x.alt||'Página inicial de '+nome)}" loading="lazy">`
+      : `<span class="vazio">
+           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+             <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20"/>
+             <circle cx="5.5" cy="6.5" r=".6"/><circle cx="8" cy="6.5" r=".6"/></svg>
+           ${esc(dominio(x.url))}</span>`;
+    const dentro = `<span class="capa">${capa}</span>
+      <span class="tx">
+        ${x.area ? `<span class="etiq">${esc(x.area)}</span>` : ''}
+        <h4>${esc(nome)}</h4>
+        ${x.fonte ? `<span class="fonte">${esc(x.fonte)}</span>` : ''}
+        ${x.nivel ? `<span class="fonte">${esc(x.nivel)}</span>` : ''}
+        <p>${esc(x.descricao || x.para || '')}</p>
+        ${temTexto(x.url) ? '<span class="ir">Abrir &rarr;</span>' : ''}
+      </span>`;
+    return temTexto(x.url) ? `<a class="asite" ${linkAttrs(x.url)}>${dentro}</a>`
+                           : `<div class="asite">${dentro}</div>`;
+  }
+
+  /* Faixa horizontal com setas e navegação por teclado. */
+  let contaFaixa = 0;
+  function faixa(titulo, ic, itens){
+    const id = 'carril-' + (++contaFaixa);
+    return `<div class="afaixa">
+      <div class="afaixa-topo">
+        <h3>${ic ? `<span class="ic">${icone(ic,18)}</span>` : ''}${esc(titulo)}</h3>
+        <div class="anav" data-alvo="${id}"></div>
+      </div>
+      <div class="acarril" id="${id}" tabindex="0" role="group" aria-label="${esc(titulo)}">
+        ${itens.map(cartaoSite).join('')}
+      </div></div>`;
+  }
+  function ligarFaixas(raiz){
+    (raiz||document).querySelectorAll('.anav:empty').forEach(nav => {
+      const c = document.getElementById(nav.dataset.alvo); if (!c) return;
+      nav.innerHTML = `<button type="button" data-d="-1" aria-label="Recuar">&lsaquo;</button>
+                       <button type="button" data-d="1" aria-label="Avançar">&rsaquo;</button>`;
+      const passo = () => Math.max(240, c.clientWidth * 0.8);
+      const estado = () => {
+        const [a,b] = nav.children;
+        a.disabled = c.scrollLeft <= 2;
+        b.disabled = c.scrollLeft + c.clientWidth >= c.scrollWidth - 2;
+      };
+      nav.addEventListener('click', e => {
+        const b = e.target.closest('button'); if (!b) return;
+        c.scrollBy({left: passo() * (+b.dataset.d), behavior:'smooth'});
+      });
+      c.addEventListener('scroll', estado, {passive:true});
+      c.addEventListener('keydown', e => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        c.scrollBy({left: passo() * (e.key === 'ArrowRight' ? 1 : -1), behavior:'smooth'});
+      });
+      estado();
+    });
+  }
+
+  /* ── Guias e referenciais ── */
+  const gl = document.getElementById('guioes-lista');
+  if (gl) gl.innerHTML = (CONTEUDO.guioes||[]).map(cartaoSite).join('');
+
+  /* ── Aprender por disciplina ──
+     Escolhe-se a disciplina numa pílula e os recursos abrem em faixa
+     horizontal, como no Catálogo. */
+  const D  = CONTEUDO.disciplinas || [];
+  const db = document.getElementById('disciplinas-botoes');
+  const dp = document.getElementById('disciplinas-painel');
+  function pintaDisciplina(n){
+    const d = D[n]; if (!d) return;
+    dp.innerHTML = faixa(d.nome, d.icone || 'livro', d.recursos || []);
+    ligarFaixas(dp);
+    [...db.children].forEach((b,k) => {
+      b.setAttribute('aria-selected', String(k === n));
+      b.tabIndex = k === n ? 0 : -1;
+    });
+  }
+  if (db && D.length) {
+    db.innerHTML = D.map((d,n) =>
+      `<button class="adisc-bt" type="button" role="tab" aria-selected="${n===0}"
+               tabindex="${n===0?0:-1}">
+         <span class="ic">${icone(d.icone||'livro',17)}</span>${esc(d.nome)}</button>`).join('');
+    db.addEventListener('click', e => {
+      const b = e.target.closest('.adisc-bt'); if (b) pintaDisciplina([...db.children].indexOf(b));
+    });
+    db.addEventListener('keydown', e => {
+      if (!['ArrowRight','ArrowLeft'].includes(e.key)) return;
+      e.preventDefault();
+      const at = [...db.children].findIndex(b => b.getAttribute('aria-selected') === 'true');
+      const n = (at + (e.key === 'ArrowRight' ? 1 : -1) + D.length) % D.length;
+      pintaDisciplina(n); db.children[n].focus();
+    });
+    pintaDisciplina(0);
+  }
+
+  /* ── Literacia digital ── */
+  const ll = document.getElementById('literacia-lista');
+  if (ll) ll.innerHTML = (CONTEUDO.literaciaPercurso||[]).map((x,n,a) =>
+    `<div class="aetapa"><span class="ic">${icone(x.icone||'alvo',19)}</span>
+       <span class="n">ETAPA ${esc(x.n)}</span>
+       <h3>${esc(x.titulo)}</h3><p>${esc(x.texto)}</p></div>` +
+    (n < a.length-1 ? `<div class="aseta" aria-hidden="true">
+       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+     </div>` : '')).join('');
+
+  /* ── Docentes ──
+     Cada pedido diz o que é, o que é preciso, com que antecedência e onde se
+     submete. O endereço do formulário vem do painel; enquanto não existir, o
+     botão escreve à Biblioteca em vez de não fazer nada. A norma que rege
+     cada um fica visível: é o Manual de Procedimentos, não uma invenção. */
+  const dc = document.getElementById('docentes-lista');
+  if (dc) {
+    const inf = CONTEUDO.info || {};
+    dc.innerHTML = publicados('docentes').map(x => {
+      const url = temTexto(x.url) ? x.url
+        : (x.campoLink && temTexto(inf[x.campoLink]) ? inf[x.campoLink] : '');
+      const destino = url
+        ? `<a class="adoc-bt" ${linkAttrs(url)}>${esc(x.acao || 'Saber mais')} &rarr;</a>`
+        : (temTexto(inf.email)
+            ? `<a class="adoc-bt" href="mailto:${esc(inf.email)}?subject=${
+                 encodeURIComponent(x.assunto || x.titulo || '')}">${
+                 esc(x.acao || 'Escrever à Biblioteca')} &rarr;</a>`
+            : '');
+      return `<article class="adoc">
+        <span class="ic">${icone(x.icone || 'ligacao', 19)}</span>
+        <h4>${esc(x.titulo)}</h4>
+        <p>${esc(x.texto || '')}</p>
+        ${temTexto(x.requisito) ? `<p class="adoc-req">${esc(x.requisito)}</p>` : ''}
+        <p class="adoc-pe">
+          ${temTexto(x.norma) ? `<span class="adoc-norma">${esc(x.norma)}</span>` : ''}
+          ${destino}</p>
+      </article>`;
+    }).join('');
+  }
+
+  /* ── Onde ir buscar: uma faixa por grupo ── */
+  const GRUPOS = [
+    {nome:'Ler',                   ic:'livro'},
+    {nome:'Investigar',            ic:'lupa'},
+    {nome:'Escrever',              ic:'ficheiro'},
+    {nome:'Criar',                 ic:'camara'},
+    {nome:'Aprender digitalmente', ic:'monitor'}
+  ];
+  const lg = document.getElementById('ligacoes-lista');
+  if (lg) {
+    lg.innerHTML = GRUPOS.map(g => {
+      const itens = (CONTEUDO.ligacoesUteis||[]).filter(x => x.grupo === g.nome);
+      return itens.length ? faixa(g.nome, g.ic, itens) : '';
+    }).join('');
+    ligarFaixas(lg);
+  }
+};
+</script>
+<script src="motor.js?v=f75e79d5"></script>
+</body>
+</html>

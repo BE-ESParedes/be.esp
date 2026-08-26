@@ -1,0 +1,46 @@
+{
+  "pilares": [
+    {
+      "titulo": "Promoção da Leitura",
+      "texto": "Clubes, concursos, encontros com escritores e sessões de leitura orientada com as turmas.",
+      "imagem": "imagens/biblioteca/pilar-leitura.jpg",
+      "alt": "Alunos em atividade de promoção da leitura na Biblioteca",
+      "icone": "livro"
+    },
+    {
+      "titulo": "Competências Digitais",
+      "texto": "Uso crítico das ferramentas digitais, segurança em linha e produção de conteúdos próprios.",
+      "imagem": "imagens/biblioteca/pilar-digital.jpg",
+      "alt": "Alunos a trabalhar com equipamento digital na Biblioteca",
+      "icone": "monitor"
+    },
+    {
+      "titulo": "Investigação",
+      "texto": "Como procurar, avaliar e citar fontes. Do primeiro tema ao trabalho entregue.",
+      "imagem": "imagens/biblioteca/pilar-investigacao.jpg",
+      "alt": "Alunos em trabalho de pesquisa na Biblioteca",
+      "icone": "lupa"
+    },
+    {
+      "titulo": "Apoio Curricular",
+      "texto": "Recursos por disciplina, selecionados com os professores e testados com as turmas.",
+      "imagem": "imagens/biblioteca/pilar-curriculo.jpg",
+      "alt": "Sessão de apoio ao currículo na Biblioteca",
+      "icone": "pasta"
+    },
+    {
+      "titulo": "Projetos",
+      "texto": "Projetos próprios e em parceria, do Palavras em Ação às iniciativas nacionais.",
+      "imagem": "imagens/biblioteca/pilar-projetos.jpg",
+      "alt": "Alunos a trabalhar num projeto da Biblioteca",
+      "icone": "alvo"
+    },
+    {
+      "titulo": "Cidadania",
+      "texto": "Espaço de debate, participação e encontro com a comunidade educativa.",
+      "imagem": "imagens/biblioteca/pilar-cidadania.jpg",
+      "alt": "Atividade de cidadania na Biblioteca",
+      "icone": "globo"
+    }
+  ]
+}

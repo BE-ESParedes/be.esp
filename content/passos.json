@@ -1,0 +1,24 @@
+{
+  "passos": [
+    {
+      "n": "1",
+      "titulo": "Entrar",
+      "texto": "Basta chegar. Não é preciso marcação nem cartão."
+    },
+    {
+      "n": "2",
+      "titulo": "Escolher o espaço",
+      "texto": "Leitura, multimédia, trabalho de grupo."
+    },
+    {
+      "n": "3",
+      "titulo": "Encontrar os recursos",
+      "texto": "Pergunta à equipa ou procura no catálogo. Há também recursos digitais."
+    },
+    {
+      "n": "4",
+      "titulo": "Requisitar",
+      "texto": "Leva o livro contigo. A devolução faz-se no balcão, sem burocracia."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "exposicoes": [
+    {
+      "titulo": "Diálogo Literário · Mês Internacional da Biblioteca Escolar",
+      "periodo": "20 a 24 de outubro de 2025",
+      "descricao": "Sob o tema «Para além das estantes: IA, bibliotecas e o futuro das histórias», a Biblioteca recebeu as turmas do 7.º ano para o Diálogo Literário. Um painel interativo montado no espaço foi-se enchendo, ao longo da semana, com as mensagens escritas pelos alunos sobre as suas leituras.",
+      "imagens": [
+        {
+          "ficheiro": "imagens/exposicoes/mibe-2025-1.jpg",
+          "alt": "Painel do Diálogo Literário com as turmas sentadas na Biblioteca"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/mibe-2025-2.jpg",
+          "alt": "Alunos junto ao painel interativo montado na Biblioteca"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/mibe-2025-3.jpg",
+          "alt": "Alunos a escrever mensagens para o painel"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/mibe-2025-4.jpg",
+          "alt": "Painel a encher-se de mensagens ao longo da semana"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/mibe-2025-5.jpg",
+          "alt": "Duas alunas a colar mensagens no painel"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/mibe-2025-6.jpg",
+          "alt": "Painel completo, com dezenas de mensagens escritas pelos alunos"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/mibe-2025-7.jpg",
+          "alt": "Aluna a apresentar durante uma sessão do programa"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/mibe-2025-8.jpg",
+          "alt": "Apresentação numa das sessões do Diálogo Literário"
+        }
+      ]
+    },
+    {
+      "titulo": "Semana da Leitura",
+      "periodo": "24 a 26 de março de 2026",
+      "descricao": "Três dias de apresentações: cada aluno escolheu um livro e falou dele aos colegas, com a capa projetada. A semana abriu com um encontro com escritor, realizado entre as estantes da Biblioteca.",
+      "imagens": [
+        {
+          "ficheiro": "imagens/exposicoes/semana-leitura-2026-1.jpg",
+          "alt": "Aluna a apresentar um livro diante do ecrã"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/semana-leitura-2026-2.jpg",
+          "alt": "Aluno a apresentar a sua leitura à turma"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/semana-leitura-2026-3.jpg",
+          "alt": "Apresentação com a capa do livro projetada"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/semana-leitura-2026-4.jpg",
+          "alt": "Aluna a falar sobre o livro que escolheu"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/semana-leitura-2026-5.jpg",
+          "alt": "Aluno a apresentar diante da assistência"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/semana-leitura-2026-6.jpg",
+          "alt": "Apresentação com a capa projetada no ecrã"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/semana-leitura-2026-7.jpg",
+          "alt": "Aluna a concluir a sua apresentação"
+        },
+        {
+          "ficheiro": "imagens/exposicoes/semana-leitura-2026-8.jpg",
+          "alt": "Última apresentação da sessão"
+        }
+      ]
+    }
+  ]
+}

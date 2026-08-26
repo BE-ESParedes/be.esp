@@ -1,0 +1,28 @@
+{
+  "zonas": [
+    {
+      "nome": "Leitura",
+      "imagem": "imagens/biblioteca/zona-leitura.jpg",
+      "alt": "Espaço de leitura com mesas compridas e estantes de ambos os lados",
+      "texto": "Mesas amplas junto às estantes, com luz natural. É aqui que se lê, se estuda e se consulta a coleção."
+    },
+    {
+      "nome": "Multimédia",
+      "imagem": "imagens/biblioteca/zona-multimedia.jpg",
+      "alt": "Zona com cadeirões, cadeiras e ecrã de projeção",
+      "texto": "Ecrã, som e lugares sentados para sessões, projeções e apresentações de turma."
+    },
+    {
+      "nome": "Trabalho Colaborativo",
+      "imagem": "imagens/biblioteca/zona-colaborativo.jpg",
+      "alt": "Mesas de trabalho amplas com estantes ao fundo",
+      "texto": "Mesas grandes para trabalhos de grupo, com espaço para se espalhar e discutir."
+    },
+    {
+      "nome": "Zona de Lazer",
+      "imagem": "imagens/biblioteca/zona-lazer.jpg",
+      "alt": "Cadeirão junto a uma estante, com um aluno a ler",
+      "texto": "Cadeirões e um canto sossegado, para ler sem pressa ou simplesmente estar."
+    }
+  ]
+}

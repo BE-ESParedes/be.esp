@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Início · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Site da Biblioteca Escolar da Escola Secundária de Paredes: catálogo, recursos, atividades e notícias.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Início · Biblioteca Escolar da ESP"><meta property="og:description" content="Site da Biblioteca Escolar da Escola Secundária de Paredes: catálogo, recursos, atividades e notícias.">
+<meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
+<link rel="icon" href="imagens/logo/favicon.ico"><link rel="icon" type="image/svg+xml" href="imagens/logo/icone-app.svg">
+<link rel="apple-touch-icon" href="imagens/logo/apple-touch-icon.png">
+<meta name="theme-color" content="#F8F8F8">
+<link rel="stylesheet" href="estilos.css?v=69e1cd79">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Página INÍCIO — componentes próprios.
+   Decisão de 28/07/2026: a homepage deixa de ser um índice do site e
+   passa a responder a três perguntas — onde estou, o que posso fazer,
+   qual é o próximo passo. Seis blocos, não mais:
+   abertura com pesquisa · carrossel · quero… · hoje e a seguir ·
+   três notícias · números e «sabias que».
+   Sai o acesso rápido (era o mesmo que as missões, por outras palavras)
+   e sai o bloco de boas-vindas (as missões dizem-no melhor).
+   ═══════════════════════════════════════════════════════════════ */
+/* O --menta-txt saiu daqui a 26/08/2026: passou a :root, em estilos.css. */
+/* O ritmo entre secções e a faixa de transição. O fundo já não se declara
+   aqui: cada secção diz de que chão vem e em que chão assenta (data-amb). */
+.hsec{padding:var(--e-sec) 0}
+/* Onde a secção nasce de um chão escuro, a margem de topo é a própria faixa
+   de transição: o preto clareia ao longo dela e chega ao chão da secção mesmo
+   à entrada da etiqueta. Declarado aqui, e não em estilos.css, porque .hsec
+   é local e ganharia à classe partilhada. */
+/* .amb-longa deixou de mandar na margem: a faixa saiu. */
+.hsec .sec-title{margin-top:0}
+
+/* Os quatro ajustes à barra de pesquisa antiga saíram a 26/08/2026, com
+   o próprio componente: a pesquisa vive na barra de topo desde 25/08. */
+#p-inicio .abertura{padding:52px 0 44px}
+
+/* ═══ PRIMEIRO ECRÃ ═══
+   Fotografia da porta da Biblioteca, com a frase que lá está escrita.
+   O véu tem peso à esquerda, onde assenta o texto, e abre para a direita
+   para a porta continuar a ver-se. Contraste medido sobre a fotografia. */
+.portico-foto img{width:100%;height:100%;object-fit:cover;display:block;object-position:center 42%}
+/* O véu do pórtico passou para estilos.css a 26/08/2026, com a base de
+   cor em --veu: era a mesma construção aqui e em Encontrar, com dois
+   pretos diferentes, e obrigava a corrigir duas vezes. */
+.portico .monum{color:#fff;max-width:14ch}
+.portico .monum em{font-style:normal;color:var(--menta)}
+/* ═══ A ENTRADA ═══
+   O pórtico e as cinco áreas passaram a um bloco só a 25/08/2026. A
+   fotografia serve os dois, e por isso o pórtico deixa de ser um ecrã
+   inteiro: é a altura que o conteúdo pedir, com folga em cima e em baixo. */
+
+/* O relógio: hora a sério, onde fica, se está aberta, e a barra do dia. */
+.relogio{margin:var(--e-3) 0 var(--e-4);max-width:420px}
+.rl-linha{display:flex;align-items:baseline;gap:var(--e-3);flex-wrap:wrap;margin:0 0 var(--e-2)!important;
+  color:rgba(255,255,255,.9);font-size:var(--t-micro)}
+/* O relógio destacava-se demasiado: à escala de título de secção competia
+   com o título da entrada, que é o que a página tem para dizer. */
+.rl-hora{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:var(--t-2);
+  font-weight:700;letter-spacing:-.02em;color:#fff;line-height:var(--lh-tit);font-variant-numeric:tabular-nums}
+.rl-onde{color:rgba(255,255,255,.72)}
+.rl-estado{display:inline-flex;align-items:center;gap:var(--e-2);font-weight:700;color:#fff}
+.rl-barra{position:relative;height:6px;border-radius:var(--r-pilula);background:rgba(255,255,255,.22);
+  overflow:visible}
+.rl-cheio{position:absolute;left:0;top:0;bottom:0;border-radius:var(--r-pilula);
+  background:linear-gradient(90deg,var(--menta) 0%,var(--dourado) 100%);
+  transition:width var(--mov-lento,.5s) var(--curva,ease)}
+.rl-marca{position:absolute;top:12px;font-size:var(--t-nano);color:rgba(255,255,255,.62);
+  font-family:ui-monospace,'SF Mono',Menlo,monospace}
+.rl-ini{left:0} .rl-fim{right:0}
+
+/* «Por onde queres começar?» passou a subtítulo dentro do mesmo bloco. */
+.portico-areas-topo{margin:var(--e-5) 0 var(--e-3)}
+.portico-sub-tit{margin:0 0 var(--e-2);font-size:var(--t-2);font-weight:800;
+  letter-spacing:-.02em;color:#fff}
+.portico-sub-lead{margin:0;max-width:50ch;font-size:var(--t-peq);line-height:var(--lh-corpo);
+  color:rgba(255,255,255,.78)}
+
+/* Saíram a 26/08/2026, por não terem marcação nenhuma: .portico-pergunta,
+   .portico-sub (o subtítulo desta página é .portico-sub-tit, que é outra
+   classe), .portico-areas (substituída por .hareas quando as cinco áreas
+   passaram a cartões) e .portico-descer com a sua animação. */
+
+/* ═══ AS CINCO ÁREAS ═══
+   Faixas que crescem ao aproximar, como a estante da coleção fazia com as
+   classes: o nome está sempre visível, a explicação e a fotografia entram
+   quando a faixa abre. Em telemóvel abrem todas, que é onde não há rato. */
+#areas{padding:var(--e-7) 0}
+.hareas-topo{display:grid;grid-template-columns:1fr 1fr;gap:var(--e-4) var(--e-5);
+  align-items:end;margin-bottom:var(--e-4)}
+.hareas-topo .cota{margin-bottom:var(--e-3)}
+.hareas-topo .lead{color:rgba(255,255,255,.74);max-width:44ch}
+.hareas{display:flex;gap:var(--e-2);height:clamp(300px,46vh,440px)}
+.harea{position:relative;flex:1 1 0;min-width:0;overflow:hidden;isolation:isolate;
+  border-radius:var(--r-bloco);text-decoration:none;display:flex;align-items:flex-end;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+  transition:flex-grow var(--mov-lento) var(--curva)}
+.harea:hover,.harea:focus-visible{flex-grow:2.4;outline:none}
+.harea:focus-visible{box-shadow:0 0 0 3px var(--dourado)}
+.harea img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+  opacity:.34;transition:opacity var(--mov-lento) var(--curva),transform var(--mov-lento) var(--curva)}
+.harea:hover img,.harea:focus-visible img{opacity:.62;transform:scale(1.05)}
+.harea-veu{position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(20,22,21,.30) 0%,rgba(20,22,21,.86) 100%)}
+.harea-tx{padding:var(--e-4) 20px;color:#fff;width:100%;min-width:0}
+.harea-num{display:block;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:var(--t-micro);
+  font-weight:700;letter-spacing:.1em;color:var(--menta);margin-bottom:var(--e-2)}
+.harea-tx b{display:block;font-size:var(--t-2);font-weight:800;letter-spacing:-.02em;
+  line-height:var(--lh-tit);white-space:nowrap}
+.harea-frase,.harea-ir{display:block;opacity:0;max-height:0;overflow:hidden;
+  transition:opacity var(--mov) var(--curva),max-height var(--mov) var(--curva)}
+.harea-frase{font-size:var(--t-peq);line-height:var(--lh-cartao);color:rgba(255,255,255,.86);max-width:34ch}
+.harea-ir{font-size:var(--t-micro);font-weight:800;color:var(--menta)}
+.harea:hover .harea-frase,.harea:focus-visible .harea-frase{opacity:1;max-height:84px;margin-top:var(--e-2)}
+.harea:hover .harea-ir,.harea:focus-visible .harea-ir{opacity:1;max-height:22px;margin-top:var(--e-2)}
+
+/* ═══ EM CARTAZ ═══
+   Ritmo editorial: fotografia grande de um lado, texto do outro, a
+   alternar. Sem cartões — a fotografia é o cartão. */
+#cartaz{padding-bottom:var(--e-6)}   /* a margem de topo vem de .amb-longa */
+.cartaz-tit{margin:var(--e-2) 0 var(--e-6);max-width:16ch}
+.cartazes{display:flex;flex-direction:column;gap:var(--e-6)}
+.cartaz{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--e-f3);
+  align-items:center;max-width:var(--coluna);margin:0 auto;padding:0 var(--margem);width:100%}
+.cartaz.invertido{direction:rtl}
+.cartaz.invertido>*{direction:ltr}
+.cartaz-foto{border-radius:var(--r-cartao);overflow:hidden;background:var(--cinza-bloco);
+  aspect-ratio:var(--ar-foto)}
+.cartaz-foto img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform var(--mov-lento) var(--curva)}
+.cartaz:hover .cartaz-foto img{transform:scale(1.03)}
+.cartaz-tag{display:inline-block;font-size:var(--t-micro);font-weight:800;
+  letter-spacing:var(--tr-micro);text-transform:uppercase;color:var(--dourado-txt);
+  margin-bottom:var(--e-2)}
+.cartaz-tx h3{margin:0 0 var(--e-2);max-width:16ch}
+.cartaz-tx h3 em{font-style:normal;color:var(--menta-txt)}
+.cartaz-tx p{margin:0;color:var(--cinza);font-size:var(--t-corpo);line-height:var(--lh-corpo);max-width:44ch}
+.cartaz-bts{display:flex;gap:var(--e-2);flex-wrap:wrap;margin:var(--e-3) 0 0!important}
+
+/* O cartaz do estado: a caixa das regras acompanha a altura da fotografia,
+   em vez de flutuar a meio, e assenta na cor do próprio fundo da página. */
+.cartaz.com-estado{align-items:stretch}
+.cartaz.com-estado .cartaz-foto{aspect-ratio:auto;min-height:100%}
+.cartaz.com-estado .cartaz-tx{display:flex;flex-direction:column}
+.cartaz.com-estado .cartaz-estado{flex:1;max-width:none;background:transparent;
+  display:flex;flex-direction:column;justify-content:center}
+
+/* A faixa: a imagem a toda a largura, o texto assente por cima, à esquerda.
+   O logótipo da rede é largo e transparente, e dentro de uma caixa 4/3 ficava
+   cortado nas pontas. */
+/* A faixa é um cartão com contorno, e por isso a sua aresta tem de cair na
+   mesma vertical que a fotografia dos outros cartazes. Sem a conta, ficava
+   18 px para fora de cada lado, e via-se. */
+.cartaz-faixa{position:relative;isolation:isolate;
+  max-width:calc(var(--coluna) - var(--margem) * 2);margin:0 auto;
+  width:calc(100% - var(--margem) * 2);border-radius:var(--r-cartao);overflow:hidden;
+  background:var(--branco);
+  border:1px solid var(--linha);display:flex;align-items:center;
+  min-height:clamp(200px,26vw,300px)}
+.cf-fundo{position:absolute;inset:0;z-index:-1;display:grid;place-items:center;
+  padding:var(--e-2)}
+.cf-fundo img{width:100%;height:100%;object-fit:contain;object-position:center right;
+  opacity:.42}
+.cf-tx{position:relative;padding:var(--e-f2);max-width:min(56ch,64%)}
+.cf-tx h3{margin:0 0 var(--e-2);max-width:18ch}
+.cf-tx p{margin:0;color:var(--tinta);font-size:var(--t-peq);line-height:var(--lh-corpo);
+  max-width:44ch}
+@media(max-width:760px){
+  .cartaz-faixa{min-height:auto}
+  .cf-tx{max-width:100%;padding:20px}
+  .cf-fundo img{opacity:.20;object-position:center}
+}
+
+@media(max-width:980px){
+  .hareas-topo{grid-template-columns:1fr}
+  .hareas{height:auto;flex-direction:column;gap:var(--e-2)}
+  .harea{flex:none!important;min-height:112px}
+  .harea img{opacity:.5}
+  .harea-tx b{white-space:normal}
+  .harea-frase,.harea-ir{opacity:1;max-height:none}
+  .harea-frase{margin-top:var(--e-2)}
+  .harea-ir{margin-top:var(--e-2)}
+}
+@media(max-width:900px){
+  .col-topo{grid-template-columns:1fr}
+  .cartaz{grid-template-columns:1fr;gap:var(--e-3)}
+  .cartaz.invertido{direction:ltr}
+  .cartaz-foto{aspect-ratio:var(--ar-foto)}
+}
+@media(max-width:620px){
+  .portico{min-height:auto;padding:calc(var(--topo) + var(--e-5)) 0 var(--e-6)}
+  .portico .monum{max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .cartaz:hover .cartaz-foto img{transform:none}
+  .portico-foto img{transform:none}
+}
+
+/* ---- as cinco portas ---- */
+.hportas{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--e-3)}
+.hporta{display:flex;flex-direction:column;gap:var(--e-2);background:var(--branco);
+  border:1px solid var(--linha);border-radius:var(--r-cartao);padding:var(--e-4) 20px;
+  text-decoration:none;color:inherit;transition:.16s}
+.hporta:hover{border-color:var(--menta);transform:translateY(-4px);box-shadow:var(--sombra-lg)}
+.hporta .hp-ico{display:grid;place-items:center;width:46px;height:46px;border-radius:var(--r-cartao);
+  background:var(--menta-wash);color:var(--menta-escura)}
+.hporta b{font-size:var(--t-corpo);letter-spacing:-.015em}
+.hporta>span:last-child{font-size:var(--t-peq);color:var(--cinza);line-height:var(--lh-cartao)}
+
+/* ---- livros da semana ---- */
+.hsem-nota{margin:0 0 var(--e-3);color:var(--cinza-legivel);font-size:var(--t-peq)}
+.hsem-bts{margin:var(--e-3) 0 0}
+#livros-semana .rec{flex:0 0 200px}
+.cnav{display:flex;gap:var(--e-2)}
+.cnav button{width:38px;height:38px;border-radius:50%;border:1px solid var(--linha);
+  background:var(--branco);color:var(--tinta);cursor:pointer;font-size:var(--t-corpo);line-height:var(--lh-tit);
+  display:grid;place-items:center}
+.cnav button:hover{border-color:var(--menta);background:var(--menta-wash)}
+.cnav button[disabled]{opacity:.35;cursor:default}
+.cnav-fim{justify-content:flex-end;margin-top:2px}
+
+/* ---- em destaque (retirado; a grelha ficou para a faixa) ----
+   Usa o cartão partilhado .rec (estilos.css), o mesmo que a página Ler,
+   para o utilizador reconhecer que é a mesma coisa nos dois sítios.
+   Aqui a grelha é fixa de quatro, porque são sempre poucos. */
+.hdestaques{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--e-3)}
+
+/* ---- precisas de ajuda? ---- */
+.hajuda{background:var(--menta-wash);border:1px solid var(--menta);border-radius:var(--r-cartao);
+  padding:var(--e-f2);text-align:center}
+.hajuda h2{font-size:var(--t-2);font-weight:800;margin:0 0 var(--e-2);letter-spacing:var(--tr-2)}
+.hajuda p{margin:0 auto;max-width:56ch;color:var(--tinta);font-size:var(--t-corpo);line-height:var(--lh-corpo)}
+.hajuda-bts{display:flex;gap:var(--e-2);justify-content:center;flex-wrap:wrap;margin-top:var(--e-4)!important}
+
+/* ---- quero… ---- */
+/* ---- em destaque ----
+   Usa o cartão partilhado .rec (estilos.css), o mesmo que a página Ler,
+   para o utilizador reconhecer que é a mesma coisa nos dois sítios.
+   Aqui a grelha é fixa de quatro, porque são sempre poucos. */
+.hdestaques{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--e-3)}
+
+/* ---- precisas de ajuda? ---- */
+.hajuda{background:var(--menta-wash);border:1px solid var(--menta);border-radius:var(--r-cartao);
+  padding:var(--e-f2);text-align:center}
+.hajuda h2{font-size:var(--t-2);font-weight:800;margin:0 0 var(--e-2);letter-spacing:-.02em}
+.hajuda p{margin:0 auto;max-width:56ch;color:var(--tinta);font-size:var(--t-corpo);line-height:var(--lh-corpo)}
+.hajuda-bts{display:flex;gap:var(--e-2);justify-content:center;flex-wrap:wrap;margin-top:var(--e-4)!important}
+
+/* ---- quero… ---- */
+.hmissoes{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--e-3)}
+.hmissao{display:flex;align-items:flex-start;gap:var(--e-3);background:var(--branco);
+  border:1px solid var(--linha);border-radius:var(--r-cartao);padding:var(--e-4);
+  text-decoration:none;color:inherit;transition:.16s;min-height:112px}
+.hmissao:hover{border-color:var(--menta);transform:translateY(-4px);box-shadow:var(--sombra-lg)}
+.hmissao .ic{display:grid;place-items:center;width:46px;height:46px;border-radius:var(--r-cartao);
+  flex:none;background:var(--menta-wash);color:var(--menta-escura)}
+.hmissao b{display:block;font-size:var(--t-corpo);font-weight:800;color:var(--tinta);
+  letter-spacing:-.015em;line-height:var(--lh-sub);margin-bottom:var(--e-1)}
+.hmissao span{display:block;font-size:var(--t-peq);color:var(--cinza);line-height:var(--lh-cartao)}
+
+/* ---- hoje e a seguir ---- */
+.hdupla{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;align-items:stretch}
+/* «Hoje» abre o bloco «O que está a acontecer», antes dos cartazes. */
+.hdupla-topo{margin-bottom:var(--e-5)}
+.hhoje,.hagenda{background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao);padding:var(--e-4)}
+.hestado{display:flex;align-items:center;gap:12px;padding-bottom:var(--e-3);margin-bottom:var(--e-1);
+  border-bottom:1px solid var(--linha);font-size:var(--t-corpo);font-weight:700;color:var(--tinta)}
+.hponto{width:10px;height:10px;border-radius:50%;background:var(--cinza);flex:none}
+.hponto.on{background:#2E8B6F}
+.hestado small{margin-left:auto;font-size:var(--t-micro);font-weight:700;color:var(--cinza)}
+.hlinha{display:flex;align-items:center;gap:var(--e-3);padding:12px 0;border-bottom:1px solid var(--linha)}
+.hlinha:last-child{border-bottom:0;padding-bottom:0}
+.hhora{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:var(--t-peq);
+  font-weight:700;color:var(--tinta);flex:none;width:100px}
+.hlinha b{flex:1;font-size:var(--t-peq);font-weight:700;color:var(--tinta);min-width:0}
+.hmarca{font-size:var(--t-nano);font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:var(--e-1) var(--e-2);border-radius:var(--r-botao);flex:none;white-space:nowrap}
+.hmarca.agora{background:var(--menta);color:var(--tinta)}
+.hmarca.breve{background:var(--dourado-wash);border:1px solid var(--dourado-linha);color:var(--tinta)}
+.hvazio{margin:12px 0 0;color:var(--cinza);font-size:var(--t-peq);line-height:var(--lh-corpo)}
+.hagenda h3{font-size:var(--t-corpo);font-weight:800;margin:0 0 12px;color:var(--tinta);
+  text-transform:uppercase;letter-spacing:.05em}
+.hagenda ul{list-style:none;margin:0 0 var(--e-3);padding:0}
+.hagenda li{display:flex;gap:12px;align-items:baseline;padding:var(--e-2) 0;
+  border-bottom:1px solid var(--linha)}
+.hagenda li:last-child{border-bottom:0}
+/* .dia global é um selo escuro de 50×50; aqui é só texto. Anula-se o fundo
+   e o tamanho fixo, senão os dias ficavam invisíveis (28/07/2026). */
+.hagenda .dia{background:none;width:76px;height:auto;border-radius:0;display:block;
+  font-size:var(--t-micro);font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--menta-txt);flex:none}
+.hagenda .tit{font-size:var(--t-peq);color:var(--tinta);line-height:var(--lh-cartao)}
+
+@media(max-width:1080px){
+  .hportas{grid-template-columns:repeat(3,1fr)}
+  .hdestaques{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:980px){
+  .hdupla{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .hsec{padding:var(--e-3) 0}
+  .hportas{grid-template-columns:1fr}
+  .hdestaques{grid-template-columns:repeat(2,1fr)}
+  .hlinha{flex-wrap:wrap;gap:var(--e-2)}
+  .hhora{width:auto}
+  #p-inicio .abertura{padding:32px 0 32px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hporta:hover{transform:none}
+}
+</style>
+</head>
+<body id="p-inicio">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+<h1 class="sr-only">Biblioteca Escolar da Escola Secundária de Paredes</h1>
+
+  <!-- Bloco de abertura.
+       Substitui a faixa de pesquisa a 26/07/2026: mantém a tarefa em primeiro
+       lugar mas acrescenta o estado da Biblioteca e uma saudação dirigida a quem
+       chega, em vez de começar por uma mensagem institucional.
+       Desde 27/07/2026 ocupa toda a largura da janela; o conteúdo continua
+       alinhado pela grelha através do .wrap interior. -->
+  <!-- ═══════════════════════════════════════════════════════════════
+       PRIMEIRO ECRÃ — «Abre as portas da imaginação!»
+       A frase é da própria porta de vidro da Biblioteca, e a fotografia é
+       essa porta. Não é uma promessa de marketing: é o que lá está escrito.
+       O pórtico anterior («Cada livro tem um lugar») e a estante da coleção
+       mudaram-se para ENCONTRAR a 22/08/2026 — é lá que se procura.
+       ═══════════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════════════════════════════════
+       A ENTRADA — o pórtico e as cinco áreas, num bloco só (25/08/2026).
+       Eram dois ecrãs seguidos com a mesma função: dizer onde se está e
+       para onde se pode ir. Agora a fotografia da entrada serve os dois,
+       e quem chega vê o título, a hora a que estamos e as cinco portas
+       sem ter de rolar.
+       ═══════════════════════════════════════════════════════════════ -->
+  <header class="portico portico-longo para-tinta" data-amb="sem-faixa" id="areas"
+          data-seccao aria-labelledby="fp-t">
+    <div class="portico-foto" aria-hidden="true">
+      <img src="imagens/entrada/entrada.jpg"
+           srcset="imagens/entrada/entrada-800.jpg 800w,
+                   imagens/entrada/entrada-1600.jpg 1600w,
+                   imagens/entrada/entrada.jpg 2200w"
+           sizes="100vw" alt="" fetchpriority="high" decoding="async"
+           width="2200" height="1650">
+    </div>
+    <div class="wrap portico-tx">
+      <p class="portico-cota" id="portico-cota" data-revela></p>
+
+      <!-- O relógio da Biblioteca: a hora a sério, onde fica e se está
+           aberta, com uma barra que se enche ao longo do dia de abertura.
+           Desenhado pelo motor, em renderRelogio(). -->
+      <div class="relogio" id="relogio" data-revela data-atraso="1"></div>
+
+      <h2 class="monum monum-med" id="fp-t" data-revela data-atraso="1">
+        <span class="l1">Abre as portas</span>
+        <span class="l2">da <em>imaginação</em>!</span>
+      </h2>
+
+      <div class="portico-areas-topo" data-revela data-atraso="2">
+        <h3 class="portico-sub-tit" id="t-areas">Por onde queres começar?</h3>
+        <p class="portico-sub-lead">Cinco maneiras de usar a Biblioteca.
+          Passa por cima de uma para a abrir.</p>
+      </div>
+      <div class="hareas" id="areas-lista" data-revela data-atraso="3"></div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       EM CARTAZ — onde vivia o carrossel.
+       O mesmo conteúdo (banners.json, editado no painel), mas em ritmo
+       editorial: fotografia grande, título monumental, e a composição a
+       alternar de lado. Um carrossel esconde três quartos do que tem;
+       isto mostra tudo, e deixa a fotografia respirar.
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="hsec de-tinta para-areia amb-longa" data-amb id="cartaz" data-seccao aria-labelledby="t-cartaz">
+    <div class="wrap">
+      <span class="cota" data-revela><span class="banda"></span><span class="cod">06</span><span class="nome">em cartaz</span></span>
+      <h2 class="tit-1 cartaz-tit" id="t-cartaz" data-revela>O que está a acontecer.</h2>
+
+      <!-- «Hoje, na Biblioteca» subiu para aqui a 25/08/2026: é o que está a
+           acontecer, e por isso é a primeira coisa que este bloco deve dizer.
+           A 26/08 voltou para dentro do .wrap: tinha ficado fora dele e por
+           isso ia de 0 a 1425 px, quando tudo o resto vai de 143 a 1285. -->
+      <div class="hdupla hdupla-topo" data-revela>
+        <div class="hhoje" id="hoje-painel"></div>
+        <div class="hagenda">
+          <h3>A seguir</h3>
+          <ul id="home-agenda"></ul>
+          <a class="btn linha" href="participar.html#calendario">Ver o ano inteiro</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartazes" id="cartazes"></div>
+  </section>
+
+  <!-- ═══ DESTAQUES DA SEMANA ═══
+       Os dois blocos que aqui estavam, «o que estamos a descobrir» e
+       «livros da semana em destaque», juntaram-se a 25/08/2026: eram duas
+       montras seguidas a dizer «vejam isto», com títulos diferentes e a
+       mesma função. Ficam oito cartões iguais no mesmo bloco: quatro livros
+       do acervo em cima e, por baixo, quatro escolhas noutros formatos.
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="hsec de-areia para-papel" data-amb id="semana" data-seccao
+           aria-labelledby="t-sem">
+    <div class="wrap">
+      <h2 class="sec-title" id="t-sem">destaques da semana
+        <a class="mais" href="ler.html#novidades">Ver na página Ler &rarr;</a></h2>
+      <div class="rule"></div>
+      <p class="hsem-nota">Escolhas da equipa, esta semana. Quatro livros das nossas
+        estantes e quatro descobertas noutros formatos.</p>
+      <div class="sem-grelha" id="semana-livros"></div>
+      <div class="sem-grelha sem-grelha-2" id="semana-grelha"></div>
+      <p class="hsem-bts">
+        <a class="btn linha" href="encontrar.html#opac">Procurar no catálogo</a>
+        <a class="btn linha" href="ler.html#livros">Ver as sugestões de leitura</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ NOVIDADES ═══ Três, nunca mais. -->
+  <section class="hsec de-papel para-papel" data-amb id="noticias" aria-labelledby="t-not">
+    <div class="wrap">
+      <h2 class="sec-title" id="t-not">novidades
+        <a class="mais" href="participar.html#novidades">Ver todas &rarr;</a></h2>
+      <div class="rule"></div>
+      <div class="noticias" id="home-news"></div>
+    </div>
+  </section>
+
+  <!-- ═══ PRECISAS DE AJUDA? ═══
+       Fecho da página: quem não encontrou o que procurava tem aqui uma
+       pessoa, e não mais uma lista. -->
+  <section class="hsec de-papel para-menta" data-amb id="ajuda" aria-labelledby="t-ajuda">
+    <div class="wrap">
+      <div class="hajuda">
+        <h2 id="t-ajuda">Precisas de ajuda?</h2>
+        <p>Não sabes por onde começar a procurar? A equipa da Biblioteca ajuda-te a
+           encontrar o livro, a escolher as fontes e a organizar o trabalho.</p>
+        <p class="hajuda-bts">
+          <a class="btn primario" href="aprender.html#docentes">Pedir apoio</a>
+          <a class="btn claro" href="conhecer.html#contactos">Contactar a Biblioteca</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+<div id="rodape"></div>
+<script>
+window.renderPagina = function(){
+  const i = CONTEUDO.info || {};
+
+  /* ── a cota do primeiro ecrã ── */
+  const pc = document.getElementById('portico-cota');
+  if (pc) pc.innerHTML = cota('BE·ESP', 'Escola Secundária de Paredes', 'escuro');
+
+  /* ── as cinco áreas ──
+     Cada área é uma faixa que cresce ao aproximar. O conteúdo vem de
+     areas.json e edita-se no painel: nome, frase, fotografia de fundo. */
+  (function () {
+    const el = document.getElementById('areas-lista'); if (!el) return;
+    const lista = publicados('areas');
+    if (!lista.length) { document.getElementById('areas')?.setAttribute('hidden',''); return; }
+    el.innerHTML = lista.map((x, i) => `
+      <a class="harea" href="${esc(x.url || '#')}" style="--n:${i}">
+        ${temTexto(x.imagem)
+          ? `<img src="${esc(caminho(x.imagem))}" alt="" loading="lazy" decoding="async">`
+          : ''}
+        <span class="harea-veu"></span>
+        <span class="harea-tx">
+          <span class="harea-num">${String(i + 1).padStart(2, '0')}</span>
+          <b>${esc(x.nome || '')}</b>
+          <span class="harea-frase">${esc(x.frase || '')}</span>
+          <span class="harea-ir">${esc(x.cta || 'Ir')} &rarr;</span>
+        </span>
+      </a>`).join('');
+  })();
+
+  /* ── em cartaz ──
+     Os mesmos banners que o carrossel mostrava, agora todos visíveis e em
+     ritmo editorial. A composição alterna de lado a cada entrada. */
+  const cz = document.getElementById('cartazes');
+  if (cz) {
+    const lista = publicados('banners');
+    /* O lado da fotografia passou a ser escolha do painel a 25/08/2026. A
+       alternância automática servia enquanto os cartazes eram todos iguais;
+       agora um deles é uma faixa e os outros têm lados pedidos. Sem escolha
+       feita, mantém-se a alternância de sempre. */
+    const dentro = b => `
+      ${temTexto(b.tag) ? `<span class="cartaz-tag">${esc(b.tag)}</span>` : ''}
+      <h3 class="tit-2">${b.titulo || ''}</h3>
+      ${temTexto(b.texto) ? `<p>${esc(b.texto)}</p>` : ''}
+      ${b.estadoAoVivo
+        ? '<div class="cartaz-estado" data-estado-vivo></div>'
+        : `<p class="cartaz-bts">${(b.botoes || []).map((x, i) =>
+            `<a class="btn ${i ? 'linha' : 'primario'}" ${linkAttrs(x.url)}>${esc(x.rotulo)}</a>`).join('')}</p>`}`;
+
+    cz.innerHTML = lista.map((b, n) => {
+      const foto = temTexto(b.imagem)
+        ? `<img src="${esc(caminho(b.imagem))}" alt="${esc(b.alt || '')}" loading="lazy" decoding="async">`
+        : '';
+      /* Faixa: a imagem ocupa a largura toda e o texto assenta por cima,
+         à esquerda. Serve o logótipo do catálogo, que é largo e não se
+         deixa cortar dentro de uma caixa. */
+      if (b.faixa) return `
+        <article class="cartaz-faixa" data-revela>
+          <div class="cf-fundo" aria-hidden="true">${foto}</div>
+          <div class="cf-tx">${dentro(b)}</div>
+        </article>`;
+      const dir = b.lado ? b.lado === 'direita' : !!(n % 2);
+      return `
+        <article class="cartaz${dir ? ' invertido' : ''}${
+          b.estadoAoVivo ? ' com-estado' : ''}" data-revela>
+          <div class="cartaz-foto${b.marcaDagua ? ' cartaz-marca' : ''}${
+            b.logotipo ? ' cartaz-logo' : ''}">${foto}</div>
+          <div class="cartaz-tx">${dentro(b)}</div>
+        </article>`;
+    }).join('');
+    if (!lista.length) document.getElementById('cartaz')?.setAttribute('hidden', '');
+  }
+
+  /* ── destaques da semana ──
+     Oito cartões iguais no mesmo bloco. Em cima, os quatro primeiros livros
+     do acervo escolhidos no painel; em baixo, as quatro descobertas noutros
+     formatos, que continuam a ser referências a fichas que vivem na página
+     Ler. O cartão é o mesmo nos dois, de propósito: são todos escolhas da
+     Biblioteca, e é isso que o bloco diz. */
+  (function () {
+    const el = document.getElementById('semana-livros');
+    if (el) {
+      const livros = publicados('livrosSemana').slice(0, 4);
+      el.innerHTML = livros.map(x => cartaoSemana(x)).join('');
+      if (!livros.length) el.hidden = true;
+    }
+    const n = renderSemana('semana-grelha');
+    const quantos = (el ? el.children.length : 0) + n;
+    if (!quantos) document.getElementById('semana')?.setAttribute('hidden', '');
+  })();
+
+  /* ── Hoje na Biblioteca ──
+     Versão curta do painel da página Atividades: lê a mesma rotina semanal
+     e o relógio do navegador. Ao fim de semana diz que está fechada. */
+  const DIAS = DIAS_SEMANA;
+  const min = minutos;   /* do motor: aceita 8h00, 08:00 e 8:00 */
+  const hp = document.getElementById('hoje-painel');
+  if (hp) {
+    const ag = new Date(), dia = ag.getDay(), mm = ag.getHours()*60 + ag.getMinutes();
+    const linhas = (CONTEUDO.rotina||[]).filter(r => (r.dias||[]).includes(dia))
+      .sort((a,b) => min(a.inicio) - min(b.inicio));
+    const aberta = linhas.some(r => mm >= min(r.inicio) && mm < min(r.fim));
+    const cabeca = `<p class="hestado"><span class="hponto${aberta ? ' on' : ''}" aria-hidden="true"></span>
+      ${aberta ? 'Aberta agora' : 'Fechada agora'}
+      <small>${esc(DIAS[dia])}</small></p>`;
+    hp.innerHTML = cabeca + (linhas.length
+      ? linhas.map(r => {
+          const ini = min(r.inicio), fim = min(r.fim);
+          let cls = '', txt = '';
+          if (mm >= ini && mm < fim)                { cls = 'agora'; txt = 'a decorrer'; }
+          else if (ini - mm > 0 && ini - mm <= 30)  { cls = 'breve'; txt = `daqui a ${ini - mm} min`; }
+          return `<div class="hlinha">
+            <span class="hhora">${esc(r.inicio)}–${esc(r.fim)}</span>
+            <b>${esc(r.titulo)}</b>
+            ${cls ? `<span class="hmarca ${cls}">${esc(txt)}</span>` : ''}</div>`;
+        }).join('')
+      : `<p class="hvazio">${dia === 0 || dia === 6
+          ? 'Fim de semana. De segunda a sexta, o espaço abre às 8h00 e fecha às 18h30.'
+          : 'Sem atividades marcadas para hoje.'}</p>`);
+  }
+
+  /* ── Pesquisa ──────────────────────────────────────────────────────────
+     Procura primeiro dentro do próprio site: recursos, atividades, projetos,
+     notícias, guiões, iniciativas, perguntas frequentes e páginas. O catálogo
+     aparece sempre como última opção, para quem procura um livro.
+     O índice é construído a partir do conteúdo, pelo que se atualiza sozinho
+     quando a equipa publica algo de novo. */
+  /* A pesquisa mudou-se para a barra de topo a 25/08/2026, em
+     ligarPesquisa() no motor: ocupava meio primeiro ecrã aqui e em
+     Encontrar, e agora está em todas as páginas em vez de duas. */
+
+  /* O estado da Biblioteca é desenhado pelo motor, em ligarEstado(), que
+     serve esta página e a de Encontrar e se refresca de minuto a minuto. */
+};
+</script>
+<script src="motor.js?v=f75e79d5"></script>
+</body>
+</html>

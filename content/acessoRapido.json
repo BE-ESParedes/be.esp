@@ -1,0 +1,64 @@
+{
+  "acessoRapido": [
+    {
+      "rotulo": "Catálogo",
+      "sub": "Pesquisar no BiblioNet",
+      "acao": "Pesquisar",
+      "icone": "livro",
+      "cor": "",
+      "imagem": "",
+      "alt": "",
+      "url": "https://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
+    },
+    {
+      "rotulo": "Recursos digitais",
+      "sub": "Biblioteca Digital verificada",
+      "acao": "Explorar",
+      "icone": "monitor",
+      "cor": "menta",
+      "imagem": "",
+      "alt": "",
+      "url": "ler.html#digital=ler"
+    },
+    {
+      "rotulo": "Apoio à pesquisa",
+      "sub": "Guiões e métodos de estudo",
+      "acao": "Abrir",
+      "icone": "lupa",
+      "cor": "dourado",
+      "imagem": "",
+      "alt": "",
+      "url": "aprender.html"
+    },
+    {
+      "rotulo": "Horário",
+      "sub": "Seg–Sex · 8h00–18h30",
+      "acao": "Consultar",
+      "icone": "relogio",
+      "cor": "menta",
+      "imagem": "",
+      "alt": "",
+      "url": "conhecer.html#horario"
+    },
+    {
+      "rotulo": "Agenda",
+      "sub": "Próximas atividades",
+      "acao": "Ver agenda",
+      "icone": "calendario",
+      "cor": "dourado",
+      "imagem": "",
+      "alt": "Ilustração com ícones de calendário e de atividades",
+      "url": "participar.html#calendario"
+    },
+    {
+      "rotulo": "Sugestões",
+      "sub": "Fala com a equipa",
+      "acao": "Contactar",
+      "icone": "correio",
+      "cor": "",
+      "imagem": "",
+      "alt": "Ilustração com ícones de conversa e de mensagens",
+      "url": "conhecer.html#contactos"
+    }
+  ]
+}

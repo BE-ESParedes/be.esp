@@ -1,0 +1,59 @@
+{
+  "livrosSemana": [
+    {
+      "titulo": "A espada do rei Afonso",
+      "autor": "Alice Vieira",
+      "publico": "3.º ciclo",
+      "genero": "Literatura juvenil",
+      "imagem": "imagens/capas/a-espada-do-rei-afonso.jpg",
+      "alt": "Capa de «A espada do rei Afonso», de Alice Vieira",
+      "porque": "Uma espada, um rei e uma história que se lê num fim de semana. Alice Vieira escreve para adolescentes sem nunca lhes falar como se fossem crianças.",
+      "ordem": 1,
+      "estado": "publicado"
+    },
+    {
+      "titulo": "A Irmandade do Anel",
+      "autor": "J. R. R. Tolkien",
+      "publico": "3.º ciclo",
+      "genero": "Fantasia",
+      "imagem": "imagens/capas/a-irmandade-do-anel.jpg",
+      "alt": "Capa de «A Irmandade do Anel», de J. R. R. Tolkien",
+      "porque": "O primeiro dos três. Se viste os filmes, o livro tem o dobro: canções, mapas e uma viagem que demora o tempo certo.",
+      "ordem": 2,
+      "estado": "publicado"
+    },
+    {
+      "titulo": "A Costa dos Murmúrios",
+      "autor": "Lídia Jorge",
+      "publico": "Secundário",
+      "genero": "Romance",
+      "imagem": "imagens/capas/a-costa-dos-murmurios.jpg",
+      "alt": "Capa de «A Costa dos Murmúrios», de Lídia Jorge",
+      "porque": "A guerra colonial contada duas vezes: primeiro como se conta, depois como foi. Um dos melhores romances portugueses do século XX.",
+      "ordem": 3,
+      "estado": "publicado"
+    },
+    {
+      "titulo": "A Peste",
+      "autor": "Albert Camus",
+      "publico": "Secundário",
+      "genero": "Romance",
+      "imagem": "imagens/capas/a-peste.jpg",
+      "alt": "Capa de «A Peste», de Albert Camus",
+      "porque": "Uma cidade fechada por uma epidemia e as pessoas que decidem ficar. Escrito em 1947 e impossível de ler hoje sem arrepio.",
+      "ordem": 4,
+      "estado": "publicado"
+    },
+    {
+      "titulo": "A Corte do Norte",
+      "autor": "Agustina Bessa-Luís",
+      "publico": "Adultos e professores",
+      "genero": "Romance",
+      "imagem": "",
+      "alt": "",
+      "porque": "Três gerações de mulheres na Madeira, na prosa mais exigente e mais recompensadora da literatura portuguesa.",
+      "ordem": 5,
+      "estado": "publicado"
+    }
+  ]
+}

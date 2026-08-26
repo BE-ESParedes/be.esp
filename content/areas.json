@@ -1,0 +1,54 @@
+{
+  "areas": [
+    {
+      "nome": "Encontrar",
+      "frase": "Procura um livro, uma sugestão ou um recurso.",
+      "url": "encontrar.html",
+      "cta": "Procurar",
+      "imagem": "imagens/galeria/estantes.jpg",
+      "alt": "",
+      "ordem": 1,
+      "estado": "publicado"
+    },
+    {
+      "nome": "Aprender",
+      "frase": "Pesquisa, estuda, encontra fontes e ferramentas.",
+      "url": "aprender.html",
+      "cta": "Aprender",
+      "imagem": "imagens/apoio/hero.jpg",
+      "alt": "",
+      "ordem": 2,
+      "estado": "publicado"
+    },
+    {
+      "nome": "Ler",
+      "frase": "Livros, audiolivros e outros formatos digitais.",
+      "url": "ler.html",
+      "cta": "Ler",
+      "imagem": "imagens/catalogo/hero.jpg",
+      "alt": "",
+      "ordem": 3,
+      "estado": "publicado"
+    },
+    {
+      "nome": "Participar",
+      "frase": "Vê o que está a acontecer na Biblioteca.",
+      "url": "participar.html",
+      "cta": "Participar",
+      "imagem": "imagens/atividades/hero.jpg",
+      "alt": "",
+      "ordem": 4,
+      "estado": "publicado"
+    },
+    {
+      "nome": "Conhecer",
+      "frase": "A Biblioteca, os serviços e como funciona.",
+      "url": "conhecer.html",
+      "cta": "Conhecer",
+      "imagem": "imagens/galeria/zona-de-sessoes.jpg",
+      "alt": "",
+      "ordem": 5,
+      "estado": "publicado"
+    }
+  ]
+}

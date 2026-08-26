@@ -1,0 +1,95 @@
+{
+  "noticias": [
+    {
+      "titulo": "A Biblioteca abre a 15 de setembro",
+      "dataOrdenacao": "2026-09-01",
+      "data": "1 de setembro de 2026",
+      "categoria": "Visita",
+      "resumo": "Retomamos o horário completo, das 8h00 às 18h30, de segunda a sexta. Requisições, espaço de estudo e apoio à pesquisa disponíveis desde o primeiro dia de aulas.",
+      "imagem": "imagens/noticias/abertura.jpg",
+      "emoji": "",
+      "cor": "#A8D8CC",
+      "url": "conhecer.html#horario",
+      "exemplo": true,
+      "alt": "Entrada da Biblioteca, com o letreiro BIBLIOTECA na porta de vidro"
+    },
+    {
+      "titulo": "Leituras… com a biblioteca arranca este ano letivo",
+      "dataOrdenacao": "2026-08-31",
+      "data": "1 de setembro de 2026",
+      "categoria": "Leitura",
+      "resumo": "O projeto foi selecionado entre dezasseis candidaturas a nível nacional e é financiado pela Rede de Bibliotecas Escolares. Envolve vinte turmas em sequências de leitura, roteiros literários pela escola e leituras em família.",
+      "imagem": "imagens/noticias/IMG_4932.JPG",
+      "emoji": "",
+      "cor": "#D8AC47",
+      "url": "participar.html#projetos",
+      "exemplo": true,
+      "alt": "Jovem a ler sentada num cadeirão junto a uma janela, numa biblioteca"
+    },
+    {
+      "titulo": "Primavera a Ler levou a escola ao concurso municipal",
+      "dataOrdenacao": "2026-05-20",
+      "data": "Maio de 2026",
+      "categoria": "Leitura",
+      "resumo": "Sessenta e um alunos e catorze docentes participaram na edição deste ano, integrada na Semana Concelhia da Leitura, em articulação com a Biblioteca Municipal de Paredes.",
+      "imagem": "imagens/noticias/transferir.jpeg",
+      "emoji": "🌱",
+      "cor": "#A8D8CC",
+      "url": "",
+      "exemplo": true,
+      "alt": "Cartaz do concurso Primavera a Ler, com livros abertos entre flores"
+    },
+    {
+      "titulo": "Semana da Leitura: três dias a falar de livros",
+      "dataOrdenacao": "2026-03-26",
+      "data": "26 de março de 2026",
+      "categoria": "Leitura",
+      "resumo": "Cada aluno escolheu um livro e apresentou-o aos colegas, com a capa projetada. A semana abriu com um encontro com escritor, realizado entre as estantes da Biblioteca.",
+      "imagem": "imagens/noticias/PHOTO-2026-03-24-13-52-28_1.jpg",
+      "emoji": "📚",
+      "cor": "#A8D8CC",
+      "url": "participar.html#exposicoes",
+      "exemplo": true,
+      "alt": "Escritor a falar aos alunos entre as estantes da Biblioteca"
+    },
+    {
+      "titulo": "Letras que Abraçam juntou escrita e solidariedade",
+      "dataOrdenacao": "2026-03-15",
+      "data": "Março de 2026",
+      "categoria": "Leitura",
+      "resumo": "Duzentos e cinquenta e sete alunos e dez docentes escreveram mensagens dirigidas à comunidade. Foi a atividade com maior participação do ano no domínio da leitura e da escrita.",
+      "imagem": "imagens/noticias/IMG_4936.JPG",
+      "emoji": "",
+      "cor": "#D8AC47",
+      "url": "",
+      "exemplo": true,
+      "alt": ""
+    },
+    {
+      "titulo": "Encontros com autores: conversa com José A. Damas",
+      "dataOrdenacao": "2026-01-28",
+      "data": "28 de janeiro de 2026",
+      "categoria": "Encontros",
+      "resumo": "Momentos de partilha e reflexão em torno da escrita e da leitura.",
+      "imagem": "imagens/noticias/mesa-redonda-damas.jpg",
+      "emoji": "",
+      "cor": "#2B2B2B",
+      "url": "",
+      "exemplo": true,
+      "alt": "Dois oradores em conversa no palco da Biblioteca, acompanhados por um músico"
+    },
+    {
+      "titulo": "Ler, pensar, crescer juntos assinalou o Mês da Biblioteca Escolar",
+      "dataOrdenacao": "2025-10-20",
+      "data": "Outubro de 2025",
+      "categoria": "Biblioteca",
+      "resumo": "Duzentos e sessenta e dois alunos e vinte docentes participaram no programa de outubro, o mês internacional das bibliotecas escolares.",
+      "imagem": "imagens/noticias/IMG_5003.JPG",
+      "emoji": "🏛️",
+      "cor": "#A8D8CC",
+      "url": "",
+      "exemplo": false,
+      "alt": "Alunos a colar mensagens num painel durante o Mês Internacional da Biblioteca Escolar"
+    }
+  ]
+}

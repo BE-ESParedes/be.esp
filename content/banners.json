@@ -1,0 +1,69 @@
+{
+  "banners": [
+    {
+      "imagem": "imagens/banners/biblioteca-aberta.jpg",
+      "tag": "Ano letivo 2026/2027",
+      "titulo": "A Biblioteca está <em>aberta</em>",
+      "alt": "Alunos em trabalho de grupo à volta de uma mesa da Biblioteca, com as estantes em fundo",
+      "texto": "",
+      "botoes": [],
+      "estadoAoVivo": true,
+      "marcaDagua": false,
+      "lado": "esquerda"
+    },
+    {
+      "imagem": "imagens/logo/rede-paredes-faixa.png",
+      "tag": "Pesquisa no catálogo da Biblioteca",
+      "titulo": "Queres encontrar um livro <em>a partir de casa</em>?",
+      "alt": "Rede Concelhia de Bibliotecas de Paredes",
+      "texto": "O nosso acervo está no BiblioNet, o catálogo coletivo partilhado com a Biblioteca Municipal de Paredes. Podes pesquisar, reservar e renovar sem sair de casa.",
+      "botoes": [
+        {
+          "rotulo": "Abrir o catálogo",
+          "url": "https://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
+        },
+        {
+          "rotulo": "Como requisitar",
+          "url": "encontrar.html"
+        }
+      ],
+      "marcaDagua": false,
+      "estadoAoVivo": false,
+      "logotipo": false,
+      "faixa": true,
+      "lado": "esquerda"
+    },
+    {
+      "imagem": "imagens/banners/apoio-ao-estudo.jpg",
+      "tag": "Apoio ao estudo",
+      "titulo": "Precisas de ajuda num <em>trabalho</em>?",
+      "alt": "Alunos a trabalhar numa mesa comprida da Biblioteca, entre as estantes",
+      "texto": "Guiões de pesquisa, normas de citação e apoio da equipa para os teus trabalhos.",
+      "botoes": [
+        {
+          "rotulo": "Ver os recursos",
+          "url": "aprender.html"
+        }
+      ],
+      "estadoAoVivo": false,
+      "marcaDagua": false,
+      "lado": "direita"
+    },
+    {
+      "imagem": "imagens/banners/encontro-escritor.jpg",
+      "tag": "Projeto financiado pela RBE",
+      "titulo": "Palavras em <em>Ação</em> · Ler com a Biblioteca",
+      "alt": "Sessão do projeto na Biblioteca, com a assistência sentada de frente para quem fala",
+      "texto": "",
+      "botoes": [
+        {
+          "rotulo": "Conhecer o projeto",
+          "url": "participar.html#projeto-palavras"
+        }
+      ],
+      "estadoAoVivo": false,
+      "marcaDagua": false,
+      "lado": "esquerda"
+    }
+  ]
+}

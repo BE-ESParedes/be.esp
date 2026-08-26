@@ -1,0 +1,88 @@
+{
+  "galeriaAlunos": [
+    {
+      "faixa": "Vídeos",
+      "icone": "camara",
+      "nota": "Curtas, reportagens e registos feitos pelas turmas.",
+      "itens": [
+        {
+          "titulo": "Título do vídeo",
+          "turma": "9.º B",
+          "ano": "2026/2027",
+          "imagem": "",
+          "alt": "",
+          "url": "",
+          "exemplo": true,
+          "autor": "",
+          "porque": "",
+          "atividade": "",
+          "destaque": false
+        }
+      ],
+      "convite": "Ainda não há trabalhos publicados nesta faixa. Fala com a equipa da Biblioteca para publicarmos o que a tua turma fez."
+    },
+    {
+      "faixa": "Podcasts",
+      "icone": "microfone",
+      "nota": "Leituras Partilhadas em Família e gravações do Clube de Leitura.",
+      "itens": [
+        {
+          "titulo": "Título do episódio",
+          "turma": "Clube de Leitura",
+          "ano": "2026/2027",
+          "imagem": "",
+          "alt": "",
+          "url": "",
+          "exemplo": true,
+          "autor": "",
+          "porque": "",
+          "atividade": "",
+          "destaque": false
+        }
+      ],
+      "convite": "Ainda não há trabalhos publicados nesta faixa. Fala com a equipa da Biblioteca para publicarmos o que a tua turma fez."
+    },
+    {
+      "faixa": "Booktrailers",
+      "icone": "livro",
+      "nota": "Livros apresentados em vídeo pelos próprios alunos.",
+      "itens": [
+        {
+          "titulo": "Livro apresentado",
+          "turma": "7.º A",
+          "ano": "2026/2027",
+          "imagem": "",
+          "alt": "",
+          "url": "",
+          "exemplo": true,
+          "autor": "",
+          "porque": "",
+          "atividade": "",
+          "destaque": false
+        }
+      ],
+      "convite": "Ainda não há trabalhos publicados nesta faixa. Fala com a equipa da Biblioteca para publicarmos o que a tua turma fez."
+    },
+    {
+      "faixa": "Infografias e cartazes",
+      "icone": "monitor",
+      "nota": "Trabalhos de pesquisa em formato visual.",
+      "itens": [
+        {
+          "titulo": "Tema do trabalho",
+          "turma": "10.º C",
+          "ano": "2026/2027",
+          "imagem": "",
+          "alt": "",
+          "url": "",
+          "exemplo": true,
+          "autor": "",
+          "porque": "",
+          "atividade": "",
+          "destaque": false
+        }
+      ],
+      "convite": "Ainda não há trabalhos publicados nesta faixa. Fala com a equipa da Biblioteca para publicarmos o que a tua turma fez."
+    }
+  ]
+}

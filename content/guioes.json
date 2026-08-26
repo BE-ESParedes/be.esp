@@ -1,0 +1,84 @@
+{
+  "guioes": [
+    {
+      "titulo": "Aprender com a Biblioteca Escolar",
+      "fonte": "Rede de Bibliotecas Escolares",
+      "icone": "cerebro",
+      "nivel": "Referencial oficial",
+      "descricao": "O referencial de aprendizagens associadas à biblioteca escolar: leitura, pesquisa, avaliação de fontes e produção, por ano de escolaridade.",
+      "url": "https://rbe.mec.pt/np4/AprendercBE.html",
+      "imagem": "imagens/logos/aprender-com-a-biblioteca-escolar.png",
+      "alt": "Logótipo de Aprender com a Biblioteca Escolar"
+    },
+    {
+      "titulo": "Portal MILD",
+      "fonte": "Rede de Bibliotecas Escolares",
+      "icone": "monitor",
+      "nivel": "Para os 14 aos 18",
+      "descricao": "Manual de Instruções para a Literacia Digital: pesquisar, avaliar, criar e partilhar com critério.",
+      "url": "https://mild.rbe.mec.pt",
+      "imagem": "imagens/logos/o-mild.png",
+      "alt": "Logótipo de Portal MILD"
+    },
+    {
+      "titulo": "Biblioteca Escolar Digital",
+      "fonte": "Rede de Bibliotecas Escolares",
+      "icone": "livro",
+      "nivel": "Recursos selecionados",
+      "descricao": "Recursos digitais escolhidos e organizados pela RBE para o trabalho em sala de aula e para o estudo autónomo.",
+      "url": "https://www.rbe.mec.pt/np4/bed.html",
+      "imagem": "imagens/logos/recursos-selecionados-bed.png",
+      "alt": "Logótipo de Biblioteca Escolar Digital"
+    },
+    {
+      "titulo": "APA Style",
+      "fonte": "American Psychological Association",
+      "icone": "balao",
+      "nivel": "Norma internacional",
+      "descricao": "A fonte oficial das normas APA, com exemplos de todos os tipos de referência. Em inglês; o essencial em português está no percurso «Aprender a citar».",
+      "url": "https://apastyle.apa.org/",
+      "imagem": "imagens/logos/apa-style-logo.png",
+      "alt": "Logótipo de APA Style"
+    },
+    {
+      "titulo": "Ciberdúvidas da Língua Portuguesa",
+      "fonte": "ISCTE",
+      "icone": "balao",
+      "nivel": "Consulta rápida",
+      "descricao": "Respostas fundamentadas a dúvidas de gramática, ortografia e uso da língua. Serve para escrever melhor o trabalho.",
+      "url": "https://ciberduvidas.iscte-iul.pt",
+      "imagem": "imagens/logos/ciberduvidas-iscte-iul.png",
+      "alt": "Logótipo de Ciberdúvidas da Língua Portuguesa"
+    },
+    {
+      "titulo": "IAVE · provas e critérios",
+      "fonte": "Instituto de Avaliação Educativa",
+      "icone": "ficheiro",
+      "nivel": "Preparação para exames",
+      "descricao": "Provas de anos anteriores, critérios de classificação e informações-prova. A melhor forma de te testares a sério.",
+      "url": "https://iave.pt",
+      "imagem": "imagens/logos/iave-logo-background.jpg",
+      "alt": "Logótipo de IAVE"
+    },
+    {
+      "titulo": "Guia para trabalhos escritos",
+      "fonte": "Rede de Bibliotecas Escolares",
+      "icone": "ficheiro",
+      "nivel": "Guião",
+      "descricao": "Como se organiza um trabalho escrito do princípio ao fim: estrutura, citações, bibliografia e apresentação.",
+      "url": "https://www.rbe.mec.pt/np4/4948.html",
+      "imagem": "imagens/logos/como-fazer-um-trabalho.jpg",
+      "alt": "Logótipo de Guia para trabalhos escritos"
+    },
+    {
+      "titulo": "Guião para validar sítios web",
+      "fonte": "Rede de Bibliotecas Escolares",
+      "icone": "lupa",
+      "nivel": "Guião",
+      "descricao": "Uma grelha para decidir se uma página serve para um trabalho: quem escreveu, quando, com que intenção e o que dizem as outras fontes.",
+      "url": "https://www.rbe.mec.pt/np4/3252.html",
+      "imagem": "imagens/logos/avaliacao-de-paginas-de-internet.jpg",
+      "alt": "Logótipo de Guião para validar sítios web"
+    }
+  ]
+}

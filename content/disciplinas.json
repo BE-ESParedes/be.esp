@@ -1,0 +1,664 @@
+{
+  "disciplinas": [
+    {
+      "nome": "Português",
+      "icone": "livro",
+      "areas": [
+        {
+          "nome": "Leituras",
+          "itens": [
+            {
+              "titulo": "PNL2027 · listas por ano",
+              "url": "https://pnl2027.gov.pt"
+            },
+            {
+              "titulo": "Sugestões de leitura da Biblioteca",
+              "url": "ler.html#livros"
+            }
+          ]
+        },
+        {
+          "nome": "Obras do programa",
+          "itens": [
+            {
+              "titulo": "Biblioteca Digital Camões",
+              "url": "https://www.instituto-camoes.pt/"
+            },
+            {
+              "titulo": "Project Gutenberg · domínio público",
+              "url": "https://www.gutenberg.org"
+            }
+          ]
+        },
+        {
+          "nome": "Gramática",
+          "itens": [
+            {
+              "titulo": "Ciberdúvidas da Língua Portuguesa",
+              "url": "https://ciberduvidas.iscte-iul.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Escrever",
+          "itens": [
+            {
+              "titulo": "Guia para trabalhos escritos",
+              "url": "https://www.rbe.mec.pt/np4/4948.html"
+            }
+          ]
+        },
+        {
+          "nome": "Exames",
+          "itens": [
+            {
+              "titulo": "IAVE · provas e critérios",
+              "url": "https://iave.pt"
+            }
+          ]
+        }
+      ],
+      "recursos": [
+        {
+          "titulo": "PNL2027 · listas por ano",
+          "area": "Leituras",
+          "url": "https://pnl2027.gov.pt",
+          "imagem": "imagens/logos/pnl2027.png",
+          "alt": "Logótipo de PNL2027"
+        },
+        {
+          "titulo": "Sugestões de leitura da Biblioteca",
+          "area": "Leituras",
+          "url": "ler.html#livros",
+          "imagem": "imagens/logos/sugestoes-de-leitura-da-biblioteca.png",
+          "alt": "Logótipo de Sugestões de leitura da Biblioteca"
+        },
+        {
+          "titulo": "Biblioteca Digital Camões",
+          "area": "Obras do programa",
+          "url": "https://www.instituto-camoes.pt/",
+          "imagem": "imagens/logos/instituto-camoes.png",
+          "alt": "Logótipo de Biblioteca Digital Camões"
+        },
+        {
+          "titulo": "Project Gutenberg · domínio público",
+          "area": "Obras do programa",
+          "url": "https://www.gutenberg.org",
+          "imagem": "imagens/logos/projeto-gutenberg-capa.jpg",
+          "alt": "Project Gutenberg"
+        },
+        {
+          "titulo": "Ciberdúvidas da Língua Portuguesa",
+          "area": "Gramática",
+          "url": "https://ciberduvidas.iscte-iul.pt",
+          "imagem": "imagens/logos/ciberduvidas-iscte-iul.png",
+          "alt": "Logótipo de Ciberdúvidas da Língua Portuguesa"
+        },
+        {
+          "titulo": "Guia para trabalhos escritos",
+          "area": "Escrever",
+          "url": "https://www.rbe.mec.pt/np4/4948.html",
+          "imagem": "imagens/logos/como-fazer-um-trabalho.jpg",
+          "alt": "Logótipo de Guia para trabalhos escritos"
+        },
+        {
+          "titulo": "IAVE · provas e critérios",
+          "area": "Exames",
+          "url": "https://iave.pt",
+          "imagem": "imagens/logos/iave-logo-background.jpg",
+          "alt": "Logótipo de IAVE"
+        }
+      ]
+    },
+    {
+      "nome": "História",
+      "icone": "globo",
+      "areas": [
+        {
+          "nome": "Fontes",
+          "itens": [
+            {
+              "titulo": "Arquivo Nacional Torre do Tombo",
+              "url": "https://digitarq.arquivos.pt"
+            },
+            {
+              "titulo": "Biblioteca Nacional Digital",
+              "url": "https://bndigital.bnportugal.gov.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Património e museus",
+          "itens": [
+            {
+              "titulo": "Europeana",
+              "url": "https://www.europeana.eu"
+            }
+          ]
+        },
+        {
+          "nome": "Investigação",
+          "itens": [
+            {
+              "titulo": "RCAAP · repositórios científicos",
+              "url": "https://www.rcaap.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Exames",
+          "itens": [
+            {
+              "titulo": "IAVE · provas e critérios",
+              "url": "https://iave.pt"
+            }
+          ]
+        }
+      ],
+      "recursos": [
+        {
+          "titulo": "Arquivo Nacional Torre do Tombo",
+          "area": "Fontes",
+          "url": "https://digitarq.arquivos.pt",
+          "imagem": "imagens/logos/torre-do-tombo.png",
+          "alt": "Arquivo Nacional Torre do Tombo"
+        },
+        {
+          "titulo": "Biblioteca Nacional Digital",
+          "area": "Fontes",
+          "url": "https://bndigital.bnportugal.gov.pt",
+          "imagem": "imagens/logos/biblioteca-nacional.png",
+          "alt": "Logótipo de Biblioteca Nacional Digital"
+        },
+        {
+          "titulo": "Europeana",
+          "area": "Património e museus",
+          "url": "https://www.europeana.eu",
+          "imagem": "imagens/logos/europeana.png",
+          "alt": "Logótipo de Europeana"
+        },
+        {
+          "titulo": "RCAAP · repositórios científicos",
+          "area": "Investigação",
+          "url": "https://www.rcaap.pt",
+          "imagem": "imagens/logos/rcaap.jpg",
+          "alt": "RCAAP, repositórios científicos de acesso aberto"
+        },
+        {
+          "titulo": "IAVE · provas e critérios",
+          "area": "Exames",
+          "url": "https://iave.pt",
+          "imagem": "imagens/logos/iave-logo-background.jpg",
+          "alt": "Logótipo de IAVE"
+        }
+      ]
+    },
+    {
+      "nome": "Filosofia",
+      "icone": "cerebro",
+      "areas": [
+        {
+          "nome": "Textos",
+          "itens": [
+            {
+              "titulo": "Project Gutenberg · clássicos",
+              "url": "https://www.gutenberg.org"
+            }
+          ]
+        },
+        {
+          "nome": "Argumentação",
+          "itens": [
+            {
+              "titulo": "Guia para trabalhos escritos",
+              "url": "https://www.rbe.mec.pt/np4/4948.html"
+            }
+          ]
+        },
+        {
+          "nome": "Investigação",
+          "itens": [
+            {
+              "titulo": "RCAAP",
+              "url": "https://www.rcaap.pt"
+            }
+          ]
+        }
+      ],
+      "recursos": [
+        {
+          "titulo": "Project Gutenberg · clássicos",
+          "area": "Textos",
+          "url": "https://www.gutenberg.org",
+          "imagem": "imagens/logos/projeto-gutenberg.jpg",
+          "alt": "Logótipo de Project Gutenberg"
+        },
+        {
+          "titulo": "Guia para trabalhos escritos",
+          "area": "Argumentação",
+          "url": "https://www.rbe.mec.pt/np4/4948.html",
+          "imagem": "imagens/logos/como-fazer-um-trabalho.jpg",
+          "alt": "Logótipo de Guia para trabalhos escritos"
+        },
+        {
+          "titulo": "RCAAP",
+          "area": "Investigação",
+          "url": "https://www.rcaap.pt",
+          "imagem": "imagens/logos/portal-rcaap.jpg",
+          "alt": "Logótipo de RCAAP"
+        }
+      ]
+    },
+    {
+      "nome": "Geografia",
+      "icone": "globo",
+      "areas": [
+        {
+          "nome": "Dados e estatística",
+          "itens": [
+            {
+              "titulo": "INE · Instituto Nacional de Estatística",
+              "url": "https://www.ine.pt"
+            },
+            {
+              "titulo": "PORDATA",
+              "url": "https://www.pordata.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Mapas",
+          "itens": [
+            {
+              "titulo": "Direção-Geral do Território",
+              "url": "https://www.dgterritorio.gov.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Ambiente",
+          "itens": [
+            {
+              "titulo": "Agência Portuguesa do Ambiente",
+              "url": "https://apambiente.pt"
+            }
+          ]
+        }
+      ],
+      "recursos": [
+        {
+          "titulo": "INE · Instituto Nacional de Estatística",
+          "area": "Dados e estatística",
+          "url": "https://www.ine.pt",
+          "imagem": "imagens/logos/instituto-nacional-estatisticas.jpg",
+          "alt": "Logótipo de INE"
+        },
+        {
+          "titulo": "PORDATA",
+          "area": "Dados e estatística",
+          "url": "https://www.pordata.pt",
+          "imagem": "imagens/logos/pordata.jpg",
+          "alt": "Logótipo de PORDATA"
+        },
+        {
+          "titulo": "Direção-Geral do Território",
+          "area": "Mapas",
+          "url": "https://www.dgterritorio.gov.pt",
+          "imagem": "imagens/logos/logodgt.png",
+          "alt": "Logótipo de Direção-Geral do Território"
+        },
+        {
+          "titulo": "Agência Portuguesa do Ambiente",
+          "area": "Ambiente",
+          "url": "https://apambiente.pt",
+          "imagem": "imagens/logos/agencia-portuguesa-ambiente.png",
+          "alt": "Agência Portuguesa do Ambiente"
+        }
+      ]
+    },
+    {
+      "nome": "Ciências",
+      "icone": "alvo",
+      "areas": [
+        {
+          "nome": "Simulações",
+          "itens": [
+            {
+              "titulo": "PhET · simulações interativas",
+              "url": "https://phet.colorado.edu/pt/"
+            }
+          ]
+        },
+        {
+          "nome": "Investigação",
+          "itens": [
+            {
+              "titulo": "RCAAP",
+              "url": "https://www.rcaap.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Divulgação",
+          "itens": [
+            {
+              "titulo": "Ciência Viva",
+              "url": "https://www.cienciaviva.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Exames",
+          "itens": [
+            {
+              "titulo": "IAVE · provas e critérios",
+              "url": "https://iave.pt"
+            }
+          ]
+        }
+      ],
+      "recursos": [
+        {
+          "titulo": "PhET · simulações interativas",
+          "area": "Simulações",
+          "url": "https://phet.colorado.edu/pt/",
+          "imagem": "imagens/logos/phet.png",
+          "alt": "Logótipo de PhET"
+        },
+        {
+          "titulo": "RCAAP",
+          "area": "Investigação",
+          "url": "https://www.rcaap.pt",
+          "imagem": "imagens/logos/portal-rcaap.jpg",
+          "alt": "Logótipo de RCAAP"
+        },
+        {
+          "titulo": "Ciência Viva",
+          "area": "Divulgação",
+          "url": "https://www.cienciaviva.pt",
+          "imagem": "imagens/logos/ciencia-viva-ancct.png",
+          "alt": "Logótipo de Ciência Viva"
+        },
+        {
+          "titulo": "IAVE · provas e critérios",
+          "area": "Exames",
+          "url": "https://iave.pt",
+          "imagem": "imagens/logos/iave-logo-background.jpg",
+          "alt": "Logótipo de IAVE"
+        }
+      ]
+    },
+    {
+      "nome": "Matemática",
+      "icone": "alvo",
+      "areas": [
+        {
+          "nome": "Ferramentas",
+          "itens": [
+            {
+              "titulo": "GeoGebra",
+              "url": "https://www.geogebra.org/?lang=pt-PT"
+            }
+          ]
+        },
+        {
+          "nome": "Simulações",
+          "itens": [
+            {
+              "titulo": "PhET · matemática",
+              "url": "https://phet.colorado.edu/pt/simulations/filter?subjects=math"
+            }
+          ]
+        },
+        {
+          "nome": "Exames",
+          "itens": [
+            {
+              "titulo": "IAVE · provas e critérios",
+              "url": "https://iave.pt"
+            }
+          ]
+        }
+      ],
+      "recursos": [
+        {
+          "titulo": "GeoGebra",
+          "area": "Ferramentas",
+          "url": "https://www.geogebra.org/?lang=pt-PT",
+          "imagem": "imagens/logos/geogebra.png",
+          "alt": "Logótipo de GeoGebra"
+        },
+        {
+          "titulo": "PhET · matemática",
+          "area": "Simulações",
+          "url": "https://phet.colorado.edu/pt/simulations/filter?subjects=math",
+          "imagem": "imagens/logos/phet.png",
+          "alt": "Logótipo de PhET"
+        },
+        {
+          "titulo": "IAVE · provas e critérios",
+          "area": "Exames",
+          "url": "https://iave.pt",
+          "imagem": "imagens/logos/iave-logo-background.jpg",
+          "alt": "Logótipo de IAVE"
+        }
+      ]
+    },
+    {
+      "nome": "Línguas estrangeiras",
+      "icone": "balao",
+      "areas": [
+        {
+          "nome": "Leitura",
+          "itens": [
+            {
+              "titulo": "Project Gutenberg · outras línguas",
+              "url": "https://www.gutenberg.org"
+            }
+          ]
+        },
+        {
+          "nome": "Cultura",
+          "itens": [
+            {
+              "titulo": "Europeana",
+              "url": "https://www.europeana.eu"
+            }
+          ]
+        },
+        {
+          "nome": "Aprender português",
+          "itens": [
+            {
+              "titulo": "PT-PT · Learn European Portuguese",
+              "url": "https://www.learnptpt.com/index.html"
+            }
+          ]
+        }
+      ],
+      "recursos": [
+        {
+          "titulo": "Project Gutenberg · outras línguas",
+          "area": "Leitura",
+          "url": "https://www.gutenberg.org",
+          "imagem": "imagens/logos/projeto-gutenberg.jpg",
+          "alt": "Logótipo de Project Gutenberg"
+        },
+        {
+          "titulo": "Europeana",
+          "area": "Cultura",
+          "url": "https://www.europeana.eu",
+          "imagem": "imagens/logos/europeana.png",
+          "alt": "Logótipo de Europeana"
+        },
+        {
+          "titulo": "PT-PT · Learn European Portuguese",
+          "area": "Aprender português",
+          "url": "https://www.learnptpt.com/index.html",
+          "imagem": "imagens/logos/pt-pt.png",
+          "alt": "Logótipo de PT-PT"
+        }
+      ]
+    },
+    {
+      "nome": "Cidadania e Desenvolvimento",
+      "icone": "maos",
+      "areas": [
+        {
+          "nome": "Direitos",
+          "itens": [
+            {
+              "titulo": "CNPD · proteção de dados",
+              "url": "https://www.cnpd.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Literacia digital",
+          "itens": [
+            {
+              "titulo": "Portal MILD da RBE",
+              "url": "https://mild.rbe.mec.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Participação",
+          "itens": [
+            {
+              "titulo": "CiVESP",
+              "url": "conhecer.html#projetos-escola"
+            }
+          ]
+        }
+      ],
+      "recursos": [
+        {
+          "titulo": "CNPD · proteção de dados",
+          "area": "Direitos",
+          "url": "https://www.cnpd.pt",
+          "imagem": "imagens/logos/comissao-nacional-de-protecao-de-dados.png",
+          "alt": "Logótipo de CNPD"
+        },
+        {
+          "titulo": "Portal MILD da RBE",
+          "area": "Literacia digital",
+          "url": "https://mild.rbe.mec.pt",
+          "imagem": "imagens/logos/o-mild.png",
+          "alt": "Logótipo de Portal MILD da RBE"
+        },
+        {
+          "titulo": "CiVESP",
+          "area": "Participação",
+          "url": "conhecer.html#projetos-escola",
+          "imagem": "imagens/logos/civesp.jpg",
+          "alt": "Logótipo de CiVESP"
+        }
+      ]
+    },
+    {
+      "nome": "Tecnologias",
+      "icone": "monitor",
+      "areas": [
+        {
+          "nome": "Criar",
+          "itens": [
+            {
+              "titulo": "Plano Nacional das Artes",
+              "url": "https://pna.gov.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Literacia digital",
+          "itens": [
+            {
+              "titulo": "Portal MILD da RBE",
+              "url": "https://mild.rbe.mec.pt"
+            }
+          ]
+        },
+        {
+          "nome": "Direitos de autor",
+          "itens": [
+            {
+              "titulo": "Guião para validar sítios web",
+              "url": "https://www.rbe.mec.pt/np4/3252.html"
+            }
+          ]
+        },
+        {
+          "nome": "Segurança na rede",
+          "itens": [
+            {
+              "titulo": "SeguraNet",
+              "url": "https://seguranet.pt/"
+            }
+          ]
+        },
+        {
+          "nome": "Recursos educativos digitais",
+          "itens": [
+            {
+              "titulo": "ERTE · Equipa de Recursos e Tecnologias Educativas",
+              "url": "https://erte.dge.mec.pt/"
+            }
+          ]
+        },
+        {
+          "nome": "Inclusão",
+          "itens": [
+            {
+              "titulo": "Educação inclusiva · DGE",
+              "url": "https://www.dge.mec.pt/educacao-inclusiva"
+            }
+          ]
+        }
+      ],
+      "recursos": [
+        {
+          "titulo": "Plano Nacional das Artes",
+          "area": "Criar",
+          "url": "https://pna.gov.pt",
+          "imagem": "imagens/logos/plano-nacional-das-artes.png",
+          "alt": "Logótipo de Plano Nacional das Artes"
+        },
+        {
+          "titulo": "Portal MILD da RBE",
+          "area": "Literacia digital",
+          "url": "https://mild.rbe.mec.pt",
+          "imagem": "imagens/logos/o-mild.png",
+          "alt": "Logótipo de Portal MILD da RBE"
+        },
+        {
+          "titulo": "Guião para validar sítios web",
+          "area": "Direitos de autor",
+          "url": "https://www.rbe.mec.pt/np4/3252.html",
+          "imagem": "imagens/logos/avaliacao-de-paginas-de-internet.jpg",
+          "alt": "Logótipo de Guião para validar sítios web"
+        },
+        {
+          "titulo": "SeguraNet",
+          "area": "Segurança na rede",
+          "url": "https://seguranet.pt/",
+          "imagem": "imagens/logos/seguranet.svg",
+          "alt": "Logótipo de SeguraNet"
+        },
+        {
+          "titulo": "ERTE · Equipa de Recursos e Tecnologias Educativas",
+          "area": "Recursos educativos digitais",
+          "url": "https://erte.dge.mec.pt/",
+          "imagem": "imagens/logos/erte.jpg",
+          "alt": "Logótipo de ERTE"
+        },
+        {
+          "titulo": "Educação inclusiva · DGE",
+          "area": "Inclusão",
+          "url": "https://www.dge.mec.pt/educacao-inclusiva",
+          "imagem": "imagens/logos/educacao-inclusiva.png",
+          "alt": "Logótipo de Educação inclusiva"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "calendarioAno": [
+    {
+      "mes": "Setembro",
+      "ano": "2026",
+      "lema": "Acolhimento",
+      "icone": "maos",
+      "texto": "A Biblioteca abre e recebe as turmas novas. Formação de utilizadores e reorganização do espaço.",
+      "atividades": [
+        {
+          "nome": "Abertura da Biblioteca",
+          "dominio": "D",
+          "publico": "Comunidade educativa",
+          "tema": "cidadania"
+        },
+        {
+          "nome": "Formação de utilizadores",
+          "dominio": "A",
+          "publico": "Turmas do 7.º ano",
+          "tema": "investigacao"
+        },
+        {
+          "nome": "Biblioteca, espaço de bem-estar",
+          "dominio": "D",
+          "publico": "Comunidade educativa",
+          "tema": "cidadania"
+        }
+      ]
+    },
+    {
+      "mes": "Outubro",
+      "ano": "2026",
+      "lema": "Mês Internacional da Biblioteca Escolar",
+      "icone": "estrela",
+      "texto": "O mês mais cheio do ano. O MIBE traz exposição, encontros e o arranque dos projetos de leitura.",
+      "atividades": [
+        {
+          "nome": "Ler, pensar, crescer juntos! · MIBE",
+          "dominio": "A",
+          "publico": "Turmas do 7.º ano",
+          "tema": "leitura"
+        },
+        {
+          "nome": "Encontros com a Literatura · Partilhas Literárias",
+          "dominio": "B",
+          "publico": "Turmas do 9.º ano",
+          "tema": "leitura"
+        },
+        {
+          "nome": "Clube de Leitura da BE",
+          "dominio": "B",
+          "publico": "Alunos inscritos",
+          "tema": "leitura"
+        },
+        {
+          "nome": "Concurso Nacional de Leitura",
+          "dominio": "C",
+          "publico": "3.º ciclo e secundário",
+          "tema": "leitura"
+        },
+        {
+          "nome": "Exposição temática de outono",
+          "dominio": "C",
+          "publico": "Comunidade escolar",
+          "tema": "arte"
+        },
+        {
+          "nome": "Aquisição e reforço do fundo documental",
+          "dominio": "D",
+          "publico": "Comunidade educativa",
+          "tema": "leitura"
+        }
+      ]
+    },
+    {
+      "mes": "Novembro",
+      "ano": "2026",
+      "lema": "Ler e investigar",
+      "icone": "lupa",
+      "texto": "Os projetos de leitura em velocidade de cruzeiro e os primeiros roteiros literários.",
+      "atividades": [
+        {
+          "nome": "Palavras em Ação · Roteiros Literários Interativos",
+          "dominio": "B",
+          "publico": "Toda a escola",
+          "tema": "leitura"
+        },
+        {
+          "nome": "Encontros com a Literatura · Partilhas Literárias",
+          "dominio": "B",
+          "publico": "Turmas do 9.º ano",
+          "tema": "leitura"
+        },
+        {
+          "nome": "10 Minutos a Ler",
+          "dominio": "B",
+          "publico": "Turmas e comunidade",
+          "tema": "leitura"
+        }
+      ]
+    },
+    {
+      "mes": "Dezembro",
+      "ano": "2026",
+      "lema": "Exposições e efemérides",
+      "icone": "camara",
+      "texto": "Exposição de dezembro e os desafios trimestrais de leitura em família.",
+      "atividades": [
+        {
+          "nome": "Exposições temáticas e efemérides",
+          "dominio": "C",
+          "publico": "Comunidade escolar",
+          "tema": "arte"
+        },
+        {
+          "nome": "Palavras em Ação · Leituras Partilhadas em Família",
+          "dominio": "B",
+          "publico": "Alunos e famílias",
+          "tema": "leitura"
+        },
+        {
+          "nome": "Clube de Leitura da BE",
+          "dominio": "B",
+          "publico": "Alunos inscritos",
+          "tema": "leitura"
+        }
+      ]
+    },
+    {
+      "mes": "Janeiro",
+      "ano": "2027",
+      "lema": "Literacia da informação",
+      "icone": "cerebro",
+      "texto": "Arrancam os workshops de pesquisa com o 10.º ano e a parceria com as disciplinas artísticas.",
+      "atividades": [
+        {
+          "nome": "Workshops de Literacia da Informação",
+          "dominio": "A",
+          "publico": "3 turmas do 10.º · Filosofia",
+          "tema": "investigacao"
+        },
+        {
+          "nome": "Parceria com disciplinas artísticas",
+          "dominio": "C",
+          "publico": "Secundário · turmas de Artes",
+          "tema": "arte"
+        },
+        {
+          "nome": "Conversas com a Literatura · Encontro com autor",
+          "dominio": "B",
+          "publico": "10.º e 11.º anos",
+          "tema": "leitura"
+        }
+      ]
+    },
+    {
+      "mes": "Fevereiro",
+      "ano": "2027",
+      "lema": "Afetos e cidadania digital",
+      "icone": "maos",
+      "texto": "A Semana dos Afetos, as oficinas MILD e o debate sobre inteligência artificial.",
+      "atividades": [
+        {
+          "nome": "Workshops «Letras que Abraçam» · Semana dos Afetos",
+          "dominio": "A",
+          "publico": "Turmas do 8.º ano",
+          "tema": "escrita"
+        },
+        {
+          "nome": "Cidadania Digital e Inteligência Artificial",
+          "dominio": "A",
+          "publico": "Secundário · TIC e Português",
+          "tema": "digital"
+        },
+        {
+          "nome": "Oficinas MILD de literacia mediática",
+          "dominio": "A",
+          "publico": "3.º ciclo e secundário",
+          "tema": "digital"
+        },
+        {
+          "nome": "Feira do Livro",
+          "dominio": "C",
+          "publico": "Comunidade escolar",
+          "tema": "leitura"
+        }
+      ]
+    },
+    {
+      "mes": "Março",
+      "ano": "2027",
+      "lema": "Semana da Leitura",
+      "icone": "livro",
+      "texto": "O ponto alto do ano: a Semana Concelhia da Leitura e o arranque do Primavera a Ler.",
+      "atividades": [
+        {
+          "nome": "Semana Concelhia da Leitura",
+          "dominio": "C",
+          "publico": "Comunidade escolar e concelho",
+          "tema": "leitura"
+        },
+        {
+          "nome": "Primavera a Ler · concurso de leitura",
+          "dominio": "C",
+          "publico": "Comunidade escolar",
+          "tema": "leitura"
+        },
+        {
+          "nome": "Exposições temáticas e efemérides",
+          "dominio": "C",
+          "publico": "Comunidade escolar",
+          "tema": "arte"
+        },
+        {
+          "nome": "Ler em Voz Alta · desafios de oralidade",
+          "dominio": "B",
+          "publico": "Turmas do 3.º ciclo",
+          "tema": "escrita"
+        }
+      ]
+    },
+    {
+      "mes": "Abril",
+      "ano": "2027",
+      "lema": "Liberdade e leitura",
+      "icone": "bandeira",
+      "texto": "O 25 de Abril na Biblioteca, com os roteiros literários e as leituras do mundo.",
+      "atividades": [
+        {
+          "nome": "Palavras em Ação · Roteiros Literários Interativos",
+          "dominio": "B",
+          "publico": "Toda a escola",
+          "tema": "leitura"
+        },
+        {
+          "nome": "Leituras do Mundo · leituras interculturais",
+          "dominio": "C",
+          "publico": "Comunidade educativa e famílias",
+          "tema": "cidadania"
+        },
+        {
+          "nome": "Ler em Voz Alta · desafios de oralidade",
+          "dominio": "B",
+          "publico": "Turmas do 3.º ciclo",
+          "tema": "escrita"
+        }
+      ]
+    },
+    {
+      "mes": "Maio",
+      "ano": "2027",
+      "lema": "Encontros e exposições",
+      "icone": "microfone",
+      "texto": "Encontro com autor, exposição de maio e as finais dos concursos de leitura.",
+      "atividades": [
+        {
+          "nome": "Conversas com a Literatura · Encontro com autor",
+          "dominio": "B",
+          "publico": "10.º e 11.º anos",
+          "tema": "leitura"
+        },
+        {
+          "nome": "Primavera a Ler · final",
+          "dominio": "C",
+          "publico": "Comunidade escolar",
+          "tema": "leitura"
+        },
+        {
+          "nome": "Exposições temáticas e efemérides",
+          "dominio": "C",
+          "publico": "Comunidade escolar",
+          "tema": "arte"
+        },
+        {
+          "nome": "Exposição com as disciplinas artísticas",
+          "dominio": "C",
+          "publico": "Secundário · turmas de Artes",
+          "tema": "arte"
+        }
+      ]
+    },
+    {
+      "mes": "Junho",
+      "ano": "2027",
+      "lema": "Mostra final",
+      "icone": "estrela",
+      "texto": "O que se fez durante o ano vem a público. Último encontro do Clube de Leitura e balanço.",
+      "atividades": [
+        {
+          "nome": "Clube de Leitura da BE · último encontro",
+          "dominio": "B",
+          "publico": "Alunos inscritos",
+          "tema": "leitura"
+        },
+        {
+          "nome": "Mostra dos trabalhos do ano",
+          "dominio": "C",
+          "publico": "Comunidade escolar",
+          "tema": "arte"
+        },
+        {
+          "nome": "Avaliação e relatório anual",
+          "dominio": "D",
+          "publico": "Equipa da BE",
+          "tema": "investigacao"
+        }
+      ]
+    }
+  ]
+}

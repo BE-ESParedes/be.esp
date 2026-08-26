@@ -1,0 +1,52 @@
+{
+  "prateleiraExemplo": {
+    "notacao": "821-3",
+    "livros": [
+      {
+        "cota": "821-3 SAR/ANO",
+        "titulo": "O ano da morte de Ricardo Reis"
+      },
+      {
+        "cota": "821-3 SAR/BAG",
+        "titulo": "A bagagem do viajante"
+      },
+      {
+        "cota": "821-3 SAR/CAI",
+        "titulo": "Caim"
+      },
+      {
+        "cota": "821-3 SAR/CLA",
+        "titulo": "Claraboia"
+      },
+      {
+        "cota": "821-3 SAR/DES",
+        "titulo": "Deste mundo e do outro"
+      },
+      {
+        "cota": "821-3 SAR/ENS",
+        "titulo": "Ensaio sobre a cegueira",
+        "alvo": true
+      },
+      {
+        "cota": "821-3 SAR/EVA",
+        "titulo": "O evangelho segundo Jesus Cristo"
+      },
+      {
+        "cota": "821-3 SAR/HIS",
+        "titulo": "História do cerco de Lisboa"
+      },
+      {
+        "cota": "821-3 SAR/HOM",
+        "titulo": "O homem duplicado"
+      },
+      {
+        "cota": "821-3 SAR/INT",
+        "titulo": "As intermitências da morte"
+      },
+      {
+        "cota": "821-3 SAR/JAN",
+        "titulo": "A jangada de pedra"
+      }
+    ]
+  }
+}

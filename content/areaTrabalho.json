@@ -1,0 +1,46 @@
+{
+  "areaTrabalho": {
+    "ligacoes": [
+      {
+        "nome": "Painel de edição do site",
+        "url": "admin/"
+      },
+      {
+        "nome": "Repositório do site (GitHub)",
+        "url": "https://github.com/BE-ESParedes/be.esp"
+      },
+      {
+        "nome": "Área de Trabalho RBE",
+        "url": "https://www.rbe.mec.pt/si/login.jsp"
+      },
+      {
+        "nome": "Portal RBE",
+        "url": "https://www.rbe.mec.pt"
+      },
+      {
+        "nome": "Blogue RBE",
+        "url": "https://blogue.rbe.mec.pt"
+      },
+      {
+        "nome": "Catálogo OPAC",
+        "url": "https://bibliotecas.cm-paredes.pt/Opac/Pages/Search/SimpleSearch.aspx"
+      },
+      {
+        "nome": "GIAE",
+        "url": "https://esparedes.giae.pt"
+      },
+      {
+        "nome": "Microsoft 365",
+        "url": "https://www.office.com"
+      },
+      {
+        "nome": "Bookings",
+        "url": ""
+      },
+      {
+        "nome": "Site da escola",
+        "url": "https://www.esparedes.pt/esp/"
+      }
+    ]
+  }
+}

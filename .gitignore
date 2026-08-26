@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+
+# ficheiros de medição, usados só durante o trabalho
+_*.html
+
+# cache do Python, gerada ao correr as ferramentas
+__pycache__/
+*.pyc

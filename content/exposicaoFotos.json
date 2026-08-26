@@ -1,0 +1,88 @@
+{
+  "exposicaoFotos": [
+    {
+      "imagem": "imagens/exposicoes/painel-textil.jpg",
+      "legenda": "Painel de corações em tecido, feito pelos alunos e exposto na Biblioteca.",
+      "alt": "Painel têxtil com dezenas de corações bordados, pendurado numa parede da escola",
+      "ordem": 1,
+      "estado": "publicado"
+    },
+    {
+      "imagem": "imagens/exposicoes/leitura-em-conjunto.jpg",
+      "legenda": "Leitura em conjunto, com toda a gente de folha na mão.",
+      "alt": "Grupo de pessoas em fila, cada uma com uma folha de papel, a ler",
+      "ordem": 2,
+      "estado": "publicado"
+    },
+    {
+      "imagem": "imagens/exposicoes/quadro-atividade.jpg",
+      "legenda": "Uma atividade ao quadro, entre as estantes.",
+      "alt": "Alunos junto a um quadro branco montado entre as estantes da Biblioteca",
+      "ordem": 3,
+      "estado": "publicado"
+    },
+    {
+      "imagem": "imagens/exposicoes/apresentacao-livro.jpg",
+      "legenda": "Um aluno apresenta um livro à turma.",
+      "alt": "Aluno de pé junto a um ecrã com a capa de um livro projetada",
+      "ordem": 4,
+      "estado": "publicado"
+    },
+    {
+      "imagem": "imagens/exposicoes/apresentacao-livro-2.jpg",
+      "legenda": "Outra apresentação, na zona multimédia.",
+      "alt": "Aluno a apresentar um livro com a capa projetada no ecrã",
+      "ordem": 5,
+      "estado": "publicado"
+    },
+    {
+      "imagem": "imagens/exposicoes/canto-de-leitura.jpg",
+      "legenda": "O canto de leitura, com os cadeirões e o candeeiro alto.",
+      "alt": "Cadeirões vermelhos e um candeeiro de pé junto às estantes",
+      "ordem": 6,
+      "estado": "publicado"
+    },
+    {
+      "imagem": "imagens/exposicoes/mibe-2025-1.jpg",
+      "legenda": "Mês Internacional da Biblioteca Escolar, 2025.",
+      "alt": "Mês Internacional da Biblioteca Escolar, 2025.",
+      "ordem": 7,
+      "estado": "publicado"
+    },
+    {
+      "imagem": "imagens/exposicoes/mibe-2025-3.jpg",
+      "legenda": "Mês Internacional da Biblioteca Escolar, 2025.",
+      "alt": "Mês Internacional da Biblioteca Escolar, 2025.",
+      "ordem": 8,
+      "estado": "publicado"
+    },
+    {
+      "imagem": "imagens/exposicoes/mibe-2025-5.jpg",
+      "legenda": "Mês Internacional da Biblioteca Escolar, 2025.",
+      "alt": "Mês Internacional da Biblioteca Escolar, 2025.",
+      "ordem": 9,
+      "estado": "publicado"
+    },
+    {
+      "imagem": "imagens/exposicoes/semana-leitura-2026-1.jpg",
+      "legenda": "Semana da Leitura, 2026.",
+      "alt": "Semana da Leitura, 2026.",
+      "ordem": 10,
+      "estado": "publicado"
+    },
+    {
+      "imagem": "imagens/exposicoes/semana-leitura-2026-4.jpg",
+      "legenda": "Semana da Leitura, 2026.",
+      "alt": "Semana da Leitura, 2026.",
+      "ordem": 11,
+      "estado": "publicado"
+    },
+    {
+      "imagem": "imagens/exposicoes/semana-leitura-2026-6.jpg",
+      "legenda": "Semana da Leitura, 2026.",
+      "alt": "Semana da Leitura, 2026.",
+      "ordem": 12,
+      "estado": "publicado"
+    }
+  ]
+}

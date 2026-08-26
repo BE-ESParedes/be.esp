@@ -1,0 +1,57 @@
+{
+  "leituraAcessivel": [
+    {
+      "titulo": "BiblioLED",
+      "autor": "Direção-Geral do Livro, dos Arquivos e das Bibliotecas",
+      "imagem": "imagens/logos/biblioled.png",
+      "alt": "Logótipo de BiblioLED",
+      "publico": "todos os anos",
+      "genero": "Empréstimo digital",
+      "porque": "Livros digitais e audiolivros emprestados de graça, com o cartão de uma biblioteca municipal. Basta inscreveres-te na Biblioteca de Paredes uma vez.",
+      "fonte": "DGLAB",
+      "cta": "Abrir a BiblioLED",
+      "url": "https://www.biblioled.gov.pt/",
+      "destaque": true,
+      "selo": "Útil e pouco conhecido"
+    },
+    {
+      "titulo": "Biblioteca Sonora Digital",
+      "autor": "Bibliotecas Municipais do Porto",
+      "imagem": "imagens/logos/bib-munic-porto.png",
+      "alt": "Logótipo de Biblioteca Sonora Digital",
+      "publico": "leitores com deficiência visual",
+      "genero": "Audiolivros",
+      "porque": "Serviço gratuito de livros falados para quem não pode ler em tinta. A equipa da Biblioteca ajuda a fazer a inscrição.",
+      "fonte": "Câmara Municipal do Porto",
+      "cta": "Conhecer o serviço",
+      "url": "https://bmp.cm-porto.pt/bibliotecasonoradigital",
+      "destaque": false
+    },
+    {
+      "titulo": "Audiolivros e leitura acessível",
+      "autor": "Plano Nacional de Leitura 2027",
+      "imagem": "imagens/logos/pnl2027.png",
+      "alt": "Logótipo de Audiolivros e leitura acessível",
+      "publico": "todos os anos",
+      "genero": "Diretório de recursos",
+      "porque": "A lista que o PNL mantém de plataformas de leitura acessível. Bom ponto de partida quando o formato habitual não serve.",
+      "fonte": "PNL2027",
+      "cta": "Ver a lista",
+      "url": "https://www.pnl2027.gov.pt/np4/audiolivros_leituraacessivel.html",
+      "destaque": false
+    },
+    {
+      "titulo": "Mensaige — a Mensagem em mirandês",
+      "autor": "Fernando Pessoa",
+      "imagem": "imagens/audio/mensaige-mirandes.jpg",
+      "alt": "Capa do audiolivro Mensaige",
+      "publico": "todos os anos",
+      "genero": "Audiolivro",
+      "porque": "Ler também é poder ler noutra língua. A Mensagem em mirandês, a segunda língua oficial do país, gravada por falantes nativos.",
+      "fonte": "Imprensa Nacional",
+      "cta": "Ouvir",
+      "url": "https://imprensanacional.pt/wp-content/uploads/2024/09/Mensaige_Final1.mp3",
+      "destaque": false
+    }
+  ]
+}

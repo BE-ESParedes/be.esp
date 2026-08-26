@@ -1,0 +1,34 @@
+{
+  "temasAtividades": [
+    {
+      "id": "leitura",
+      "nome": "Leitura",
+      "icone": "livro"
+    },
+    {
+      "id": "arte",
+      "nome": "Arte",
+      "icone": "camara"
+    },
+    {
+      "id": "digital",
+      "nome": "Digital e IA",
+      "icone": "monitor"
+    },
+    {
+      "id": "cidadania",
+      "nome": "Cidadania",
+      "icone": "maos"
+    },
+    {
+      "id": "investigacao",
+      "nome": "Investigação",
+      "icone": "lupa"
+    },
+    {
+      "id": "escrita",
+      "nome": "Escrita",
+      "icone": "balao"
+    }
+  ]
+}

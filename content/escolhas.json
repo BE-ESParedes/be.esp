@@ -1,0 +1,79 @@
+{
+  "escolhas": [
+    {
+      "publico": "3.º ciclo",
+      "titulo": "Três escolhas para descobrir este mês",
+      "nota": "Curtas, com história a sério e sem exigir leituras prévias.",
+      "icone": "livro",
+      "estado": "publicado",
+      "ordem": 1,
+      "refs": [
+        {
+          "colecao": "livrosDigitais",
+          "titulo": "As Minas de Salomão",
+          "nota": "Mapas, perigos e um tesouro no fim. Se há livro para reacender o gosto por virar a página, é este."
+        },
+        {
+          "colecao": "livrosDigitais",
+          "titulo": "Esteiros",
+          "nota": "Rapazes da tua idade que passam o dia nos barreiros em vez de irem à escola. Escrito há mais de 80 anos e ainda incomoda."
+        },
+        {
+          "colecao": "audiolivros",
+          "titulo": "Mensaige — audiolhibro an mirandés",
+          "nota": "Meia hora a ouvir poesia numa língua que também é portuguesa e que quase ninguém conhece. Experimenta."
+        }
+      ]
+    },
+    {
+      "publico": "Ensino secundário",
+      "titulo": "Três leituras que vale a pena conhecer",
+      "nota": "Duas do programa, uma que ninguém da turma vai ter lido.",
+      "icone": "monitor",
+      "estado": "publicado",
+      "ordem": 2,
+      "refs": [
+        {
+          "colecao": "livrosDigitais",
+          "titulo": "Frei Luís de Sousa",
+          "nota": "Vais ter de o ler na mesma. Mais vale começar agora, com o texto no telemóvel e sem esperar pelo exemplar da biblioteca."
+        },
+        {
+          "colecao": "audiolivros",
+          "titulo": "Os Lusíadas",
+          "nota": "Ouve um canto antes de o analisar. A métrica deixa de ser um obstáculo quando alguém a diz em voz alta."
+        },
+        {
+          "colecao": "livrosDigitais",
+          "titulo": "Lisboa no Ano 2000",
+          "nota": "Um engenheiro de 1906 a imaginar a cidade de hoje. Serve para escrever sobre progresso, ciência e o que é ser moderno."
+        }
+      ]
+    },
+    {
+      "publico": "Professores",
+      "titulo": "Três recursos para levar para a aula",
+      "nota": "Acesso livre, sem inscrição e prontos a projetar ou a partilhar.",
+      "icone": "pessoas",
+      "estado": "publicado",
+      "ordem": 3,
+      "refs": [
+        {
+          "colecao": "audiolivros",
+          "titulo": "Cânticos do Realismo: O Livro de Cesário Verde",
+          "nota": "Poemas ditos por uma atriz. Dez minutos de audição mudam a aula de análise que vem a seguir."
+        },
+        {
+          "colecao": "podcasts",
+          "titulo": "Volta ao Mundo em Cem Livros",
+          "nota": "Um episódio por obra, de todos os continentes e com paridade de autoria. Bom para abrir aula ou propor trabalho."
+        },
+        {
+          "colecao": "leituraAcessivel",
+          "titulo": "BiblioLED",
+          "nota": "Empréstimo digital gratuito com o cartão da biblioteca municipal. Resolve o problema do exemplar único para a turma toda."
+        }
+      ]
+    }
+  ]
+}

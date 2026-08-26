@@ -1,0 +1,94 @@
+{
+  "estantes": [
+    {
+      "classe": "0",
+      "designacao": "Referência e informação",
+      "nomeCor": "castanho",
+      "cor": "#6D4C41",
+      "exemplares": 1459,
+      "oque": "Livro ilustrado para os mais novos · Enciclopédias e obras de referência · Dicionários de português e dicionários gerais · Congressos, exposições, museus e catálogos · Coleções e obras de vários autores · Dicionários de inglês · Publicações periódicas e revistas",
+      "notacoes": "087.5, 030, 038, 06, 08, 038=i, 038=f, 05",
+      "descricao": "Generalidades. Ciência e conhecimento. Enciclopédias, bibliografias, museologia e fontes de informação geral."
+    },
+    {
+      "classe": "1",
+      "designacao": "Filosofia e psicologia",
+      "nomeCor": "lilás",
+      "cor": "#B39DDB",
+      "exemplares": 815,
+      "oque": "Filosofia · Psicologia · Ética e moral · Lógica e teoria do conhecimento · Metafísica",
+      "notacoes": "1, 159.9, 17, 16, 11, 1(038), 1(07)",
+      "descricao": "Filosofia e psicologia, lógica e ética."
+    },
+    {
+      "classe": "2",
+      "designacao": "Religião",
+      "nomeCor": "vermelho",
+      "cor": "#D32F2F",
+      "exemplares": 115,
+      "oque": "Religião e teologia · Religiões não cristãs e mitologia",
+      "notacoes": "2, 29",
+      "descricao": "Religião. Teologia, história das religiões, mitologia e textos sagrados."
+    },
+    {
+      "classe": "3",
+      "designacao": "Sociedade, educação e direito",
+      "nomeCor": "amarelo",
+      "cor": "#FDD835",
+      "exemplares": 1299,
+      "oque": "Educação e ensino · Sociologia · Política · Direito · Economia · Etnografia e tradições populares · Ciências sociais",
+      "notacoes": "37, 316, 32, 34, 33, 39, 3, 364",
+      "descricao": "Ciências sociais. Sociologia, direito, economia, educação e estatística."
+    },
+    {
+      "classe": "5",
+      "designacao": "Ciências exatas e naturais",
+      "nomeCor": "verde",
+      "cor": "#388E3C",
+      "exemplares": 777,
+      "oque": "Matemática · Ciências naturais e exatas · Biologia · Zoologia · Física · Ambiente e proteção da natureza · Ecologia",
+      "notacoes": "51, 5, 51(07), 57, 59, 53, 502, 57(07)",
+      "descricao": "Ciências exatas e naturais. Matemática, física, química, astronomia, geologia e biologia."
+    },
+    {
+      "classe": "6",
+      "designacao": "Ciências aplicadas",
+      "nomeCor": "azul",
+      "cor": "#1976D2",
+      "exemplares": 294,
+      "oque": "Medicina e saúde · Gestão e organização · Higiene e saúde individual · Agricultura · Engenharia e tecnologia · Alimentação e economia doméstica",
+      "notacoes": "61, 65, 613, 63, 62, 64",
+      "descricao": "Ciências aplicadas. Medicina, engenharia, agricultura, indústria e tecnologia."
+    },
+    {
+      "classe": "7",
+      "designacao": "Arte, espetáculo e desporto",
+      "nomeCor": "rosa",
+      "cor": "#EC407A",
+      "exemplares": 1187,
+      "oque": "Cinema e videogramas · Arte · Espetáculo e teatro · Desenho e design · Desporto · Pintura · Estética e teoria da arte",
+      "notacoes": "791, 7, 79, 74, 796, 75, 7.01, 72",
+      "descricao": "Arte, espetáculo e desporto. Pintura, música, cinema, fotografia e arquitetura."
+    },
+    {
+      "classe": "8",
+      "designacao": "Língua e literatura",
+      "nomeCor": "amarelo acastanhado",
+      "cor": "#C9A227",
+      "exemplares": 10341,
+      "oque": "Ficção e narrativa estrangeira traduzida · Literatura infantojuvenil · Ficção e narrativa portuguesa · Poesia portuguesa · Outros géneros portugueses · Leitura orientada e apoio ao ensino · Estudos literários",
+      "notacoes": "82-3, 82-93, 821-3, 821-1, 821-9, 82.0(07), 82.0, 82-90",
+      "descricao": "Língua e literatura. A maior secção da Biblioteca. Obras de ficção, poesia, teatro e ensaios literários em português e em línguas estrangeiras."
+    },
+    {
+      "classe": "9",
+      "designacao": "História e geografia",
+      "nomeCor": "roxo",
+      "cor": "#7B1FA2",
+      "exemplares": 1988,
+      "oque": "História de Portugal · História geral e por períodos · Biografias · Monografias locais e regionais · História e historiografia · Geografia · História e geografia em geral",
+      "notacoes": "94(469), 94, 929, 908, 93, 91, 9, 911",
+      "descricao": "Geografia e história. Geografia, viagens, biografias e história de Portugal e do mundo."
+    }
+  ]
+}

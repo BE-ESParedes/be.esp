@@ -1,0 +1,184 @@
+{
+  "ligacoesUteis": [
+    {
+      "grupo": "Ler",
+      "nome": "PNL2027",
+      "url": "https://pnl2027.gov.pt",
+      "para": "Listas de leitura por ano de escolaridade e projetos de promoção da leitura.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/pnl2027-selo.png",
+      "alt": "Plano Nacional de Leitura 2027"
+    },
+    {
+      "grupo": "Ler",
+      "nome": "Biblioteca Escolar Digital · RBE",
+      "url": "https://www.rbe.mec.pt/np4/bed.html",
+      "para": "Recursos digitais selecionados pela Rede de Bibliotecas Escolares.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/biblioteca-escolar-digital.jpg",
+      "alt": "Biblioteca Escolar Digital, da RBE"
+    },
+    {
+      "grupo": "Ler",
+      "nome": "Portal da Literatura",
+      "url": "https://portaldaliteratura.com/",
+      "para": "Autores, obras e biografias da literatura em língua portuguesa.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/portal-da-literatura.png",
+      "alt": "Logótipo de Portal da Literatura"
+    },
+    {
+      "grupo": "Ler",
+      "nome": "Biblioteca Digital Camões",
+      "url": "https://www.instituto-camoes.pt/",
+      "para": "Textos integrais de literatura e cultura em língua portuguesa.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/instituto-camoes.png",
+      "alt": "Logótipo de Biblioteca Digital Camões"
+    },
+    {
+      "grupo": "Ler",
+      "nome": "Project Gutenberg",
+      "url": "https://www.gutenberg.org",
+      "para": "Milhares de obras em domínio público, para descarregar e ler no telemóvel.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/projeto-gutenberg.jpg",
+      "alt": "Logótipo de Project Gutenberg"
+    },
+    {
+      "grupo": "Investigar",
+      "nome": "Recursos RBE",
+      "url": "https://rbe.mec.pt/np4/recursos/",
+      "para": "Portal da Rede de Bibliotecas Escolares: referenciais, guiões e recursos.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/recursos-selecionados-bed.png",
+      "alt": "Logótipo de Recursos RBE"
+    },
+    {
+      "grupo": "Investigar",
+      "nome": "RCAAP",
+      "url": "https://www.rcaap.pt",
+      "para": "Teses, artigos e trabalhos científicos das universidades portuguesas, em acesso aberto.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/portal-rcaap.jpg",
+      "alt": "Logótipo de RCAAP"
+    },
+    {
+      "grupo": "Investigar",
+      "nome": "Europeana",
+      "url": "https://www.europeana.eu",
+      "para": "Milhões de objetos digitalizados de museus, arquivos e bibliotecas da Europa.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/europeana.png",
+      "alt": "Logótipo de Europeana"
+    },
+    {
+      "grupo": "Investigar",
+      "nome": "Biblioteca Nacional Digital",
+      "url": "https://bndigital.bnportugal.gov.pt",
+      "para": "Obras patrimoniais, jornais antigos e fontes históricas portuguesas.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/biblioteca-nacional.png",
+      "alt": "Logótipo de Biblioteca Nacional Digital"
+    },
+    {
+      "grupo": "Investigar",
+      "nome": "Arquivo Torre do Tombo",
+      "url": "https://digitarq.arquivos.pt",
+      "para": "Documentos originais do arquivo nacional, digitalizados.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/torre-do-tombo.png",
+      "alt": "Arquivo Nacional Torre do Tombo"
+    },
+    {
+      "grupo": "Investigar",
+      "nome": "PORDATA",
+      "url": "https://www.pordata.pt",
+      "para": "Estatísticas de Portugal e da Europa, prontas a citar num trabalho.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/pordata.jpg",
+      "alt": "Logótipo de PORDATA"
+    },
+    {
+      "grupo": "Escrever",
+      "nome": "Aprender com a Biblioteca Escolar",
+      "url": "https://rbe.mec.pt/np4/AprendercBE.html",
+      "para": "O referencial da RBE para pesquisa, escrita e produção de trabalhos.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/aprender-com-a-biblioteca-escolar.png",
+      "alt": "Logótipo de Aprender com a Biblioteca Escolar"
+    },
+    {
+      "grupo": "Escrever",
+      "nome": "APA Style",
+      "url": "https://apastyle.apa.org/",
+      "para": "A norma oficial de citação, com exemplos de cada tipo de fonte.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/apa-style-logo.png",
+      "alt": "Logótipo de APA Style"
+    },
+    {
+      "grupo": "Escrever",
+      "nome": "Ciberdúvidas",
+      "url": "https://ciberduvidas.iscte-iul.pt",
+      "para": "Dúvidas de língua respondidas por especialistas.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/ciberduvidas.png",
+      "alt": "Ciberdúvidas da Língua Portuguesa"
+    },
+    {
+      "grupo": "Criar",
+      "nome": "Jornais escolares · DGE",
+      "url": "https://www.dge.mec.pt/",
+      "para": "Orientações e recursos para produção de conteúdos na escola.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/jornais-escolares-dge.jpg",
+      "alt": "Jornais escolares, da DGE"
+    },
+    {
+      "grupo": "Criar",
+      "nome": "Plano Nacional das Artes",
+      "url": "https://pna.gov.pt",
+      "para": "Projetos, recursos e ideias para trabalho artístico e criativo.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/plano-nacional-das-artes.png",
+      "alt": "Logótipo de Plano Nacional das Artes"
+    },
+    {
+      "grupo": "Aprender digitalmente",
+      "nome": "Portal MILD · RBE",
+      "url": "https://mild.rbe.mec.pt",
+      "para": "Literacia digital para os 14 aos 18: pesquisar, avaliar, criar e partilhar.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/portal-mild.png",
+      "alt": "Portal MILD, da RBE"
+    },
+    {
+      "grupo": "Aprender digitalmente",
+      "nome": "PhET",
+      "url": "https://phet.colorado.edu/pt/",
+      "para": "Simulações interativas de física, química, biologia e matemática.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/phet-simulacoes.png",
+      "alt": "PhET, simulações interativas"
+    },
+    {
+      "grupo": "Aprender digitalmente",
+      "nome": "GeoGebra",
+      "url": "https://www.geogebra.org/?lang=pt-PT",
+      "para": "Geometria, álgebra e gráficos numa ferramenta livre.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/geogebra.png",
+      "alt": "Logótipo de GeoGebra"
+    },
+    {
+      "grupo": "Aprender digitalmente",
+      "nome": "CNPD",
+      "url": "https://www.cnpd.pt",
+      "para": "Proteção de dados pessoais: o que podes e não podes publicar sobre ti e sobre os outros.",
+      "acesso": "livre",
+      "imagem": "imagens/logos/cnpd-selo.png",
+      "alt": "Comissão Nacional de Proteção de Dados"
+    }
+  ]
+}

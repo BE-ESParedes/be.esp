@@ -1,0 +1,28 @@
+{
+  "equipa": [
+    {
+      "nome": "Carlos Carneiro",
+      "iniciais": "CC",
+      "funcao": "Professor bibliotecário",
+      "detalhe": "Coordenador da Biblioteca Escolar. Gestão pedagógica, desenvolvimento da coleção e coordenação do Plano Anual de Atividades."
+    },
+    {
+      "nome": "Carla Fonseca",
+      "iniciais": "CF",
+      "funcao": "Equipa da Biblioteca",
+      "detalhe": "Apoio à literacia da informação, workshops de escrita e acompanhamento dos alunos nos seus trabalhos."
+    },
+    {
+      "nome": "Maria José Magalhães",
+      "iniciais": "MJ",
+      "funcao": "Assistente operacional",
+      "detalhe": "Atendimento diário e apoio aos alunos no espaço da Biblioteca."
+    },
+    {
+      "nome": "Verónica Pacheco de Sousa",
+      "iniciais": "VP",
+      "funcao": "Assistente operacional",
+      "detalhe": "Atendimento diário e apoio aos alunos no espaço da Biblioteca."
+    }
+  ]
+}

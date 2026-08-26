@@ -1,0 +1,147 @@
+{
+  "plataformas": [
+    {
+      "grupo": "ler",
+      "nome": "Project Gutenberg",
+      "url": "https://www.gutenberg.org/",
+      "descricao": "Mais de 70 000 obras em domínio público. De Homero a Machado de Assis, em várias línguas.",
+      "meta": "Acesso livre · Sem registo · ePub, Kindle, HTML",
+      "ordem": 1,
+      "estado": "publicado",
+      "imagem": "imagens/logos/projeto-gutenberg.jpg",
+      "alt": "Logótipo de Project Gutenberg"
+    },
+    {
+      "grupo": "ler",
+      "nome": "Biblioteca Nacional Digital",
+      "url": "https://purl.pt/",
+      "descricao": "Património literário português digitalizado. Periódicos, manuscritos e obras completas.",
+      "meta": "Acesso livre · Registo opcional · PDF",
+      "ordem": 2,
+      "estado": "publicado",
+      "imagem": "imagens/logos/biblioteca-nacional.png",
+      "alt": "Logótipo de Biblioteca Nacional Digital"
+    },
+    {
+      "grupo": "ler",
+      "nome": "BiblioLED",
+      "url": "https://www.biblioled.gov.pt/",
+      "descricao": "Biblioteca Pública de Leitura e Empréstimo Digital. Livros digitais e audiolivros emprestados de graça pelas bibliotecas municipais da Rede Nacional de Bibliotecas Públicas.",
+      "meta": "Empréstimo gratuito · Cartão de biblioteca municipal · App, leitor online, e-reader",
+      "ordem": 3,
+      "estado": "publicado",
+      "imagem": "imagens/logos/biblioled.png",
+      "alt": "Logótipo de BiblioLED"
+    },
+    {
+      "grupo": "ouvir",
+      "nome": "LibriVox",
+      "url": "https://librivox.org/",
+      "descricao": "Audiolivros de domínio público lidos por voluntários de todo o mundo. Gratuitos e sem anúncios.",
+      "meta": "Acesso livre · Sem registo · MP3",
+      "ordem": 1,
+      "estado": "publicado",
+      "imagem": "imagens/logos/logotipo-librivox.png",
+      "alt": "Logótipo de LibriVox"
+    },
+    {
+      "grupo": "ouvir",
+      "nome": "Audiolivros da Imprensa Nacional",
+      "url": "https://imprensanacional.pt/digitais/audiolivros/",
+      "descricao": "Clássicos portugueses lidos em voz alta e publicados pela editora do Estado.",
+      "meta": "Acesso livre · Sem registo · Vários formatos",
+      "ordem": 2,
+      "estado": "publicado",
+      "imagem": "imagens/logos/imprensanacional-pt-digitais-audiolivros.jpg",
+      "alt": "Logótipo de Audiolivros da Imprensa Nacional"
+    },
+    {
+      "grupo": "ouvir",
+      "nome": "Internet Archive · Poesia e literatura",
+      "url": "https://archive.org/details/audio_bookspoetry",
+      "descricao": "Milhares de gravações de poesia, ficção e não-ficção. Um arquivo sonoro da literatura mundial.",
+      "meta": "Acesso livre · Sem registo · Vários formatos",
+      "ordem": 3,
+      "estado": "publicado",
+      "imagem": "imagens/logos/archive-org.png",
+      "alt": "Logótipo de Internet Archive"
+    },
+    {
+      "grupo": "escutar",
+      "nome": "Volta ao Mundo em Cem Livros",
+      "url": "https://antena2.rtp.pt/podcast/volta-ao-mundo-em-cem-livros/",
+      "descricao": "Cem livros de todos os continentes, um por semana, com igual número de autoras e autores.",
+      "meta": "RTP Antena 2 · Acesso livre · Sem registo",
+      "ordem": 1,
+      "estado": "publicado",
+      "imagem": "imagens/logos/volta-ao-mundo-em-cem-livros.jpg",
+      "alt": "Logótipo de Volta ao Mundo em Cem Livros"
+    },
+    {
+      "grupo": "escutar",
+      "nome": "Conversas para Ler",
+      "url": "https://antena1.rtp.pt/podcast/conversas-para-ler/",
+      "descricao": "Entrevistas com quem escreve. Ouvir um autor falar do próprio livro costuma dar mais vontade de o ler do que qualquer resumo.",
+      "meta": "RTP Antena 1 · Acesso livre · Sem registo",
+      "ordem": 2,
+      "estado": "publicado",
+      "imagem": "imagens/logos/conversas-para-ler.jpg",
+      "alt": "Logótipo de Conversas para Ler"
+    },
+    {
+      "grupo": "escutar",
+      "nome": "Ciberdúvidas · o podcast",
+      "url": "https://open.spotify.com/show/4egNWxXfakWfRZIFnE2rd8",
+      "descricao": "Questões e curiosidades da língua portuguesa, do site Ciberdúvidas. Episódios curtos sobre o que se diz e o que se escreve.",
+      "meta": "Ciberdúvidas · Acesso livre · Spotify",
+      "ordem": 3,
+      "estado": "publicado",
+      "imagem": "imagens/logos/ciberduvidas.png",
+      "alt": "Logótipo de Ciberdúvidas"
+    },
+    {
+      "grupo": "ver",
+      "nome": "RTP Ensina",
+      "url": "https://ensina.rtp.pt/",
+      "descricao": "Vídeos educativos sobre literatura, história e ciência. Conteúdo curricular em formato visual.",
+      "meta": "Acesso livre · Sem registo · YouTube e RTP Play",
+      "ordem": 1,
+      "estado": "publicado",
+      "imagem": "imagens/logos/rtp-ensina.jpg",
+      "alt": "RTP Ensina"
+    },
+    {
+      "grupo": "aceder",
+      "nome": "BiblioLED",
+      "url": "https://www.biblioled.gov.pt/",
+      "descricao": "Livros digitais e audiolivros emprestados de graça, com o cartão de uma biblioteca municipal. Para quem prefere ouvir ou precisa de ajustar o tamanho da letra.",
+      "meta": "Empréstimo gratuito · Cartão de biblioteca municipal · App e leitor online",
+      "ordem": 1,
+      "estado": "publicado",
+      "imagem": "imagens/logos/biblioled.png",
+      "alt": "Logótipo de BiblioLED"
+    },
+    {
+      "grupo": "aceder",
+      "nome": "Biblioteca Sonora Digital",
+      "url": "https://bmp.cm-porto.pt/bibliotecasonoradigital",
+      "descricao": "Serviço gratuito de livros falados para quem não pode ler em tinta. A equipa da Biblioteca ajuda a fazer a inscrição.",
+      "meta": "Câmara Municipal do Porto · Gratuito · Inscrição necessária",
+      "ordem": 2,
+      "estado": "publicado",
+      "imagem": "imagens/logos/bib-munic-porto.png",
+      "alt": "Logótipo de Biblioteca Sonora Digital"
+    },
+    {
+      "grupo": "aceder",
+      "nome": "Audiolivros e leitura acessível",
+      "url": "https://www.pnl2027.gov.pt/np4/audiolivros_leituraacessivel.html",
+      "descricao": "A lista que o PNL mantém de plataformas de leitura acessível. Bom ponto de partida quando o formato habitual não serve.",
+      "meta": "PNL2027 · Acesso livre · Sem registo",
+      "ordem": 3,
+      "estado": "publicado",
+      "imagem": "imagens/logos/pnl2027.png",
+      "alt": "Logótipo de Audiolivros e leitura acessível"
+    }
+  ]
+}

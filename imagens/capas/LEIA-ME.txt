@@ -1,0 +1,9 @@
+CAPAS DE LIVROS E MINIATURAS
+============================
+Usadas nas faixas de Sugestões de leitura e Destaques (página Catálogo).
+
+Formato: vertical, proporção 2:3 (ex.: 400 x 600 px), .jpg até 120 KB.
+Nome sem acentos nem espaços: ensaio-cegueira.jpg
+
+Carregar pelo painel de edição, no campo "Capa" de cada livro.
+Enquanto o campo estiver vazio, o cartão mostra uma moldura cinzenta.

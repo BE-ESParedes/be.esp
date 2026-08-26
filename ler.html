@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ler · Biblioteca Escolar da ESP</title>
+<meta name="description" content="Livros, livros digitais, audiolivros, podcasts e vídeos escolhidos pela Biblioteca Escolar da Escola Secundária de Paredes.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Ler · Biblioteca Escolar da ESP"><meta property="og:description" content="Descobre. Pesquisa. Lê. O catálogo da Biblioteca Escolar e a nossa biblioteca digital.">
+<meta property="og:image" content="imagens/logo/og.png"><meta property="og:type" content="website">
+<link rel="icon" href="imagens/logo/favicon.ico"><link rel="icon" type="image/svg+xml" href="imagens/logo/icone-app.svg">
+<link rel="apple-touch-icon" href="imagens/logo/apple-touch-icon.png">
+<meta name="theme-color" content="#F8F8F8">
+<link rel="stylesheet" href="estilos.css?v=69e1cd79">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Página CATÁLOGO — folha própria, na linguagem de A Biblioteca.
+   Cabeçalho a toda a largura, cartões de 24 px, blocos de 16 px,
+   botões em pílula. Cores da Paleta v2.0 (BrandKit, 27/07/2026).
+   As faixas horizontais seguem o padrão de deslize contínuo, com
+   navegação por teclado e por botões, nunca só por arrasto.
+   ═══════════════════════════════════════════════════════════════ */
+/* Os seis tokens que #p-ler redeclarava saíram a 26/08/2026 para :root,
+   em estilos.css: quatro eram apelidos de tokens globais e dois estavam
+   escritos de forma idêntica em seis páginas. */
+#p-ler main{background:var(--papel)}
+
+/* ---- estrutura ---- */
+.csec{padding:var(--e-sec) 0}
+.cwrap{max-width:var(--coluna);margin:0 auto;padding:0 var(--margem)}
+.cfilete{width:44px;height:5px;background:var(--dourado);border-radius:2px;margin:0 0 var(--e-3)}
+/* .ctit passou para o sistema, em estilos.css: era uma das cinco
+   famílias de título de secção, uma por página. */
+.clead{color:var(--cinza);font-size:var(--t-corpo);margin:0 0 var(--e-4);max-width:52ch;line-height:var(--lh-corpo)}
+
+/* ═══ 1 · CABEÇALHO A TODA A LARGURA ═══ */
+/* A abertura desta página passou para o contrato partilhado, em
+   estilos.css: as quatro interiores abriam cada uma à sua maneira. */
+.chero .cwrap{width:100%;text-align:left}
+.chero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+/* Os botões .cbt passaram para o sistema, em estilos.css: eram uma
+   das cinco famílias quase iguais que davam sete alturas diferentes. */
+
+/* ═══ ÍNDICE DOS FORMATOS ═══
+   Uma tira que diz, num relance, as seis maneiras de ler que a página
+   oferece. É navegação secundária: leva a secções desta mesma página. */
+.cformatos{background:var(--branco);border-bottom:1px solid var(--linha)}
+.cformatos ul{display:flex;gap:var(--e-2);list-style:none;margin:0;padding:var(--e-2) 0;overflow-x:auto;
+  scrollbar-width:none}
+.cformatos ul::-webkit-scrollbar{display:none}
+.cformatos a{display:inline-flex;align-items:center;gap:var(--e-2);white-space:nowrap;
+  padding:var(--e-2) var(--e-3);border-radius:var(--r-pilula);text-decoration:none;
+  font-size:var(--t-peq);font-weight:700;color:var(--tinta);border:1px solid transparent;transition:.15s}
+.cformatos a:hover{background:var(--menta-wash);border-color:var(--menta);color:var(--tinta)}
+.cformatos a span{display:grid;place-items:center;color:var(--menta-escura);flex:none}
+
+/* ═══ CABEÇALHO DE SECÇÃO: o verbo ═══
+   Cada formato abre com um ícone grande e um verbo — ler, ouvir, ver.
+   É o que torna a hierarquia legível antes de se ler uma única linha. */
+.cverbo{display:flex;align-items:flex-start;gap:var(--e-3);margin:0 0 var(--e-4)}
+.cverbo .cv-ico{display:grid;place-items:center;width:52px;height:52px;flex:none;
+  border-radius:var(--r-cartao);background:var(--menta-wash);color:var(--menta-escura);border:1px solid var(--menta)}
+.cverbo .ctit{margin:2px 0 var(--e-1)}
+.cverbo .clead{margin:0}
+
+/* ═══ MONTRA EDITORIAL ═══ */
+/* O fundo vem agora do ambiente (--para); a montra só acrescenta o calor. */
+/* A montra é deliberadamente pequena: quatro por linha, para se ler como
+   uma escolha e não como uma lista. */
+/* A montra: o primeiro destaque ocupa duas colunas e duas linhas, com a
+   capa deitada e a frase editorial inteira. Os restantes seguem-no. Um
+   inventário trata tudo por igual; uma montra escolhe. */
+.montra{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--e-3)}
+/* Duas colunas, uma linha: o líder fica com o dobro da largura e a mesma
+   altura dos vizinhos. Esticá-lo por duas linhas deixava-o com 1251 px. */
+.montra .rec-lider{grid-column:span 2;flex-direction:row}
+.montra .rec-lider .rec-capa{aspect-ratio:auto;width:44%;flex:none;height:100%;
+  background:var(--areia);padding:var(--e-3)}
+/* A capa do líder mostra-se inteira: cortá-la ao meio corta o título do
+   próprio livro, que é precisamente o que se quer que se leia. */
+.montra .rec-lider .rec-capa img{object-fit:contain;filter:drop-shadow(0 8px 20px rgba(43,43,43,.22))}
+.montra .rec-lider .rec-tx{padding:var(--e-4) var(--e-4) var(--e-4);justify-content:center}
+.montra .rec-lider .rec-tx b{font-size:var(--t-3);line-height:var(--lh-sub);letter-spacing:-.02em}
+.montra .rec-lider .rec-porque{font-size:var(--t-peq);line-height:var(--lh-corpo)}
+.montra .rec-lider .rec-formato{top:14px;left:14px}
+@media(max-width:1100px){
+  .montra{grid-template-columns:repeat(3,1fr)}
+  .montra .rec-lider{grid-column:span 3;grid-row:span 1}
+}
+@media(max-width:760px){
+  .montra{grid-template-columns:repeat(2,1fr)}
+  .montra .rec-lider{grid-column:span 2;flex-direction:column}
+  .montra .rec-lider .rec-capa{width:100%;aspect-ratio:var(--ar-foto)}
+  .montra .rec-lider .rec-tx{padding:var(--e-3)}
+}
+.cnota{margin:var(--e-3) 0 0}
+.cnav-fim{margin-top:2px;justify-content:flex-end}
+
+/* ═══ FAIXAS HORIZONTAIS ═══
+   O cabeçalho e a navegação das faixas. Os cartões que vão lá dentro são
+   os .rec de estilos.css, partilhados por todas as páginas. */
+.cfaixa{margin-bottom:32px}
+.cfaixa:last-child{margin-bottom:0}
+.cfaixa-topo{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--e-3);margin:0 0 var(--e-3)}
+.cfaixa-topo h3{font-size:var(--t-3);font-weight:800;margin:0 0 2px;color:var(--tinta);letter-spacing:-.015em;
+  display:flex;align-items:center;gap:var(--e-2)}
+.cfaixa-topo .ic{display:grid;place-items:center;width:32px;height:32px;border-radius:var(--r-cartao);
+  background:var(--menta-wash);color:var(--menta-escura);flex:none}
+.cfaixa-topo p{margin:0;color:var(--cinza);font-size:var(--t-peq)}
+.cnav{display:flex;gap:var(--e-2);flex:none}
+.cnav button{width:38px;height:38px;border-radius:50%;border:1px solid var(--linha);
+  background:var(--branco);color:var(--tinta);cursor:pointer;font-size:var(--t-corpo);line-height:var(--lh-tit);
+  display:grid;place-items:center;transition:.15s}
+.cnav button:hover{border-color:var(--menta);background:var(--menta-wash)}
+.cnav button[disabled]{opacity:.35;cursor:default}
+.ccarril{display:flex;gap:var(--e-3);overflow-x:auto;scroll-behavior:smooth;padding:var(--e-1) 2px var(--e-3);
+  scrollbar-width:thin;scrollbar-color:var(--menta-media) transparent}
+.ccarril::-webkit-scrollbar{height:7px}
+.ccarril::-webkit-scrollbar-track{background:transparent}
+.ccarril::-webkit-scrollbar-thumb{background:var(--menta-media);border-radius:var(--r-peq)}
+/* Plataformas: cartões largos em vez de capas verticais. */
+.cplat{flex:0 0 240px;background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao);padding:20px;text-decoration:none;color:inherit;
+  transition:transform .18s,box-shadow .18s,border-color .18s;display:block}
+.cplat:hover{transform:translateY(-4px);box-shadow:var(--sombra-lg);border-color:var(--menta)}
+.cplat .ic{display:grid;place-items:center;width:38px;height:38px;border-radius:var(--r-cartao);
+  background:var(--menta-wash);color:var(--menta-escura);margin-bottom:12px}
+.cplat h4{font-size:var(--t-corpo);font-weight:700;margin:0 0 var(--e-1);color:var(--tinta);line-height:var(--lh-sub)}
+.cplat p{margin:0;font-size:var(--t-peq);color:var(--cinza);line-height:var(--lh-cartao)}
+.cplat .selo{display:inline-block;margin-top:var(--e-2);font-size:var(--t-nano);font-weight:700;
+  background:var(--dourado-wash);border:1px solid var(--dourado-linha);color:var(--tinta);
+  padding:var(--e-1) var(--e-2);border-radius:var(--r-pilula)}
+
+@media(max-width:620px){
+  .csec{padding:var(--e-3) 0}
+    .cplat{flex:0 0 210px}
+  .cnav{display:none}
+  .cverbo{gap:12px}
+  .cverbo .cv-ico{width:44px;height:44px;border-radius:var(--r-cartao)}
+}
+@media(prefers-reduced-motion:reduce){
+  .cplat:hover{transform:none}
+  .ccarril{scroll-behavior:auto}
+}
+</style>
+</head>
+<body id="p-ler">
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<div id="cabecalho"></div>
+<main id="conteudo">
+
+  <!-- ═══ 1 · CABEÇALHO ═══ -->
+  <header class="chero">
+    <img src="imagens/catalogo/hero.jpg" alt="">
+    <div class="cwrap">
+      <p class="pg-cota" data-revela><span class="cota cota--escuro"><span class="banda"></span><span class="cod">028</span><span class="nome">ler</span></span></p>
+      <h1 class="pg-tit" data-revela data-atraso="1">Livros para ler. Histórias para ouvir.</h1>
+      <!-- O botão «Ver o que há para ler» saiu a 26/08/2026: repetia o índice
+           dos formatos, que está logo por baixo, e era ele que fazia o título
+           desta abertura assentar a uma altura diferente das outras três. -->
+      <p class="pg-lead" data-revela data-atraso="2">Tudo o que a Biblioteca escolheu para leres
+        e ouvires, em papel, no ecrã ou nos auscultadores.</p>
+    </div>
+  </header>
+
+  <!-- ═══ 2 · COMO QUERES PROCURAR ═══ -->
+    <!-- ═══ 3 · CATÁLOGO ONLINE ═══ -->
+    <!-- ═══ 4 · TUTORIAL ═══ -->
+    <!-- ═══ 5 · SUGESTÕES DE LEITURA ═══ -->
+    <!-- ═══ 6 · BIBLIOTECA DIGITAL ═══ -->
+    <!-- ═══ 7 · DESTAQUES ═══ -->
+                
+<!-- ═══════════════════════════════════════════════════════════════
+       AS SEIS MANEIRAS DE LER
+       A página está organizada pelo gesto — ler, ler no ecrã, ouvir,
+       escutar, ver, aceder — e não pelo tipo de ficheiro. Cada secção
+       abre com o mesmo cabeçalho (verbo + explicação), para a hierarquia
+       se perceber sem ler uma linha de texto.
+       Todos os cartões são o mesmo componente (.rec, no motor.js).
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- ─── índice dos formatos ─── -->
+  <nav class="cformatos" aria-label="Formatos de leitura">
+    <div class="cwrap">
+      <!-- Os cinco formatos deixaram de ser secções e passaram a separadores
+           dentro de «O que estamos a descobrir». O índice leva ao bloco e
+           abre o separador certo, pelo fragmento do endereço. -->
+      <ul>
+        <li><a href="#novidades"><span data-ico="estrela"></span>Destaques</a></li>
+        <li><a href="#livros"><span data-ico="livro"></span>Ler</a></li>
+        <li><a href="#digital=ler"><span data-ico="monitor"></span>Ler no ecrã</a></li>
+        <li><a href="#digital=ouvir"><span data-ico="auscultador"></span>Ouvir</a></li>
+        <li><a href="#digital=escutar"><span data-ico="microfone"></span>Escutar</a></li>
+        <li><a href="#digital=ver"><span data-ico="camara"></span>Ver</a></li>
+        <li><a href="#digital=aceder"><span data-ico="maos"></span>Aceder</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ DESTAQUES — a montra editorial da Biblioteca ═══ -->
+  <section class="csec cdestaque de-areia para-dourado" data-amb id="novidades" data-assinatura aria-labelledby="t-des">
+    <div class="cwrap">
+      <div class="cfilete" data-revela></div>
+      <h2 class="ctit" data-revela id="t-des">O que a Biblioteca está a destacar</h2>
+      <p class="clead">São estas as escolhas da Biblioteca: cinco livros em papel, à espera
+        na estante, e quatro descobertas noutros formatos. Poucas de cada vez, e cada uma com
+        a razão pela qual vale a pena, que é o trabalho de uma biblioteca.</p>
+      <div class="rec-carril" id="destaques-livros" tabindex="0" role="group"
+           aria-label="Livros em destaque"></div>
+      <div class="cnav cnav-fim" data-alvo="destaques-livros"></div>
+      <p class="cvazio" id="destaques-vazio" hidden>A Biblioteca ainda não marcou destaques.
+        Aparecem aqui assim que forem escolhidos no painel.</p>
+
+      <!-- Os quatro cartões subiram de «O que estamos a descobrir», a
+           24/08/2026: eram duas secções a dizer «vejam isto» com dez linhas
+           de intervalo. Continuam a ser referências, não conteúdo próprio. -->
+      <!-- Os quatro cartões ficam colados aos marcadores, no mesmo bloco: são
+           a mesma coisa dita de outra maneira, e não uma secção nova. -->
+      <p class="clead cdes-nota" id="semana-nota"></p>
+      <div class="sem-grelha" id="semana-grelha"></div>
+    </div>
+  </section>
+
+  <!-- «Escolhas da Biblioteca», as três montras por público, saiu a
+       25/08/2026. Dizia pela terceira vez, na mesma página, «vejam isto».
+       O conteúdo continua em escolhas.json, editável no painel. -->
+
+  <!-- ═══ 1 · LER ═══ -->
+  <section class="csec de-papel para-areia" data-amb id="livros" aria-labelledby="t-livros">
+    <div class="cwrap">
+      <div class="cverbo"><span class="cv-ico" data-ico="livro"></span>
+        <div><h2 class="ctit" data-revela id="t-livros">Ler</h2>
+          <p class="clead">Livros em papel, na estante. Escolhas da equipa e dos professores, por ciclo.</p></div>
+      </div>
+      <div id="sugestoes-faixas"></div>
+      <p class="cnota"><a class="cbt linha peq" href="encontrar.html#opac">Ver se está disponível no catálogo</a></p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       O QUE ESTAMOS A DESCOBRIR — as plataformas, em separadores.
+       Eram seis secções seguidas, uma por formato, cada uma com a sua faixa
+       de cartões: lia-se como um inventário e a página não acabava. Passa a
+       ser um bloco só, com cinco verbos em separadores, e de cada vez só o
+       que interessa a quem escolheu um deles.
+
+       Deixou de apresentar obras concretas e passou a apresentar as
+       plataformas onde elas estão. Uma obra envelhece e um endereço morre;
+       uma plataforma dura, e quem lá chega escolhe por si.
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="csec de-papel para-areia" data-amb id="digital" data-seccao
+           aria-labelledby="t-dig">
+    <div class="cwrap">
+      <div class="cverbo"><span class="cv-ico" data-ico="globo"></span>
+        <div><h2 class="ctit" data-revela id="t-dig">O que estamos a descobrir</h2>
+          <p class="clead">O que a Biblioteca escolheu noutros formatos.
+            Abrem em separador novo.</p></div>
+      </div>
+      <div class="plataformas" id="plataformas"></div>
+    </div>
+  </section>
+
+</main>
+<div id="rodape"></div>
+
+
+<script>
+window.renderPagina = function(){
+
+  /* Os ícones do índice e dos cabeçalhos desenham-se aqui, para não
+     repetir SVG na marcação. */
+  document.querySelectorAll('[data-ico]').forEach(el => {
+    el.innerHTML = icone(el.dataset.ico, el.classList.contains('cv-ico') ? 22 : 16);
+  });
+
+  /* ── faixas ──
+     Todas as secções usam o mesmo cartão (cartaoRecurso, no motor.js) e o
+     mesmo cabeçalho de faixa. Quando não há conteúdo, mostra-se um convite
+     em vez de um espaço vazio. */
+  function faixa(idAlvo, chave, vazio){
+    const el = document.getElementById(idAlvo);
+    if (!el) return;
+    const itens = publicados(chave);   // respeita ordem e estado (rascunho não aparece)
+    el.innerHTML = itens.length
+      ? `<div class="rec-carril" id="carril-${chave}" tabindex="0" role="group">
+           ${itens.map(x => cartaoRecurso(x)).join('')}
+         </div>
+         <div class="cnav cnav-fim" data-alvo="carril-${chave}"></div>`
+      : `<p class="cvazio">${esc(vazio)}</p>`;
+  }
+  /* As faixas por formato saíram a 25/08/2026: deram lugar ao bloco de
+     plataformas com separadores, no fim da página. faixa() fica, porque
+     ainda desenha as leituras recomendadas por ciclo. */
+
+  /* ── livros em papel ──
+     Continuam agrupados por ciclo, como a equipa os escreve no painel,
+     mas desenhados com o mesmo cartão de todos os outros formatos. */
+  const sf = document.getElementById('sugestoes-faixas');
+  if (sf) sf.innerHTML = publicados('sugestoesLeitura').map((f,n) => `
+    <div class="cfaixa">
+      <div class="cfaixa-topo">
+        <div><h3>${esc(f.faixa||'')}</h3>${
+          temTexto(f.nota) ? `<p>${esc(f.nota)}</p>` : ''}</div>
+        <div class="cnav" data-alvo="carril-sug-${n}"></div>
+      </div>
+      <div class="rec-carril" id="carril-sug-${n}" tabindex="0" role="group"
+           aria-label="${esc(f.faixa||'Livros')}">
+        ${(f.livros||[]).map(l => cartaoRecurso({ ...l, formato:'sugestoesLeitura' })).join('')}
+      </div>
+    </div>`).join('');
+
+  /* ── destaques ──
+     Duas camadas na mesma secção. Em cima, cinco livros em papel, todos com
+     o mesmo cartão e a mesma altura: o primeiro tinha o dobro do tamanho e
+     lia-se como se os outros fossem um resto. Em baixo, colados, os quatro
+     cartões que subiram de «O que estamos a descobrir», que continuam a ser
+     referências a fichas que vivem noutro sítio. */
+  (function () {
+    const el = document.getElementById('destaques-livros');
+    const dv = document.getElementById('destaques-vazio');
+    if (!el) return;
+    const livros = publicados('destaquesLer');
+    if (!livros.length) { if (dv) dv.hidden = false; el.hidden = true; return; }
+    el.innerHTML = livros.map(x => cartaoRecurso(x)).join('');
+    /* Os botões de deslize são ligados no fim, pelo laço genérico de .cnav. */
+  })();
+
+  const sn = document.getElementById('semana-nota');
+  if (sn) sn.textContent = (CONTEUDO.semana || {}).nota || '';
+  renderSemana('semana-grelha');
+  /* renderEscolhas() saiu com o bloco das montras por público. */
+
+  /* ── as plataformas, em separadores ── */
+  renderPlataformas('plataformas', [
+    { id:'ler',     rotulo:'Ler no ecrã', icone:'monitor',
+      nota:'Obras completas, de acesso livre e legal. Abrem no telemóvel, no computador ou no leitor de e-books.' },
+    { id:'ouvir',   rotulo:'Ouvir',       icone:'auscultador',
+      nota:'Livros lidos em voz alta, para ouvir a caminho da escola ou com os olhos fechados.' },
+    { id:'escutar', rotulo:'Escutar',     icone:'microfone',
+      nota:'Conversas sobre livros, autores e ideias. Não são os livros: são as pessoas a falar deles.' },
+    { id:'ver',     rotulo:'Ver',         icone:'camara',
+      nota:'Vídeo que ajuda a perceber o que se lê, e a ver o que não se consegue imaginar.' },
+    { id:'aceder',  rotulo:'Aceder',      icone:'maos',
+      nota:'Nem toda a gente lê da mesma maneira. Serviços públicos e formatos para quem lê com os ouvidos, com os dedos ou noutra língua.' },
+  ]);
+
+  /* ── navegação das faixas: botões + teclado ──
+     O deslize com o rato continua a funcionar; os botões existem para quem
+     usa teclado ou não tem rato com roda horizontal. Esconde-se a navegação
+     quando a faixa cabe toda no ecrã e não há nada para deslizar. */
+  document.querySelectorAll('.cnav').forEach(nav => {
+    const carril = document.getElementById(nav.dataset.alvo);
+    if (!carril) return;
+    nav.innerHTML = `<button type="button" data-d="-1" aria-label="Recuar">&lsaquo;</button>
+                     <button type="button" data-d="1" aria-label="Avançar">&rsaquo;</button>`;
+    const passo = () => Math.max(200, carril.clientWidth * 0.8);
+    const estado = () => {
+      const [a,b] = nav.children;
+      const rola = carril.scrollWidth > carril.clientWidth + 4;
+      nav.hidden = !rola;
+      a.disabled = carril.scrollLeft <= 2;
+      b.disabled = carril.scrollLeft + carril.clientWidth >= carril.scrollWidth - 2;
+    };
+    nav.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      carril.scrollBy({left: passo() * (+b.dataset.d), behavior: 'smooth'});
+    });
+    carril.addEventListener('scroll', estado, {passive:true});
+    window.addEventListener('resize', estado, {passive:true});
+    carril.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      carril.scrollBy({left: passo() * (e.key === 'ArrowRight' ? 1 : -1), behavior:'smooth'});
+    });
+    estado();
+  });
+};
+</script>
+<script src="motor.js?v=f75e79d5"></script>
+</body>
+</html>

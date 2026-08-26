@@ -1,0 +1,64 @@
+{
+  "destaquesLer": [
+    {
+      "titulo": "O cavaleiro da Dinamarca",
+      "autor": "Sophia de Mello Breyner Andresen",
+      "cota": "82-93 AND/CAV",
+      "publico": "3.º ciclo",
+      "porque": "Uma viagem da Palestina a Portugal no século XV, contada como quem conta uma história ao serão. Curto, e fica.",
+      "selo": "Para começar",
+      "ordem": 1,
+      "estado": "publicado",
+      "imagem": "imagens/capas/o-cavaleiro-da-dinamarca.jpg",
+      "alt": "Capa de «O cavaleiro da Dinamarca», de Sophia de Mello Breyner Andresen"
+    },
+    {
+      "titulo": "O Hobbit",
+      "autor": "J. R. R. Tolkien",
+      "cota": "82-3 TOL/HOB",
+      "publico": "3.º ciclo",
+      "porque": "Antes do Senhor dos Anéis houve isto: um hobbit que não queria sair de casa e acabou a discutir com um dragão.",
+      "selo": "Aventura",
+      "ordem": 2,
+      "estado": "publicado",
+      "imagem": "imagens/capas/o-hobbit.jpg",
+      "alt": "Capa de «O Hobbit», de J. R. R. Tolkien"
+    },
+    {
+      "titulo": "Aparição",
+      "autor": "Vergílio Ferreira",
+      "cota": "821-3 FER/APA",
+      "publico": "Secundário",
+      "porque": "Um professor chega a Évora e passa o romance a perguntar-se o que é estar vivo. Está no programa, e vale por si.",
+      "selo": "Do programa",
+      "ordem": 3,
+      "estado": "publicado",
+      "imagem": "imagens/capas/aparicao.jpg",
+      "alt": "Capa de «Aparição», de Vergílio Ferreira"
+    },
+    {
+      "titulo": "1984",
+      "autor": "George Orwell",
+      "cota": "82-3 ORW/MIL",
+      "publico": "Secundário e adultos",
+      "porque": "Escrito em 1948 sobre um futuro imaginado, continua a ser lido como se fosse sobre agora. É essa a inquietação.",
+      "selo": "Continua atual",
+      "ordem": 4,
+      "estado": "publicado",
+      "imagem": "imagens/capas/1984.jpg",
+      "alt": "Capa de «1984», de George Orwell"
+    },
+    {
+      "titulo": "Memorial do convento",
+      "autor": "José Saramago",
+      "cota": "821-3 SAR/MEM",
+      "publico": "Secundário",
+      "selo": "Do programa",
+      "porque": "Mafra a ser construída à custa de gente, e no meio disso um homem sem mão, uma mulher que vê por dentro e um padre que quer voar. É o livro mais lido de Saramago cá dentro, e percebe-se porquê.",
+      "ordem": 5,
+      "estado": "publicado",
+      "imagem": "imagens/capas/memorial-do-convento.jpg",
+      "alt": "Capa de «Memorial do convento», de José Saramago"
+    }
+  ]
+}

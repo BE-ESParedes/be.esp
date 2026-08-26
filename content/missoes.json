@@ -1,0 +1,40 @@
+{
+  "missoes": [
+    {
+      "rotulo": "Pesquisar no catálogo",
+      "texto": "Ver se o livro existe e onde está o exemplar.",
+      "icone": "lupa",
+      "url": "encontrar.html#opac"
+    },
+    {
+      "rotulo": "Encontrar na estante",
+      "texto": "As cores e os números por que os livros estão arrumados.",
+      "icone": "local",
+      "url": "encontrar.html#estantes"
+    },
+    {
+      "rotulo": "Fazer um trabalho",
+      "texto": "Sete passos, do tema em branco à entrega.",
+      "icone": "ficheiro",
+      "url": "aprender.html#objetivos"
+    },
+    {
+      "rotulo": "Ouvir um livro",
+      "texto": "Audiolivros gratuitos para o caminho para a escola.",
+      "icone": "auscultador",
+      "url": "ler.html#digital=ouvir"
+    },
+    {
+      "rotulo": "Ver o que aconteceu",
+      "texto": "Notícias e registo do que se fez na Biblioteca.",
+      "icone": "camara",
+      "url": "participar.html#novidades"
+    },
+    {
+      "rotulo": "Pedir ajuda",
+      "texto": "A equipa ajuda-te a procurar, avaliar fontes e citar.",
+      "icone": "maos",
+      "url": "conhecer.html#contactos"
+    }
+  ]
+}
