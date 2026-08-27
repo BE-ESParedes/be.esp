@@ -15,10 +15,11 @@ Foi escrito a partir do site tal como ele está hoje, e não a partir dos
 manuais anteriores. O site mudou muito durante o desenvolvimento, e há coisas
 nos guias antigos que já não são verdade.
 
-**Substitui, na prática, quatro documentos** que estão dentro da pasta `site/`
-e que ficam a partir de agora desatualizados: `LEIA-ME.md`, `ADMIN.md`,
-`PUBLICAR.md` e `CICLO-DE-TRABALHO.md`. Guarde-os se quiser, mas em caso de
-dúvida vale este.
+**Substituiu quatro guias** que aqui estavam e foram apagados a 26 de agosto
+de 2026: `LEIA-ME.md`, `ADMIN.md`, `PUBLICAR.md` e `CICLO-DE-TRABALHO.md`.
+Tinham ficado desatualizados ao longo do desenvolvimento. Se um dia precisar
+de os ver, estão no histórico guardado fora do repositório, num ficheiro
+`historico-anterior-2026-08-26.bundle`.
 
 ### Duas maneiras de mexer no site, e a diferença entre elas
 
@@ -433,9 +434,30 @@ Esta parte é a que mais diferença faz, e é a que o painel não faz por si.
 | | |
 |---|---|
 | **Formatos** | JPG para fotografias, PNG para logótipos com fundo transparente, SVG para logótipos vetoriais |
-| **Largura** | 1200 px chega para tudo o que o site mostra. Fotografias de fundo grandes: 2000 px |
+| **Largura** | Depende de onde a imagem vai. Ver a tabela abaixo. |
 | **Peso** | **Até 300 KB.** Acima disso, a página passa a demorar |
 | **Nome** | Minúsculas, sem espaços nem acentos: `semana-da-leitura.jpg` e não `Semana da Leitura (1).JPG` |
+
+### A que largura exportar
+
+Medido no site publicado, num ecrã de 1440 px. A recomendação dá o dobro do
+que se vê, para os ecrãs de alta densidade não mostrarem a imagem desfocada.
+
+| A imagem é… | O site mostra-a a | Exportar a |
+|---|---|---|
+| A **abertura** de uma página | 1425 px de largura | **2000 px** |
+| Uma fotografia de **exposição** | 1090 px | **1400 px** |
+| Uma fotografia da **galeria** | 720 px | **1400 px** |
+| Uma **faixa** do «Em cartaz» | 619 px | **1400 px** |
+| A fotografia de uma **notícia** | 367 px | **1200 px** |
+| Um **logótipo** de um sítio | 277 px | **900 px** |
+| Uma **capa** de livro | 277 px | **700 px** |
+| Um **projeto** ou o **arquivo** | 213 px | **800 px** |
+
+**Não é preciso acertar na altura.** O site corta o que sobra, sempre pelo
+centro. O que conta é a largura e o peso.
+
+O mesmo resumo está em `imagens/LEIA-ME.txt`, ao lado das próprias pastas.
 
 > **Porque é que o peso importa.** As fotografias que saem de uma máquina têm
 > 5 000 px de largura e 7 MB. O site mostra-as a 370 px. Uma fotografia dessas
@@ -443,7 +465,8 @@ Esta parte é a que mais diferença faz, e é a que o painel não faz por si.
 > nota-se. Reduza-a antes de a carregar.
 
 **Como reduzir, no Mac, sem instalar nada:** abrir a imagem na Pré-visualização
-→ *Ferramentas* → *Ajustar tamanho* → pôr 1200 na largura → *Ficheiro* →
+→ *Ferramentas* → *Ajustar tamanho* → pôr a largura da tabela acima →
+*Ficheiro* →
 *Exportar* → JPEG, qualidade a meio → gravar.
 
 ### Trocar uma imagem
@@ -695,7 +718,7 @@ a secção deixa de aparecer.
 |---|---|---|
 | Espaço em branco no lugar da foto | O caminho está errado | Voltar ao painel e carregar a imagem outra vez pelo campo próprio |
 | A foto aparece no computador e não no site | O caminho começa por barra | Corrigir no painel; nunca começar por `/` |
-| A foto demora muito a aparecer | Ficheiro pesado de mais | Reduzir para 1200 px e menos de 300 KB, e voltar a carregar |
+| A foto demora muito a aparecer | Ficheiro pesado de mais | Reduzir para a largura da tabela do capítulo 8 e menos de 300 KB, e voltar a carregar |
 
 ### O relógio da entrada diz sempre «Fechada»
 
@@ -881,7 +904,7 @@ Para imprimir e ter ao lado.
 
 - [ ] O texto está relido, sem gralhas
 - [ ] As datas estão certas
-- [ ] A imagem tem menos de 300 KB e 1200 px de largura
+- [ ] A imagem tem menos de 300 KB e a largura da tabela do capítulo 8
 - [ ] A **descrição da imagem** está preenchida
 - [ ] Se há pessoas na fotografia, **a autorização está confirmada** e os rostos
       estão tratados
