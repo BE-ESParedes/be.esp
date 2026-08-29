@@ -2,20 +2,24 @@
   "banners": [
     {
       "imagem": "imagens/banners/biblioteca-aberta.jpg",
+      "alt": "Alunos em trabalho de grupo à volta de uma mesa da Biblioteca, com as estantes em fundo",
       "tag": "Ano letivo 2026/2027",
       "titulo": "A Biblioteca está <em>aberta</em>",
-      "alt": "Alunos em trabalho de grupo à volta de uma mesa da Biblioteca, com as estantes em fundo",
       "texto": "",
       "botoes": [],
+      "faixa": true,
+      "lado": "esquerda",
       "estadoAoVivo": true,
+      "logotipo": false,
       "marcaDagua": false,
-      "lado": "esquerda"
+      "ordem": null,
+      "estado": "publicado"
     },
     {
       "imagem": "imagens/logo/rede-paredes-faixa.png",
+      "alt": "Rede Concelhia de Bibliotecas de Paredes",
       "tag": "Pesquisa no catálogo da Biblioteca",
       "titulo": "Queres encontrar um livro <em>a partir de casa</em>?",
-      "alt": "Rede Concelhia de Bibliotecas de Paredes",
       "texto": "O nosso acervo está no BiblioNet, o catálogo coletivo partilhado com a Biblioteca Municipal de Paredes. Podes pesquisar, reservar e renovar sem sair de casa.",
       "botoes": [
         {
@@ -27,17 +31,19 @@
           "url": "encontrar.html"
         }
       ],
-      "marcaDagua": false,
+      "faixa": true,
+      "lado": "esquerda",
       "estadoAoVivo": false,
       "logotipo": false,
-      "faixa": true,
-      "lado": "esquerda"
+      "marcaDagua": false,
+      "ordem": null,
+      "estado": "publicado"
     },
     {
       "imagem": "imagens/banners/apoio-ao-estudo.jpg",
+      "alt": "Alunos a trabalhar numa mesa comprida da Biblioteca, entre as estantes",
       "tag": "Apoio ao estudo",
       "titulo": "Precisas de ajuda num <em>trabalho</em>?",
-      "alt": "Alunos a trabalhar numa mesa comprida da Biblioteca, entre as estantes",
       "texto": "Guiões de pesquisa, normas de citação e apoio da equipa para os teus trabalhos.",
       "botoes": [
         {
@@ -45,15 +51,19 @@
           "url": "aprender.html"
         }
       ],
+      "faixa": false,
+      "lado": "direita",
       "estadoAoVivo": false,
+      "logotipo": false,
       "marcaDagua": false,
-      "lado": "direita"
+      "ordem": null,
+      "estado": "publicado"
     },
     {
       "imagem": "imagens/banners/encontro-escritor.jpg",
+      "alt": "Sessão do projeto na Biblioteca, com a assistência sentada de frente para quem fala",
       "tag": "Projeto financiado pela RBE",
       "titulo": "Palavras em <em>Ação</em> · Ler com a Biblioteca",
-      "alt": "Sessão do projeto na Biblioteca, com a assistência sentada de frente para quem fala",
       "texto": "",
       "botoes": [
         {
@@ -61,9 +71,13 @@
           "url": "participar.html#projeto-palavras"
         }
       ],
+      "faixa": false,
+      "lado": "esquerda",
       "estadoAoVivo": false,
+      "logotipo": false,
       "marcaDagua": false,
-      "lado": "esquerda"
+      "ordem": null,
+      "estado": "publicado"
     }
   ]
 }
