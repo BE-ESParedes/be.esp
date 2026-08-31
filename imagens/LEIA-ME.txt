@@ -53,12 +53,17 @@ dar o dobro do que se vê, para ecrãs de alta densidade.
   banners/        619 x  483           1400 px
   noticias/       367 x  207           1200 px
   logos/          277 x  178            900 px
-  capas/          277 x  178            700 px
+  capas/          245 x  356            700 px   (inteira, sem corte)
   projetos/       213 x  119            800 px
   arquivo/        213 x  119            800 px
 
-Não é preciso acertar na altura: o site corta o que sobra. O que conta é a
-largura e o peso.
+Não é preciso acertar na altura: nas fotografias o site corta o que sobra.
+O que conta é a largura e o peso.
+
+AS CAPAS DE LIVRO SÃO A EXCEÇÃO. Desde 29/08/2026 aparecem inteiras dentro de
+uma moldura, seja qual for a proporção: nenhuma capa é cortada e nenhuma perde
+o título. Carregue a mais nítida que encontrar. Vale para capas/, digitais/,
+audio/ e podcasts/.
 
 
 PARA ONDE VAI CADA IMAGEM

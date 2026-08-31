@@ -458,8 +458,15 @@ que se vê, para os ecrãs de alta densidade não mostrarem a imagem desfocada.
 | Uma **capa** de livro | 277 px | **700 px** |
 | Um **projeto** ou o **arquivo** | 213 px | **800 px** |
 
-**Não é preciso acertar na altura.** O site corta o que sobra, sempre pelo
-centro. O que conta é a largura e o peso.
+**Não é preciso acertar na altura.** Nas fotografias, o site corta o que sobra,
+sempre pelo centro. O que conta é a largura e o peso.
+
+**As capas de livro são a exceção, e desde 29 de agosto de 2026 não se cortam.**
+Aparecem inteiras dentro de uma moldura, seja qual for a proporção: uma capa
+mais quadrada e outra mais alta ficam ambas certas, e nenhuma perde o título.
+Antes disto via-se cerca de 40% da capa, cortada ao meio — por isso não valia
+a pena procurar a melhor imagem. Agora vale: escolha a mais nítida que
+encontrar.
 
 O mesmo resumo está em `imagens/LEIA-ME.txt`, ao lado das próprias pastas.
 

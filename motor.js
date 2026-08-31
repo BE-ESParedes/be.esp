@@ -785,27 +785,49 @@ function renderSemana(idAlvo) {
 window.renderSemana = renderSemana;
 
 /* O cartão da descoberta, isolado do seu desenhador para poder servir
-   também os livros do acervo na entrada: a capa passa a fundo, a etiqueta
-   de formato vai ao topo, e o utilizador percebe num relance que são
-   coisas diferentes. Sem capa carregada, o cartão desenha-se na mesma,
-   em fundo claro, à espera dela. */
+   também os livros do acervo na entrada.
+
+   A CAPA É O CARTÃO (29/08/2026). Antes a capa era o fundo, recortada e
+   coberta por um véu, e o que se via não era um livro: era uma textura.
+   Agora vive numa caixa própria, inteira, e o texto fica por baixo. Ver a
+   nota longa em estilos.css, na secção .sem, para o porquê da mudança.
+
+   Sem capa carregada o cartão desenha-se na mesma, com o ícone do formato
+   no lugar dela: a grelha não abre um buraco à espera de uma imagem. */
 function cartaoSemana(x, opcoes = {}) {
   const fmt = FORMATOS[x.formato] || opcoes.formato || {};
   const comFoto = temTexto(x.imagem);
+  const lombada = fmt.lombada || 'var(--menta)';
+  const titulo = x.titulo || x.nome || '';
+  const marca = fmt.rotulo || '';
+  /* O rótulo do lugar («Livro digital da semana») repete a etiqueta de
+     formato («Livro digital») no grelhado dos formatos, e não a repete no
+     dos livros, onde é o público («3.º ciclo»). Mostra-se só quando
+     acrescenta alguma coisa, para não haver duas etiquetas a dizer o mesmo. */
+  const rot = x.rotulo || x.publico || '';
+  const rotUtil = temTexto(rot) && !(marca && rot.toLowerCase().includes(marca.toLowerCase()));
   const dentro = `
-    ${comFoto ? `<img class="sem-fundo" src="${esc(caminho(x.imagem))}" alt="" loading="lazy" decoding="async">` : ''}
-    <span class="sem-veu"></span>
-    <span class="sem-marca" style="--lombada:${fmt.lombada || 'var(--menta)'}">
-      ${icone(x.icone || fmt.icone || 'estrela', 15)}${esc(fmt.rotulo || '')}</span>
+    <span class="sem-capa">
+      <span class="sem-lombada"></span>
+      ${comFoto
+        ? `<img class="sem-fundo" src="${esc(caminho(x.imagem))}" alt="Capa de ${esc(titulo)}" loading="lazy" decoding="async">`
+        : `<span class="sem-vazia">${icone(x.icone || fmt.icone || 'livro', 56)}</span>`}
+    </span>
     <span class="sem-tx">
-      <span class="sem-rot">${esc(x.rotulo || x.publico || '')}</span>
-      <b>${esc(x.titulo || x.nome || '')}</b>
+      ${marca ? `<span class="sem-marca">${icone(x.icone || fmt.icone || 'estrela', 14)}${esc(marca)}</span>` : ''}
+      <span class="sem-rot">${rotUtil ? esc(rot) : ''}</span>
+      <b>${esc(titulo)}</b>
       ${temTexto(x.autor) ? `<span class="sem-aut">${esc(x.autor)}</span>` : ''}
       ${temTexto(x.porque) ? `<span class="sem-nota">${esc(x.porque)}</span>` : ''}
+      ${temTexto(x.url) ? `<span class="sem-ir">Ver e abrir &rarr;</span>` : ''}
     </span>`;
+  /* A classe `com-foto` saiu com o véu: existia só para inverter o texto
+     sobre a fotografia, e o texto já não assenta em fotografia nenhuma. */
+  const classes = 'sem';
+  const estilo = `style="--lombada:${lombada}"`;
   return temTexto(x.url)
-    ? `<a class="sem${comFoto ? ' com-foto' : ''}" ${linkAttrs(x.url)}>${dentro}</a>`
-    : `<div class="sem${comFoto ? ' com-foto' : ''}">${dentro}</div>`;
+    ? `<a class="${classes}" ${estilo} ${linkAttrs(x.url)}>${dentro}</a>`
+    : `<div class="${classes}" ${estilo}>${dentro}</div>`;
 }
 window.cartaoSemana = cartaoSemana;
 

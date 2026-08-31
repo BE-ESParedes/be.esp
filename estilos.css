@@ -77,6 +77,12 @@
      sombras diferentes, e treze sombras é o mesmo que nenhuma. */
   --sombra:0 1px 3px rgba(43,43,43,.08);
   --sombra-lg:0 8px 24px rgba(43,43,43,.13);
+  /* A terceira sombra, e a única que se justifica ter: as outras duas dizem
+     «este cartão está pousado na página»; esta diz «este LIVRO está pousado
+     na prateleira». É mais funda e mais contrastada de propósito — é o que
+     faz uma capa ler-se como um objeto e não como uma imagem impressa. Só
+     se usa em capas (.sem-fundo). 29/08/2026. */
+  --sombra-capa:0 6px 18px rgba(43,43,43,.22),0 1px 3px rgba(43,43,43,.18);
   /* Raios alinhados com a página A Biblioteca: 24 em cartões, 16 em blocos, 50 em botões. */
   /* ═══ RAIOS ═══  26/08/2026
      Três, e só três. Havia 32 valores, com 10, 11, 12, 13, 14 e 15 px a
@@ -607,10 +613,16 @@ footer a:hover{color:var(--menta)}
   transition:transform .18s,box-shadow .18s,border-color .18s}
 a.rec:hover{transform:translateY(-4px);border-color:var(--menta,#A8D8CC);
   box-shadow:var(--sombra-lg);color:inherit}
-.rec-capa{position:relative;display:block;aspect-ratio:var(--ar-capa);background:var(--cinza-bloco,#E4E7E6);
-  overflow:hidden;flex:none}
-.rec-capa img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
-a.rec:hover .rec-capa img{transform:scale(1.04)}
+/* A capa inteira, como nos cartões da semana. A caixa é 3/4 (--ar-capa), mais
+   baixa do que um livro, e com `cover` cortava cerca de 13% de cada capa alta
+   — menos escandaloso do que os 40% que os cartões da semana cortavam, mas o
+   mesmo defeito. Com `contain` a capa cabe pela altura e a moldura fica nos
+   lados. 29/08/2026. */
+.rec-capa{position:relative;display:grid;place-items:center;aspect-ratio:var(--ar-capa);
+  background:var(--amb-papel);overflow:hidden;flex:none;padding:12px}
+.rec-capa img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+  display:block;border-radius:2px;box-shadow:var(--sombra-capa);transition:transform .3s}
+a.rec:hover .rec-capa img{transform:translateY(-3px) scale(1.02)}
 .rec-capa.rec-vazia{display:grid;place-items:center;background:var(--menta-wash,#E8F2EF)}
 .rec-marca{color:var(--menta-media,#7FB8A8)}
 /* Etiqueta do formato: diz de imediato se aquilo se lê, se ouve ou se vê. */
@@ -661,51 +673,105 @@ a.rec:hover .rec-capa img{transform:scale(1.04)}
    A DESCOBERTA DA SEMANA (.sem)
    Quatro lugares fixos, um por formato. Não guarda conteúdo próprio:
    aponta para fichas que já existem. Partilhada por LER e pelo Início.
+
+   A CAPA É O CARTÃO (29/08/2026)
+   Até aqui a capa era o FUNDO do cartão, recortada a `cover` numa caixa
+   deitada de 277×178 e coberta por um véu a 74%. Vistas as capas reais,
+   que vão de 1,29 a 1,53 de altura por largura, isso mostrava cerca de 40%
+   da capa, cortada ao meio. O comentário que aqui estava dizia-o com todas
+   as letras: «a capa deixa de se ler como capa e passa a ser textura».
+
+   O PB parou nesta secção enquanto visitante e não lhe deu vontade de abrir
+   nenhum livro. A razão media-se: não havia livro nenhum para ver.
+
+   Não era descuido — era uma cadeia. Os cartões desceram a dois terços a
+   25/08; o texto passou a ocupar quase toda a altura; o véu teve de subir a
+   74% para o texto se ler; e a capa desapareceu por baixo dele. Cada passo
+   estava certo. Corrigir o véu não chegava: mudou-se a anatomia.
+
+   Agora a capa está numa caixa própria, 2:3, com `contain`: nenhuma capa é
+   cortada, e a que não tiver essa proporção fica emoldurada, não amputada.
+   O texto vive POR BAIXO, sobre branco — o que também dispensa o véu e as
+   quatro regras de texto invertido que ele obrigava a manter.
    ═══════════════════════════════════════════════════════════════ */
 .sem-grelha{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--e-3)}
-/* A capa é o fundo do cartão. A etiqueta de formato fica no topo, grande e
-   com a cor da lombada: quem passa os olhos vê logo que são quatro coisas
-   diferentes, sem ter de ler. */
-.sem{position:relative;isolation:isolate;display:flex;flex-direction:column;
-  justify-content:flex-end;min-height:270px;padding:var(--e-3);overflow:hidden;
+.sem{display:flex;flex-direction:column;overflow:hidden;
   background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-cartao);
-  text-decoration:none;color:inherit;
+  box-shadow:var(--sombra);text-decoration:none;color:inherit;
   transition:transform .18s var(--curva),box-shadow .18s var(--curva),border-color .18s}
-a.sem:hover{transform:translateY(-4px);border-color:var(--menta);
+a.sem:hover{transform:translateY(-3px);border-color:var(--menta);
   box-shadow:var(--sombra-lg);color:inherit}
-.sem-fundo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
-  transition:transform var(--mov-lento) var(--curva)}
-a.sem:hover .sem-fundo{transform:scale(1.05)}
-.sem-veu{position:absolute;inset:0;z-index:-1}
-/* O véu é forte de cima a baixo, e não só no fundo. O cartão encurtou quando
-   se reduziram os cartões a dois terços, e o texto passou a ocupar-lhe quase
-   toda a altura: o rótulo começa aos 11% da altura, onde o véu antigo ainda
-   ia em .30. Sobre uma capa com zonas brancas isso dava 1,14:1 no rótulo e
-   3,08:1 no título. Medido sobre as capas reais, a .74 tudo passa os 4,5:1.
-   A capa deixa de se ler como capa e passa a ser textura, que é o que cabe
-   num cartão desta altura. */
-.sem.com-foto .sem-veu{background:linear-gradient(180deg,rgba(18,20,19,.74) 0%,
-  rgba(18,20,19,.84) 46%,rgba(18,20,19,.94) 100%)}
-.sem-marca{position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:var(--e-2);
+
+/* A caixa da capa. O `place-items:center` mais o `contain` é o que garante
+   que a capa aparece inteira, seja qual for a sua proporção. */
+/* A margem é curta de propósito: dentro de uma caixa de proporção fixa, cada
+   pixel de margem é um pixel de capa. A 16px a capa ocupa 92% da largura
+   disponível; a 24px caía para 83% sem o cartão ficar mais baixo. */
+.sem-capa{position:relative;aspect-ratio:2/3;background:var(--amb-papel);
+  display:grid;place-items:center;padding:var(--e-3) var(--e-3) 12px}
+.sem-fundo{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+  border-radius:2px;box-shadow:var(--sombra-capa);
+  transition:transform .25s var(--curva)}
+a.sem:hover .sem-fundo{transform:translateY(-4px) scale(1.02)}
+/* Sem capa carregada, a caixa não fica um buraco: mostra o ícone do formato. */
+.sem-vazia{display:grid;place-items:center;color:var(--claro-2)}
+/* A lombada, a assinatura da casa. Fica NA capa, e não numa etiqueta que a tape. */
+.sem-lombada{position:absolute;left:0;top:0;bottom:0;width:6px;
+  background:var(--lombada,var(--menta))}
+
+.sem-tx{display:flex;flex-direction:column;gap:var(--e-1);min-width:0;
+  padding:var(--e-3) var(--e-3) var(--e-3)}
+/* A etiqueta de formato desceu da capa para aqui: continua a dizer num
+   relance que são coisas diferentes, sem tapar aquilo que se quer ver. */
+.sem-marca{display:inline-flex;align-items:center;gap:var(--e-2);align-self:flex-start;
   font-size:var(--t-nano);font-weight:800;letter-spacing:.06em;text-transform:uppercase;
-  padding:var(--e-2) 12px var(--e-2) var(--e-2);border-radius:var(--r-pilula);line-height:var(--lh-tit);
-  background:var(--branco);color:var(--tinta);
-  box-shadow:inset 3px 0 0 var(--lombada,var(--menta)),0 2px 10px rgba(43,43,43,.2)}
-.sem-tx{display:flex;flex-direction:column;gap:var(--e-1);min-width:0}
+  padding:var(--e-1) 10px var(--e-1) var(--e-2);border-radius:var(--r-pilula);
+  line-height:var(--lh-sub);background:var(--amb-papel);color:var(--tinta);
+  box-shadow:inset 3px 0 0 var(--lombada,var(--menta));margin-bottom:var(--e-1)}
+/* A linha do rótulo desenha-se sempre, mesmo vazia. No grelhado dos formatos
+   ela é suprimida quando repetiria a etiqueta («Livro digital» + «Livro
+   digital da semana»), e sem esta altura reservada os cartões com rótulo
+   ficavam 22px mais altos do que os outros. Reserva-se o espaço em vez de se
+   aceitar a redundância: o ritmo mantém-se e não há duas etiquetas a dizer
+   o mesmo. */
 .sem-rot{font-size:var(--t-nano);font-weight:800;letter-spacing:.05em;text-transform:uppercase;
-  color:var(--dourado-txt)}
-.sem-tx b{font-size:var(--t-corpo);line-height:var(--lh-sub);color:var(--tinta);letter-spacing:-.015em}
-.sem-aut{font-size:var(--t-micro);color:var(--cinza-legivel)}
-.sem-nota{font-size:var(--t-micro);line-height:var(--lh-cartao);color:var(--tinta);margin-top:var(--e-1)}
-/* Sobre fotografia o texto inverte-se. O rótulo usa o dourado claro: o
-   dourado de marca só chega aos 4,5:1 com o véu a .79, e a .79 a capa
-   desaparece de vez. */
-.sem.com-foto .sem-rot{color:var(--dourado-claro)}
-.sem.com-foto .sem-tx b{color:#fff}
-.sem.com-foto .sem-aut{color:rgba(255,255,255,.78)}
-.sem.com-foto .sem-nota{color:rgba(255,255,255,.90)}
-@media(max-width:1000px){.sem-grelha{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.sem-grelha{grid-template-columns:1fr}}
+  color:var(--dourado-txt);min-height:calc(var(--t-nano)*var(--lh-sub))}
+/* Altura fixa no texto: é isto, e não os cartões uns dos outros, que faz a
+   grelha alinhar. Duas linhas no título, uma no autor, três no porquê. */
+.sem-tx b{font-size:var(--t-corpo);line-height:var(--lh-sub);color:var(--tinta);
+  letter-spacing:-.015em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden;min-height:calc(var(--t-corpo)*var(--lh-sub)*2)}
+.sem-aut{font-size:var(--t-micro);color:var(--cinza-legivel);
+  display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.sem-nota{font-size:var(--t-micro);line-height:var(--lh-cartao);color:var(--tinta);
+  margin-top:var(--e-1);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
+  overflow:hidden;min-height:calc(var(--t-micro)*var(--lh-cartao)*3)}
+.sem-ir{margin-top:var(--e-2);font-size:var(--t-micro);font-weight:700;color:var(--menta-txt)}
+a.sem:hover .sem-ir{text-decoration:underline}
+/* ── o cartão a estreitar ──────────────────────────────────────────────
+   Numa caixa de proporção fixa, a altura do cartão é a largura vezes 1,5.
+   Isso inverte a regra habitual: quantas MENOS colunas, mais alto fica cada
+   cartão. Com as duas colunas que aqui estavam, a 768px cada livro ficava
+   com 723px e a página inteira ia a 9 941px; numa coluna, a 390px, dava
+   694px por livro e 13 505px de página — um livro por ecrã e meio.
+   Por isso: mantêm-se três colunas no tablet, e abaixo disso o cartão
+   deita-se, com a capa à esquerda. A capa continua inteira e o cartão
+   volta aos ~200px. Medido a 29/08/2026. */
+/* Abaixo do ecrã largo, o cartão DEITA-SE, com a capa à esquerda. Não se
+   reduz o número de colunas, e a razão é contra-intuitiva: numa caixa de
+   proporção fixa a altura é a largura vezes 1,5, por isso menos colunas
+   fazem cartões MAIS ALTOS. Medido a 29/08/2026: com três colunas, a 1024px
+   o cartão ficava com 672px — mais alto do que os 616px das quatro colunas
+   a 1440px. Deitado, fica em ~200px em qualquer largura, e a capa continua
+   inteira. Duas colunas até 700px, uma abaixo disso. */
+@media(max-width:1040px){
+  .sem-grelha{grid-template-columns:repeat(2,1fr);gap:var(--e-2)}
+  .sem{flex-direction:row;align-items:stretch}
+  .sem-capa{flex:0 0 124px;width:124px;aspect-ratio:auto;padding:12px 10px}
+  .sem-tx{flex:1 1 auto;justify-content:center;padding:12px 14px}
+  .sem-lombada{width:4px}
+}
+@media(max-width:700px){.sem-grelha{grid-template-columns:1fr}}
 
 /* ═══════════════════════════════════════════════════════════════
    MONTRAS POR PÚBLICO (.mpub)
@@ -841,6 +907,16 @@ a.mpub-item:hover{background:var(--menta-wash,#E8F2EF);color:inherit}
   /* Quatro entrelinhas, e só quatro. Havia vinte e seis valores diferentes,
      com 1,3 e 1,32 e 1,35 a conviverem sem que nada os distinga. */
   --lh-tit:.94; --lh-sub:1.18; --lh-corpo:1.62;
+  /* --lh-cartao ERA USADO EM CINCO SÍTIOS E NUNCA TINHA SIDO DECLARADO
+     (.cestante .oque, .rec-autor, .rec-meta, .rec-porque, .sem-nota). Caía em
+     `normal` e passava despercebido porque, com esta letra, `normal` dá 1,61.
+     O que não passava era o `calc()`: uma altura mínima calculada a partir de
+     um símbolo inexistente é inválida e o browser ignora-a em silêncio — foi
+     assim que os cartões da semana deixaram de alinhar, uns com nota de duas
+     linhas e outros de três. Declara-se em 1,6, que é o valor que já estava a
+     sair, para reparar o cálculo sem mexer no aspeto do que já existia.
+     Encontrado a 29/08/2026. */
+  --lh-cartao:1.6;
 
   /* ── ritmo vertical ── */
   /* ═══ ESCALA DE ESPAÇAMENTO ═══  26/08/2026
@@ -1601,9 +1677,12 @@ a.rec:hover .rec-capa img{transform:scale(1.04)}
 
 /* ── os cartões de descoberta ── */
 .sem-grelha{gap:var(--e-2)}
-.sem{min-height:180px;padding:12px}
-.sem-marca{top:9px;left:9px;font-size:var(--t-nano)}
-.sem-tx b{font-size:var(--t-peq)}
+/* Em ecrã estreito a caixa da capa aperta as margens e o texto encolhe um
+   degrau. O `min-height` e o `padding` que aqui estavam saíram com o véu:
+   a altura do cartão passou a vir da capa, não de um número escrito à mão. */
+.sem-capa{padding:var(--e-3) var(--e-3) 12px}
+.sem-tx{padding:12px}
+.sem-tx b{font-size:var(--t-peq);min-height:calc(var(--t-peq)*var(--lh-sub)*2)}
 .sem-aut,.sem-nota{font-size:var(--t-micro);line-height:var(--lh-cartao)}
 .sem-rot{font-size:var(--t-nano)}
 
