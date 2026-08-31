@@ -1,10 +1,34 @@
 {
   "regrasSala": [
-    { "texto": "Manter o silêncio adequado a um espaço de estudo e leitura.", "ordem": 1, "estado": "publicado" },
-    { "texto": "Não consumir alimentos nem bebidas, salvo água em recipiente fechado.", "ordem": 2, "estado": "publicado" },
-    { "texto": "Conservar os documentos e os equipamentos, comunicando qualquer dano à equipa.", "ordem": 3, "estado": "publicado" },
-    { "texto": "Usar os computadores apenas para fins pedagógicos.", "ordem": 4, "estado": "publicado" },
-    { "texto": "Repor os documentos consultados no sítio indicado ou no carro de arrumação.", "ordem": 5, "estado": "publicado" },
-    { "texto": "Respeitar as indicações da equipa e os outros utilizadores.", "ordem": 6, "estado": "publicado" }
+    {
+      "texto": "Manter o silêncio adequado a um espaço de estudo e leitura.",
+      "ordem": 1,
+      "estado": "publicado"
+    },
+    {
+      "texto": "Não consumir alimentos nem bebidas, salvo água em recipiente fechado.",
+      "ordem": 2,
+      "estado": "publicado"
+    },
+    {
+      "texto": "Conservar os documentos e os equipamentos, comunicando qualquer dano à equipa.",
+      "ordem": 3,
+      "estado": "publicado"
+    },
+    {
+      "texto": "Usar os telémóveis apenas para fins pedagógicos.",
+      "ordem": 4,
+      "estado": "publicado"
+    },
+    {
+      "texto": "Repor os documentos consultados no sítio indicado ou no carro de arrumação.",
+      "ordem": 5,
+      "estado": "publicado"
+    },
+    {
+      "texto": "Respeitar as indicações da equipa e os outros utilizadores.",
+      "ordem": 6,
+      "estado": "publicado"
+    }
   ]
 }
