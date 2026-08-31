@@ -138,7 +138,7 @@ também a razão pela qual convém sempre confirmar no site depois de gravar.
 
 ### Rascunho e publicado
 
-Vinte e sete dos 53 formulários têm um campo **Estado**, com duas opções:
+Vinte e sete dos 52 formulários têm um campo **Estado**, com duas opções:
 
 - **publicado** — aparece no site;
 - **rascunho** — fica gravado mas o site não o mostra.
@@ -199,22 +199,26 @@ em *GitHub → Settings → Developer settings → Tokens* e gere outra.
 
 ## 6. Conhecer o painel
 
-O painel tem **seis secções** na coluna da esquerda, com **53 formulários** ao
-todo. Cada formulário corresponde a um ficheiro de conteúdo.
+O painel **segue a estrutura do site**: uma secção por página, pela ordem do
+menu, mais duas no fim. São **52 formulários** ao todo, e cada um corresponde a
+um ficheiro de conteúdo. Para mudar uma página, abre-se a secção com o nome
+dela — não é preciso saber em que género de conteúdo ela cai.
 
 | Secção | O que lá está | Formulários |
 |---|---|---|
-| **1 · Página inicial** | O topo do site e os atalhos | 3 |
-| **2 · Conteúdos para ler e usar** | Tudo o que a Biblioteca recomenda | 21 |
-| **3 · Programação** | O que acontece: eventos, projetos, exposições | 12 |
-| **4 · Comunicação** | Notícias | 1 |
-| **5 · A Biblioteca** | Quem somos, o espaço, a equipa, os documentos | 11 |
-| **6 · Configuração** | Peças estruturais. Mexe-se poucas vezes. | 5 |
+| **1 · Início** | A primeira página: topo, áreas e destaques do dia | 5 |
+| **2 · Encontrar** | Estantes, catálogo e o exemplo da cota | 3 |
+| **3 · Aprender** | Disciplinas, guiões, percursos e fontes | 8 |
+| **4 · Ler** | O que se dá a ler e a ouvir, em papel e em ecrã | 8 |
+| **5 · Participar** | Notícias, agenda, exposições, projetos, trabalhos | 9 |
+| **6 · Conhecer** | A Biblioteca, o espaço, a equipa, os documentos | 8 |
+| **Em todo o site** | Contactos, cartões fixos e a área da equipa | 3 |
+| **Sem efeito no site** | Fichas que gravam e não aparecem. A decidir. | 8 |
 
 ### Campos que se repetem por todo o painel
 
 Estes aparecem em dezenas de formulários e querem sempre dizer o mesmo. Ficam
-explicados uma vez, para não se repetirem 53 vezes.
+explicados uma vez, para não se repetirem 52 vezes.
 
 | Campo | O que é | O que escrever |
 |---|---|---|
@@ -229,9 +233,9 @@ explicados uma vez, para não se repetirem 53 vezes.
 | **Texto do botão** (`cta`) | O que o botão diz | Um verbo: «Abrir», «Ver», «Requisitar». |
 | **Destacar** | Marca este item para aparecer também noutro sítio | Caixa de sim/não. |
 
-### Onde estão os 53 formulários, campo a campo
+### Onde estão os 52 formulários, campo a campo
 
-Este manual explica as operações do dia a dia. A lista completa dos **53
+Este manual explica as operações do dia a dia. A lista completa dos **52
 formulários com todos os seus campos** está no anexo:
 
 **[Anexo · Referência do painel de edição](MANUAL-PAINEL.md)**
@@ -262,7 +266,7 @@ princípio a fim.
 > (todas), e entra na pesquisa.
 
 1. Abrir o painel em `.../admin/` e entrar.
-2. Na coluna da esquerda, escolher **4 · Comunicação**.
+2. Na coluna da esquerda, escolher **5 · Participar**.
 3. Abrir **Notícias**.
 4. No topo da lista, carregar no botão de **acrescentar**.
 5. Preencher:
@@ -286,7 +290,7 @@ Se não aparecer, ver o capítulo 13.
 
 > **GESTÃO NORMAL**
 
-1. Painel → **4 · Comunicação** → **Notícias**.
+1. Painel → **5 · Participar** → **Notícias**.
 2. Localizar a notícia na lista.
 3. Alterar o que for preciso.
 4. **Publish**, esperar, confirmar no site.
@@ -299,7 +303,7 @@ guardada e deixa de aparecer. É quase sempre melhor do que apagar.
 > **GESTÃO NORMAL** · aparece em Participar, na entrada («A seguir») e em
 > Conhecer, e entra na pesquisa.
 
-1. Painel → **3 · Programação** → **Agenda**.
+1. Painel → **5 · Participar** → **Agenda**.
 2. Acrescentar uma linha.
 3. Preencher o **título**, o **dia**, o **mês** e o **ano**, e o que mais o
    formulário pedir.
@@ -313,7 +317,7 @@ guardada e deixa de aparecer. É quase sempre melhor do que apagar.
 
 > **GESTÃO NORMAL**
 
-1. Painel → **1 · Página inicial** → **Banners do topo**.
+1. Painel → **1 · Início** → **Banners do topo**.
 2. Escolher a faixa a alterar, ou acrescentar uma nova.
 3. Campos próprios deste formulário, além dos comuns:
    - **Etiqueta pequena** — o texto miúdo por cima do título.
@@ -334,13 +338,13 @@ Há **três sítios diferentes** com livros, e convém não os trocar:
 
 | Formulário | Onde aparece |
 |---|---|
-| **Livros da semana** (secção 2) | Na entrada, no bloco «destaques da semana», e em Encontrar |
-| **Livros em destaque** (secção 2) | Em Ler, nos marcadores grandes, e em Encontrar |
-| **Catálogo · Sugestões de leitura** (secção 2) | Em Ler |
+| **Livros da semana** (secção 1) | Na entrada, no bloco «destaques da semana», e em Encontrar |
+| **Livros em destaque** (secção 4) | Em Ler, nos marcadores grandes, e em Encontrar |
+| **Sugestões de leitura** (secção 4) | Em Ler |
 
 Em qualquer deles:
 
-1. Painel → **2 · Conteúdos para ler e usar** → o formulário certo.
+1. Painel → a secção da página onde o livro aparece → o formulário certo.
 2. Acrescentar ou alterar um livro.
 3. Preencher **Título**, **Autor**, a **Capa** e a sua descrição, e a frase do
    **porquê** — a razão pela qual a Biblioteca o recomenda. É essa frase que
@@ -354,7 +358,7 @@ Em qualquer deles:
 
 > **GESTÃO NORMAL**
 
-1. Painel → **2 · Conteúdos para ler e usar** → **Aprender por disciplina**.
+1. Painel → **3 · Aprender** → **Aprender por disciplina**.
 2. Escolher a disciplina na lista.
 3. Dentro dela há duas listas, e **é preciso mexer nas duas**:
    - **Áreas** → **itens**: a ligação, agrupada por tema. É o que se vê nos
@@ -367,7 +371,7 @@ Em qualquer deles:
 
 > **GESTÃO NORMAL** · é o formulário que mais coisas mexe no site.
 
-1. Painel → **5 · A Biblioteca** → **Informação geral e contactos**.
+1. Painel → **Em todo o site** → **Informação geral e contactos**.
 2. Aqui vivem, entre outras coisas:
    - o **horário** e o **atendimento**, que aparecem no rodapé, em Conhecer e
      no relógio da entrada;
@@ -385,7 +389,7 @@ Em qualquer deles:
 
 > **GESTÃO NORMAL**
 
-1. Painel → **5 · A Biblioteca** → o formulário respetivo.
+1. Painel → **6 · Conhecer** → o formulário respetivo.
 2. Acrescentar, alterar ou apagar linhas.
 3. **Publish**, esperar, confirmar em **Conhecer**.
 
@@ -396,7 +400,7 @@ Em qualquer deles:
 
 > **GESTÃO NORMAL**, mas com uma regra que não é negociável.
 
-1. Painel → **3 · Programação** → **Trabalhos dos alunos**.
+1. Painel → **5 · Participar** → **Trabalhos dos alunos**.
 2. Acrescentar o trabalho, com título, o que é, e a imagem.
 3. **Publish**, esperar, confirmar em **Participar**.
 
@@ -532,7 +536,7 @@ Os documentos da Biblioteca — regulamento, manual de procedimentos, plano anua
 — **não estão publicados por opção**. O que o site mostra é o título, um resumo
 e um botão.
 
-1. Painel → **5 · A Biblioteca** → **Documentos oficiais**.
+1. Painel → **6 · Conhecer** → **Documentos oficiais**.
 2. Cada documento tem um **Título** e um **Endereço**.
 3. Se o **Endereço** estiver **em branco**, o botão passa a «Pedir à equipa» e
    abre uma mensagem de correio já preenchida. É assim que está hoje, e é uma
@@ -724,7 +728,7 @@ a secção deixa de aparecer.
 
 **Causa:** o horário está escrito num formato que o site não sabe ler.
 
-1. Painel → **5 · A Biblioteca** → **Informação geral e contactos**.
+1. Painel → **Em todo o site** → **Informação geral e contactos**.
 2. Confirmar que o horário está como `8h00` ou `08:00`.
 
 ### O painel não deixa entrar
@@ -844,35 +848,45 @@ Em ficheiros na pasta `content/`, um por bloco do site. O painel escreve-os.
 Não. Acrescentar páginas é **gestão técnica**.
 
 **Porque é que alguns formulários do painel não mudam nada no site?**
-Porque há sete que editam conteúdo que o site deixou de mostrar. Ver a nota
-abaixo.
+Porque há oito que editam conteúdo que o site não mostra. Estão todos juntos na
+última secção do painel, **Sem efeito no site**, para não se editarem por
+engano. Ver a nota abaixo.
 
 **O site recolhe dados de quem o visita?**
 Não. Não há rastreio, não há publicidade, não há cookies de terceiros.
 
-### Nota: sete formulários que hoje não mudam nada
+### Nota: a secção «Sem efeito no site»
 
-O painel tem sete formulários cujo conteúdo **nenhuma página mostra neste
-momento**. Ficaram de versões anteriores do site, e o conteúdo foi mantido de
-propósito, caso volte a ser preciso.
+Oito formulários gravam sem dar erro e **nenhuma página mostra o que eles
+guardam**. Ficaram de versões anteriores do site, e o conteúdo foi mantido de
+propósito, caso volte a ser preciso. A 29 de agosto de 2026 passaram todos para
+uma secção própria, no fim do painel: antes estavam misturados com os que
+funcionam, e não havia como distingui-los sem os experimentar.
 
-| Formulário | Secção |
+| Formulário | Porque não aparece |
 |---|---|
-| Quero… (cartões de missão) | 1 · Página inicial |
-| Ferramentas | 2 · Conteúdos |
-| Calendário do ano letivo | 3 · Programação |
-| Temas do calendário | 3 · Programação |
-| Concursos | 3 · Programação |
-| Catálogo · Cinco passos do tutorial | 6 · Configuração |
-| Catálogo · Campos de pesquisa | 6 · Configuração |
+| Quero… (cartões de missão) | o motor não carrega o ficheiro |
+| Ferramentas | o motor não carrega o ficheiro |
+| Calendário do ano letivo | o motor não carrega o ficheiro |
+| Temas do calendário | o motor não carrega o ficheiro |
+| Concursos | o motor não carrega o ficheiro |
+| Catálogo · Cinco passos do tutorial | o motor não carrega o ficheiro |
+| Catálogo · Campos de pesquisa | o motor não carrega o ficheiro |
+| Vídeos | o motor lê-o, mas **nenhuma página tem o contentor** onde apareceria |
 
-**Editá-los não estraga nada, mas também não muda nada no site.** Se um dia
-quiser voltar a mostrar algum destes blocos, é **gestão técnica**.
+**Editá-los não estraga nada, mas também não muda nada no site.** Ligar algum
+deles ao site é **gestão técnica**.
 
-E há três ficheiros **vazios à espera de conteúdo**: *Vídeos*, *Ferramentas* e
-*Palavras em Ação · apresentação*. Assim que lhes acrescentar itens pelo painel,
-as secções correspondentes aparecem sozinhas — menos a das Ferramentas, que é
-uma das sete acima.
+**Um formulário foi retirado do painel a 29/08/2026:** «Escolhas da Biblioteca».
+O bloco das três montras por público saiu da página Ler a 25/08, por dizer pela
+terceira vez, na mesma página, «vejam isto» — e a chamada que as desenhava saiu
+com ele. O formulário ficou para trás e editava conteúdo invisível. O ficheiro
+`content/escolhas.json` **continua guardado**, com as três montras escritas, para
+o caso de um dia se querer o bloco de volta.
+
+E há dois ficheiros **vazios à espera de conteúdo**, ambos em *5 · Participar*:
+*Palavras em Ação · apresentação* e *Exposições · fotografias*. Assim que lhes
+acrescentar itens pelo painel, as secções aparecem sozinhas.
 
 ---
 
