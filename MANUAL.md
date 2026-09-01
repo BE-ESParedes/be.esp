@@ -351,6 +351,15 @@ Em qualquer deles:
    distingue uma sugestão de uma lista.
 4. **Publish**, esperar, confirmar.
 
+> **Onde é que a frase do porquê se lê.** Desde 31 de agosto de 2026 os cartões
+> dos **destaques da semana** mostram só a etiqueta do formato sobre a capa e,
+> por baixo, o para quem, o título e o autor. São oito cartões seguidos: com a
+> frase de cada um, a página passava a ser uma parede de texto por baixo das
+> capas, e eram as capas que se queriam ver. A frase continua a aparecer nos
+> **Livros em destaque** e nas **Sugestões de leitura**, na página Ler, onde há
+> um cartão de cada vez e espaço para a ler. Escreva-a na mesma: fica guardada,
+> e é o que distingue a Biblioteca de uma lista.
+
 > Um livro sem capa **não desaparece**: aparece com o título escrito na lombada,
 > à espera da capa. Pode publicar primeiro e pôr a capa depois.
 

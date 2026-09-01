@@ -70,7 +70,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Página** — texto curto · obrigatório
     Ex.: ler.html
   - **Texto do botão** — texto curto · opcional
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Fotografia da Biblioteca. Exportar até 300 KB.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
   - **Posição** — número · opcional
@@ -93,8 +93,8 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Para quem** — texto curto · opcional
     Ex.: 3.º ciclo; Secundário; Adultos e professores.
   - **Género** — texto curto · opcional
-  - **Porque é que a Biblioteca recomenda isto?** — texto longo · opcional
-    Uma ou duas frases nossas, para alunos.
+  - **Porque recomendamos (não aparece neste cartão)** — texto longo · opcional
+    O cartão dos destaques da semana mostra só o para quem, o título e o autor, para as capas ficarem à frente. Esta frase fica guardada e não se perde: serve se um dia o livro passar para «Livros em destaque», na página Ler, onde a razão aparece.
   - **Endereço (opcional)** — texto curto · opcional
   - **Posição** — número · opcional
   - **Estado** — escolha · opcional · por omissão: `publicado`
@@ -119,7 +119,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Tipo** — texto curto · opcional
   - **Nota** — texto curto · opcional
   - **Frequência (ex.: mensal)** — texto curto · opcional
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -169,7 +169,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Notações principais** — texto curto · opcional
   - **Posição** — número · opcional
   - **Estado** — escolha · opcional · por omissão: `publicado`
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -265,7 +265,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
     - **Logótipo ou imagem** — imagem · opcional
       Exportar até 300 KB.
     - **Descrição da imagem (acessibilidade)** — texto curto · opcional
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
   - **Posição** — número · opcional
   - **Estado** — escolha · opcional · por omissão: `publicado`
@@ -287,7 +287,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Etiqueta** — texto curto · opcional
     Ex.: Referencial oficial, Guião, Recursos selecionados.
   - **Ícone** — escolha · opcional
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -324,7 +324,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
     Número. Menor aparece primeiro; em branco vai para o fim.
   - **Estado** — escolha · opcional · por omissão: `publicado`
     Em rascunho fica escrito mas não aparece no site.
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -342,7 +342,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Título** — texto curto · obrigatório
   - **Texto** — texto longo · obrigatório
   - **Ícone** — texto curto · opcional
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -371,7 +371,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
     Só se o destino não for um formulário. Ex.: #guioes
   - **Assunto do correio** — texto curto · opcional
     Preenche o assunto quando não houver formulário.
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
   - **Posição** — número · opcional
@@ -392,7 +392,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Para que serve** — texto longo · opcional
     Uma frase, que aparece por baixo do nome.
   - **Tipo de acesso** — escolha · obrigatório
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -425,7 +425,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
     Número. Menor aparece primeiro; em branco vai para o fim.
   - **Estado** — escolha · opcional · por omissão: `publicado`
     Em rascunho fica escrito mas não aparece no site.
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -454,7 +454,8 @@ Para mudar uma página, abre-se o grupo com o nome dela.
     - **Onde vive a ficha** — escolha · obrigatório
     - **Título da ficha** — texto curto · obrigatório
       Escrito tal e qual como está na ficha.
-    - **Porque é esta a escolha da semana?** — texto longo · opcional
+    - **Porque é esta a escolha (não aparece neste cartão)** — texto longo · opcional
+      Desde 31/08/2026 o cartão mostra só a etiqueta do formato, o título e o autor. Esta frase fica guardada, e é ela que aparece na ficha da própria obra, na página Ler.
 
 ### Sugestões de leitura
 
@@ -483,7 +484,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 
 **Onde aparece:** em Ler e Encontrar
 
-**Tem hoje:** 5 itens
+**Tem hoje:** 4 itens
 
 **Ficheiro:** `content/destaquesLer.json`
 
@@ -518,11 +519,11 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Descrição** — texto longo · opcional
     Uma ou duas frases. O que lá está e para que serve.
   - **Condições de acesso** — texto curto · opcional
-    Aparece em letra de máquina. Ex.: Acesso livre · Sem registo · ePub, Kindle, HTML
+    Separe por · . O PRIMEIRO pedaço vira a etiqueta do cartão, porque é o que decide se a pessoa pode usar aquilo; o resto fica em letra pequena. Ex.: Acesso livre · Sem registo · ePub, Kindle, HTML
   - **Endereço** — texto curto · obrigatório
     Confirme que abre antes de gravar. Um endereço morto é pior do que nenhum.
-  - **Fotografia de fundo** — imagem · opcional
-    Uma imagem da própria plataforma. Exportar até 300 KB.
+  - **Logótipo da plataforma** — imagem · opcional
+    O logótipo da plataforma, mostrado inteiro sobre branco — já não é fundo do cartão, por isso pode ser largo ou quadrado. Exportar até 300 KB.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
   - **Posição** — número · opcional
   - **Estado** — escolha · opcional · por omissão: `publicado`
@@ -731,7 +732,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Local e hora** — texto curto · opcional
     Ex.: Biblioteca · 14h30
   - **Ligação (opcional)** — texto curto · opcional
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -752,7 +753,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Fotografias** — lista · opcional
     - **Fotografia** — imagem · opcional
     - **Descrição da imagem** — texto curto · opcional
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
 
 ### Exposições · fotografias
@@ -900,7 +901,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 - **Áreas de trabalho** — lista · obrigatório
   - **Nome** — texto curto · obrigatório
   - **Descrição** — texto longo · obrigatório
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
   - **Descrição da imagem** — texto curto · opcional
   - **Ícone** — texto curto · opcional
 
@@ -958,7 +959,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 - **Perguntas** — lista · obrigatório
   - **Pergunta** — texto curto · obrigatório
   - **Resposta** — texto longo · obrigatório
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -993,7 +994,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Título** — texto curto · obrigatório
   - **Ligação de partilha do OneDrive** — texto curto · opcional
     Vazio = aparece como «brevemente disponível».
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -1099,7 +1100,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Ligações** — lista · obrigatório
     - **Nome** — texto curto · obrigatório
     - **Ligação** — texto curto · opcional
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -1125,7 +1126,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Explicação** — texto curto · obrigatório
   - **Ícone** — escolha · obrigatório
   - **Para onde leva** — texto curto · obrigatório
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -1149,7 +1150,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Endereço (URL)** — texto curto · opcional
   - **Ícone** — texto curto · opcional
   - **Mostrar nos destaques** — sim/não · opcional
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -1175,7 +1176,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
     - **Público-alvo** — texto curto · obrigatório
     - **Domínio do PAA** — escolha · obrigatório
     - **Tema** — escolha · obrigatório
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.
@@ -1194,7 +1195,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
   - **Identificador** — texto curto · obrigatório
   - **Nome** — texto curto · obrigatório
   - **Ícone** — texto curto · opcional
-  - **Fotografia de fundo** — imagem · opcional
+  - **Logótipo da plataforma** — imagem · opcional
     Exportar até 300 KB. O painel escreve o caminho sozinho.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
     O que se vê na imagem, para quem não a vê.

@@ -654,7 +654,10 @@ a.rec:hover .rec-capa img{transform:translateY(-3px) scale(1.02)}
 .rec-carril::-webkit-scrollbar-thumb{background:var(--menta-media,#7FB8A8);border-radius:var(--r-peq)}
 .rec-carril>.rec{flex:0 0 216px}
 @media(max-width:620px){
-  .rec-carril>.rec{flex:0 0 180px}
+  /* A largura do cartão do carril saiu daqui a 31/08/2026: em ecrã estreito
+     ele deixou de ser um cartão de carril e passou a deitar-se, na regra que
+     está no bloco ESCALA DOS CARTÕES. Ficar aqui era uma largura fixa a
+     contradizer, em silêncio, a que manda. */
   .rec-grelha{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -1695,7 +1698,13 @@ a.rec:hover .rec-capa img{transform:scale(1.04)}
    automática, ou seja contra nada, e cada cartão ficava com a altura do seu
    próprio texto. Com `align-self:stretch` e altura automática, todos ficam
    pela altura do maior, que é o que se quer numa fila de marcadores. */
-#destaques-livros .rec{flex:0 0 190px;height:auto;align-self:stretch}
+/* A largura sai da mesma conta da grelha dos destaques da semana — quatro
+   colunas e três folgas — para os dois blocos se lerem como um sistema só.
+   Está aqui, e não na regra de classe, porque um seletor com `id` ganha-lhe
+   sempre: escrever a largura lá em cima e deixá-la aqui fazia uma regra
+   contradizer a outra em silêncio, que é como se perdem tardes. 31/08/2026. */
+#destaques-livros .rec{flex:0 0 calc((100% - var(--e-2)*3)/4);height:auto;align-self:stretch}
+@media(max-width:1040px){#destaques-livros .rec{flex:auto}}
 #destaques-livros .rec-tx{justify-content:flex-start}
 
 /* O parágrafo que fecha «Quem somos», a seguir aos nomes da equipa. */
@@ -1722,8 +1731,39 @@ a.rec:hover .rec-capa img{transform:scale(1.04)}
 /* ── o cartão partilhado ── */
 /* A redução a dois terços deixou os marcadores estreitos de mais para o que
    têm dentro: um título, um autor, um público e a frase editorial. Ganham
-   um pouco de largura de volta, sem voltar ao tamanho de antes. */
-.rec-carril>.rec{flex:0 0 190px}
+   um pouco de largura de volta, sem voltar ao tamanho de antes.
+
+   31/08/2026, por pedido do PB: em ecrã largo passam a ter EXATAMENTE a
+   largura dos cartões dos «destaques da semana», para os dois blocos se
+   lerem como o mesmo sistema e não como dois. A conta é a da grelha deles
+   — quatro colunas e três folgas — e por isso acompanha sozinha qualquer
+   mudança de largura do contentor. A folga do carril desce a --e-2 pela
+   mesma razão: é a que a grelha usa. */
+/* Os 2px de margem lateral do carril, que existem para o anel de foco não ser
+   cortado, empurravam a fila 2px para dentro e tiravam 1px a cada cartão. A
+   margem negativa devolve-os: a caixa de conteúdo do carril volta a começar
+   exatamente onde começa a grelha dos destaques da semana, e a conta das
+   quatro colunas dá o mesmo número nos dois. */
+.rec-carril{gap:var(--e-2);margin-left:-2px;margin-right:-2px}
+.rec-carril>.rec{flex:0 0 calc((100% - var(--e-2)*3)/4)}
+/* Abaixo do ecrã largo o carril deixa de ser carril: vira lista e o cartão
+   deita-se, com a capa à esquerda, exatamente como os dos destaques da
+   semana. Um carrossel de cartões estreitos obriga a arrastar de lado para
+   ver quatro coisas; deitados, veem-se a rolar a página, que é o gesto que
+   já se está a fazer. Os botões de navegação escondem-se porque deixam de
+   ter o que navegar. */
+@media(max-width:1040px){
+  /* Os 2px de margem lateral existem para o anel de foco não ser cortado pelo
+     `overflow-x:auto` do carril. Aqui não há overflow nenhum, e esses 2px de
+     cada lado eram os 4px que desalinhavam estes cartões dos da semana. */
+  .rec-carril{display:grid;grid-template-columns:repeat(2,1fr);overflow-x:visible;
+    padding-left:0;padding-right:0;margin-left:0;margin-right:0}
+  .rec-carril>.rec{flex:auto;flex-direction:row;align-items:stretch}
+  .rec-carril>.rec .rec-capa{flex:0 0 112px;width:112px}
+  .rec-carril>.rec .rec-tx{flex:1 1 auto;justify-content:center}
+  .cnav[data-alvo="destaques-livros"]{display:none}
+}
+@media(max-width:700px){.rec-carril{grid-template-columns:1fr}}
 .rec-grelha{grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:var(--e-2)}
 .rec-tx{gap:var(--e-1);padding:var(--e-2) var(--e-2) var(--e-2)}
 .rec-tx b{font-size:var(--t-micro);line-height:var(--lh-sub)}
@@ -1761,7 +1801,8 @@ a.rec:hover .rec-capa img{transform:scale(1.04)}
 .cestante{gap:12px;padding:var(--e-2) 12px var(--e-2) 0}
 
 @media(max-width:620px){
-  .rec-carril>.rec{flex:0 0 160px}
+  /* A largura fixa do cartão de carril saiu daqui a 31/08/2026: abaixo dos
+     1040px o cartão deita-se e ocupa a linha toda. */
   .bpilar{min-height:114px}
 }
 

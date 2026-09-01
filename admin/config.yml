@@ -86,7 +86,7 @@ collections:
               - { name: frase, label: Frase, widget: text, required: false, hint: 'Uma linha. Aparece quando a faixa abre.' }
               - { name: url, label: Página, widget: string, required: true, hint: 'Ex.: ler.html' }
               - { name: cta, label: Texto do botão, widget: string, required: false }
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/areas, public_folder: imagens/areas, hint: 'Fotografia da Biblioteca. Exportar até 300 KB.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/areas, public_folder: imagens/areas, hint: 'Fotografia da Biblioteca. Exportar até 300 KB.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false }
               - { name: ordem, label: Posição, widget: number, required: false, value_type: int }
               - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho] }
@@ -94,7 +94,7 @@ collections:
       - name: livrosSemana
         label: Livros da semana (Início e Encontrar)
         file: content/livrosSemana.json
-        description: 'Cinco livros do acervo, trocados semanalmente. Sugestão: dois do 3.º ciclo, dois do secundário e um para adultos e professores.'
+        description: 'Quatro livros do acervo, trocados semanalmente. Sugestão: dois do 3.º ciclo e dois do secundário. O cartão mostra a etiqueta «Livro» sobre a capa e, por baixo, só o para quem, o título e o autor. Escreva mais do que quatro se quiser: o site mostra os quatro primeiros por ordem.'
         fields:
           - name: livrosSemana
             label: Livros
@@ -108,7 +108,7 @@ collections:
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false }
               - { name: publico, label: Para quem, widget: string, required: false, hint: 'Ex.: 3.º ciclo; Secundário; Adultos e professores.' }
               - { name: genero, label: Género, widget: string, required: false }
-              - { name: porque, label: "Porque é que a Biblioteca recomenda isto?", widget: text, required: false, hint: 'Uma ou duas frases nossas, para alunos.' }
+              - { name: porque, label: "Porque recomendamos (não aparece neste cartão)", widget: text, required: false, hint: 'O cartão dos destaques da semana mostra só o para quem, o título e o autor, para as capas ficarem à frente. Esta frase fica guardada e não se perde: serve se um dia o livro passar para «Livros em destaque», na página Ler, onde a razão aparece.' }
               - { name: url, label: Endereço (opcional), widget: string, required: false }
               - { name: ordem, label: Posição, widget: number, required: false, value_type: int }
               - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho] }
@@ -133,7 +133,7 @@ collections:
               - { name: nota, label: Nota, widget: string, required: false }
               - { name: frequencia, label: 'Frequência (ex.: mensal)', widget: string, required: false }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/atividades, public_folder: imagens/atividades, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/atividades, public_folder: imagens/atividades, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: regrasSala
@@ -182,7 +182,7 @@ collections:
               - { name: ordem, label: Posição, widget: number, required: false, value_type: int }
               - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho] }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/estantes, public_folder: imagens/estantes, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/estantes, public_folder: imagens/estantes, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: bibliotecaDigital
@@ -329,7 +329,7 @@ collections:
                   - { name: url, label: Endereço, widget: string, required: false }
                   - { name: imagem, label: Logótipo ou imagem, widget: image, required: false, media_folder: /imagens/logos, public_folder: imagens/logos, hint: 'Exportar até 300 KB.' }
                   - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false }
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/disciplinas, public_folder: imagens/disciplinas }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/disciplinas, public_folder: imagens/disciplinas }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false }
               - { name: ordem, label: Posição, widget: number, required: false, value_type: int }
               - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho] }
@@ -355,7 +355,7 @@ collections:
                 required: false
                 options: [alvo, ficheiro, estrela, escudo, cerebro, monitor, lupa, livro]
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/guioes, public_folder: imagens/guioes, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/guioes, public_folder: imagens/guioes, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: percursos
@@ -400,7 +400,7 @@ collections:
 
               - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
               - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/apoio, public_folder: imagens/apoio, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/apoio, public_folder: imagens/apoio, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: literaciaPercurso
@@ -419,7 +419,7 @@ collections:
               - { name: texto, label: Texto, widget: text }
               - { name: icone, label: Ícone, widget: string, required: false }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/apoio, public_folder: imagens/apoio, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/apoio, public_folder: imagens/apoio, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: docentes
@@ -443,7 +443,7 @@ collections:
               - { name: campoLink, label: Que formulário usa, widget: select, required: false, options: ['', linkArticulacao, linkSalaAula, linkMarcacao, linkSugestao, linkFormulario], hint: 'O endereço vem de «Informação geral». Deixe vazio se usar a Ligação direta abaixo.' }
               - { name: url, label: Ligação direta, widget: string, required: false, hint: 'Só se o destino não for um formulário. Ex.: #guioes' }
               - { name: assunto, label: Assunto do correio, widget: string, required: false, hint: 'Preenche o assunto quando não houver formulário.' }
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/apoio, public_folder: imagens/apoio, hint: 'Exportar até 300 KB.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/apoio, public_folder: imagens/apoio, hint: 'Exportar até 300 KB.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false }
               - { name: ordem, label: Posição, widget: number, required: false, value_type: int }
               - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho] }
@@ -474,7 +474,7 @@ collections:
                   - { label: 'Com registo', value: registo }
                   - { label: 'Só na escola', value: escola }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/sites, public_folder: imagens/sites, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/sites, public_folder: imagens/sites, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: explica
@@ -505,7 +505,7 @@ collections:
               - { name: ordem, label: Posição, widget: number, required: false, value_type: int, hint: 'Número. Menor aparece primeiro; em branco vai para o fim.' }
               - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho], hint: 'Em rascunho fica escrito mas não aparece no site.' }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/explica, public_folder: imagens/explica, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/explica, public_folder: imagens/explica, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
   # ─────────────────────────────────────────────────────────────
@@ -538,7 +538,7 @@ collections:
                   - { name: icone, label: Ícone, widget: string, required: false }
                   - { name: colecao, label: Onde vive a ficha, widget: select, required: true, options: [livrosDigitais, audiolivros, podcasts, videos, leituraAcessivel, bibliotecaDigital, sugestoesLeitura] }
                   - { name: titulo, label: Título da ficha, widget: string, required: true, hint: 'Escrito tal e qual como está na ficha.' }
-                  - { name: nota, label: "Porque é esta a escolha da semana?", widget: text, required: false }
+                  - { name: nota, label: "Porque é esta a escolha (não aparece neste cartão)", widget: text, required: false, hint: 'Desde 31/08/2026 o cartão mostra só a etiqueta do formato, o título e o autor. Esta frase fica guardada, e é ela que aparece na ficha da própria obra, na página Ler.' }
 
       - name: sugestoesLeitura
         label: Sugestões de leitura
@@ -604,9 +604,9 @@ collections:
               - { name: nome, label: Nome, widget: string, required: true }
               - { name: grupo, label: Separador, widget: select, required: true, options: [{ label: 'Ler no ecrã', value: ler }, { label: Ouvir, value: ouvir }, { label: Escutar, value: escutar }, { label: Ver, value: ver }, { label: Aceder, value: aceder }] }
               - { name: descricao, label: Descrição, widget: text, required: false, hint: 'Uma ou duas frases. O que lá está e para que serve.' }
-              - { name: meta, label: Condições de acesso, widget: string, required: false, hint: 'Aparece em letra de máquina. Ex.: Acesso livre · Sem registo · ePub, Kindle, HTML' }
+              - { name: meta, label: Condições de acesso, widget: string, required: false, hint: 'Separe por · . O PRIMEIRO pedaço vira a etiqueta do cartão, porque é o que decide se a pessoa pode usar aquilo; o resto fica em letra pequena. Ex.: Acesso livre · Sem registo · ePub, Kindle, HTML' }
               - { name: url, label: Endereço, widget: string, required: true, hint: 'Confirme que abre antes de gravar. Um endereço morto é pior do que nenhum.' }
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/plataformas, public_folder: imagens/plataformas, hint: 'Uma imagem da própria plataforma. Exportar até 300 KB.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/plataformas, public_folder: imagens/plataformas, hint: 'O logótipo da plataforma, mostrado inteiro sobre branco — já não é fundo do cartão, por isso pode ser largo ou quadrado. Exportar até 300 KB.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false }
               - { name: ordem, label: Posição, widget: number, required: false, value_type: int }
               - { name: estado, label: Estado, widget: select, required: false, default: publicado, options: [publicado, rascunho] }
@@ -789,7 +789,7 @@ collections:
               - { name: local, label: Local e hora, widget: string, required: false, hint: 'Ex.: Biblioteca · 14h30' }
               - { name: url, label: Ligação (opcional), widget: string, required: false }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/agenda, public_folder: imagens/agenda, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/agenda, public_folder: imagens/agenda, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: exposicoes
@@ -815,7 +815,7 @@ collections:
                   - { name: ficheiro, label: Fotografia, widget: image, required: false, media_folder: /imagens/exposicoes, public_folder: imagens/exposicoes }
                   - { name: alt, label: Descrição da imagem, widget: string, required: false }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/exposicoes, public_folder: imagens/exposicoes, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/exposicoes, public_folder: imagens/exposicoes, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
 
       - name: exposicaoFotos
         label: 'Exposições · fotografias'
@@ -997,7 +997,7 @@ collections:
             fields:
               - { name: titulo, label: Nome, widget: string }
               - { name: texto, label: Descrição, widget: text }
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/biblioteca, public_folder: imagens/biblioteca }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/biblioteca, public_folder: imagens/biblioteca }
               - { name: alt, label: Descrição da imagem, widget: string, required: false }
               - { name: icone, label: Ícone, widget: string, required: false }
 
@@ -1062,7 +1062,7 @@ collections:
               - { name: pergunta, label: Pergunta, widget: string }
               - { name: resposta, label: Resposta, widget: text }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/faq, public_folder: imagens/faq, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/faq, public_folder: imagens/faq, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: equipaBE
@@ -1098,7 +1098,7 @@ collections:
               - { name: titulo, label: Título, widget: string }
               - { name: url, label: Ligação de partilha do OneDrive, widget: string, required: false, hint: 'Vazio = aparece como «brevemente disponível».' }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/documentos, public_folder: imagens/documentos, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/documentos, public_folder: imagens/documentos, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: projetosEscola
@@ -1216,7 +1216,7 @@ collections:
                   - { name: nome, label: Nome, widget: string }
                   - { name: url, label: Ligação, widget: string, required: false }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/equipa, public_folder: imagens/equipa, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/equipa, public_folder: imagens/equipa, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
   # ─────────────────────────────────────────────────────────────
@@ -1243,7 +1243,7 @@ collections:
               - { name: icone, label: Ícone, widget: select, options: [livro, ficheiro, calendario, camara, monitor, maos, lupa, alvo, estrela, globo] }
               - { name: url, label: Para onde leva, widget: string }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/atalhos, public_folder: imagens/atalhos, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/atalhos, public_folder: imagens/atalhos, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: ferramentas
@@ -1266,7 +1266,7 @@ collections:
               - { name: icone, label: Ícone, widget: string, required: false }
               - { name: destaque, label: Mostrar nos destaques, widget: boolean, required: false }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/ferramentas, public_folder: imagens/ferramentas, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/ferramentas, public_folder: imagens/ferramentas, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: calendarioAno
@@ -1296,7 +1296,7 @@ collections:
                   - { name: dominio, label: Domínio do PAA, widget: select, options: [A, B, C, D] }
                   - { name: tema, label: Tema, widget: select, options: [leitura, arte, digital, cidadania, investigacao, escrita] }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/atividades, public_folder: imagens/atividades, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/atividades, public_folder: imagens/atividades, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: temasAtividades
@@ -1314,7 +1314,7 @@ collections:
               - { name: nome, label: Nome, widget: string }
               - { name: icone, label: Ícone, widget: string, required: false }
 
-              - { name: imagem, label: Fotografia de fundo, widget: image, required: false, media_folder: /imagens/atividades, public_folder: imagens/atividades, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
+              - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/atividades, public_folder: imagens/atividades, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
 
       - name: concursos
