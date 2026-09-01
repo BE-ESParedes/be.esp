@@ -497,16 +497,25 @@ function renderPlataformas(idAlvo, grupos) {
         ${temTexto(g.nota) ? `<p class="pl-nota">${esc(g.nota)}</p>` : ''}
         <div class="pl-grelha">
           ${todas.filter(p => p.grupo === g.id).map(p => {
-            const comFoto = temTexto(p.imagem);
+            const nome = p.nome || p.titulo || '';
+            /* O «meta» vem como «Acesso livre · Sem registo · ePub, Kindle».
+               O primeiro pedaço é o que decide se a pessoa pode usar aquilo
+               e por isso sobe a etiqueta; o resto é letra miúda. */
+            const partes = String(p.meta || '').split('·').map(s => s.trim()).filter(Boolean);
+            const etiqueta = partes.shift() || '';
             return `
-            <a class="pl-c${comFoto ? ' com-foto' : ''}" ${linkAttrs(p.url)}>
-              ${comFoto ? `<img class="pl-fundo" src="${esc(caminho(p.imagem))}" alt=""
-                     loading="lazy" decoding="async">` : ''}
-              <span class="pl-veu"></span>
-              <span class="pl-tx">
-                <b>${esc(p.nome || p.titulo || '')}</b>
-                ${temTexto(p.descricao) ? `<span class="pl-d">${esc(p.descricao)}</span>` : ''}
-                ${temTexto(p.meta) ? `<span class="pl-meta">${esc(p.meta)}</span>` : ''}
+            <a class="asite" ${linkAttrs(p.url)}>
+              <span class="capa">
+                ${temTexto(p.imagem)
+                  ? `<img src="${esc(caminho(p.imagem))}" alt="Logótipo de ${esc(nome)}" loading="lazy" decoding="async">`
+                  : `<span class="vazio">${icone(g.icone || 'globo', 24)}${esc(nome)}</span>`}
+              </span>
+              <span class="tx">
+                ${etiqueta ? `<span class="etiq">${esc(etiqueta)}</span>` : ''}
+                <h4>${esc(nome)}</h4>
+                ${partes.length ? `<span class="fonte">${esc(partes.join(' · '))}</span>` : ''}
+                ${temTexto(p.descricao) ? `<p>${esc(p.descricao)}</p>` : ''}
+                <span class="ir">Abrir &rarr;</span>
               </span>
             </a>`;
           }).join('')}
@@ -806,20 +815,24 @@ function cartaoSemana(x, opcoes = {}) {
      acrescenta alguma coisa, para não haver duas etiquetas a dizer o mesmo. */
   const rot = x.rotulo || x.publico || '';
   const rotUtil = temTexto(rot) && !(marca && rot.toLowerCase().includes(marca.toLowerCase()));
+  /* A etiqueta de formato volta a assentar SOBRE a capa, como nos cartões de
+     «O que a Biblioteca está a destacar». Já não tapa nada de importante,
+     porque a capa deixou de ser o fundo do cartão e passou a ter caixa
+     própria, com margem à volta. Por baixo fica só o essencial: para quem é,
+     o que é e de quem é. O porquê vive nos cartões da página Ler, onde há
+     espaço para o ler; aqui seria uma parede de texto vezes oito. */
   const dentro = `
     <span class="sem-capa">
       <span class="sem-lombada"></span>
       ${comFoto
         ? `<img class="sem-fundo" src="${esc(caminho(x.imagem))}" alt="Capa de ${esc(titulo)}" loading="lazy" decoding="async">`
         : `<span class="sem-vazia">${icone(x.icone || fmt.icone || 'livro', 56)}</span>`}
+      ${marca ? `<span class="sem-marca">${icone(x.icone || fmt.icone || 'estrela', 13)}${esc(marca)}</span>` : ''}
     </span>
     <span class="sem-tx">
-      ${marca ? `<span class="sem-marca">${icone(x.icone || fmt.icone || 'estrela', 14)}${esc(marca)}</span>` : ''}
       <span class="sem-rot">${rotUtil ? esc(rot) : ''}</span>
       <b>${esc(titulo)}</b>
       ${temTexto(x.autor) ? `<span class="sem-aut">${esc(x.autor)}</span>` : ''}
-      ${temTexto(x.porque) ? `<span class="sem-nota">${esc(x.porque)}</span>` : ''}
-      ${temTexto(x.url) ? `<span class="sem-ir">Ver e abrir &rarr;</span>` : ''}
     </span>`;
   /* A classe `com-foto` saiu com o véu: existia só para inverter o texto
      sobre a fotografia, e o texto já não assenta em fotografia nenhuma. */

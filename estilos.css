@@ -721,13 +721,16 @@ a.sem:hover .sem-fundo{transform:translateY(-4px) scale(1.02)}
 
 .sem-tx{display:flex;flex-direction:column;gap:var(--e-1);min-width:0;
   padding:var(--e-3) var(--e-3) var(--e-3)}
-/* A etiqueta de formato desceu da capa para aqui: continua a dizer num
-   relance que são coisas diferentes, sem tapar aquilo que se quer ver. */
-.sem-marca{display:inline-flex;align-items:center;gap:var(--e-2);align-self:flex-start;
-  font-size:var(--t-nano);font-weight:800;letter-spacing:.06em;text-transform:uppercase;
-  padding:var(--e-1) 10px var(--e-1) var(--e-2);border-radius:var(--r-pilula);
-  line-height:var(--lh-sub);background:var(--amb-papel);color:var(--tinta);
-  box-shadow:inset 3px 0 0 var(--lombada,var(--menta));margin-bottom:var(--e-1)}
+/* A etiqueta de formato assenta SOBRE a capa, no canto, como nos cartões de
+   «O que a Biblioteca está a destacar» (.rec-formato). Podia voltar para lá
+   porque a capa deixou de ocupar o cartão inteiro: agora tem margem à volta,
+   e a etiqueta cai nessa margem em vez de cair em cima do livro. */
+.sem-marca{position:absolute;top:10px;left:10px;display:inline-flex;align-items:center;
+  gap:var(--e-1);font-size:var(--t-nano);font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;padding:var(--e-1) var(--e-2);border-radius:var(--r-pilula);
+  line-height:var(--lh-tit);background:rgba(255,255,255,.94);color:var(--tinta);
+  backdrop-filter:blur(4px);
+  box-shadow:inset 3px 0 0 var(--lombada,var(--menta)),var(--sombra)}
 /* A linha do rótulo desenha-se sempre, mesmo vazia. No grelhado dos formatos
    ela é suprimida quando repetiria a etiqueta («Livro digital» + «Livro
    digital da semana»), e sem esta altura reservada os cartões com rótulo
@@ -743,11 +746,63 @@ a.sem:hover .sem-fundo{transform:translateY(-4px) scale(1.02)}
   overflow:hidden;min-height:calc(var(--t-corpo)*var(--lh-sub)*2)}
 .sem-aut{font-size:var(--t-micro);color:var(--cinza-legivel);
   display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
-.sem-nota{font-size:var(--t-micro);line-height:var(--lh-cartao);color:var(--tinta);
-  margin-top:var(--e-1);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
-  overflow:hidden;min-height:calc(var(--t-micro)*var(--lh-cartao)*3)}
-.sem-ir{margin-top:var(--e-2);font-size:var(--t-micro);font-weight:700;color:var(--menta-txt)}
-a.sem:hover .sem-ir{text-decoration:underline}
+/* O porquê e a chamada «Ver e abrir» saíram a 31/08/2026, por decisão do PB:
+   o cartão diz agora o mesmo que os de «O que a Biblioteca está a destacar»
+   — para quem é, o que é, de quem é. Multiplicado por oito cartões, o porquê
+   fazia uma parede de texto por baixo das capas e roubava-lhes a atenção,
+   que era exatamente o problema que estas mudanças vieram resolver. O texto
+   continua a existir nas fichas e a aparecer na página Ler. */
+
+/* ═══════════════════════════════════════════════════════════════
+   O CARTÃO DE SÍTIO (.asite) e o seu carril (.acarril)
+
+   Vivia dentro do <style> do aprender.html e servia só «Aprender por
+   disciplina». Subiu para aqui a 31/08/2026, por decisão do PB, para
+   servir também «O que estamos a descobrir», na página Ler. É a regra
+   da casa: o que serve mais do que uma página vive no CSS partilhado.
+
+   Anatomia: logótipo em cima, etiqueta curta, título, uma linha de
+   apoio e «Abrir →». Sem véu e sem texto sobre imagem — o cartão é
+   claro e a imagem é dele, não fundo dele.
+   ═══════════════════════════════════════════════════════════════ */
+.acarril{display:flex;gap:var(--e-3);overflow-x:auto;scroll-behavior:smooth;padding:var(--e-1) 2px var(--e-3);
+  scrollbar-width:thin;scrollbar-color:var(--menta-media) transparent}
+.acarril::-webkit-scrollbar{height:7px}
+.acarril::-webkit-scrollbar-track{background:transparent}
+.acarril::-webkit-scrollbar-thumb{background:var(--menta-media);border-radius:var(--r-peq)}
+.asite{flex:0 0 230px;background:var(--branco);border:1px solid var(--linha);
+  border-radius:var(--r-cartao);overflow:hidden;text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s,border-color .18s}
+a.asite:hover{transform:translateY(-4px);box-shadow:var(--sombra-lg);border-color:var(--menta)}
+.asite .capa{position:relative;aspect-ratio:var(--ar-foto);background:var(--cinza-bloco);
+  border-bottom:1px solid var(--linha);display:grid;place-items:center;overflow:hidden}
+.asite .capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:top center;transition:transform .3s}
+a.asite:hover .capa img{transform:scale(1.04)}
+.asite .capa .vazio{display:flex;flex-direction:column;align-items:center;gap:var(--e-2);padding:var(--e-3);
+  color:var(--menta-txt);font-size:var(--t-nano);text-align:center;line-height:var(--lh-cartao);word-break:break-all}
+.asite .tx{padding:var(--e-3) var(--e-3) var(--e-3);display:flex;flex-direction:column;flex:1}
+.asite .etiq{display:inline-block;align-self:flex-start;font-size:var(--t-nano);font-weight:800;
+  letter-spacing:.06em;text-transform:uppercase;background:var(--dourado-wash);
+  border:1px solid var(--dourado-linha);color:var(--tinta);padding:var(--e-1) var(--e-2);
+  border-radius:var(--r-pilula);margin-bottom:var(--e-2)}
+.asite h4{font-size:var(--t-peq);font-weight:700;margin:0 0 var(--e-1);color:var(--tinta);line-height:var(--lh-sub)}
+.asite .fonte{font-size:var(--t-micro);font-weight:700;color:var(--menta-txt);margin:0 0 var(--e-2)}
+.asite p{margin:0;font-size:var(--t-micro);color:var(--cinza);line-height:var(--lh-cartao);flex:1}
+.asite .ir{margin-top:12px;font-size:var(--t-micro);font-weight:800;color:var(--menta-txt)}
+
+/* A capa do cartão de sítio mostra LOGÓTIPOS, não fotografias, e por isso
+   é `contain` e não `cover`. Os logótipos das plataformas vão de 0,34 a
+   1,00 de proporção: com `cover`, um logótipo quadrado ficava cortado a
+   meio numa caixa 16/9. Fundo branco, que é o que quase todos já trazem.
+   31/08/2026. */
+.asite .capa{background:var(--branco);padding:var(--e-3)}
+.asite .capa img{position:static;width:auto;height:auto;max-width:100%;max-height:100%;
+  object-fit:contain}
+a.asite:hover .capa img{transform:scale(1.03)}
+/* Numa grelha, o cartão deixa de ter largura fixa de carril. */
+.pl-grelha .asite,.aguioes .asite{flex:auto}
+
 /* ── o cartão a estreitar ──────────────────────────────────────────────
    Numa caixa de proporção fixa, a altura do cartão é a largura vezes 1,5.
    Isso inverte a regra habitual: quantas MENOS colunas, mais alto fica cada
@@ -767,7 +822,11 @@ a.sem:hover .sem-ir{text-decoration:underline}
 @media(max-width:1040px){
   .sem-grelha{grid-template-columns:repeat(2,1fr);gap:var(--e-2)}
   .sem{flex-direction:row;align-items:stretch}
-  .sem-capa{flex:0 0 124px;width:124px;aspect-ratio:auto;padding:12px 10px}
+  /* A caixa mantém a proporção do livro também aqui. Com `aspect-ratio:auto`
+     ela seguia a altura do cartão, e o cartão passou a ser curto quando o
+     porquê saiu: a capa caía para 80px, uma miniatura. Fixa em 2:3, a capa
+     manda na altura e fica com 186px, que é o que se quer ver. */
+  .sem-capa{flex:0 0 124px;width:124px;aspect-ratio:2/3;padding:12px 10px}
   .sem-tx{flex:1 1 auto;justify-content:center;padding:12px 14px}
   .sem-lombada{width:4px}
 }
@@ -1782,32 +1841,10 @@ html.com-busca{overflow:hidden}
 .pl-grelha{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
 /* O cartão da plataforma: fundo ilustrativo quando houver, e os dados de
    acesso em monoespaçado, que é onde o utilizador vai ver se pode entrar. */
-.pl-c{position:relative;isolation:isolate;display:flex;flex-direction:column;
-  justify-content:flex-end;min-height:172px;padding:var(--e-3);overflow:hidden;
-  background:var(--branco,#fff);border:1px solid var(--linha,#E8ECEB);
-  border-radius:var(--r-cartao);text-decoration:none;color:inherit;
-  transition:border-color .18s var(--curva,ease),box-shadow .18s var(--curva,ease)}
-.pl-c:hover{border-color:var(--menta,#A8D8CC);box-shadow:var(--sombra-lg)}
-.pl-c:focus-visible{outline:3px solid var(--dourado,#D8AC47);outline-offset:2px}
-.pl-fundo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
-  transition:transform var(--mov-lento,.5s) var(--curva,ease)}
-.pl-c:hover .pl-fundo{transform:scale(1.04)}
-.pl-veu{position:absolute;inset:0;z-index:-1}
 /* O fundo destes cartões não é fotografia, é logótipo, e quase todos os
    logótipos vêm com fundo branco. Sob o véu antigo (.30 no topo) os treze
    cartões falhavam o contraste, o pior a 2,31:1. Medido sobre os logótipos
    reais, a .70 no topo passam todos. */
-.pl-c.com-foto .pl-veu{background:linear-gradient(180deg,rgba(18,20,19,.70) 0%,
-  rgba(18,20,19,.82) 48%,rgba(18,20,19,.94) 100%)}
-.pl-tx{display:flex;flex-direction:column;gap:var(--e-1);min-width:0}
-.pl-tx b{font-size:var(--t-corpo);font-weight:800;line-height:var(--lh-sub);color:var(--tinta,#2B2B2B);
-  letter-spacing:-.01em}
-.pl-d{font-size:var(--t-micro);line-height:var(--lh-cartao);color:var(--cinza-legivel,#6B6B6B)}
-.pl-meta{margin-top:var(--e-1);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:var(--t-nano);
-  line-height:var(--lh-cartao);letter-spacing:.01em;color:var(--dourado-txt,#7F6022)}
-.pl-c.com-foto b{color:#fff}
-.pl-c.com-foto .pl-d{color:rgba(255,255,255,.88)}
-.pl-c.com-foto .pl-meta{color:var(--dourado-claro,#E6C87E)}
 @media(max-width:620px){
   .pl-tabs{gap:var(--e-2)}
   .pl-tab{font-size:var(--t-peq);padding:var(--e-2) 12px;min-height:40px}
@@ -1832,7 +1869,11 @@ html.com-busca{overflow:hidden}
    ═══════════════════════════════════════════════════════════════════════ */
 .rec,.sem,.pl-c,.adoc,.cestante,.hhoje,.hagenda,.projetor,.proj-caixa,
 .cota-mapa,.vacao-c,.vfaixa,.aficha{box-shadow:var(--sombra)}
-.rec:hover,.sem:hover,.pl-c:hover,.cestante:hover,.vacao-c:hover{box-shadow:var(--sombra-lg)}
+/* O realce ao passar o rato, partilhado por todos os cartões. O `.pl-c` saiu
+   desta lista a 31/08/2026 porque a classe deixou de existir — as plataformas
+   passaram a usar o cartão .asite, que tem o seu próprio :hover. O efeito
+   mantém-se em todos, que foi o que o PB pediu. */
+.rec:hover,.sem:hover,.cestante:hover,.vacao-c:hover{box-shadow:var(--sombra-lg)}
 /* O cartão do estado assenta na cor do fundo, por pedido do PB: aí a aresta
    é só o contorno, e a sombra tornaria contraditório o que se quer discreto. */
 .cartaz-estado{box-shadow:none}

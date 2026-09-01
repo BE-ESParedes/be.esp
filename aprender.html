@@ -11,7 +11,7 @@
 <link rel="icon" href="imagens/logo/favicon.ico"><link rel="icon" type="image/svg+xml" href="imagens/logo/icone-app.svg">
 <link rel="apple-touch-icon" href="imagens/logo/apple-touch-icon.png">
 <meta name="theme-color" content="#F8F8F8">
-<link rel="stylesheet" href="estilos.css?v=db12c13f">
+<link rel="stylesheet" href="estilos.css?v=597b45ae">
 <style>
 /* ═══════════════════════════════════════════════════════════════
    Página APOIO AO ESTUDO (Recursos no menu).
@@ -121,31 +121,8 @@
   display:grid;place-items:center;transition:.15s}
 .anav button:hover{border-color:var(--menta);background:var(--menta-wash)}
 .anav button[disabled]{opacity:.35;cursor:default}
-.acarril{display:flex;gap:var(--e-3);overflow-x:auto;scroll-behavior:smooth;padding:var(--e-1) 2px var(--e-3);
-  scrollbar-width:thin;scrollbar-color:var(--menta-media) transparent}
-.acarril::-webkit-scrollbar{height:7px}
-.acarril::-webkit-scrollbar-track{background:transparent}
-.acarril::-webkit-scrollbar-thumb{background:var(--menta-media);border-radius:var(--r-peq)}
-.asite{flex:0 0 230px;background:var(--branco);border:1px solid var(--linha);
-  border-radius:var(--r-cartao);overflow:hidden;text-decoration:none;color:inherit;
-  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s,border-color .18s}
-a.asite:hover{transform:translateY(-4px);box-shadow:var(--sombra-lg);border-color:var(--menta)}
-.asite .capa{position:relative;aspect-ratio:var(--ar-foto);background:var(--cinza-bloco);
-  border-bottom:1px solid var(--linha);display:grid;place-items:center;overflow:hidden}
-.asite .capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  object-position:top center;transition:transform .3s}
-a.asite:hover .capa img{transform:scale(1.04)}
-.asite .capa .vazio{display:flex;flex-direction:column;align-items:center;gap:var(--e-2);padding:var(--e-3);
-  color:var(--menta-txt);font-size:var(--t-nano);text-align:center;line-height:var(--lh-cartao);word-break:break-all}
-.asite .tx{padding:var(--e-3) var(--e-3) var(--e-3);display:flex;flex-direction:column;flex:1}
-.asite .etiq{display:inline-block;align-self:flex-start;font-size:var(--t-nano);font-weight:800;
-  letter-spacing:.06em;text-transform:uppercase;background:var(--dourado-wash);
-  border:1px solid var(--dourado-linha);color:var(--tinta);padding:var(--e-1) var(--e-2);
-  border-radius:var(--r-pilula);margin-bottom:var(--e-2)}
-.asite h4{font-size:var(--t-peq);font-weight:700;margin:0 0 var(--e-1);color:var(--tinta);line-height:var(--lh-sub)}
-.asite .fonte{font-size:var(--t-micro);font-weight:700;color:var(--menta-txt);margin:0 0 var(--e-2)}
-.asite p{margin:0;font-size:var(--t-micro);color:var(--cinza);line-height:var(--lh-cartao);flex:1}
-.asite .ir{margin-top:12px;font-size:var(--t-micro);font-weight:800;color:var(--menta-txt)}
+/* .acarril e .asite passaram para o estilos.css a 31/08/2026:
+   servem agora também a página Ler. */
 
 /* ═══ GUIAS E REFERENCIAIS ═══ */
 .aguioes{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--e-3)}
@@ -616,6 +593,6 @@ window.renderPagina = function(){
   }
 };
 </script>
-<script src="motor.js?v=41aab5e7"></script>
+<script src="motor.js?v=1bd7818b"></script>
 </body>
 </html>

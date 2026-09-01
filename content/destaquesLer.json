@@ -1,18 +1,6 @@
 {
   "destaquesLer": [
     {
-      "titulo": "O cavaleiro da Dinamarca",
-      "autor": "Sophia de Mello Breyner Andresen",
-      "cota": "82-93 AND/CAV",
-      "publico": "3.º ciclo",
-      "porque": "Uma viagem da Palestina a Portugal no século XV, contada como quem conta uma história ao serão. Curto, e fica.",
-      "selo": "Para começar",
-      "ordem": 1,
-      "estado": "publicado",
-      "imagem": "imagens/capas/o-cavaleiro-da-dinamarca.jpg",
-      "alt": "Capa de «O cavaleiro da Dinamarca», de Sophia de Mello Breyner Andresen"
-    },
-    {
       "titulo": "O Hobbit",
       "autor": "J. R. R. Tolkien",
       "cota": "82-3 TOL/HOB",
