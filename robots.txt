@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /area-trabalho.html
 Disallow: /admin/
+
+Sitemap: https://be-esparedes.github.io/be.esp/sitemap.xml
