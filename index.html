@@ -469,7 +469,7 @@ window.renderPagina = function(){
   (function () {
     const el = document.getElementById('areas-lista'); if (!el) return;
     const lista = publicados('areas');
-    if (!lista.length) { document.getElementById('areas')?.setAttribute('hidden',''); return; }
+    if (!lista.length) { const sec = document.getElementById('areas'); if (sec) sec.setAttribute('hidden',''); return; }
     el.innerHTML = lista.map((x, i) => `
       <a class="harea" href="${esc(x.url || '#')}" style="--n:${i}">
         ${temTexto(x.imagem)
@@ -525,7 +525,7 @@ window.renderPagina = function(){
           <div class="cartaz-tx">${dentro(b)}</div>
         </article>`;
     }).join('');
-    if (!lista.length) document.getElementById('cartaz')?.setAttribute('hidden', '');
+    if (!lista.length) { const sec = document.getElementById('cartaz'); if (sec) sec.setAttribute('hidden', ''); }
   }
 
   /* ── destaques da semana ──
@@ -543,7 +543,7 @@ window.renderPagina = function(){
     }
     const n = renderSemana('semana-grelha');
     const quantos = (el ? el.children.length : 0) + n;
-    if (!quantos) document.getElementById('semana')?.setAttribute('hidden', '');
+    if (!quantos) { const sec = document.getElementById('semana'); if (sec) sec.setAttribute('hidden', ''); }
   })();
 
   /* ── Hoje na Biblioteca ──
@@ -590,6 +590,6 @@ window.renderPagina = function(){
      serve esta página e a de Encontrar e se refresca de minuto a minuto. */
 };
 </script>
-<script src="motor.js?v=1bd7818b"></script>
+<script src="motor.js?v=845e5f03"></script>
 </body>
 </html>

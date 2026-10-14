@@ -334,7 +334,7 @@ window.renderPagina = function(){
     const el = document.getElementById('explica-lista');
     if (!el) return;
     const itens = publicados('explica');
-    if (!itens.length) { document.getElementById('explica')?.setAttribute('hidden',''); return; }
+    if (!itens.length) { const sec = document.getElementById('explica'); if (sec) sec.setAttribute('hidden',''); return; }
     const marcado = s => esc(s)
       .split(/\n\s*\n|\n/)
       .filter(l => l.trim())
@@ -593,6 +593,6 @@ window.renderPagina = function(){
   }
 };
 </script>
-<script src="motor.js?v=1bd7818b"></script>
+<script src="motor.js?v=845e5f03"></script>
 </body>
 </html>

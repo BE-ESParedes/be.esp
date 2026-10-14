@@ -505,7 +505,7 @@ window.renderPagina = function(){
   if (pc) pc.innerHTML = cota('BE·ESP', 'Escola Secundária de Paredes', 'escuro');
 
   /* ── a estante: o retrato da coleção ── */
-  if (!renderEstante('estante')) document.getElementById('colecao')?.setAttribute('hidden','');
+  if (!renderEstante('estante')) { const sec = document.getElementById('colecao'); if (sec) sec.setAttribute('hidden',''); }
 
   const i = CONTEUDO.info || {};
 
@@ -666,6 +666,6 @@ function extrairYouTube(u){
   return m ? m[1] : (/^[A-Za-z0-9_-]{11}$/.test(u) ? u : '');
 }
 </script>
-<script src="motor.js?v=1bd7818b"></script>
+<script src="motor.js?v=845e5f03"></script>
 </body>
 </html>

@@ -780,7 +780,7 @@ window.destaques = destaques;
 function renderSemana(idAlvo) {
   const el = document.getElementById(idAlvo); if (!el) return 0;
   const s = CONTEUDO.semana || {};
-  if (s.estado === 'rascunho') { el.closest('[data-seccao]')?.setAttribute('hidden',''); return 0; }
+  if (s.estado === 'rascunho') { const sec = el.closest('[data-seccao]'); if (sec) sec.setAttribute('hidden',''); return 0; }
   const itens = (s.itens || []).map(it => {
     const ficha = resolverRef(it);
     return ficha ? { ...ficha, rotulo: it.rotulo, icone: it.icone, porque: it.nota || ficha.porque } : null;

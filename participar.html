@@ -534,7 +534,7 @@ window.renderPagina = function(){
        ir:'Ver o que os alunos criaram', url:'#alunos'},
     ].filter(Boolean);
 
-    if (!cartoes.length) { document.getElementById('acao')?.setAttribute('hidden',''); return; }
+    if (!cartoes.length) { const sec = document.getElementById('acao'); if (sec) sec.setAttribute('hidden',''); return; }
     el.innerHTML = cartoes.map(c => `
       <a class="vacao-c${c.viva ? ' viva' : ''}" href="${esc(c.url)}">
         <span class="est"><span class="ponto"></span>${esc(c.estado)}</span>
@@ -637,6 +637,6 @@ window.renderPagina = function(){
   }).join('');
 };
 </script>
-<script src="motor.js?v=1bd7818b"></script>
+<script src="motor.js?v=845e5f03"></script>
 </body>
 </html>
