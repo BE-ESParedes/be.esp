@@ -10,10 +10,16 @@ backend:
   name: github
   repo: BE-ESParedes/be.esp
   branch: main
-  # Entrada no painel: botão «Sign in with Token» (não é preciso instalar nada).
-  # Se um dia se quiser o botão «Sign in with GitHub», acrescentar aqui
+  # Entrada no painel: só o botão «Iniciar sessão com token de acesso».
+  # O Sveltia passou a mostrar também «Iniciar sessão com GitHub», que NÃO
+  # funciona sem um servidor de autenticação instalado à parte, e que levava
+  # quem entra a tentar por um caminho que falha sempre. A linha abaixo
+  # esconde esse botão (documentação: Backends, Authentication Methods).
+  auth_methods: [token]
+  # Se um dia se quiser mesmo o botão «Iniciar sessão com GitHub», instalar o
+  # Sveltia CMS Authenticator, acrescentar aqui
   #   base_url: https://<autenticador>.workers.dev
-  # e instalar o Sveltia CMS Authenticator (ver MANUAL.md, capítulo 5).
+  # e pôr auth_methods: [oauth, token]. Ver MANUAL.md, capítulo 5.
 
 # Onde ficam as imagens e os cartazes carregados pelo painel.
 media_folder: imagens
@@ -26,7 +32,9 @@ output:
   json:
     indent_size: 2
 
-locale: pt
+# A linha «locale: pt» saiu a 20/10/2026: o Sveltia escreve nos avisos que não
+# a suporta e que a ignora. O painel aparece em português na mesma, porque
+# segue o idioma do navegador.
 
 collections:
 
