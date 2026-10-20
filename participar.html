@@ -188,7 +188,7 @@ a.vconc:hover{transform:translateY(-3px);box-shadow:var(--sombra-lg);border-colo
   padding:var(--e-3) var(--e-3);text-decoration:none;color:inherit;display:block;transition:.15s}
 .vinic:hover{border-color:var(--menta);background:var(--menta-wash)}
 .vinic b{display:block;font-size:var(--t-peq);font-weight:700;color:var(--tinta);line-height:var(--lh-cartao)}
-.vinic span{display:block;margin-top:var(--e-1);font-size:var(--t-micro);color:var(--cinza)}
+.vinic span{display:block;margin-top:var(--e-1);font-size:var(--t-micro);color:var(--cinza-legivel)}
 
 /* ═══ GALERIA DOS ALUNOS ═══ */
 .vfaixa{margin-bottom:32px}
@@ -542,6 +542,33 @@ window.renderPagina = function(){
         ${temTexto(c.det) ? `<span class="det">${esc(c.det)}</span>` : ''}
         <span class="ir">${esc(c.ir)} &rarr;</span>
       </a>`).join('');
+  })();
+
+  /* ── 7 · Iniciativas nacionais ──
+     O código que desenhava estes cartões saiu por engano a 25/08/2026, no
+     commit que tirou «Hoje na Biblioteca», e a secção ficou com o título e
+     nada por baixo. Volta o desenho original (.vinic: o nome e uma linha por
+     baixo), agora com a área e o estado, que são os campos que existem; o
+     original mostrava um campo «entidade», que já não há. Mostra todas, pela
+     ordem do painel, menos as que estão em «arquivo». Sem nenhuma, esconde
+     o subtítulo em vez de o deixar sozinho. */
+  (function () {
+    const il = document.getElementById('iniciativas-lista'); if (!il) return;
+    const ESTADO = { 'participamos': 'Participamos', 'já participámos': 'Já participámos',
+                     'aberta a inscrições': 'Aberta a inscrições' };
+    const lista = publicados('iniciativasNacionais').filter(x => x.estado !== 'arquivo');
+    if (!lista.length) {
+      il.setAttribute('hidden', '');
+      const tit = il.previousElementSibling;
+      if (tit && tit.classList.contains('vsub')) tit.setAttribute('hidden', '');
+      return;
+    }
+    il.innerHTML = lista.map(x => {
+      const linha = [x.area, ESTADO[x.estado] || x.estado].filter(temTexto).map(esc).join(' · ');
+      const dentro = `<b>${esc(x.nome)}</b>${linha ? `<span>${linha}</span>` : ''}`;
+      return temTexto(x.url) ? `<a class="vinic" ${linkAttrs(x.url)}>${dentro}</a>`
+                             : `<div class="vinic">${dentro}</div>`;
+    }).join('');
   })();
 
   /* ── 8 · Trabalhos dos alunos ──

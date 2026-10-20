@@ -361,7 +361,7 @@ collections:
                 label: Ícone
                 widget: select
                 required: false
-                options: [alvo, ficheiro, estrela, escudo, cerebro, monitor, lupa, livro]
+                options: [alvo, ficheiro, estrela, escudo, cerebro, monitor, lupa, livro, balao]
 
               - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/guioes, public_folder: imagens/guioes, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
@@ -469,7 +469,11 @@ collections:
               - name: grupo
                 label: Grupo
                 widget: select
-                options: [Ler, Investigar, Escrever, Criar, Cidadania]
+                # Têm de ser exatamente os cinco grupos que a página Aprender desenha
+                # (GRUPOS, em aprender.html). Um grupo que não esteja lá não aparece no
+                # site. «Cidadania» saiu a 20/10/2026 por isso, e entrou «Aprender
+                # digitalmente», que já estava em uso em quatro ligações.
+                options: [Ler, Investigar, Escrever, Criar, Aprender digitalmente]
               - { name: nome, label: Nome, widget: string }
               - { name: url, label: Ligação, widget: string, required: false }
               - { name: para, label: Para que serve, widget: text, required: false, hint: 'Uma frase, que aparece por baixo do nome.' }
@@ -758,7 +762,10 @@ collections:
               - name: categoria
                 label: Categoria
                 widget: select
-                options: [Leitura, Concurso, Formação, Exposição, Projeto, Visita, Aviso]
+                # O site aceita qualquer categoria: os filtros das notícias saem das que
+                # existem. «Encontros» e «Biblioteca» entraram a 20/10/2026 porque já
+                # estavam em notícias publicadas e o painel não as conseguia mostrar.
+                options: [Leitura, Concurso, Formação, Exposição, Projeto, Visita, Aviso, Encontros, Biblioteca]
               - { name: resumo, label: Resumo, widget: text }
               - { name: imagem, label: Fotografia, widget: image, required: false, media_folder: /imagens/noticias, public_folder: imagens/noticias, hint: 'Só com consentimento RGPD registado. Exportar até 300 KB.' }
               - { name: alt, label: Descrição da imagem (acessibilidade), widget: string, required: false, hint: 'O que se vê na imagem, para quem não a vê.' }
@@ -901,7 +908,7 @@ collections:
                 label: Ícone
                 widget: select
                 required: false
-                options: [livro, estrela, calendario, balao, monitor, pasta, maos, bandeira, microfone, camara]
+                options: [livro, estrela, calendario, balao, monitor, pasta, maos, bandeira, microfone, camara, alvo]
 
       - name: iniciativasNacionais
         label: Iniciativas nacionais (Participar e Início)
@@ -918,7 +925,9 @@ collections:
               - name: area
                 label: Área
                 widget: select
-                options: ['Leitura e escrita', 'Literacias e cidadania', 'Ciência e ambiente', 'Artes e cultura', 'Rede e formação']
+                # As áreas que as iniciativas usam de facto (20/10/2026). As anteriores,
+                # exceto a primeira, não eram usadas por nenhuma ficha.
+                options: ['Leitura e escrita', 'Media e informação', 'Artes, cultura e efemérides', 'Ciência e outras literacias', 'Cidadania e participação']
               - { name: descricao, label: Descrição, widget: text }
               - name: estado
                 label: Estado
@@ -934,7 +943,7 @@ collections:
                 label: Ícone
                 widget: select
                 required: false
-                options: [livro, globo, escudo, cerebro, estrela, bandeira, maos, alvo, camara, microfone]
+                options: [livro, globo, escudo, cerebro, estrela, bandeira, maos, alvo, camara, microfone, pessoas]
 
       - name: apresentacaoProjeto
         label: 'Palavras em Ação · apresentação'
@@ -1245,7 +1254,7 @@ collections:
             fields:
               - { name: rotulo, label: 'Quero…', widget: string, hint: 'Comece por um verbo: encontrar, fazer, participar.' }
               - { name: texto, label: Explicação, widget: string }
-              - { name: icone, label: Ícone, widget: select, options: [livro, ficheiro, calendario, camara, monitor, maos, lupa, alvo, estrela, globo] }
+              - { name: icone, label: Ícone, widget: select, options: [livro, ficheiro, calendario, camara, monitor, maos, lupa, alvo, estrela, globo, local, auscultador] }
               - { name: url, label: Para onde leva, widget: string }
 
               - { name: imagem, label: Logótipo da plataforma, widget: image, required: false, media_folder: /imagens/atalhos, public_folder: imagens/atalhos, hint: 'Exportar até 300 KB. O painel escreve o caminho sozinho.' }
