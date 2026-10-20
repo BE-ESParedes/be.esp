@@ -49,9 +49,9 @@ collections:
       - name: banners
         label: Banners do topo
         file: content/banners.json
-        description: As imagens grandes que rodam no topo da página inicial.
         fields:
           - name: banners
+            hint: As imagens grandes que rodam no topo da página inicial.
             label: Banners
             widget: list
             label_singular: banner
@@ -82,9 +82,9 @@ collections:
       - name: areas
         label: As cinco áreas
         file: content/areas.json
-        description: 'As faixas da página inicial: Encontrar, Aprender, Ler, Participar e Conhecer. Nome, frase e fotografia de fundo.'
         fields:
           - name: areas
+            hint: 'As faixas da página inicial: Encontrar, Aprender, Ler, Participar e Conhecer. Nome, frase e fotografia de fundo.'
             label: Áreas
             widget: list
             label_singular: área
@@ -102,9 +102,9 @@ collections:
       - name: livrosSemana
         label: Livros da semana (Início e Encontrar)
         file: content/livrosSemana.json
-        description: 'Quatro livros do acervo, trocados semanalmente. Sugestão: dois do 3.º ciclo e dois do secundário. O cartão mostra a etiqueta «Livro» sobre a capa e, por baixo, só o para quem, o título e o autor. Escreva mais do que quatro se quiser: o site mostra os quatro primeiros por ordem.'
         fields:
           - name: livrosSemana
+            hint: 'Quatro livros do acervo, trocados semanalmente. Sugestão: dois do 3.º ciclo e dois do secundário. O cartão mostra a etiqueta «Livro» sobre a capa e, por baixo, só o para quem, o título e o autor. Escreva mais do que quatro se quiser: o site mostra os quatro primeiros por ordem.'
             label: Livros
             widget: list
             label_singular: livro
@@ -147,9 +147,9 @@ collections:
       - name: regrasSala
         label: Regras de utilização do espaço
         file: content/regrasSala.json
-        description: 'As regras que aparecem no cartaz «A Biblioteca está aberta», na página inicial. Vieram do ponto 2.4.3 do Manual de Procedimentos; se o Manual mudar, mudam aqui.'
         fields:
           - name: regrasSala
+            hint: 'As regras que aparecem no cartaz «A Biblioteca está aberta», na página inicial. Vieram do ponto 2.4.3 do Manual de Procedimentos; se o Manual mudar, mudam aqui.'
             label: Regras
             widget: list
             label_singular: regra
@@ -170,9 +170,9 @@ collections:
       - name: estantes
         label: Estantes
         file: content/estantes.json
-        description: 'A organização física do fundo: cada classe com a sua cor e onde fica.'
         fields:
           - name: estantes
+            hint: 'A organização física do fundo: cada classe com a sua cor e onde fica.'
             label: Estantes
             widget: list
             label_singular: classe
@@ -196,9 +196,9 @@ collections:
       - name: bibliotecaDigital
         label: Biblioteca Digital
         file: content/bibliotecaDigital.json
-        description: Recursos em linha verificados pela Biblioteca.
         fields:
           - name: bibliotecaDigital
+            hint: Recursos em linha verificados pela Biblioteca.
             label: Recursos
             widget: list
             label_singular: recurso
@@ -237,9 +237,9 @@ collections:
       - name: prateleiraExemplo
         label: A prateleira do exemplo
         file: content/prateleiraExemplo.json
-        description: 'As lombadas que o infográfico «Da cota à estante» desenha, em Encontrar. São cotas verdadeiras do fundo, tiradas do inventário. A cota marcada como «é esta» tem de coincidir com o exemplo em Informação geral.'
         fields:
           - name: prateleiraExemplo
+            hint: 'As lombadas que o infográfico «Da cota à estante» desenha, em Encontrar. São cotas verdadeiras do fundo, tiradas do inventário. A cota marcada como «é esta» tem de coincidir com o exemplo em Informação geral.'
             label: Prateleira
             widget: object
             fields:
@@ -265,9 +265,9 @@ collections:
       - name: acessoRapido
         label: Acesso rápido (aparece em Aprender)
         file: content/acessoRapido.json
-        description: Os atalhos grandes logo abaixo dos banners.
         fields:
           - name: acessoRapido
+            hint: Os atalhos grandes logo abaixo dos banners.
             label: Atalhos
             widget: list
             label_singular: atalho
@@ -296,9 +296,9 @@ collections:
       - name: disciplinas
         label: Aprender por disciplina
         file: content/disciplinas.json
-        description: 'Os recursos por disciplina. Cada disciplina tem áreas (Leituras, Fontes, Dados…) e, dentro delas, os recursos. O formulário estava desatualizado: editava campos que a página já não lê.'
         fields:
           - name: disciplinas
+            hint: 'Os recursos por disciplina. Cada disciplina tem áreas (Leituras, Fontes, Dados…) e, dentro delas, os recursos. O formulário estava desatualizado: editava campos que a página já não lê.'
             label: Disciplinas
             widget: list
             label_singular: disciplina
@@ -434,9 +434,9 @@ collections:
         label: Trabalhar com a Biblioteca (docentes)
         file: content/docentes.json
         icon: users
-        description: 'Os pedidos que os docentes podem fazer à Biblioteca. Cada um diz o que é, o que é preciso e para onde vai. Os endereços dos formulários estão em «Informação geral e contactos»; enquanto estiverem vazios, o botão escreve à Biblioteca.'
         fields:
           - name: docentes
+            hint: 'Os pedidos que os docentes podem fazer à Biblioteca. Cada um diz o que é, o que é preciso e para onde vai. Os endereços dos formulários estão em «Informação geral e contactos»; enquanto estiverem vazios, o botão escreve à Biblioteca.'
             label: Pedidos
             widget: list
             label_singular: pedido
@@ -469,7 +469,6 @@ collections:
               - name: grupo
                 label: Grupo
                 widget: select
-                create: true
                 options: [Ler, Investigar, Escrever, Criar, Cidadania]
               - { name: nome, label: Nome, widget: string }
               - { name: url, label: Ligação, widget: string, required: false }
@@ -488,9 +487,9 @@ collections:
       - name: explica
         label: A Biblioteca explica
         file: content/explica.json
-        description: 'Respostas curtas às dúvidas que chegam mais vezes ao balcão. Aparecem na página Aprender.'
         fields:
           - name: explica
+            hint: 'Respostas curtas às dúvidas que chegam mais vezes ao balcão. Aparecem na página Aprender.'
             label: Explicações
             widget: list
             label_singular: explicação
@@ -527,9 +526,9 @@ collections:
       - name: semana
         label: O que estamos a descobrir
         file: content/semana.json
-        description: 'Quatro escolhas da equipa, uma por formato. Aparecem na página Ler e no Início. São referências, não cópias.'
         fields:
           - name: semana
+            hint: 'Quatro escolhas da equipa, uma por formato. Aparecem na página Ler e no Início. São referências, não cópias.'
             label: A descoberta da semana
             widget: object
             fields:
@@ -579,9 +578,9 @@ collections:
       - name: destaquesLer
         label: Livros em destaque (Ler e Encontrar)
         file: content/destaquesLer.json
-        description: 'Quatro livros em papel, no topo da página Ler. Confirme a cota no catálogo antes de a escrever: é ela que leva o aluno à estante.'
         fields:
           - name: destaquesLer
+            hint: 'Quatro livros em papel, no topo da página Ler. Confirme a cota no catálogo antes de a escrever: é ela que leva o aluno à estante.'
             label: Livros
             widget: list
             label_singular: livro
@@ -601,9 +600,9 @@ collections:
       - name: plataformas
         label: Plataformas de leitura (Ler e Aprender)
         file: content/plataformas.json
-        description: 'Os sítios onde se lê, ouve e vê, agrupados nos cinco separadores da página Ler. São plataformas, não obras: uma obra envelhece e um endereço morre, uma plataforma dura.'
         fields:
           - name: plataformas
+            hint: 'Os sítios onde se lê, ouve e vê, agrupados nos cinco separadores da página Ler. São plataformas, não obras: uma obra envelhece e um endereço morre, uma plataforma dura.'
             label: Plataformas
             widget: list
             label_singular: plataforma
@@ -622,9 +621,9 @@ collections:
       - name: livrosDigitais
         label: Livros digitais
         file: content/livrosDigitais.json
-        description: Obras completas de acesso livre e legal, para ler no ecrã.
         fields:
           - name: livrosDigitais
+            hint: Obras completas de acesso livre e legal, para ler no ecrã.
             label: Livros digitais
             widget: list
             label_singular: livro digital
@@ -650,9 +649,9 @@ collections:
       - name: audiolivros
         label: Audiolivros
         file: content/audiolivros.json
-        description: Histórias para ouvir, de fontes legais.
         fields:
           - name: audiolivros
+            hint: Histórias para ouvir, de fontes legais.
             label: Audiolivros
             widget: list
             label_singular: audiolivro
@@ -680,9 +679,9 @@ collections:
       - name: podcasts
         label: Podcasts
         file: content/podcasts.json
-        description: Conversas sobre livros, autores e ideias.
         fields:
           - name: podcasts
+            hint: Conversas sobre livros, autores e ideias.
             label: Podcasts
             widget: list
             label_singular: podcast
@@ -709,9 +708,9 @@ collections:
       - name: leituraAcessivel
         label: Leitura acessível
         file: content/leituraAcessivel.json
-        description: Recursos e formatos para diferentes formas de aceder à leitura.
         fields:
           - name: leituraAcessivel
+            hint: Recursos e formatos para diferentes formas de aceder à leitura.
             label: Leitura acessível
             widget: list
             label_singular: recurso
@@ -745,9 +744,9 @@ collections:
       - name: noticias
         label: Notícias
         file: content/noticias.json
-        description: O que JÁ aconteceu. O que vai acontecer vai para a Agenda.
         fields:
           - name: noticias
+            hint: O que JÁ aconteceu. O que vai acontecer vai para a Agenda.
             label: Notícias
             widget: list
             label_singular: notícia
@@ -759,7 +758,6 @@ collections:
               - name: categoria
                 label: Categoria
                 widget: select
-                create: true
                 options: [Leitura, Concurso, Formação, Exposição, Projeto, Visita, Aviso]
               - { name: resumo, label: Resumo, widget: text }
               - { name: imagem, label: Fotografia, widget: image, required: false, media_folder: /imagens/noticias, public_folder: imagens/noticias, hint: 'Só com consentimento RGPD registado. Exportar até 300 KB.' }
@@ -779,9 +777,9 @@ collections:
       - name: agenda
         label: Agenda (Participar e Conhecer)
         file: content/agenda.json
-        description: O que VAI acontecer.
         fields:
           - name: agenda
+            hint: O que VAI acontecer.
             label: Eventos
             widget: list
             label_singular: evento
@@ -803,9 +801,9 @@ collections:
       - name: exposicoes
         label: Exposições
         file: content/exposicoes.json
-        description: Norma editorial – 8 fotografias por exposição.
         fields:
           - name: exposicoes
+            hint: Norma editorial – 8 fotografias por exposição.
             label: Exposições
             widget: list
             label_singular: exposição
@@ -828,9 +826,9 @@ collections:
       - name: exposicaoFotos
         label: 'Exposições · fotografias'
         file: content/exposicaoFotos.json
-        description: 'As fotografias das exposições, na página Participar. Aparecem uma de cada vez, com legenda e setas.'
         fields:
           - name: exposicaoFotos
+            hint: 'As fotografias das exposições, na página Participar. Aparecem uma de cada vez, com legenda e setas.'
             label: Fotografias
             widget: list
             label_singular: fotografia
@@ -908,9 +906,9 @@ collections:
       - name: iniciativasNacionais
         label: Iniciativas nacionais (Participar e Início)
         file: content/iniciativasNacionais.json
-        description: Rever no início de cada ano letivo.
         fields:
           - name: iniciativasNacionais
+            hint: Rever no início de cada ano letivo.
             label: Iniciativas
             widget: list
             label_singular: iniciativa
@@ -920,7 +918,6 @@ collections:
               - name: area
                 label: Área
                 widget: select
-                create: true
                 options: ['Leitura e escrita', 'Literacias e cidadania', 'Ciência e ambiente', 'Artes e cultura', 'Rede e formação']
               - { name: descricao, label: Descrição, widget: text }
               - name: estado
@@ -942,9 +939,9 @@ collections:
       - name: apresentacaoProjeto
         label: 'Palavras em Ação · apresentação'
         file: content/apresentacaoProjeto.json
-        description: 'Os diapositivos da apresentação do projeto, na página Participar. Exporte cada diapositivo como imagem (PNG ou JPG) e carregue-os por ordem. Enquanto estiver vazio, a página diz que a apresentação está a ser preparada.'
         fields:
           - name: apresentacaoProjeto
+            hint: 'Os diapositivos da apresentação do projeto, na página Participar. Exporte cada diapositivo como imagem (PNG ou JPG) e carregue-os por ordem. Enquanto estiver vazio, a página diz que a apresentação está a ser preparada.'
             label: Diapositivos
             widget: list
             label_singular: diapositivo
@@ -1095,9 +1092,9 @@ collections:
       - name: documentos
         label: Documentos oficiais
         file: content/documentos.json
-        description: 'Os PDF vivem no OneDrive. Aqui cola-se apenas a ligação de partilha.'
         fields:
           - name: documentos
+            hint: 'Os PDF vivem no OneDrive. Aqui cola-se apenas a ligação de partilha.'
             label: Documentos
             widget: list
             label_singular: documento
@@ -1141,9 +1138,9 @@ collections:
       - name: info
         label: Informação geral e contactos
         file: content/info.json
-        description: Contactos, horário, equipa, redes sociais e endereços usados em todo o site.
         fields:
           - name: info
+            hint: Contactos, horário, equipa, redes sociais e endereços usados em todo o site.
             label: Informação
             widget: object
             fields:
@@ -1191,9 +1188,9 @@ collections:
       - name: cartoes
         label: Personalizar os cartões fixos
         file: content/cartoes.json
-        description: Avançado. Permite mudar o texto ou a imagem de um cartão fixo do site.
         fields:
           - name: cartoes
+            hint: Avançado. Permite mudar o texto ou a imagem de um cartão fixo do site.
             label: Cartões
             widget: list
             required: false
@@ -1257,9 +1254,9 @@ collections:
       - name: ferramentas
         label: Ferramentas
         file: content/ferramentas.json
-        description: 'Ferramentas úteis, explicadas: o que é, para que serve e quando usar.'
         fields:
           - name: ferramentas
+            hint: 'Ferramentas úteis, explicadas: o que é, para que serve e quando usar.'
             label: Ferramentas
             widget: list
             label_singular: ferramenta
@@ -1373,9 +1370,9 @@ collections:
       - name: videos
         label: 'Vídeos (nenhuma página tem o contentor #videos)'
         file: content/videos.json
-        description: Vídeos do YouTube. Basta colar o endereço do vídeo.
         fields:
           - name: videos
+            hint: Vídeos do YouTube. Basta colar o endereço do vídeo.
             label: Vídeos
             widget: list
             label_singular: vídeo

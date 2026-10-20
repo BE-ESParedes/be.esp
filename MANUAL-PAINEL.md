@@ -31,6 +31,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/banners.json`
 
 - **Banners** — lista · obrigatório
+  As imagens grandes que rodam no topo da página inicial.
   - **Imagem de fundo** — imagem · opcional
     Larga e horizontal. Exportar até 300 KB.
   - **Descrição da imagem (acessibilidade)** — texto curto · opcional
@@ -64,6 +65,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/areas.json`
 
 - **Áreas** — lista · obrigatório
+  As faixas da página inicial: Encontrar, Aprender, Ler, Participar e Conhecer. Nome, frase e fotografia de fundo.
   - **Nome** — texto curto · obrigatório
   - **Frase** — texto longo · opcional
     Uma linha. Aparece quando a faixa abre.
@@ -85,6 +87,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/livrosSemana.json`
 
 - **Livros** — lista · obrigatório
+  Quatro livros do acervo, trocados semanalmente. Sugestão: dois do 3.º ciclo e dois do secundário. O cartão mostra a etiqueta «Livro» sobre a capa e, por baixo, só o para quem, o título e o autor. Escreva mais do que quatro se quiser: o site mostra os quatro primeiros por ordem.
   - **Título** — texto curto · obrigatório
   - **Autor** — texto curto · opcional
   - **Capa** — imagem · opcional
@@ -133,6 +136,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/regrasSala.json`
 
 - **Regras** — lista · obrigatório
+  As regras que aparecem no cartaz «A Biblioteca está aberta», na página inicial. Vieram do ponto 2.4.3 do Manual de Procedimentos; se o Manual mudar, mudam aqui.
   - **Regra** — texto curto · obrigatório
     Uma frase curta, na segunda pessoa ou no infinitivo.
   - **Posição** — número · opcional
@@ -153,6 +157,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/estantes.json`
 
 - **Estantes** — lista · obrigatório
+  A organização física do fundo: cada classe com a sua cor e onde fica.
   - **Classe (CDU)** — texto curto · obrigatório
   - **Designação** — texto curto · obrigatório
   - **Cor da classe** — texto curto · opcional
@@ -183,6 +188,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/bibliotecaDigital.json`
 
 - **Recursos** — lista · obrigatório
+  Recursos em linha verificados pela Biblioteca.
   - **Nome** — texto curto · obrigatório
   - **Descrição breve** — texto longo · obrigatório
   - **Tipo** — escolha · obrigatório
@@ -206,6 +212,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/prateleiraExemplo.json`
 
 - **Prateleira** — grupo · obrigatório
+  As lombadas que o infográfico «Da cota à estante» desenha, em Encontrar. São cotas verdadeiras do fundo, tiradas do inventário. A cota marcada como «é esta» tem de coincidir com o exemplo em Informação geral.
   - **Notação da classe** — texto curto · opcional
     Ex.: 821-3. Serve só de nota; a cor vem das Estantes.
   - **Lombadas** — lista · obrigatório
@@ -229,6 +236,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/acessoRapido.json`
 
 - **Atalhos** — lista · obrigatório
+  Os atalhos grandes logo abaixo dos banners.
   - **Título** — texto curto · obrigatório
   - **Subtítulo** — texto curto · opcional
   - **Texto do botão** — texto curto · opcional
@@ -249,6 +257,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/disciplinas.json`
 
 - **Disciplinas** — lista · obrigatório
+  Os recursos por disciplina. Cada disciplina tem áreas (Leituras, Fontes, Dados…) e, dentro delas, os recursos. O formulário estava desatualizado: editava campos que a página já não lê.
   - **Disciplina** — texto curto · obrigatório
   - **Ícone** — escolha · opcional
   - **Áreas** — lista · opcional
@@ -356,6 +365,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/docentes.json`
 
 - **Pedidos** — lista · obrigatório
+  Os pedidos que os docentes podem fazer à Biblioteca. Cada um diz o que é, o que é preciso e para onde vai. Os endereços dos formulários estão em «Informação geral e contactos»; enquanto estiverem vazios, o botão escreve à Biblioteca.
   - **Título** — texto curto · obrigatório
   - **O que é** — texto longo · opcional
   - **O que é preciso** — texto longo · opcional
@@ -406,6 +416,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/explica.json`
 
 - **Explicações** — lista · obrigatório
+  Respostas curtas às dúvidas que chegam mais vezes ao balcão. Aparecem na página Aprender.
   - **A pergunta** — texto curto · obrigatório
     Escrever como a pergunta chega ao balcão. Ex.: Posso usar qualquer imagem que encontre?
   - **Categoria** — texto curto · opcional
@@ -442,6 +453,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/semana.json`
 
 - **A descoberta da semana** — grupo · obrigatório
+  Quatro escolhas da equipa, uma por formato. Aparecem na página Ler e no Início. São referências, não cópias.
   - **Período** — texto curto · opcional
     Ex.: Setembro de 2026. Só para a equipa se orientar.
   - **Frase de abertura** — texto longo · opcional
@@ -489,6 +501,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/destaquesLer.json`
 
 - **Livros** — lista · obrigatório
+  Quatro livros em papel, no topo da página Ler. Confirme a cota no catálogo antes de a escrever: é ela que leva o aluno à estante.
   - **Título** — texto curto · obrigatório
   - **Autor** — texto curto · opcional
   - **Cota** — texto curto · opcional
@@ -514,6 +527,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/plataformas.json`
 
 - **Plataformas** — lista · obrigatório
+  Os sítios onde se lê, ouve e vê, agrupados nos cinco separadores da página Ler. São plataformas, não obras: uma obra envelhece e um endereço morre, uma plataforma dura.
   - **Nome** — texto curto · obrigatório
   - **Separador** — escolha · obrigatório
   - **Descrição** — texto longo · opcional
@@ -537,6 +551,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/livrosDigitais.json`
 
 - **Livros digitais** — lista · obrigatório
+  Obras completas de acesso livre e legal, para ler no ecrã.
   - **Título** — texto curto · obrigatório
   - **Autor** — texto curto · opcional
   - **Capa** — imagem · opcional
@@ -575,6 +590,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/audiolivros.json`
 
 - **Audiolivros** — lista · obrigatório
+  Histórias para ouvir, de fontes legais.
   - **Título** — texto curto · obrigatório
   - **Autor** — texto curto · opcional
   - **Capa** — imagem · opcional
@@ -616,6 +632,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/podcasts.json`
 
 - **Podcasts** — lista · obrigatório
+  Conversas sobre livros, autores e ideias.
   - **Título** — texto curto · obrigatório
   - **Autor ou emissora** — texto curto · opcional
   - **Imagem** — imagem · opcional
@@ -655,6 +672,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/leituraAcessivel.json`
 
 - **Leitura acessível** — lista · obrigatório
+  Recursos e formatos para diferentes formas de aceder à leitura.
   - **Título** — texto curto · obrigatório
   - **Autor ou entidade** — texto curto · opcional
   - **Imagem** — imagem · opcional
@@ -698,6 +716,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/noticias.json`
 
 - **Notícias** — lista · obrigatório
+  O que JÁ aconteceu. O que vai acontecer vai para a Agenda.
   - **Título** — texto curto · obrigatório
   - **Data** — data · obrigatório
     Define a ordem. A mais recente aparece primeiro.
@@ -723,6 +742,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/agenda.json`
 
 - **Eventos** — lista · obrigatório
+  O que VAI acontecer.
   - **Dia** — texto curto · obrigatório
     Ex.: 14
   - **Mês** — escolha · obrigatório
@@ -746,6 +766,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/exposicoes.json`
 
 - **Exposições** — lista · obrigatório
+  Norma editorial – 8 fotografias por exposição.
   - **Título** — texto curto · obrigatório
   - **Período** — texto curto · obrigatório
     Ex.: Março de 2026
@@ -765,6 +786,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/exposicaoFotos.json`
 
 - **Fotografias** — lista · obrigatório
+  As fotografias das exposições, na página Participar. Aparecem uma de cada vez, com legenda e setas.
   - **Fotografia** — imagem · obrigatório
     Exportar até 400 KB. O painel escreve o caminho sozinho.
   - **Legenda** — texto curto · opcional
@@ -837,6 +859,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/iniciativasNacionais.json`
 
 - **Iniciativas** — lista · obrigatório
+  Rever no início de cada ano letivo.
   - **Nome** — texto curto · obrigatório
   - **Área** — escolha · obrigatório
   - **Descrição** — texto longo · obrigatório
@@ -855,6 +878,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/apresentacaoProjeto.json`
 
 - **Diapositivos** — lista · obrigatório
+  Os diapositivos da apresentação do projeto, na página Participar. Exporte cada diapositivo como imagem (PNG ou JPG) e carregue-os por ordem. Enquanto estiver vazio, a página diz que a apresentação está a ser preparada.
   - **Diapositivo** — imagem · obrigatório
     Exportar até 400 KB. O painel escreve o caminho sozinho.
   - **Legenda** — texto curto · opcional
@@ -991,6 +1015,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/documentos.json`
 
 - **Documentos** — lista · obrigatório
+  Os PDF vivem no OneDrive. Aqui cola-se apenas a ligação de partilha.
   - **Título** — texto curto · obrigatório
   - **Ligação de partilha do OneDrive** — texto curto · opcional
     Vazio = aparece como «brevemente disponível».
@@ -1029,6 +1054,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/info.json`
 
 - **Informação** — grupo · obrigatório
+  Contactos, horário, equipa, redes sociais e endereços usados em todo o site.
   - **Nome** — texto curto · obrigatório
   - **Escola** — texto curto · obrigatório
   - **Correio eletrónico** — texto curto · obrigatório
@@ -1080,6 +1106,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/cartoes.json`
 
 - **Cartões** — lista · opcional
+  Avançado. Permite mudar o texto ou a imagem de um cartão fixo do site.
   - **Identificador do cartão** — texto curto · obrigatório
     O valor de data-card no HTML.
   - **Título** — texto curto · opcional
@@ -1142,6 +1169,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/ferramentas.json`
 
 - **Ferramentas** — lista · obrigatório
+  Ferramentas úteis, explicadas: o que é, para que serve e quando usar.
   - **Nome** — texto curto · obrigatório
   - **O que é** — texto longo · opcional
   - **Para que serve** — texto longo · opcional
@@ -1262,6 +1290,7 @@ Para mudar uma página, abre-se o grupo com o nome dela.
 **Ficheiro:** `content/videos.json`
 
 - **Vídeos** — lista · obrigatório
+  Vídeos do YouTube. Basta colar o endereço do vídeo.
   - **Título** — texto curto · obrigatório
   - **Descrição breve** — texto longo · opcional
   - **Endereço do vídeo** — texto curto · obrigatório

@@ -180,12 +180,13 @@ uma chave pessoal, chamada *token*. Cada pessoa cria a sua, uma vez.
 ### Entrar
 
 1. Abrir `.../admin/`.
-2. Carregar em **Sign In Using Access Token** — o botão de baixo.
-3. Colar a chave e **Sign In**.
+2. Carregar em **Iniciar sessão com token de acesso**, que é o único botão.
+3. Colar a chave e confirmar.
 
-> ⚠️ **O botão azul «Sign In with GitHub» não funciona neste site** e fica
-> parado em «Signing in…». Não é avaria: esse botão tenta autenticar por um
-> serviço que este site não usa. **Use sempre o botão de baixo.**
+Até 20/10/2026 aparecia também um botão azul, «Iniciar sessão com GitHub», que
+não funciona neste site: tenta autenticar por um serviço que este site não usa,
+e fica parado. Foi escondido na configuração do painel. Se um dia voltar a
+aparecer, não é para usar.
 
 A chave fica guardada no browser dessa pessoa. Nas visitas seguintes entra logo.
 
@@ -248,8 +249,15 @@ ler de uma ponta à outra.
 
 - **Listas**: quase tudo são listas de cartões. Cada linha tem um botão para
   **acrescentar** e outro para **apagar**, e arrastam-se para mudar a ordem.
-- **Gravar**: o botão **Publish** no topo. No painel diz «Publish» mesmo estando
-  em português; é o botão de gravar.
+- **Gravar**: o botão **Guardar**, no canto superior direito. Grava e publica
+  ao mesmo tempo: não há passo de revisão pelo meio.
+- **Ajuda de cada formulário**: a frase que explica para que serve o formulário
+  aparece **no fim**, por baixo da lista ou da caixa, ao lado do botão de
+  acrescentar. Só aparece em cima enquanto a lista está vazia.
+- **Listas de escolha fechadas**: a *Categoria* das notícias, o *Grupo* das
+  ligações úteis e a *Área* das iniciativas nacionais só aceitam os valores da
+  lista. Para acrescentar um valor novo é preciso alterar o `config.yml`, que é
+  gestão técnica.
 - **Onde vai parar**: cada gravação escreve o ficheiro correspondente e fica
   registada no histórico do GitHub, com data e autor.
 
@@ -674,6 +682,8 @@ Devolve **«Tudo verificado. Sem falhas.»** ou a lista do que está partido.
 - **Rever os documentos oficiais** e as datas que aparecem em Conhecer.
 - **Rever as fotografias publicadas** contra os consentimentos. Um aluno que
   saiu da escola pode ter deixado de ter autorização válida.
+- **Rever a versão do painel**, que é gestão técnica. Ver «A versão do painel»,
+  mais abaixo neste capítulo.
 
 ### Cópias de segurança
 
@@ -697,6 +707,33 @@ Alterar a estrutura de uma página, acrescentar uma secção nova ou mexer no
 4. `versionar.py` e `verificar.py`.
 5. Ver as páginas afetadas no computador, e no tamanho de telemóvel.
 6. Só então publicar.
+
+### A versão do painel
+
+> **GESTÃO TÉCNICA**
+
+O painel não vive dentro do site: o `admin/index.html` vai buscar o programa,
+o Sveltia CMS, à internet. Até 20/10/2026 ia buscar sempre a versão mais
+recente, e por isso mudava sozinho. Numa dessas mudanças apareceu um botão de
+entrada que não funciona e deixaram de se ver 29 textos de ajuda, sem ninguém
+ter mexido em nada.
+
+Desde 20/10/2026 a versão está **fixada na 0.248.1**, escrita no
+`admin/index.html`. O painel fica igual até alguém decidir atualizar. O preço é
+não receber correções sozinho, por isso convém rever uma vez por ano.
+
+Para atualizar:
+
+1. Ver a versão mais recente em `https://www.npmjs.com/package/@sveltia/cms`.
+2. Mudar o número no `admin/index.html`.
+3. Abrir `/admin` no computador e a consola do navegador (no Chrome do Mac,
+   Cmd+Option+J).
+4. Se aparecerem avisos novos sobre o `config.yml`, voltar ao número anterior e
+   não publicar. Hoje, com a 0.248.1, não aparece nenhum.
+
+Duas linhas do `config.yml` existem por causa do Sveltia e não se tiram:
+`auth_methods: [token]`, que esconde o botão que não funciona, e as `hint` do
+primeiro campo de cada formulário, que são os textos de ajuda.
 
 ---
 
@@ -751,8 +788,8 @@ a secção deixa de aparecer.
 
 | Sintoma | Causa | Solução |
 |---|---|---|
-| Fica parado em «Signing in…» | Carregou no botão azul | Usar **Sign In Using Access Token**, o de baixo |
-| Diz que a chave não serve | A chave expirou | Criar outra, capítulo 5 |
+| Diz que a chave não serve | A chave expirou ou foi revogada | Criar outra, capítulo 5 |
+| Aparece um botão azul «Iniciar sessão com GitHub» e fica parado | Saiu a linha `auth_methods` do `config.yml` | Não usar esse botão. Repor a linha, capítulo 12 |
 | Entra mas não grava | A chave não tem `public_repo` | Criar outra com essa permissão marcada |
 
 ### Publiquei uma coisa errada e quero voltar atrás
