@@ -100,11 +100,26 @@
   transition:flex-grow var(--mov-lento) var(--curva)}
 .harea:hover,.harea:focus-visible{flex-grow:2.4;outline:none}
 .harea:focus-visible{box-shadow:0 0 0 3px var(--dourado)}
+/* Clareadas a 25/10/2026, a pedido do Carlos: a fotografia estava a 34% de
+   opacidade e o véu ia de .30 a .86, e mal se via o que mostrava. Passa a
+   88% (100% ao abrir) e o véu fica transparente em cima e escuro só na faixa
+   de baixo, onde o texto assenta. Ao abrir, o texto sobe para meio do cartão,
+   por isso entra uma segunda camada de véu (::after) que escurece essa banda.
+   Medido sobre os píxeis desenhados, nos cinco cartões, com o texto escondido
+   e no pior píxel: em repouso, números a menta >= 5,3:1 e nomes >= 8,0:1; ao
+   abrir, números >= 5,1:1, frase >= 8,0:1, «Ir» >= 6,8:1, nomes >= 8,3:1.
+   As fotografias ficaram 1,3 a 2,2 vezes mais claras. */
 .harea img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
-  opacity:.34;transition:opacity var(--mov-lento) var(--curva),transform var(--mov-lento) var(--curva)}
-.harea:hover img,.harea:focus-visible img{opacity:.62;transform:scale(1.05)}
+  opacity:.88;transition:opacity var(--mov-lento) var(--curva),transform var(--mov-lento) var(--curva)}
+.harea:hover img,.harea:focus-visible img{opacity:1;transform:scale(1.05)}
 .harea-veu{position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(20,22,21,.30) 0%,rgba(20,22,21,.86) 100%)}
+  background:linear-gradient(180deg,rgba(20,22,21,0) 0%,rgba(20,22,21,.10) 40%,
+    rgba(20,22,21,.62) 72%,rgba(20,22,21,.86) 100%)}
+.harea-veu::after{content:"";position:absolute;inset:0;opacity:0;
+  background:linear-gradient(180deg,rgba(20,22,21,0) 0%,rgba(20,22,21,0) 20%,
+    rgba(20,22,21,.66) 48%,rgba(20,22,21,.50) 75%,rgba(20,22,21,.20) 100%);
+  transition:opacity var(--mov-lento) var(--curva)}
+.harea:hover .harea-veu::after,.harea:focus-visible .harea-veu::after{opacity:1}
 .harea-tx{padding:var(--e-4) 20px;color:#fff;width:100%;min-width:0}
 .harea-num{display:block;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:var(--t-micro);
   font-weight:700;letter-spacing:.1em;color:var(--menta);margin-bottom:var(--e-2)}
@@ -178,7 +193,15 @@
   .hareas-topo{grid-template-columns:1fr}
   .hareas{height:auto;flex-direction:column;gap:var(--e-2)}
   .harea{flex:none!important;min-height:112px}
-  .harea img{opacity:.5}
+  /* Em telemóvel o texto está sempre à vista e cobre quase o cartão todo, por
+     isso a fotografia não pode clarear tanto. O véu antigo deixava o número de
+     Encontrar a 3,95:1, abaixo dos 4,5; este, mais igual de cima a baixo, dá
+     >= 4,9:1 nos números e >= 5,3:1 na frase, e a fotografia fica 1 a 5% mais
+     clara. Tocar não acende o cartão: a fotografia e o véu ficam iguais. */
+  .harea img,.harea:hover img,.harea:focus-visible img{opacity:.55}
+  .harea-veu{background:linear-gradient(180deg,rgba(20,22,21,.55) 0%,rgba(20,22,21,.50) 45%,
+    rgba(20,22,21,.70) 100%)}
+  .harea-veu::after{display:none}
   .harea-tx b{white-space:normal}
   .harea-frase,.harea-ir{opacity:1;max-height:none}
   .harea-frase{margin-top:var(--e-2)}
