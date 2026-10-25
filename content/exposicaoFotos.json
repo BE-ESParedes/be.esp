@@ -8,13 +8,6 @@
       "estado": "publicado"
     },
     {
-      "imagem": "imagens/exposicoes/leitura-em-conjunto.jpg",
-      "legenda": "Leitura em conjunto, com toda a gente de folha na mão.",
-      "alt": "Grupo de pessoas em fila, cada uma com uma folha de papel, a ler",
-      "ordem": 2,
-      "estado": "publicado"
-    },
-    {
       "imagem": "imagens/exposicoes/quadro-atividade.jpg",
       "legenda": "Uma atividade ao quadro, entre as estantes.",
       "alt": "Alunos junto a um quadro branco montado entre as estantes da Biblioteca",
@@ -61,13 +54,6 @@
       "legenda": "Mês Internacional da Biblioteca Escolar, 2025.",
       "alt": "Mês Internacional da Biblioteca Escolar, 2025.",
       "ordem": 9,
-      "estado": "publicado"
-    },
-    {
-      "imagem": "imagens/exposicoes/semana-leitura-2026-1.jpg",
-      "legenda": "Semana da Leitura, 2026.",
-      "alt": "Semana da Leitura, 2026.",
-      "ordem": 10,
       "estado": "publicado"
     },
     {
