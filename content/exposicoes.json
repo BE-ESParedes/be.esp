@@ -24,30 +24,15 @@
         {
           "ficheiro": "imagens/exposicoes/mibe-2025-5.jpg",
           "alt": "Duas alunas a colar mensagens no painel"
-        },
-        {
-          "ficheiro": "imagens/exposicoes/mibe-2025-6.jpg",
-          "alt": "Painel completo, com dezenas de mensagens escritas pelos alunos"
-        },
-        {
-          "ficheiro": "imagens/exposicoes/mibe-2025-7.jpg",
-          "alt": "Aluna a apresentar durante uma sessão do programa"
-        },
-        {
-          "ficheiro": "imagens/exposicoes/mibe-2025-8.jpg",
-          "alt": "Apresentação numa das sessões do Diálogo Literário"
         }
-      ]
+      ],
+      "imagem": ""
     },
     {
       "titulo": "Semana da Leitura",
       "periodo": "24 a 26 de março de 2026",
       "descricao": "Três dias de apresentações: cada aluno escolheu um livro e falou dele aos colegas, com a capa projetada. A semana abriu com um encontro com escritor, realizado entre as estantes da Biblioteca.",
       "imagens": [
-        {
-          "ficheiro": "imagens/exposicoes/semana-leitura-2026-1.jpg",
-          "alt": "Aluna a apresentar um livro diante do ecrã"
-        },
         {
           "ficheiro": "imagens/exposicoes/semana-leitura-2026-2.jpg",
           "alt": "Aluno a apresentar a sua leitura à turma"
@@ -76,7 +61,8 @@
           "ficheiro": "imagens/exposicoes/semana-leitura-2026-8.jpg",
           "alt": "Última apresentação da sessão"
         }
-      ]
+      ],
+      "imagem": ""
     }
   ]
 }
