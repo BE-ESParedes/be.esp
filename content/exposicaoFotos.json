@@ -1,13 +1,6 @@
 {
   "exposicaoFotos": [
     {
-      "imagem": "imagens/exposicoes/painel-textil.jpg",
-      "legenda": "Painel de corações em tecido, feito pelos alunos e exposto na Biblioteca.",
-      "alt": "Painel têxtil com dezenas de corações bordados, pendurado numa parede da escola",
-      "ordem": 1,
-      "estado": "publicado"
-    },
-    {
       "imagem": "imagens/exposicoes/quadro-atividade.jpg",
       "legenda": "Uma atividade ao quadro, entre as estantes.",
       "alt": "Alunos junto a um quadro branco montado entre as estantes da Biblioteca",
