@@ -544,6 +544,32 @@ window.renderPagina = function(){
       </a>`).join('');
   })();
 
+  /* ── 5 · Projetos ──
+     Saiu por engano a 25/08/2026, no mesmo commit que levou as iniciativas,
+     e a lista ficou vazia. Volta o desenho original (.vproj: a imagem, o
+     nome, a descrição e o estado), com duas diferenças. Um projeto sem
+     imagem aparece só com texto, em vez da moldura «Fotografia por carregar»,
+     que o site não mostra. E saem os de estado «arquivo». Os campos
+     «publico» e «periodo» do original já não existem no painel. */
+  (function () {
+    const pl = document.getElementById('projetos-lista'); if (!pl) return;
+    const ESTADO = { ativo: 'Ativo', concluido: 'Concluído' };
+    const lista = publicados('projetos').filter(p => p.estado !== 'arquivo');
+    if (!lista.length) { pl.setAttribute('hidden', ''); return; }
+    pl.innerHTML = lista.map(p => {
+      const capa = temTexto(p.imagem)
+        ? `<span class="capa"><img src="${esc(p.imagem)}" alt="${esc(p.alt || '')}" loading="lazy"></span>` : '';
+      const estado = ESTADO[p.estado] || p.estado;
+      const dentro = `${capa}<span class="tx">
+          <h3>${esc(p.nome)}</h3>
+          ${temTexto(p.descricao) ? `<p>${esc(p.descricao)}</p>` : ''}
+          ${temTexto(estado) ? `<span class="vfactos"><span class="vfacto${p.estado === 'ativo' ? ' ativo' : ''}">${esc(estado)}</span></span>` : ''}
+        </span>`;
+      return temTexto(p.url) ? `<a class="vproj" ${linkAttrs(p.url)}>${dentro}</a>`
+                             : `<div class="vproj">${dentro}</div>`;
+    }).join('');
+  })();
+
   /* ── 7 · Iniciativas nacionais ──
      O código que desenhava estes cartões saiu por engano a 25/08/2026, no
      commit que tirou «Hoje na Biblioteca», e a secção ficou com o título e

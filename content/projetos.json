@@ -12,15 +12,17 @@
       "nome": "Clube de Leitura do Secundário",
       "descricao": "Clube aberto aos alunos do secundário, com sete encontros de novembro a maio e as obras do secundário compradas pelo projeto Palavras em Ação.",
       "estado": "ativo",
-      "imagem": "",
-      "icone": "livro"
+      "imagem": "imagens/projetos/cartaz-clube-leitura-secundario.jpg",
+      "icone": "livro",
+      "alt": "Cartaz provisório do projeto «Clube de Leitura do Secundário», com o nome e a descrição do projeto sobre fundo escuro e o logótipo da Biblioteca Escolar"
     },
     {
       "nome": "Os 296 artigos da Constituição",
       "descricao": "Iniciativa do Pelouro da Cultura do Município de Paredes: alunos do 3.º ciclo e do secundário interpretam e ilustram os artigos 129.º a 170.º, com História e Artes Visuais.",
       "estado": "ativo",
-      "imagem": "",
-      "icone": "bandeira"
+      "imagem": "imagens/projetos/cartaz-296-artigos-constituicao.jpg",
+      "icone": "bandeira",
+      "alt": "Cartaz provisório do projeto «Os 296 artigos da Constituição», com o nome e a descrição do projeto sobre fundo escuro e o logótipo da Biblioteca Escolar"
     },
     {
       "nome": "Primavera a Ler",
@@ -42,17 +44,17 @@
       "nome": "Cinema na Biblioteca",
       "descricao": "Sessões de cinema seguidas de debate, no âmbito do Plano Nacional de Cinema.",
       "estado": "ativo",
-      "imagem": "",
+      "imagem": "imagens/projetos/cartaz-cinema-na-biblioteca.jpg",
       "icone": "monitor",
-      "alt": ""
+      "alt": "Cartaz provisório do projeto «Cinema na Biblioteca», com o nome e a descrição do projeto sobre fundo escuro e o logótipo da Biblioteca Escolar"
     },
     {
       "nome": "Semana dos Afetos · Letras que Abraçam",
       "descricao": "Oficinas de escrita com as turmas do 8.º ano, de 2 a 4 de fevereiro de 2027: cartas de afeto e a carta ao próximo leitor, que remata a leitura do projeto.",
       "estado": "ativo",
-      "imagem": "",
+      "imagem": "imagens/projetos/cartaz-semana-dos-afetos.jpg",
       "icone": "maos",
-      "alt": ""
+      "alt": "Cartaz provisório do projeto «Semana dos Afetos · Letras que Abraçam», com o nome e a descrição do projeto sobre fundo escuro e o logótipo da Biblioteca Escolar"
     },
     {
       "nome": "Mês Internacional da Biblioteca Escolar",
