@@ -5,64 +5,64 @@
       "descricao": "Projeto financiado pela Rede de Bibliotecas Escolares, no programa «Leituras… com a biblioteca», selecionado entre dezasseis candidaturas a nível nacional. Três ações: sequências de leitura orientada no 8.º ano, roteiros literários pela escola e leituras partilhadas em família com o podcast «Vozes da Família». No secundário, um clube de leitura aberto.",
       "estado": "ativo",
       "imagem": "imagens/projetos/leituras-com-a-biblioteca.jpg",
-      "icone": "microfone",
-      "alt": "Jovem a ler sentada num cadeirão junto a uma janela, numa biblioteca"
+      "alt": "Jovem a ler sentada num cadeirão junto a uma janela, numa biblioteca",
+      "icone": "microfone"
     },
     {
       "nome": "Clube de Leitura do Secundário",
       "descricao": "Clube aberto aos alunos do secundário, com sete encontros de novembro a maio e as obras do secundário compradas pelo projeto Palavras em Ação.",
       "estado": "ativo",
       "imagem": "imagens/projetos/cartaz-clube-leitura-secundario.jpg",
-      "icone": "livro",
-      "alt": "Cartaz provisório do projeto «Clube de Leitura do Secundário», com o nome e a descrição do projeto sobre fundo escuro e o logótipo da Biblioteca Escolar"
+      "alt": "Cartaz provisório do projeto «Clube de Leitura do Secundário», com o nome e a descrição do projeto sobre fundo escuro e o logótipo da Biblioteca Escolar",
+      "icone": "livro"
     },
     {
       "nome": "Os 296 artigos da Constituição",
       "descricao": "Iniciativa do Pelouro da Cultura do Município de Paredes: alunos do 3.º ciclo e do secundário interpretam e ilustram os artigos 129.º a 170.º, com História e Artes Visuais.",
       "estado": "ativo",
       "imagem": "imagens/projetos/cartaz-296-artigos-constituicao.jpg",
-      "icone": "bandeira",
-      "alt": "Cartaz provisório do projeto «Os 296 artigos da Constituição», com o nome e a descrição do projeto sobre fundo escuro e o logótipo da Biblioteca Escolar"
+      "alt": "Cartaz provisório do projeto «Os 296 artigos da Constituição», com o nome e a descrição do projeto sobre fundo escuro e o logótipo da Biblioteca Escolar",
+      "icone": "bandeira"
     },
     {
       "nome": "Primavera a Ler",
       "descricao": "Concurso de leitura das bibliotecas escolares do concelho com a Biblioteca Municipal de Paredes, na Semana (Concelhia) da Leitura.",
       "estado": "ativo",
       "imagem": "imagens/projetos/primavera-a-ler.jpg",
-      "icone": "estrela",
-      "alt": "Cartaz do concurso Primavera a Ler, com livros abertos entre flores"
+      "alt": "Cartaz do concurso Primavera a Ler, com livros abertos entre flores",
+      "icone": "estrela"
     },
     {
       "nome": "Partilhas Literárias",
       "descricao": "As turmas do 9.º ano apresentam aos colegas um livro de leitura livre, na Semana da Leitura, de 9 a 18 de março de 2027.",
       "estado": "ativo",
-      "imagem": "imagens/projetos/encontros-comunidade.jpg",
-      "icone": "calendario",
-      "alt": "Mesa preparada para o acolhimento numa sessão com a comunidade"
+      "imagem": "/imagens/projetos/Semana_da_Leitura_rosto_desfocado.jpg",
+      "alt": "Mesa preparada para o acolhimento numa sessão com a comunidade",
+      "icone": "calendario"
     },
     {
       "nome": "Cinema na Biblioteca",
       "descricao": "Sessões de cinema seguidas de debate, no âmbito do Plano Nacional de Cinema.",
       "estado": "ativo",
       "imagem": "imagens/projetos/cartaz-cinema-na-biblioteca.jpg",
-      "icone": "monitor",
-      "alt": "Cartaz provisório do projeto «Cinema na Biblioteca», com o nome e a descrição do projeto sobre fundo escuro e o logótipo da Biblioteca Escolar"
+      "alt": "Cartaz provisório do projeto «Cinema na Biblioteca», com o nome e a descrição do projeto sobre fundo escuro e o logótipo da Biblioteca Escolar",
+      "icone": "monitor"
     },
     {
       "nome": "Semana dos Afetos · Letras que Abraçam",
       "descricao": "Oficinas de escrita com as turmas do 8.º ano, de 2 a 4 de fevereiro de 2027: cartas de afeto e a carta ao próximo leitor, que remata a leitura do projeto.",
       "estado": "ativo",
       "imagem": "imagens/projetos/cartaz-semana-dos-afetos.jpg",
-      "icone": "maos",
-      "alt": "Cartaz provisório do projeto «Semana dos Afetos · Letras que Abraçam», com o nome e a descrição do projeto sobre fundo escuro e o logótipo da Biblioteca Escolar"
+      "alt": "Cartaz provisório do projeto «Semana dos Afetos · Letras que Abraçam», com o nome e a descrição do projeto sobre fundo escuro e o logótipo da Biblioteca Escolar",
+      "icone": "maos"
     },
     {
       "nome": "Mês Internacional da Biblioteca Escolar",
       "descricao": "Em outubro de 2026, «Os livros que não existem»: as turmas do 7.º ano aprendem a procurar no catálogo e a distinguir os livros que existem dos que uma ferramenta de inteligência artificial inventa.",
       "estado": "ativo",
       "imagem": "imagens/projetos/cartaz-mibe-2026.jpg",
-      "icone": "alvo",
-      "alt": "Cartaz do MIBE 2026, «Os livros que não existem», com o lema «Troca o scroll pela página»: sessões com as turmas do 7.º ano de 21 a 29 de outubro de 2026"
+      "alt": "Cartaz do MIBE 2026, «Os livros que não existem», com o lema «Troca o scroll pela página»: sessões com as turmas do 7.º ano de 21 a 29 de outubro de 2026",
+      "icone": "alvo"
     }
   ]
 }
