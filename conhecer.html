@@ -539,7 +539,7 @@ window.renderPagina = function(){
   const Z = CONTEUDO.zonas || [];
   function pintaZona(n){
     const z = Z[n]; if (!z) return;
-    zv.innerHTML = `<img src="${esc(z.imagem)}" alt="${esc(z.alt||'')}">
+    zv.innerHTML = `<img src="${esc(caminho(z.imagem))}" alt="${esc(z.alt||'')}">
       <span class="veu"></span>
       <div class="tx"><h3>${esc(z.nome)}</h3><p>${esc(z.texto)}</p></div>`;
     [...zb.children].forEach((b,k) => {
@@ -551,7 +551,7 @@ window.renderPagina = function(){
     zb.innerHTML = Z.map((z,n) =>
       `<button class="bzona" type="button" role="tab" aria-selected="${n===0}"
                tabindex="${n===0?0:-1}">
-         <img src="${esc(z.imagem)}" alt="" loading="lazy">${esc(z.nome)}
+         <img src="${esc(caminho(z.imagem))}" alt="" loading="lazy">${esc(z.nome)}
        </button>`).join('');
     zb.addEventListener('click', e => {
       const b = e.target.closest('.bzona'); if (b) pintaZona([...zb.children].indexOf(b));
@@ -686,6 +686,6 @@ window.renderPagina = function(){
          <h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></div>`).join('');
 };
 </script>
-<script src="motor.js?v=845e5f03"></script>
+<script src="motor.js?v=e2325900"></script>
 </body>
 </html>

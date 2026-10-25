@@ -558,7 +558,7 @@ window.renderPagina = function(){
     if (!lista.length) { pl.setAttribute('hidden', ''); return; }
     pl.innerHTML = lista.map(p => {
       const capa = temTexto(p.imagem)
-        ? `<span class="capa"><img src="${esc(p.imagem)}" alt="${esc(p.alt || '')}" loading="lazy"></span>` : '';
+        ? `<span class="capa"><img src="${esc(caminho(p.imagem))}" alt="${esc(p.alt || '')}" loading="lazy"></span>` : '';
       const estado = ESTADO[p.estado] || p.estado;
       const dentro = `${capa}<span class="tx">
           <h3>${esc(p.nome)}</h3>
@@ -672,7 +672,7 @@ window.renderPagina = function(){
   if (arl) arl.innerHTML = (CONTEUDO.arquivoAnos||[]).map(a => {
     const cartoes = (a.destaques||[]).map(d => {
       const capa = temTexto(d.imagem)
-        ? `<img src="${esc(d.imagem)}" alt="${esc(d.alt||'')}" loading="lazy">`
+        ? `<img src="${esc(caminho(d.imagem))}" alt="${esc(d.alt||'')}" loading="lazy">`
         : `<span class="vazio">Fotografia por carregar</span>`;
       const dentro = `<span class="capa">${capa}</span>
         <span class="tx"><span class="quando">${esc(d.quando)}</span>
@@ -690,6 +690,6 @@ window.renderPagina = function(){
   }).join('');
 };
 </script>
-<script src="motor.js?v=845e5f03"></script>
+<script src="motor.js?v=e2325900"></script>
 </body>
 </html>

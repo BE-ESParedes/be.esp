@@ -3,8 +3,9 @@
 
 Confirma, sem abrir o browser, aquilo que se pode confirmar por leitura:
 que os ficheiros existem, que as âncoras existem, que os JSON são válidos,
-que nenhum caminho de imagem começa por barra (foi esse o erro que fez as
-fotografias desaparecerem em agosto) e que cada ficheiro de conteúdo tem
+que todo o código que desenha uma imagem do conteúdo passa o caminho por
+caminho() (um caminho com barra fez as fotografias desaparecerem em agosto,
+e o Sveltia grava-as sempre com barra) e que cada ficheiro de conteúdo tem
 formulário no painel.
 
     python3 verificar.py
@@ -71,6 +72,19 @@ for nome, t in html.items():
                and not os.path.exists(os.path.join(RAIZ, src)):
                 falhas.append(f"{nome}: srcset {src} não existe")
 
+# O Sveltia grava as imagens carregadas com barra («/imagens/…») e não aceita
+# outra coisa: o public_folder tem de começar por barra. No GitHub Pages o
+# site vive em …/be.esp/, e uma barra no início sai da pasta e dá 404 sem
+# erro nenhum. Quem trata disso é o caminho() do motor, por isso a regra é
+# sobre o código: um src feito de um campo de imagem tem de passar por ele.
+# Foi o que faltou ao desenho dos projetos, reposto a 25/10/2026.
+codigo = dict(bruto)
+codigo["motor.js"] = open(os.path.join(RAIZ, "motor.js"), encoding="utf-8").read()
+for nome, t in codigo.items():
+    for m in re.finditer(r'src="\$\{esc\(([^)]*\.(?:imagem|foto|capa|fundo)\b[^)]*)\)\}', t):
+        n = t.count("\n", 0, m.start()) + 1
+        falhas.append(f"{nome}:{n}: imagem do conteúdo sem caminho(), «{m.group(1)}»")
+
 CAMPOS_URL = ("url", "ligacao", "href", "link")
 CAMPOS_IMG = ("imagem", "foto", "capa", "fundo")
 
@@ -82,12 +96,10 @@ def anda(v, ficheiro, caminho=""):
             if not isinstance(x, str):
                 anda(x, ficheiro, f"{caminho}.{k}")
                 continue
-            if k in CAMPOS_IMG and x:
-                if x.startswith("/"):
-                    falhas.append(f"{ficheiro}{caminho}.{k}: começa por barra, «{x}»")
-                elif not x.startswith("http") and \
-                        not os.path.exists(os.path.join(RAIZ, x)):
-                    falhas.append(f"{ficheiro}{caminho}.{k}: {x} não existe")
+            # a barra no início é a do Sveltia, que o caminho() tira
+            if k in CAMPOS_IMG and x and not x.startswith("http") and \
+                    not os.path.exists(os.path.join(RAIZ, x.lstrip("/"))):
+                falhas.append(f"{ficheiro}{caminho}.{k}: {x} não existe")
             if k in CAMPOS_URL and x.startswith("/"):
                 falhas.append(f"{ficheiro}{caminho}.{k}: começa por barra, «{x}»")
             if k in CAMPOS_URL and x and \

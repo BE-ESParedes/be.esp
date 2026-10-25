@@ -53,10 +53,11 @@ window.icone = icone;
 
 /* ---------- caminho de ficheiro dentro do site ----------
    O site é publicado numa subpasta (…/be.esp/), por isso um caminho que
-   comece por barra sai da pasta e devolve 404. O painel já grava sem barra,
-   mas houve conteúdo antigo gravado com ela — e um caminho errado não dá
-   erro nenhum, só uma imagem que não aparece. Normaliza-se aqui, uma vez,
-   para nenhuma página ter de se preocupar com isso.
+   comece por barra sai da pasta e devolve 404. O Sveltia grava as imagens
+   carregadas com barra («/imagens/…»), mesmo com o public_folder sem ela
+   (visto a 25/10/2026), e um caminho errado não dá erro nenhum, só uma
+   imagem que não aparece. Normaliza-se aqui, uma vez: todo o src que vem
+   do conteúdo passa por caminho(), também nos scripts das páginas.
    Endereços externos (http, //, data:) passam intactos. */
 const caminho = u => {
   const s = String(u || '').trim();
