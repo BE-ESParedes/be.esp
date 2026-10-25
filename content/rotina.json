@@ -31,18 +31,6 @@
       "nota": "Requisições, devoluções e ajuda a encontrar o que procuras."
     },
     {
-      "titulo": "10 Minutos a Ler",
-      "inicio": "10:15",
-      "fim": "10:30",
-      "dias": [
-        2,
-        4
-      ],
-      "local": "Espaço de leitura",
-      "tipo": "atividade",
-      "nota": "Quinze minutos de leitura livre, sem inscrição."
-    },
-    {
       "titulo": "Apoio à pesquisa",
       "inicio": "14:00",
       "fim": "16:00",
@@ -53,18 +41,6 @@
       "local": "Balcão da Biblioteca",
       "tipo": "apoio",
       "nota": "A equipa ajuda-te a definir o tema, procurar e citar."
-    },
-    {
-      "titulo": "Clube de Leitura",
-      "inicio": "14:00",
-      "fim": "15:30",
-      "dias": [
-        3
-      ],
-      "local": "Zona de trabalho colaborativo",
-      "tipo": "clube",
-      "nota": "Encontro mensal. Fala com a equipa para te inscreveres.",
-      "frequencia": "mensal"
     }
   ]
 }

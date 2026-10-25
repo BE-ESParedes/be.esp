@@ -1,41 +1,11 @@
 {
   "concursos": [
     {
-      "nome": "Concurso Nacional de Leitura",
-      "estado": "aberto",
-      "quando": "Outubro 2026 a maio 2027",
-      "quem": "3.º ciclo e secundário",
-      "texto": "Fase de escola, depois municipal, intermunicipal e nacional.",
-      "url": "https://pnl2027.gov.pt",
-      "imagem": "",
-      "alt": ""
-    },
-    {
-      "nome": "Primavera a Ler",
+      "nome": "Semana (Concelhia) da Leitura",
       "estado": "em breve",
-      "quando": "Março a maio de 2027",
-      "quem": "Comunidade escolar",
-      "texto": "Concurso de leitura da Biblioteca. Inscrições abrem no 2.º período.",
-      "url": "",
-      "imagem": "",
-      "alt": ""
-    },
-    {
-      "nome": "Semana Concelhia da Leitura",
-      "estado": "em breve",
-      "quando": "Março de 2027",
+      "quando": "8 a 19 de março de 2027",
       "quem": "Comunidade escolar e concelho",
-      "texto": "Programa conjunto com a Biblioteca Municipal e as escolas do concelho.",
-      "url": "",
-      "imagem": "",
-      "alt": ""
-    },
-    {
-      "nome": "Ler em Voz Alta",
-      "estado": "em breve",
-      "quando": "2.º e 3.º períodos",
-      "quem": "Turmas do 3.º ciclo",
-      "texto": "Desafios de oralidade e leitura expressiva.",
+      "texto": "Programa conjunto com a Biblioteca Municipal de Paredes e as bibliotecas escolares do concelho. Inclui o concurso de leitura do concelho, até agora chamado «Primavera a Ler», e as Partilhas Literárias do 9.º ano.",
       "url": "",
       "imagem": "",
       "alt": ""

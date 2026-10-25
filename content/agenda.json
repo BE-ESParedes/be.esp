@@ -1,36 +1,36 @@
 {
   "agenda": [
     {
-      "dia": "15",
-      "mes": "Set",
-      "ano": "2026",
-      "titulo": "Abertura da Biblioteca",
-      "local": "Bloco E, 1.º andar · 8h00",
-      "url": "conhecer.html#horario"
-    },
-    {
-      "dia": "01",
+      "dia": "26",
       "mes": "Out",
       "ano": "2026",
-      "titulo": "Mês Internacional da Biblioteca Escolar",
-      "local": "Programa ao longo do mês",
-      "url": "participar.html#concursos"
-    },
-    {
-      "dia": "12",
-      "mes": "Out",
-      "ano": "2026",
-      "titulo": "Formação de utilizadores, turmas do 7.º ano",
-      "local": "Biblioteca · a marcar com os diretores de turma",
+      "titulo": "Dia da Biblioteca Escolar",
+      "local": "Biblioteca",
       "url": ""
     },
     {
-      "dia": "05",
+      "dia": "03",
       "mes": "Nov",
       "ano": "2026",
-      "titulo": "Exposição temática de outono",
-      "local": "Átrio da Biblioteca",
-      "url": "participar.html#exposicoes"
+      "titulo": "O 8.º ano escolhe o livro do projeto Palavras em Ação, até 19 de novembro",
+      "local": "Biblioteca · com as turmas",
+      "url": "participar.html#projeto-palavras"
+    },
+    {
+      "dia": "16",
+      "mes": "Nov",
+      "ano": "2026",
+      "titulo": "Roteiro literário 1, «Recomendado por quem já leu»",
+      "local": "12 pontos da escola · mapa no átrio",
+      "url": ""
+    },
+    {
+      "dia": "09",
+      "mes": "Dez",
+      "ano": "2026",
+      "titulo": "Vozes da Família · primeiro desafio de leitura em família",
+      "local": "Em casa, com a família",
+      "url": ""
     }
   ]
 }
